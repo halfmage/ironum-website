@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import challengeIcon01 from '../../public/challenge-icon-01.svg';
+import challengeIcon02 from '../../public/challenge-icon-02.svg';
+import challengeIcon03 from '../../public/challenge-icon-03.svg';
+import challengeIcon04 from '../../public/challenge-icon-04.svg';
 ---
 
 <section id="challenges" class="px-4 md:px-20 py-20 md:py-32 space-y-8 md:space-y-16 max-w-7xl mx-auto">
@@ -6,25 +11,25 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <div class="flex gap-4 md:gap-8 items-center">
       <div class="bg-gradient-to-b from-black to-red-900 rounded-2xl p-4 md:p-6 flex items-center justify-center shrink-0">
-        <img src="/challenge-icon-01.svg" alt="Regulatory risk" class="size-8 md:size-10" />
+        <Image src={challengeIcon01} alt="Regulatory risk" class="size-8 md:size-10" width={40} height={40} loading="lazy" />
       </div>
       <p class="text-gray-500 text-xl font-semibold">Regulatory risk with public AI platforms and data residency requirements</p>
     </div>
     <div class="flex gap-4 md:gap-8 items-center">
       <div class="bg-gradient-to-b from-black to-red-900 rounded-2xl p-4 md:p-6 flex items-center justify-center shrink-0">
-        <img src="/challenge-icon-02.svg" alt="Leadership pressure" class="size-8 md:size-10" />
+        <Image src={challengeIcon02} alt="Leadership pressure" class="size-8 md:size-10" width={40} height={40} loading="lazy" />
       </div>
       <p class="text-gray-500 text-xl font-semibold">Rising pressure from leadership to adopt AI rapidly</p>
     </div>
     <div class="flex gap-4 md:gap-8 items-center">
       <div class="bg-gradient-to-b from-black to-red-900 rounded-2xl p-4 md:p-6 flex items-center justify-center shrink-0">
-        <img src="/challenge-icon-03.svg" alt="Documentation overload" class="size-8 md:size-10" />
+        <Image src={challengeIcon03} alt="Documentation overload" class="size-8 md:size-10" width={40} height={40} loading="lazy" />
       </div>
       <p class="text-gray-500 text-xl font-semibold">Overwhelming documentation and lost productivity</p>
     </div>
     <div class="flex gap-4 md:gap-8 items-center">
       <div class="bg-gradient-to-b from-black to-red-900 rounded-2xl p-4 md:p-6 flex items-center justify-center shrink-0">
-        <img src="/challenge-icon-04.svg" alt="AI team scarcity" class="size-8 md:size-10" />
+        <Image src={challengeIcon04} alt="AI team scarcity" class="size-8 md:size-10" width={40} height={40} loading="lazy" />
       </div>
       <p class="text-gray-500 text-xl font-semibold">High cost and scarcity of specialized AI teams</p>
     </div>

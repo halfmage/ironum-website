@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoOverlay from '../../public/logo-mark-overlay.png';
+import avatarGerrit from '../../public/avatar-gerrit.png';
 ---
 
 <section id="contact" class="relative flex flex-col items-center justify-center text-center bg-black px-4 py-20 md:py-32 mt-32 md:min-h-[60vh] overflow-hidden"
@@ -8,10 +11,10 @@
     <h2 class="text-white font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">Ready to Lead in AI?</h2>
     <p class="text-white text-lg md:text-2xl font-medium">Join our Pilot Program for early access, custom integrations, and exclusive PoC discounts.</p>
     <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank"
-      class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-3 pl-4 font-medium text-lg hover:bg-blue-700 transition">
-      <img src="/avatar-gerrit.png" alt="Gerrit" class="size-8 mr-2">
+      class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 pl-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
+      <Image src={avatarGerrit} alt="Gerrit" class="size-8 mr-2" width={32} height={32} loading="lazy" />
       Book Call With Gerrit
     </a>
   </div>
-  <img src="/logo-mark-overlay.png" alt="Hero Image" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" />
+  <Image src={logoOverlay} alt="Hero Image" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" width={600} height={600} loading="lazy" />
 </section>

@@ -25,6 +25,12 @@ const { title = "Ironum AI Core", description = "Deploy GDPR-compliant AI in you
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Ironum" />
+    
+    <!-- Critical Resource Preloading -->
+    <link rel="preload" href="/hero-background.png" as="image" type="image/png" />
+    <link rel="preload" href="/ironum-logo.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="/avatar-gerrit.png" as="image" type="image/png" />
+    <link rel="dns-prefetch" href="//outlook.office.com" />
   </head>
   <body class="bg-white text-black">
     <slot />
