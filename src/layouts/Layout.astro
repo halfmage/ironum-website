@@ -31,6 +31,90 @@ const { title = "Ironum AI Core", description = "Deploy GDPR-compliant AI in you
     <link rel="preload" href="/ironum-logo.svg" as="image" type="image/svg+xml" />
     <link rel="preload" href="/avatar-gerrit.png" as="image" type="image/png" />
     <link rel="dns-prefetch" href="//outlook.office.com" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={`https://www.ironum.com${Astro.url.pathname}`} />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.ironum.com/#organization",
+          "name": "Ironum",
+          "legalName": "LearnSlice UG (haftungsbeschränkt)",
+          "url": "https://www.ironum.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.ironum.com/ironum-logo.svg",
+            "width": 120,
+            "height": 24
+          },
+          "description": "Deploy GDPR-compliant AI in your own cloud or on-prem. Boost productivity, protect data, and automate workflows—without hiring an AI team.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Luisenstraße 66",
+            "postalCode": "40215",
+            "addressLocality": "Düsseldorf",
+            "addressCountry": "DE"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+49-15758539892",
+            "email": "info@ironum.com",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "German"]
+          },
+          "sameAs": [
+            "https://www.ironum.com"
+          ],
+          "foundingDate": "2024",
+          "areaServed": {
+            "@type": "Place",
+            "name": "Europe"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.ironum.com/#product",
+          "name": "Ironum AI Core",
+          "description": "Secure, private company AI infrastructure built in Europe, made for Europe. GDPR-compliant AI deployment in your own cloud or on-premises.",
+          "brand": {
+            "@id": "https://www.ironum.com/#organization"
+          },
+          "manufacturer": {
+            "@id": "https://www.ironum.com/#organization"
+          },
+          "category": "AI Infrastructure Software",
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Enterprise"
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "EUR",
+            "seller": {
+              "@id": "https://www.ironum.com/#organization"
+            }
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.ironum.com/#website",
+          "url": "https://www.ironum.com",
+          "name": "Ironum AI Core",
+          "description": "Deploy GDPR-compliant AI in your own cloud or on-prem. Boost productivity, protect data, and automate workflows—without hiring an AI team.",
+          "publisher": {
+            "@id": "https://www.ironum.com/#organization"
+          },
+          "inLanguage": "en-US"
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-white text-black">
     <slot />
