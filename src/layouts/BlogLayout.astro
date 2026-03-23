@@ -2,6 +2,8 @@
 import Layout from './Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import BlogPostCard from '../components/cards/BlogPostCard.astro';
 
 export interface Props {
   frontmatter: {
@@ -16,6 +18,11 @@ export interface Props {
 
 const { frontmatter } = Astro.props;
 
+const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
+const relatedPosts = allPosts
+  .filter(p => p.data.category === frontmatter.category && p.slug !== Astro.url.pathname.split('/').filter(Boolean).pop())
+  .slice(0, 3);
+
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Blog', href: '/resources/blog/' },
@@ -29,6 +36,7 @@ const articleSchema = [{
   "author": { "@type": "Organization", "name": "Ironum" },
   "publisher": { "@id": "https://www.ironum.com/#organization" },
   "datePublished": frontmatter.publishDate,
+  "dateModified": frontmatter.publishDate,
   "mainEntityOfPage": `https://www.ironum.com${Astro.url.pathname}`
 }];
 ---
@@ -56,5 +64,15 @@ const articleSchema = [{
       <slot />
     </div>
   </article>
+  {relatedPosts.length > 0 && (
+    <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto border-t border-gray-100">
+      <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {relatedPosts.map(post => (
+          <BlogPostCard title={post.data.title} description={post.data.description} href={`/resources/blog/${post.slug}/`} date={post.data.publishDate.toISOString()} category={post.data.category} />
+        ))}
+      </div>
+    </section>
+  )}
   <Footer />
 </Layout>

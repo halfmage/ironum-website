@@ -18,6 +18,41 @@ import Footer from '../components/Footer.astro';
     subtitle="Book a free consultation to discuss your AI readiness, compliance requirements, and how we can help you deploy AI on your terms."
   />
 
+  <!-- Contact Form -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-2xl mx-auto">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">SEND A MESSAGE</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Prefer to Write?</h2>
+        <p class="text-gray-500 text-lg font-semibold mb-8">Send us a message and we'll respond within one business day.</p>
+        <form action="https://formsubmit.co/gerrit@ironum.com" method="POST" class="space-y-6">
+          <input type="hidden" name="_subject" value="New Contact Form Submission">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-bold mb-2">Name <span class="text-red-500">*</span></label>
+              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-bold mb-2">Email <span class="text-red-500">*</span></label>
+              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            </div>
+          </div>
+          <div>
+            <label for="company" class="block text-sm font-bold mb-2">Company</label>
+            <input type="text" name="company" id="company" class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-bold mb-2">Message <span class="text-red-500">*</span></label>
+            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Booking & Contact -->
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto">

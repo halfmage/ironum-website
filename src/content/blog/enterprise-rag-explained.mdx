@@ -30,7 +30,7 @@ The result: an AI assistant that answers questions using your company's real inf
 
 Business leaders often hear about two approaches to making AI work with company data: RAG and fine-tuning. Understanding the difference matters for making the right investment.
 
-**Fine-tuning** takes an existing AI model and continues training it on your company's data. The model's internal weights change, encoding your information into the model itself. This is expensive, requires ML expertise, needs to be repeated whenever your data changes, and creates a model that may "forget" general knowledge. Fine-tuning makes sense for highly specialized tasks (like medical diagnosis or legal clause classification) but is overkill for most enterprise knowledge management.
+**Fine-tuning** takes an existing AI model and continues training it on your company's data. The model's internal weights change, encoding your information into the model itself. This is expensive, requires ML expertise, needs to be repeated whenever your data changes, and creates a model that may "forget" general knowledge. Fine-tuning makes sense for highly specialized tasks (like [medical diagnosis](/industries/healthcare/) or [legal clause classification](/industries/legal/)) but is overkill for most enterprise knowledge management.
 
 **RAG** leaves the base model untouched. Instead, it dynamically retrieves relevant information at the moment a question is asked. Your data stays in a database, separate from the model. When information changes, you update the database — no retraining needed. RAG is more flexible, more maintainable, and significantly less expensive for most enterprise use cases.
 
@@ -119,4 +119,4 @@ A practical approach for European companies evaluating RAG:
 4. **Run a pilot.** Deploy with a limited user group and a defined set of documents. Measure both retrieval quality and user satisfaction.
 5. **Iterate and expand.** Use pilot feedback to improve retrieval quality, then gradually expand to more users and more data sources.
 
-Ironum deploys enterprise RAG systems on private European infrastructure with full data sovereignty. Our implementations include multilingual retrieval, document-level access controls, and integration with existing enterprise systems. [Get in touch](/contact/) to discuss how RAG can unlock the value in your company's knowledge.
+Ironum deploys [enterprise RAG](/services/enterprise-rag/) systems on private European infrastructure with full data sovereignty. Our implementations include multilingual retrieval, document-level access controls, and integration with existing enterprise systems. [Get in touch](/contact/) to discuss how RAG can unlock the value in your company's knowledge.
