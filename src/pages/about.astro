@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="About Ironum — European AI Sovereignty from Düsseldorf | Ironum"
+  description="Ironum is built by LearnSlice UG in Düsseldorf, Germany. Founded in 2024, we deliver GDPR-compliant, privacy-first AI solutions for European enterprises."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="ABOUT US"
+    title="Built in Europe, for Europe"
+    subtitle="We believe European enterprises deserve AI infrastructure that respects their data, their regulations, and their sovereignty."
+  />
+
+  <!-- Company Story -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">OUR STORY</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">From Education to Enterprise AI</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+        <div class="space-y-6">
+          <p class="text-gray-500 text-lg font-semibold">Ironum is a product of LearnSlice UG (haftungsbeschrankt), founded in 2024 in Dusseldorf, Germany. What started as an AI-powered education platform quickly revealed a bigger opportunity: European businesses needed AI solutions that did not compromise on data privacy.</p>
+          <p class="text-gray-500 text-lg font-semibold">Every week, we spoke with companies who wanted to use AI but were blocked by GDPR concerns, vendor lock-in fears, and a lack of technical expertise. The big cloud providers offered power but not sovereignty. The open-source community offered freedom but not enterprise readiness.</p>
+          <p class="text-gray-500 text-lg font-semibold">Ironum bridges that gap. We combine open-source foundations with enterprise-grade deployment, wrapping everything in European compliance from the ground up. No data leaves the EU. No vendor lock-in. No compromises.</p>
+        </div>
+        <div class="space-y-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">2024</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">Founded in Dusseldorf, Germany</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">100%</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">European-hosted infrastructure</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">0</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">Data transfers outside the EU</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white">
+    <div class="max-w-7xl mx-auto space-y-8 text-center">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">OUR MISSION</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">European AI Sovereignty</h2>
+      <p class="text-white/70 text-lg md:text-xl font-semibold max-w-3xl mx-auto">We exist to make enterprise AI accessible, compliant, and sovereign for European organizations. AI should amplify human capability — not compromise privacy, create dependencies, or export European data to foreign jurisdictions.</p>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">LEADERSHIP</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">The Team</h2>
+
+      <div class="max-w-2xl pt-4">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-1">Gerrit Halfmann</h3>
+          <p class="text-blue-600 font-semibold mb-4">Founder & Managing Director</p>
+          <p class="text-gray-500 text-lg font-semibold">GDPR AI compliance expert with deep experience in European data regulation, open-source AI infrastructure, and enterprise deployment. Gerrit founded Ironum to close the gap between cutting-edge AI capabilities and European compliance requirements — proving that you do not have to choose between innovation and sovereignty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">OUR VALUES</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">What Drives Us</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Privacy First</h3>
+          <p class="text-gray-500 text-lg font-semibold">Data privacy is not a feature — it is a fundamental right. Every architecture decision starts with the question: how do we protect the data?</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Open Source Foundation</h3>
+          <p class="text-gray-500 text-lg font-semibold">We build on open-source technology because transparency breeds trust. No black boxes, no vendor lock-in, no hidden dependencies.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">European Sovereignty</h3>
+          <p class="text-gray-500 text-lg font-semibold">Europe needs its own AI infrastructure. We build it here, host it here, and keep it here — because sovereignty requires independence.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Radical Simplicity</h3>
+          <p class="text-gray-500 text-lg font-semibold">Enterprise AI should not require an AI team. We make complex technology accessible through clear interfaces, thorough documentation, and hands-on support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">LOCATION</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Find Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">Address</h3>
+          <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschrankt)<br>Luisenstrasse 66<br>40215 Dusseldorf<br>Germany</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">Email</h3>
+          <p class="text-gray-500 text-lg font-semibold"><a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a></p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">Phone</h3>
+          <p class="text-gray-500 text-lg font-semibold"><a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

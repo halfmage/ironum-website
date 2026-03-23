@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="GDPR & EU AI Act Compliance — Data Sovereignty Built In | Ironum"
+  description="Ironum delivers GDPR-compliant, EU AI Act-ready AI solutions with German hosting, end-to-end encryption, audit logging, and DPA/NDA included. Full European data sovereignty."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="COMPLIANCE"
+    title="GDPR & EU AI Act Compliance Built In"
+    subtitle="Compliance is not an afterthought — it is the foundation of every Ironum deployment. European data sovereignty by design, not by retrofit."
+  />
+
+  <!-- GDPR Compliance -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">GDPR</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">GDPR Compliance in Every Layer</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-3xl">The General Data Protection Regulation requires that personal data of EU citizens is processed lawfully, transparently, and with purpose limitation. Ironum ensures every AI deployment meets these requirements.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-3">Data Residency</h3>
+          <p class="text-gray-500 text-lg font-semibold">All data is processed and stored within the European Union. Our primary infrastructure runs on Hetzner data centers in Germany (Nuremberg and Falkenstein). No data is transferred to non-EU jurisdictions.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-3">End-to-End Encryption</h3>
+          <p class="text-gray-500 text-lg font-semibold">Data is encrypted in transit (TLS 1.3) and at rest (AES-256). Encryption keys are managed within your infrastructure — Ironum does not hold master keys to your data.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-3">Audit Logging</h3>
+          <p class="text-gray-500 text-lg font-semibold">Every data access, model query, and system change is logged with timestamps, user identity, and action type. Logs are immutable and available for regulatory audits on demand.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-3">DPA & NDA Included</h3>
+          <p class="text-gray-500 text-lg font-semibold">Every Ironum engagement includes a Data Processing Agreement (DPA) under Art. 28 GDPR and a mutual Non-Disclosure Agreement. No extra negotiation or legal fees required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EU AI Act -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">EU AI ACT</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">EU AI Act — The Timeline That Matters</h2>
+      <p class="text-white/70 text-lg font-semibold max-w-3xl">The EU AI Act is the world's first comprehensive AI regulation. Non-compliance carries penalties of up to EUR 35 million or 7% of global annual turnover. Here is the enforcement timeline.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+        <div class="border-2 border-white/10 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-400 text-sm font-bold uppercase tracking-wider">FEBRUARY 2025</span>
+          <h3 class="text-2xl font-bold mt-2 mb-3">Prohibited Practices Ban</h3>
+          <p class="text-white/70 text-lg font-semibold">AI systems that manipulate behavior, exploit vulnerabilities, or enable social scoring are banned. All Ironum solutions are designed to avoid prohibited practices.</p>
+        </div>
+        <div class="border-2 border-white/10 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-400 text-sm font-bold uppercase tracking-wider">AUGUST 2025</span>
+          <h3 class="text-2xl font-bold mt-2 mb-3">GPAI Model Rules</h3>
+          <p class="text-white/70 text-lg font-semibold">General-purpose AI model providers must meet transparency requirements, including technical documentation and copyright compliance. Ironum's orchestration layer ensures model-level compliance.</p>
+        </div>
+        <div class="border-2 border-white/10 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-400 text-sm font-bold uppercase tracking-wider">AUGUST 2026</span>
+          <h3 class="text-2xl font-bold mt-2 mb-3">Full Enforcement</h3>
+          <p class="text-white/70 text-lg font-semibold">All provisions take effect, including requirements for high-risk AI systems: risk assessments, quality management, human oversight, and mandatory registration in the EU database.</p>
+        </div>
+      </div>
+
+      <div class="border-2 border-white/10 rounded-2xl p-6 md:p-8 mt-4">
+        <h3 class="text-2xl font-bold mb-3">What This Means for Your AI Deployments</h3>
+        <p class="text-white/70 text-lg font-semibold mb-4">If you use AI for hiring, credit scoring, healthcare triage, or other high-risk applications, you need documented risk assessments, human oversight mechanisms, and auditable decision logs. Ironum builds all of these into every deployment.</p>
+        <ul class="space-y-2 text-white/70 text-lg font-semibold">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Risk classification and impact assessments
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Human-in-the-loop review workflows
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Transparent model documentation
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-blue-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Immutable audit trails for every AI decision
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Sovereignty -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">DATA SOVEREIGNTY</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Your Data Stays in Europe. Period.</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-3xl">European data sovereignty means your data is stored, processed, and governed under EU law — with no backdoors, no foreign government access requests, and no transatlantic data transfers.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <span class="text-blue-600 text-4xl font-bold block mb-2">Hetzner</span>
+          <p class="text-gray-500 font-semibold">German hosting provider. Data centers in Nuremberg and Falkenstein. ISO 27001 certified.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <span class="text-blue-600 text-4xl font-bold block mb-2">Azure EU</span>
+          <p class="text-gray-500 font-semibold">Microsoft Azure EU regions for GDPR-compliant LLM inference. DPA included.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <span class="text-blue-600 text-4xl font-bold block mb-2">On-Prem</span>
+          <p class="text-gray-500 font-semibold">Deploy on your own hardware. Zero external data transfer. Air-gap capable.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <span class="text-blue-600 text-4xl font-bold block mb-2">RBAC</span>
+          <p class="text-gray-500 font-semibold">Role-based access control. Granular permissions. Least-privilege by default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audit & Access Control -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">SECURITY</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Audit Logging & Access Control</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Comprehensive Audit Logs</h3>
+          <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+            <li>Every query, response, and data access is logged</li>
+            <li>Immutable log storage — cannot be tampered with</li>
+            <li>Export logs for regulatory audits (JSON, CSV)</li>
+            <li>Configurable retention periods</li>
+            <li>Real-time alerting on anomalous access patterns</li>
+          </ul>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Role-Based Access Control</h3>
+          <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+            <li>Granular permissions per user, team, and resource</li>
+            <li>SSO integration (Azure AD, SAML, OIDC)</li>
+            <li>Multi-factor authentication support</li>
+            <li>Least-privilege defaults — explicit grants only</li>
+            <li>API key management with scoped access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={[
+    { question: "Is Ironum GDPR compliant?", answer: "Yes. Every Ironum deployment is GDPR compliant by design. We provide Data Processing Agreements (DPA) under Art. 28 GDPR, ensure data residency within the EU, implement end-to-end encryption, and maintain comprehensive audit logs. Our primary hosting runs on Hetzner data centers in Germany." },
+    { question: "How does Ironum prepare for the EU AI Act?", answer: "The EU AI Act enters full enforcement in August 2026. Ironum builds EU AI Act readiness into every deployment: risk classification documentation, human-in-the-loop workflows for high-risk applications, transparent model documentation, and immutable audit trails for AI-assisted decisions." },
+    { question: "Where is my data stored?", answer: "Your data is stored exclusively within the European Union. For managed deployments, we use Hetzner data centers in Germany (Nuremberg and Falkenstein). For Azure deployments, data stays in EU Azure regions. For on-premises deployments, data never leaves your own infrastructure." },
+    { question: "Does Ironum sign a Data Processing Agreement (DPA)?", answer: "Yes. Every Ironum engagement includes a DPA under Art. 28 GDPR and a mutual Non-Disclosure Agreement (NDA) at no additional cost. These are standard documents — no lengthy legal negotiations required." },
+    { question: "Can I get an air-gapped deployment with no internet connection?", answer: "Yes. Our on-premises deployment option supports fully air-gapped environments using open-source models. No data leaves your network, no external API calls are made, and the system operates completely independently. This is ideal for defense, government, and highly regulated industries." },
+    { question: "What certifications does Ironum's infrastructure have?", answer: "Our Hetzner hosting infrastructure is ISO 27001 certified. Azure deployments inherit Microsoft's comprehensive certifications including ISO 27001, SOC 2, and more. On-premises deployments can be configured to meet your specific certification requirements." },
+    { question: "How do you handle data subject access requests (DSAR)?", answer: "Ironum's audit logging system tracks all data processing activities by data subject. When a DSAR is received, we can quickly identify, export, or delete all data associated with a specific individual. Our systems support the right to access, rectification, erasure, and data portability as required by GDPR." }
+  ]} />
+
+  <FinalCTA />
+  <Footer />
+</Layout>

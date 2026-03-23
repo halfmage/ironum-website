@@ -1,0 +1,60 @@
+---
+import Layout from './Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    publishDate: string;
+    author: string;
+    category: string;
+    tags?: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/resources/blog/' },
+  { label: frontmatter.title, href: Astro.url.pathname },
+];
+
+const articleSchema = [{
+  "@type": "Article",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "author": { "@type": "Organization", "name": "Ironum" },
+  "publisher": { "@id": "https://www.ironum.com/#organization" },
+  "datePublished": frontmatter.publishDate,
+  "mainEntityOfPage": `https://www.ironum.com${Astro.url.pathname}`
+}];
+---
+
+<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema}>
+  <Navigation />
+  <article class="px-4 md:px-20 py-20 md:py-32 max-w-4xl mx-auto">
+    <div class="mb-12">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{frontmatter.category}</span>
+      <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">{frontmatter.title}</h1>
+      <div class="flex items-center gap-4 text-gray-500">
+        <span>{frontmatter.author}</span>
+        <span>·</span>
+        <time datetime={frontmatter.publishDate}>{new Date(frontmatter.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+      </div>
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="flex gap-2 mt-4 flex-wrap">
+          {frontmatter.tags.map((tag: string) => (
+            <span class="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+      <slot />
+    </div>
+  </article>
+  <Footer />
+</Layout>

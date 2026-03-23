@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy — Ironum"
+  description="Privacy policy for the Ironum website. Learn how we handle your data, your rights under GDPR, and our commitment to privacy-first analytics."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="LEGAL"
+    title="Privacy Policy"
+    subtitle="Last updated: March 2026"
+    dark={false}
+    ctaLink=""
+  />
+
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+
+      <div class="space-y-12">
+
+        <!-- Data Controller -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">1. Data Controller</h2>
+          <p class="text-gray-500 text-lg font-semibold">The data controller responsible for this website is:</p>
+          <div class="text-gray-500 text-lg font-semibold mt-4 border-2 border-gray-100 rounded-2xl p-6">
+            <p class="font-bold text-black">LearnSlice UG (haftungsbeschrankt)</p>
+            <p>Luisenstrasse 66</p>
+            <p>40215 Dusseldorf, Germany</p>
+            <p class="mt-2">Email: <a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a></p>
+            <p>Phone: <a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a></p>
+            <p>Managing Director: Gerrit Halfmann</p>
+          </div>
+        </div>
+
+        <!-- What Data We Collect -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">2. What Data We Collect</h2>
+
+          <h3 class="text-xl font-bold mb-2 mt-6">2.1 Website Analytics</h3>
+          <p class="text-gray-500 text-lg font-semibold">We use <a href="https://www.simpleanalytics.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Simple Analytics</a> for website analytics. Simple Analytics is a privacy-first analytics tool that:</p>
+          <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
+            <li>Does not use cookies</li>
+            <li>Does not collect personal data</li>
+            <li>Does not track individual users</li>
+            <li>Does not use fingerprinting</li>
+            <li>Is fully GDPR compliant without requiring cookie consent</li>
+            <li>Stores data in the European Union</li>
+          </ul>
+          <p class="text-gray-500 text-lg font-semibold mt-3">Simple Analytics collects only aggregated, non-personal data such as page views, referrers, and browser types. No personal data is processed, and no consent banner is required.</p>
+
+          <h3 class="text-xl font-bold mb-2 mt-6">2.2 Contact and Booking Data</h3>
+          <p class="text-gray-500 text-lg font-semibold">When you contact us via email or book a call through our scheduling tool (Microsoft Bookings), we process the following data:</p>
+          <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
+            <li>Name</li>
+            <li>Email address</li>
+            <li>Phone number (if provided)</li>
+            <li>Company name (if provided)</li>
+            <li>Content of your message or booking details</li>
+          </ul>
+          <p class="text-gray-500 text-lg font-semibold mt-3">Legal basis: Art. 6(1)(b) GDPR (performance of a contract or pre-contractual measures) and Art. 6(1)(f) GDPR (legitimate interest in responding to inquiries).</p>
+
+          <h3 class="text-xl font-bold mb-2 mt-6">2.3 Server Logs</h3>
+          <p class="text-gray-500 text-lg font-semibold">Our hosting provider (Hetzner, Germany) automatically collects server log files including IP address, date and time of access, pages requested, and HTTP status codes. These logs are necessary for the operation and security of the website. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in security and availability). Server logs are automatically deleted after 7 days.</p>
+        </div>
+
+        <!-- How We Use Your Data -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">3. How We Use Your Data</h2>
+          <p class="text-gray-500 text-lg font-semibold">We use the personal data collected through contact forms and bookings exclusively for:</p>
+          <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
+            <li>Responding to your inquiries</li>
+            <li>Scheduling and conducting consultation calls</li>
+            <li>Providing requested services and information</li>
+            <li>Sending follow-up communications related to your inquiry</li>
+          </ul>
+          <p class="text-gray-500 text-lg font-semibold mt-3">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+        </div>
+
+        <!-- Data Retention -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">4. Data Retention</h2>
+          <p class="text-gray-500 text-lg font-semibold">We retain personal data only for as long as necessary to fulfill the purposes for which it was collected:</p>
+          <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
+            <li><strong>Contact inquiries:</strong> Deleted after 6 months unless a business relationship is established</li>
+            <li><strong>Client data:</strong> Retained for the duration of the business relationship plus statutory retention periods (typically 6-10 years under German commercial and tax law)</li>
+            <li><strong>Server logs:</strong> Automatically deleted after 7 days</li>
+          </ul>
+        </div>
+
+        <!-- Your Rights -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">5. Your Rights Under GDPR</h2>
+          <p class="text-gray-500 text-lg font-semibold">Under the General Data Protection Regulation, you have the following rights regarding your personal data:</p>
+          <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-3 list-disc pl-6">
+            <li><strong>Right of Access (Art. 15 GDPR):</strong> You may request confirmation of whether we process your personal data and obtain a copy of that data.</li>
+            <li><strong>Right to Rectification (Art. 16 GDPR):</strong> You may request correction of inaccurate personal data or completion of incomplete data.</li>
+            <li><strong>Right to Erasure (Art. 17 GDPR):</strong> You may request deletion of your personal data where there is no compelling reason for its continued processing.</li>
+            <li><strong>Right to Restriction (Art. 18 GDPR):</strong> You may request restriction of processing in certain circumstances.</li>
+            <li><strong>Right to Data Portability (Art. 20 GDPR):</strong> You may request your data in a structured, commonly used, machine-readable format.</li>
+            <li><strong>Right to Object (Art. 21 GDPR):</strong> You may object to processing based on legitimate interests at any time.</li>
+            <li><strong>Right to Withdraw Consent (Art. 7(3) GDPR):</strong> Where processing is based on consent, you may withdraw that consent at any time.</li>
+          </ul>
+          <p class="text-gray-500 text-lg font-semibold mt-4">To exercise any of these rights, contact us at <a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a>.</p>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">6. Third-Party Services</h2>
+          <ul class="text-gray-500 text-lg font-semibold space-y-3 list-disc pl-6">
+            <li><strong>Simple Analytics:</strong> Privacy-first website analytics. No cookies, no personal data. Data stored in the EU. <a href="https://www.simpleanalytics.com/privacy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Privacy policy</a>.</li>
+            <li><strong>Microsoft Bookings:</strong> Used for scheduling consultation calls. Subject to <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Microsoft's privacy policy</a>. Microsoft processes data under a DPA with EU standard contractual clauses.</li>
+            <li><strong>Hetzner:</strong> Website hosting provider based in Germany. ISO 27001 certified. Data centers in Nuremberg and Falkenstein, Germany. <a href="https://www.hetzner.com/legal/privacy-policy" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Privacy policy</a>.</li>
+          </ul>
+        </div>
+
+        <!-- Supervisory Authority -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">7. Right to Lodge a Complaint</h2>
+          <p class="text-gray-500 text-lg font-semibold">You have the right to lodge a complaint with a data protection supervisory authority. The competent authority for our company is:</p>
+          <div class="text-gray-500 text-lg font-semibold mt-4 border-2 border-gray-100 rounded-2xl p-6">
+            <p class="font-bold text-black">Landesbeauftragte fur Datenschutz und Informationsfreiheit Nordrhein-Westfalen</p>
+            <p>Kavalleriestrasse 2-4</p>
+            <p>40213 Dusseldorf, Germany</p>
+            <p class="mt-2">Website: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener" class="text-blue-600 hover:underline">www.ldi.nrw.de</a></p>
+          </div>
+        </div>
+
+        <!-- Contact for Privacy -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">8. Contact for Privacy Inquiries</h2>
+          <p class="text-gray-500 text-lg font-semibold">For all privacy-related questions, data subject requests, or concerns, please contact:</p>
+          <div class="text-gray-500 text-lg font-semibold mt-4 border-2 border-gray-100 rounded-2xl p-6">
+            <p>Email: <a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a></p>
+            <p>Phone: <a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a></p>
+            <p class="mt-2">We will respond to your inquiry within 30 days as required by GDPR.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

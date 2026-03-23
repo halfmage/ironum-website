@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/industries/' },
+  { label: 'Public Sector', href: '/industries/public-sector/' },
+];
+
+const faqItems = [
+  {
+    question: 'How does sovereign AI work for government agencies?',
+    answer: 'All AI processing happens on German-hosted infrastructure — either on-premise in your data center or on dedicated Hetzner cloud servers in Germany. No data is sent to US cloud providers or third-party AI services. We use open-source AI models that can be audited, ensuring full transparency and no vendor lock-in.',
+  },
+  {
+    question: 'Can the AI handle citizen inquiries in multiple languages?',
+    answer: 'Yes. Our chatbot solutions support German, English, and other European languages. They can be configured for multilingual citizen services, automatically detecting the language of inquiry and responding accordingly — all processed locally on your infrastructure.',
+  },
+  {
+    question: 'What open-source models do you use?',
+    answer: 'We deploy open-source LLMs that can be fully audited and inspected by your IT security team. This eliminates the "black box" concern with proprietary AI services and ensures compliance with public procurement transparency requirements. Specific model selection depends on your use case and infrastructure capacity.',
+  },
+  {
+    question: 'How does this compare to existing government AI initiatives in Europe?',
+    answer: 'Across 21 European countries, 245 AI cases have been mapped in public sector use. Chatbots represent 20% of current initiatives. However, European governments lag global peers in AI adoption — creating an opportunity to leapfrog with sovereign, GDPR-compliant AI infrastructure that builds citizen trust.',
+  },
+  {
+    question: 'What is the procurement process for public sector AI?',
+    answer: 'We work within standard public procurement frameworks and can support both direct procurement under threshold values and formal tender processes. Our solutions use open-source components, addressing common procurement requirements around vendor independence and long-term sustainability.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/industries/public-sector/#service",
+    "name": "Public Sector AI Solutions",
+    "description": "Sovereign AI on German infrastructure for government agencies. Citizen service automation, document processing, and internal knowledge management with full data sovereignty.",
+    "url": "https://www.ironum.com/industries/public-sector/",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Infrastructure for Public Sector"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="Public Sector AI - Sovereign AI on German Infrastructure | Ironum"
+  description="Sovereign AI for European government agencies. Citizen service automation, document processing, and knowledge management. German-hosted, open-source, full data sovereignty."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="AI FOR PUBLIC SECTOR"
+    title="Sovereign AI on German Infrastructure"
+    subtitle="245 AI cases mapped across 21 European countries, yet governments lag global peers in AI adoption. Deploy citizen-facing and internal AI on fully sovereign, German-hosted infrastructure."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Government AI Requires Absolute Sovereignty</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Public sector AI faces unique constraints: citizen data protection, procurement regulations, transparency requirements, and the imperative to use sovereign infrastructure.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm6-11h.01M9 5h.01" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Digital Sovereignty Mandate</h3>
+          <p class="text-gray-500">Government data cannot be processed by US-based cloud providers subject to CLOUD Act jurisdiction. 72% of EU security professionals report heightened demand for data localization — in the public sector, this is non-negotiable.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Citizen Service Backlog</h3>
+          <p class="text-gray-500">Government agencies face growing citizen expectations for digital services while struggling with staffing shortages and manual processes. Chatbots are the most common public sector AI use case (20% of initiatives), but most lack data sovereignty.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Transparency & Auditability</h3>
+          <p class="text-gray-500">Public sector AI must be explainable, auditable, and free from vendor lock-in. Proprietary AI models fail transparency requirements. Open-source solutions with full audit trails are essential for public trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Solutions</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Open-Source AI for Government</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">German-hosted, open-source AI stack with full data sovereignty. No US cloud providers, no proprietary lock-in, complete transparency.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Citizen Service Chatbot</h3>
+          <p class="text-gray-500 mb-4">AI-powered citizen service assistant that answers questions about government services, permits, regulations, and procedures. Deployed on German infrastructure with multilingual support.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>24/7 availability for citizen inquiries</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Trained on your agency's specific services</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>German and multilingual support</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Document Processing</h3>
+          <p class="text-gray-500 mb-4">Automated processing, classification, and extraction of government documents. Reduce manual handling of applications, permits, and correspondence with AI-powered workflow automation.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automated document classification and routing</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Data extraction from forms and applications</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>n8n workflow automation for processing chains</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Internal Knowledge Base</h3>
+          <p class="text-gray-500 mb-4">RAG-powered internal assistant for government employees. Instant access to regulations, procedures, and institutional knowledge — reducing onboarding time and improving service consistency.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Natural language search across all policies</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited answers for accountability</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Open-source stack, fully auditable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sovereign Infrastructure -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Sovereign infrastructure</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Built for Government Trust</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Every component of our public sector AI stack is designed for sovereignty, transparency, and public accountability.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>German-hosted:</strong> Hetzner data centers in Germany, no US CLOUD Act exposure</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>Open-source:</strong> Fully auditable AI models, no proprietary black boxes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>No vendor lock-in:</strong> Open standards and portable deployments</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>EU AI Act ready:</strong> Full compliance documentation and risk management</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">245</div>
+            <p class="text-gray-500 text-sm font-semibold">AI cases mapped across 21 EU countries</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">20%</div>
+            <p class="text-gray-500 text-sm font-semibold">Of public sector AI initiatives are chatbots</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">72%</div>
+            <p class="text-gray-500 text-sm font-semibold">Of EU security pros demand data localization</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
+            <p class="text-gray-500 text-sm font-semibold">Sovereign — data never leaves Germany</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon?: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<a href={href} class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block">
+  <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
+  <p class="text-gray-500 text-lg font-semibold mb-4">{description}</p>
+  <span class="text-blue-600 font-semibold inline-flex items-center gap-1">
+    Learn more
+    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </span>
+</a>

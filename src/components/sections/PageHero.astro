@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import logoOverlay from '../../../public/logo-mark-overlay.png';
+import avatarGerrit from '../../../public/avatar-gerrit.png';
+
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  dark?: boolean;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  ctaText = 'Book Call With Gerrit',
+  ctaLink = 'https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
+  dark = true,
+} = Astro.props;
+---
+
+<section class:list={[
+  "relative flex flex-col items-center justify-center text-center px-4 py-20 md:py-32 md:min-h-[50vh] overflow-hidden",
+  dark ? "bg-black" : "bg-white"
+]} style={dark ? "background-image: url('/hero-background.png'); background-size: cover; background-position: bottom;" : ""}>
+  <div class="relative z-10 flex flex-col items-center gap-6 w-full max-w-4xl">
+    {eyebrow && <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{eyebrow}</span>}
+    <h1 class:list={[
+      "font-bold text-3xl md:text-5xl xl:text-7xl leading-tight",
+      dark ? "text-white" : "text-black"
+    ]}>{title}</h1>
+    {subtitle && <p class:list={[
+      "max-w-2xl text-lg md:text-2xl font-medium",
+      dark ? "text-white" : "text-gray-500"
+    ]}>{subtitle}</p>}
+    {ctaLink && (
+      <a href={ctaLink} target="_blank"
+        class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 pl-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
+        <Image src={avatarGerrit} alt="Gerrit" class="size-8 mr-2" width={32} height={32} loading="eager" />
+        {ctaText}
+      </a>
+    )}
+  </div>
+  {dark && <Image src={logoOverlay} alt="" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" width={600} height={600} loading="eager" />}
+</section>

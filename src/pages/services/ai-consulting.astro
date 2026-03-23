@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Technical AI Audit',
+    description: 'We assess your current technology stack, data infrastructure, and team capabilities. You get a clear picture of what AI can realistically achieve with your existing resources — and what gaps need closing.',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'Gap Analysis',
+    description: 'We map your business processes against AI opportunities. Identify where AI delivers the highest ROI, which processes are automation-ready, and what data preparation is needed before you write a single line of code.',
+    icon: 'M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    description: 'Not every organisation is ready for AI. We evaluate your data quality, governance processes, team skills, and compliance posture to determine exactly where you stand — and build a roadmap to get you where you need to be.',
+    icon: 'M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75',
+  },
+  {
+    title: 'Integration Planning',
+    description: 'Detailed technical architecture for integrating AI into your existing systems. We plan data pipelines, API connections, security layers, and deployment infrastructure — so implementation runs smoothly from day one.',
+    icon: 'M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3',
+  },
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Assessment',
+    duration: '1-2 weeks',
+    description: 'Deep dive into your technology stack, data landscape, business processes, and compliance requirements. We interview stakeholders, review documentation, and audit existing systems.',
+    deliverables: ['Technical audit report', 'Data quality assessment', 'Stakeholder interview summaries'],
+  },
+  {
+    step: '02',
+    title: 'Strategy',
+    duration: '1-2 weeks',
+    description: 'We develop a prioritized AI roadmap based on ROI potential, technical feasibility, and compliance requirements. Each recommendation includes cost estimates, timelines, and risk assessments.',
+    deliverables: ['AI roadmap with priorities', 'Business case per initiative', 'Risk and compliance assessment'],
+  },
+  {
+    step: '03',
+    title: 'Implementation',
+    duration: '4-12 weeks',
+    description: 'Hands-on development and deployment. We build proof-of-concepts, iterate with your team, and deploy production-ready AI solutions on your infrastructure.',
+    deliverables: ['Working proof-of-concept', 'Production deployment', 'Technical documentation'],
+  },
+  {
+    step: '04',
+    title: 'Support',
+    duration: 'Ongoing',
+    description: 'Post-launch monitoring, performance optimization, and team training. We ensure your AI solutions deliver sustained value and stay compliant as regulations evolve.',
+    deliverables: ['Performance monitoring', 'Team training sessions', 'Quarterly review and optimization'],
+  },
+];
+
+const audiences = [
+  {
+    title: 'CTOs at SMEs',
+    description: 'You know AI matters but lack the in-house expertise to evaluate vendors, choose models, or architect solutions. You need a technical partner who speaks your language and understands European compliance.',
+    challenges: ['Evaluating AI vendor claims', 'Building vs buying decisions', 'Hiring AI talent in a tight market'],
+  },
+  {
+    title: 'Operations Leaders',
+    description: 'You see daily inefficiencies that AI could solve but don\'t know where to start. You need someone to identify the highest-ROI automation opportunities and deliver working solutions, not slide decks.',
+    challenges: ['Identifying automation candidates', 'Measuring AI ROI', 'Change management for AI adoption'],
+  },
+  {
+    title: 'Compliance Officers',
+    description: 'The EU AI Act is here, GDPR enforcement is intensifying, and your organisation is exploring AI. You need assurance that every AI deployment meets regulatory requirements from day one.',
+    challenges: ['EU AI Act risk classification', 'GDPR-compliant AI processing', 'Audit documentation and transparency'],
+  },
+];
+
+const faqItems = [
+  {
+    question: 'What does an AI consulting engagement typically cost?',
+    answer: 'An initial assessment and strategy engagement typically runs 2 to 4 weeks and is priced as a fixed-fee project. Implementation projects are scoped and priced based on complexity. We provide transparent, itemized proposals after the initial scoping call — no hidden fees, no open-ended retainers.',
+  },
+  {
+    question: 'We have no AI experience internally. Can you still help?',
+    answer: 'Absolutely. Most of our clients start with zero AI experience. Our consulting process is designed to meet you where you are — from explaining foundational concepts to your leadership team, to identifying the right first project, to building and deploying the solution. We also train your team so they can manage and extend AI solutions independently.',
+  },
+  {
+    question: 'How do you handle the EU AI Act compliance aspect?',
+    answer: 'We classify each AI use case according to the EU AI Act risk framework, document the required transparency and oversight measures, and build compliance into every deployment. For high-risk applications, we implement the required risk management systems, data governance processes, and human oversight mechanisms from the start.',
+  },
+  {
+    question: 'Do you work with specific industries?',
+    answer: 'We work across industries but have deep experience in professional services (legal, consulting), manufacturing, financial services, and healthcare. Our approach is industry-agnostic at the technology level but highly customized at the business process level — we learn your domain as part of every engagement.',
+  },
+  {
+    question: 'What happens after the consulting phase?',
+    answer: 'You own everything we build. All documentation, code, configurations, and models are yours. We can continue as an implementation partner, provide ongoing managed services, or hand off to your internal team with full training and documentation. There is no lock-in.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/ai-consulting/#service",
+    "name": "AI Consulting & Audits",
+    "description": "From AI strategy to production. Technical audits, AI readiness assessments, and integration planning for European businesses. EU AI Act compliant.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Consulting"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'AI Consulting', href: '/services/ai-consulting' },
+];
+---
+
+<Layout
+  title="AI Consulting & Technical Audits | EU AI Act Ready | Ironum"
+  description="From AI strategy to production without the guesswork. Technical audits, AI readiness assessments, and integration planning for European businesses. EU AI Act compliant."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="AI CONSULTING"
+    title="From AI Strategy to Production — Without the Guesswork"
+    subtitle="Technical audits, readiness assessments, and hands-on implementation. We help European businesses deploy AI that works, complies, and delivers measurable ROI."
+  />
+
+  <!-- What We Do -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What We Do</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Practical AI Guidance, Not PowerPoint</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">We are engineers, not management consultants. Every recommendation comes with a technical architecture, a realistic timeline, and a clear business case.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Our Process</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Four Steps to Production AI</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {processSteps.map((step) => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="text-3xl font-bold text-blue-600">{step.step}</span>
+              <div>
+                <h3 class="text-xl font-bold">{step.title}</h3>
+                <span class="text-gray-400 text-sm font-medium">{step.duration}</span>
+              </div>
+            </div>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{step.description}</p>
+            <div class="pt-6 border-t border-gray-100">
+              <p class="text-sm font-bold text-gray-700 mb-3">Deliverables:</p>
+              <ul class="space-y-2">
+                {step.deliverables.map((deliverable) => (
+                  <li class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span class="text-gray-600 text-sm font-medium">{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Who It's For</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Built for Decision-Makers</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Whether you are evaluating AI for the first time or scaling existing initiatives, our consulting meets you at your level of maturity.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {audiences.map((audience) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-3">{audience.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{audience.description}</p>
+            <div class="pt-6 border-t border-gray-100">
+              <p class="text-sm font-bold text-gray-700 mb-3">Common challenges:</p>
+              <ul class="space-y-2">
+                {audience.challenges.map((challenge) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-4 h-4 text-orange-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    <span class="text-gray-600 text-sm font-medium">{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EU AI Act Banner -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-black rounded-2xl p-8 md:p-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">EU AI Act</span>
+            <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">Compliance Is Not Optional</h2>
+            <p class="text-white/80 text-lg font-medium mt-4">The EU AI Act entered into force in August 2024. Prohibited practices apply from February 2025. High-risk system requirements become enforceable by August 2026. Is your AI strategy ready?</p>
+            <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank"
+              class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation mt-8">
+              Get a Compliance Assessment
+            </a>
+          </div>
+          <div class="space-y-6">
+            <div class="border border-white/20 rounded-xl p-5">
+              <p class="text-white font-bold">Feb 2025</p>
+              <p class="text-white/60 text-sm">Prohibited AI practices ban enforced</p>
+            </div>
+            <div class="border border-white/20 rounded-xl p-5">
+              <p class="text-white font-bold">Aug 2025</p>
+              <p class="text-white/60 text-sm">Rules for general-purpose AI models apply</p>
+            </div>
+            <div class="border border-white/20 rounded-xl p-5">
+              <p class="text-white font-bold">Aug 2026</p>
+              <p class="text-white/60 text-sm">High-risk AI system requirements enforceable</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

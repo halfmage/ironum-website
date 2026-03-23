@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contact Ironum — Book a Free AI Strategy Call | Ironum"
+  description="Get in touch with Ironum for a free AI strategy consultation. Book a call with Gerrit, email us, or visit our office in Düsseldorf, Germany."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="CONTACT"
+    title="Let's Talk About Your AI Strategy"
+    subtitle="Book a free consultation to discuss your AI readiness, compliance requirements, and how we can help you deploy AI on your terms."
+  />
+
+  <!-- Booking & Contact -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Booking -->
+        <div class="space-y-8">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">BOOK A CALL</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Free Discovery Call</h2>
+            <p class="text-gray-500 text-lg font-semibold">Schedule a 30-minute call with Gerrit to discuss your AI strategy, infrastructure requirements, and compliance needs. No commitment, no sales pitch — just an honest assessment of how AI can help your organization.</p>
+          </div>
+          <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Book Call With Gerrit</a>
+          <div class="space-y-4 pt-4">
+            <h3 class="text-xl font-bold">What to Expect</h3>
+            <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Assessment of your current AI readiness
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Identification of quick-win automation opportunities
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                GDPR and EU AI Act compliance review
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Concrete next steps and timeline estimate
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-8">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">CONTACT DETAILS</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Reach Out Directly</h2>
+          </div>
+
+          <div class="space-y-6">
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">Email</h3>
+              <a href="mailto:info@ironum.com" class="text-blue-600 text-lg font-semibold hover:underline">info@ironum.com</a>
+              <p class="text-gray-500 font-semibold mt-1">We respond within one business day.</p>
+            </div>
+
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">Phone</h3>
+              <a href="tel:+4915758539892" class="text-blue-600 text-lg font-semibold hover:underline">+49 157 585 39892</a>
+              <p class="text-gray-500 font-semibold mt-1">Available Monday to Friday, 9:00 - 18:00 CET.</p>
+            </div>
+
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">Office</h3>
+              <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschrankt)<br>Luisenstrasse 66<br>40215 Dusseldorf<br>Germany</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

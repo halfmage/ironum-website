@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/industries/' },
+  { label: 'Education', href: '/industries/education/' },
+];
+
+const faqItems = [
+  {
+    question: 'What is the LearnSlice AI Mentor and how does it work?',
+    answer: 'The AI Mentor is our white-label intelligent tutoring solution built on RAG technology. It provides personalized learning paths, adaptive questioning, and instant feedback — all trained on your specific curriculum content. It can be deployed for exam preparation, corporate training, or institutional education programs.',
+  },
+  {
+    question: 'How does Ironum handle student data protection?',
+    answer: 'All student data processing happens on your infrastructure — on-premise servers or dedicated German-hosted cloud. No learner data is ever sent to third-party AI providers. This is critical because the EU AI Act classifies education AI as "high-risk," requiring strict data governance, transparency, and human oversight.',
+  },
+  {
+    question: 'Can the AI Mentor be customized for IHK exam preparation?',
+    answer: 'Yes. We have specific experience with IHK (Industrie- und Handelskammer) exam preparation content. The AI Mentor can be trained on official exam materials, practice questions, and competency frameworks to provide targeted preparation with adaptive difficulty levels.',
+  },
+  {
+    question: 'Is there a white-label option for training companies?',
+    answer: 'Absolutely. The AI Mentor is designed as a white-label solution. Training companies, educational publishers, and corporate L&D departments can deploy it under their own brand with custom styling, content, and domain-specific configurations.',
+  },
+  {
+    question: 'What compliance requirements does the EU AI Act impose on education AI?',
+    answer: 'The EU AI Act classifies AI systems used in education as "high-risk" under Annex III. This means mandatory conformity assessments, risk management systems, data governance requirements, transparency obligations, human oversight, and registration in the EU database. Non-compliance can result in penalties up to EUR 35M or 7% of global turnover.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/industries/education/#service",
+    "name": "Education AI Solutions",
+    "description": "Intelligent learning platforms with student data protection. White-label AI Mentor for exam preparation, corporate training, and institutional education.",
+    "url": "https://www.ironum.com/industries/education/",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Infrastructure for Education"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="Education AI Solutions - Intelligent Learning, Protected by Design | Ironum"
+  description="AI-powered learning platforms with complete student data protection. White-label AI Mentor for IHK exam prep, corporate training, and upskilling. EU AI Act compliant."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="AI FOR EDUCATION"
+    title="Intelligent Learning, Protected by Design"
+    subtitle="The European EdTech AI market will grow from EUR 2.11B to EUR 19.97B by 2034. Germany holds 30.1% market share. Deploy compliant AI learning solutions on sovereign infrastructure."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Education AI Demands the Highest Standards</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">The EU AI Act classifies education AI as "high-risk" — and for good reason. Student data requires the strictest protection.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">High-Risk Classification</h3>
+          <p class="text-gray-500">The EU AI Act classifies education AI under Annex III as "high-risk." This triggers mandatory conformity assessments, risk management systems, and registration requirements — with penalties up to EUR 35M for non-compliance.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Learner Data Protection</h3>
+          <p class="text-gray-500">Student performance data, learning patterns, and assessment results are highly sensitive personal data. Sending this to public cloud AI services violates GDPR principles and institutional data protection obligations.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Content Quality Control</h3>
+          <p class="text-gray-500">Generic AI generates generic content. Educational AI must be trained on verified, curriculum-aligned material to deliver accurate, pedagogically sound responses — not hallucinated answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">LearnSlice AI Mentor</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">White-Label AI Learning Solutions</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Built on our LearnSlice AI Mentor platform — a proven, white-label solution that educational institutions and training companies deploy under their own brand.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">IHK Exam Preparation</h3>
+          <p class="text-gray-500">Adaptive AI tutoring for IHK certification exams. Personalized question paths, instant explanations, and progress tracking aligned with official competency frameworks.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Financial Literacy</h3>
+          <p class="text-gray-500">AI-powered financial education modules for banks, insurers, and educational publishers. Interactive learning paths that adapt to individual knowledge levels.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">HR Onboarding</h3>
+          <p class="text-gray-500">AI-guided onboarding programs that adapt to new hire roles, experience levels, and learning pace. Reduce time-to-productivity while ensuring consistent knowledge transfer.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Corporate Upskilling</h3>
+          <p class="text-gray-500">Continuous learning platforms for workforce development. AI identifies skill gaps, recommends learning paths, and tracks competency development across your organization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- On-Prem for Education -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Data sovereignty</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Student Data Stays on Your Infrastructure</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Every AI Mentor deployment runs on your infrastructure — on-premise servers, Hetzner in Germany, or dedicated Azure. No student data is ever processed by third-party AI providers.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">On-premise deployment for schools and universities</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">EU AI Act high-risk compliance documentation included</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">GDPR-compliant data processing with full DPA</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Human oversight and transparency mechanisms built in</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">&euro;19.97B</div>
+            <p class="text-gray-500 text-sm font-semibold">European EdTech AI market by 2034</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">32.47%</div>
+            <p class="text-gray-500 text-sm font-semibold">CAGR growth rate through 2034</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">30.1%</div>
+            <p class="text-gray-500 text-sm font-semibold">Germany's share of EU EdTech AI</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">100%</div>
+            <p class="text-gray-500 text-sm font-semibold">Data sovereignty guaranteed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

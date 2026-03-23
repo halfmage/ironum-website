@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const industries = [
+  {
+    name: 'Legal',
+    href: '/industries/legal/',
+    stat: '61%',
+    statLabel: 'of EU lawyers already use AI',
+    description: 'GDPR-compliant contract review, compliance automation, and legal Q&A — with complete client confidentiality on your own infrastructure.',
+  },
+  {
+    name: 'Manufacturing',
+    href: '/industries/manufacturing/',
+    stat: '34.6%',
+    statLabel: 'CAGR in AI manufacturing',
+    description: 'Industry 4.0 AI for predictive maintenance, quality inspection, and workflow automation — hosted on German infrastructure.',
+  },
+  {
+    name: 'Financial Services',
+    href: '/industries/financial-services/',
+    stat: '€37B',
+    statLabel: 'projected AI market in Germany by 2031',
+    description: 'Data-sovereign AI for fraud detection, KYC/AML automation, risk modeling, and regulatory compliance.',
+  },
+  {
+    name: 'Education & Training',
+    href: '/industries/education/',
+    stat: '32.47%',
+    statLabel: 'CAGR in European EdTech AI',
+    description: 'Intelligent learning platforms with student data protection. White-label AI Mentor solutions for exam prep and corporate training.',
+  },
+  {
+    name: 'Healthcare',
+    href: '/industries/healthcare/',
+    stat: '90%',
+    statLabel: 'utilization at leading EU hospitals',
+    description: 'Administrative automation, documentation assistance, and clinical knowledge management — patient data never leaves your infrastructure.',
+  },
+  {
+    name: 'Public Sector',
+    href: '/industries/public-sector/',
+    stat: '245',
+    statLabel: 'mapped AI cases across 21 EU countries',
+    description: 'Sovereign AI for citizen services, document processing, and internal knowledge management on German-hosted infrastructure.',
+  },
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/industries/' },
+];
+
+const structuredData = [
+  {
+    "@type": "CollectionPage",
+    "@id": "https://www.ironum.com/industries/#page",
+    "name": "AI Solutions for Every European Industry",
+    "description": "GDPR-compliant AI solutions tailored for legal, manufacturing, financial services, education, healthcare, and public sector organizations across Europe.",
+    "url": "https://www.ironum.com/industries/",
+    "isPartOf": { "@id": "https://www.ironum.com/#website" },
+    "publisher": { "@id": "https://www.ironum.com/#organization" }
+  }
+];
+---
+
+<Layout
+  title="Industry AI Solutions - GDPR Compliant | Ironum AI Core"
+  description="Discover GDPR-compliant AI solutions tailored for legal, manufacturing, financial services, education, healthcare, and public sector organizations across Europe."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="INDUSTRIES"
+    title="AI Solutions for Every European Industry"
+    subtitle="Purpose-built AI infrastructure for regulated industries. GDPR-compliant, on-premise or private cloud, deployed on European servers."
+  />
+
+  <!-- Industry Cards Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Explore by sector</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Tailored AI for Regulated Industries</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Only 17% of European SMEs use AI, compared to 55% of large enterprises. We close that gap with infrastructure that meets your compliance requirements.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {industries.map((industry) => (
+          <a href={industry.href} class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group">
+            <div class="text-blue-600 text-5xl font-bold mb-2">{industry.stat}</div>
+            <p class="text-gray-400 text-sm font-semibold mb-4">{industry.statLabel}</p>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">{industry.name}</h3>
+            <p class="text-gray-500 text-base">{industry.description}</p>
+            <div class="mt-4 text-blue-600 font-semibold text-sm flex items-center gap-1">
+              Learn more
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Industry Capabilities -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Cross-industry</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Built for European Compliance</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Every industry solution shares our core commitment to data sovereignty, regulatory compliance, and European infrastructure.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">GDPR Compliance</h3>
+          <p class="text-gray-500">Full GDPR compliance by design. Data processing agreements, privacy impact assessments, and Article 28-compliant infrastructure. 44% of enterprises cite data security as their primary concern with public cloud AI — we eliminate that barrier.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">On-Premise & Private Cloud</h3>
+          <p class="text-gray-500">Deploy on your own servers, Azure, or Hetzner infrastructure in Germany. 72% of EU security professionals report heightened demand for data localization — our infrastructure meets that demand from day one.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">EU AI Act Ready</h3>
+          <p class="text-gray-500">Proactive compliance with the EU AI Act ahead of the August 2026 deadline. Risk classification documentation, transparency requirements, and audit trails built into every deployment. Penalties reach up to EUR 35M or 7% of global turnover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

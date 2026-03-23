@@ -1,0 +1,272 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const features = [
+  {
+    title: 'Private Deployment',
+    description: 'Deploy on your own infrastructure — Azure EU, Hetzner, or on-premises. Your documents never leave your control. Zero data shared with model providers.',
+    icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
+  },
+  {
+    title: 'Multi-Format Support',
+    description: 'Ingest PDFs, Word documents, Excel spreadsheets, emails, Confluence pages, SharePoint files, and more. Automatic OCR for scanned documents.',
+    icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    title: 'Real-Time Sync',
+    description: 'Automatic document indexing when files change. Connect to SharePoint, Confluence, Google Drive, or internal file systems for always up-to-date answers.',
+    icon: 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182',
+  },
+  {
+    title: 'Role-Based Access',
+    description: 'Enforce existing permission structures. Users only see answers from documents they are authorized to access. Integrates with Active Directory and SSO.',
+    icon: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z',
+  },
+  {
+    title: 'Open-Source LLMs',
+    description: 'Run Llama, Mistral, or other open-source models. No per-token fees, no data sent to third parties. Full control over model selection and updates.',
+    icon: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
+  },
+  {
+    title: 'Custom Fine-Tuning',
+    description: 'Fine-tune embedding and generation models on your domain vocabulary. Improve accuracy for industry-specific terminology and document structures.',
+    icon: 'M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Legal Document Review',
+    description: 'A mid-size German law firm processes thousands of contracts monthly. With Ironum RAG, attorneys query the entire contract database in natural language — finding relevant clauses, identifying risks, and comparing terms across agreements in seconds instead of hours.',
+    stat: '80%',
+    statLabel: 'faster document review',
+  },
+  {
+    title: 'Internal Knowledge Base',
+    description: 'A European manufacturer with 2,000+ employees deploys RAG across their technical documentation, HR policies, and training materials. New employees get instant, accurate answers. Support tickets drop as teams self-serve from a unified knowledge layer.',
+    stat: '60%',
+    statLabel: 'reduction in internal tickets',
+  },
+  {
+    title: 'Compliance & Audit Checks',
+    description: 'A financial services firm uses RAG to monitor regulatory documents and cross-reference internal policies. Compliance officers get instant alerts when regulations change and can verify policy alignment across hundreds of documents automatically.',
+    stat: '10x',
+    statLabel: 'faster compliance checks',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'What is RAG and how does it differ from fine-tuning?',
+    answer: 'Retrieval-Augmented Generation (RAG) connects an LLM to your document base at query time. Instead of training the model on your data (fine-tuning), RAG retrieves relevant passages and feeds them to the model as context. This means your answers are always grounded in current documents, hallucinations are drastically reduced, and you can update knowledge instantly without retraining. RAG is the right choice when you need accurate, source-cited answers from a changing document base.',
+  },
+  {
+    question: 'How do you ensure data privacy and GDPR compliance?',
+    answer: 'Your documents are processed and stored exclusively on infrastructure you control — either your own servers, Azure EU regions, or German-hosted Hetzner infrastructure. We never send your data to third-party model providers. When using open-source LLMs, the entire pipeline runs on your hardware. All data processing is covered under a standard GDPR Data Processing Agreement (DPA).',
+  },
+  {
+    question: 'How long does deployment take?',
+    answer: 'A production-ready RAG system typically takes 4 to 8 weeks from kickoff to launch. This includes document ingestion pipeline setup, embedding model configuration, retrieval tuning, UI deployment, and user acceptance testing. A working proof-of-concept with your actual documents can be ready in as little as 2 weeks.',
+  },
+  {
+    question: 'What document formats are supported?',
+    answer: 'We support PDF, DOCX, XLSX, PPTX, HTML, Markdown, plain text, emails (EML, MSG), and structured data formats (CSV, JSON). We also handle scanned documents via OCR. Connectors are available for SharePoint, Confluence, Google Drive, Notion, and custom APIs.',
+  },
+  {
+    question: 'How is pricing structured?',
+    answer: 'Pricing depends on deployment model, document volume, and the LLM provider you choose. On-premises deployments with open-source models have no per-query costs — you only pay for infrastructure and our setup and maintenance services. Cloud API deployments include pass-through token costs. We provide transparent, itemized quotes after an initial scoping call.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/enterprise-rag/#service",
+    "name": "Enterprise RAG Solutions",
+    "description": "Turn scattered documents into a searchable, private knowledge base with Retrieval-Augmented Generation. GDPR compliant, deployed on your infrastructure.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Enterprise RAG"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Enterprise RAG', href: '/services/enterprise-rag' },
+];
+---
+
+<Layout
+  title="Enterprise RAG Solutions | Private Document AI | Ironum"
+  description="Turn your documents into actionable intelligence with Retrieval-Augmented Generation. Private deployment, GDPR compliant, open-source LLMs. Deployed on your infrastructure."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="ENTERPRISE RAG"
+    title="Turn Your Documents Into Actionable Intelligence"
+    subtitle="Retrieval-Augmented Generation that runs on your infrastructure. Query thousands of documents in natural language — with answers grounded in your actual data."
+  />
+
+  <!-- Problem Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Problem</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Knowledge Is Trapped</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">European enterprises sit on vast document archives, but extracting value from them is painfully slow and increasingly risky with public AI tools.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Scattered Knowledge</h3>
+          <p class="text-gray-500 text-lg font-semibold">Critical information buried across SharePoint, file servers, email, and Confluence. Employees spend 20% of their workweek searching for information they need.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Slow Search, Missed Insights</h3>
+          <p class="text-gray-500 text-lg font-semibold">Keyword search fails with complex queries. Teams miss connections across documents because traditional search cannot understand context or meaning.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Data Security Risk</h3>
+          <p class="text-gray-500 text-lg font-semibold">Uploading confidential documents to ChatGPT or other public AI tools violates GDPR and exposes trade secrets. 65% of employees admit to using unauthorized AI tools at work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Solution</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">Private RAG on Your Infrastructure</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Ironum deploys a complete Retrieval-Augmented Generation pipeline on infrastructure you control. Your employees query your entire document base in natural language and get accurate, source-cited answers — without any data leaving your environment.</p>
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">Semantic search across all document types — not just keyword matching</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">Every answer linked to source documents for full traceability</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">Deployable on Azure EU, Hetzner Germany, or your own hardware</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">Ready for EU AI Act transparency and documentation requirements</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4 pb-6 border-b border-gray-100">
+              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                <span class="text-blue-600 font-bold text-sm">1</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Ingest</h4>
+                <p class="text-gray-500 text-sm">Documents are chunked, embedded, and stored in a vector database on your infrastructure.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 pb-6 border-b border-gray-100">
+              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                <span class="text-blue-600 font-bold text-sm">2</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Retrieve</h4>
+                <p class="text-gray-500 text-sm">User queries are matched against your document embeddings using semantic similarity.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 pb-6 border-b border-gray-100">
+              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                <span class="text-blue-600 font-bold text-sm">3</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Generate</h4>
+                <p class="text-gray-500 text-sm">The LLM synthesizes an answer from retrieved passages, citing sources.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                <span class="text-blue-600 font-bold text-sm">4</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Verify</h4>
+                <p class="text-gray-500 text-sm">Users click through to original documents to verify and build trust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Features</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Enterprise-Grade RAG</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG in Action</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {useCases.map((useCase) => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+            <div class="mb-6">
+              <span class="text-4xl md:text-5xl font-bold text-blue-600">{useCase.stat}</span>
+              <p class="text-gray-500 font-semibold mt-1">{useCase.statLabel}</p>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

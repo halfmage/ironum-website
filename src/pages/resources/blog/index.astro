@@ -1,0 +1,40 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import BlogPostCard from '../../../components/cards/BlogPostCard.astro';
+import Footer from '../../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/resources/blog/' },
+];
+---
+
+<Layout title="Blog | Ironum AI Core" description="Expert insights on GDPR-compliant AI, EU AI Act compliance, enterprise RAG, and workflow automation for European businesses." breadcrumbs={breadcrumbs}>
+  <Navigation />
+  <PageHero eyebrow="BLOG" title="AI Insights for European Businesses" subtitle="Expert perspectives on compliance, implementation, and strategy." ctaLink="" />
+  <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto">
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map(post => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            href={`/resources/blog/${post.slug}/`}
+            date={post.data.publishDate.toISOString()}
+            category={post.data.category}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-gray-500 text-lg text-center">New articles coming soon. Check back for expert insights on AI compliance and implementation.</p>
+    )}
+  </section>
+  <Footer />
+</Layout>

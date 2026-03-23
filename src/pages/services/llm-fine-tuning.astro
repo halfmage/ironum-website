@@ -1,0 +1,255 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Data Preparation',
+    description: 'We work with your team to identify, clean, and structure your training data. This includes domain-specific documents, examples of ideal outputs, and edge cases. Data quality determines model quality — we invest heavily in this step.',
+    details: ['Data audit and quality assessment', 'Format conversion and cleaning', 'Training/validation split design', 'Privacy-sensitive data handling'],
+  },
+  {
+    step: '02',
+    title: 'Model Training',
+    description: 'We fine-tune open-source foundation models (Llama, Mistral, or similar) on your prepared dataset. Training runs on your infrastructure or our German-hosted GPU servers. Multiple training runs with different hyperparameters to find the optimal configuration.',
+    details: ['Base model selection', 'Hyperparameter optimization', 'LoRA/QLoRA efficient fine-tuning', 'Training on your infrastructure'],
+  },
+  {
+    step: '03',
+    title: 'Evaluation',
+    description: 'Rigorous testing against your quality benchmarks. We evaluate accuracy, hallucination rates, response quality, and domain coverage. Your subject matter experts validate outputs before we proceed to deployment.',
+    details: ['Automated benchmark testing', 'Human evaluation with SMEs', 'Hallucination detection', 'A/B testing against base model'],
+  },
+  {
+    step: '04',
+    title: 'Deployment',
+    description: 'Production deployment on your chosen infrastructure with monitoring, logging, and version management. We set up model serving, API endpoints, and integration with your existing applications.',
+    details: ['Optimized model serving (vLLM, TGI)', 'API endpoint configuration', 'Monitoring and alerting', 'Version management and rollback'],
+  },
+];
+
+const comparisonItems = [
+  {
+    aspect: 'Best for',
+    rag: 'Querying existing document bases',
+    fineTuning: 'Domain-specific language and behaviour',
+  },
+  {
+    aspect: 'Data requirement',
+    rag: 'Works with existing documents as-is',
+    fineTuning: 'Needs curated training examples (100+)',
+  },
+  {
+    aspect: 'Knowledge updates',
+    rag: 'Instant — add or remove documents',
+    fineTuning: 'Requires retraining with new data',
+  },
+  {
+    aspect: 'Cost per query',
+    rag: 'Higher (retrieval + generation)',
+    fineTuning: 'Lower (no retrieval step needed)',
+  },
+  {
+    aspect: 'Hallucination risk',
+    rag: 'Low — grounded in retrieved sources',
+    fineTuning: 'Medium — depends on training quality',
+  },
+  {
+    aspect: 'Setup time',
+    rag: '2-4 weeks typical',
+    fineTuning: '4-8 weeks typical',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'When should I fine-tune instead of using RAG?',
+    answer: 'Fine-tuning is the right choice when you need the model to understand domain-specific language, follow specific output formats, or exhibit consistent behaviour patterns that cannot be achieved through prompting alone. Examples include medical report generation, legal clause drafting, or technical documentation in specialized fields. If you primarily need to query existing documents, RAG is usually more cost-effective. Many production systems combine both approaches.',
+  },
+  {
+    question: 'How much training data do I need?',
+    answer: 'With modern techniques like LoRA, meaningful improvements are possible with as few as 100 to 500 high-quality examples. For specialized tasks, 1,000 to 5,000 examples typically produce strong results. The quality of training data matters far more than quantity — 200 carefully curated examples often outperform 10,000 noisy ones. We help you identify and prepare the right data during the data preparation phase.',
+  },
+  {
+    question: 'Which base models do you work with?',
+    answer: 'We work primarily with open-source models: Llama 3 (Meta), Mistral, Mixtral, and similar. These models offer strong baseline performance, full transparency, and can be deployed without any data leaving your infrastructure. We also fine-tune models on Azure OpenAI for organisations that prefer managed infrastructure with EU data residency.',
+  },
+  {
+    question: 'Does my data stay private during training?',
+    answer: 'Yes. Training runs on infrastructure you control — your own servers, our German-hosted GPU infrastructure on Hetzner, or Azure EU regions. Your training data is never uploaded to third-party platforms or model providers. After training, you own the model weights and can deploy them independently.',
+  },
+  {
+    question: 'How do you measure model quality?',
+    answer: 'We use a combination of automated metrics (perplexity, BLEU/ROUGE scores, task-specific benchmarks) and human evaluation by your domain experts. We establish baseline performance before training, measure improvements on a held-out test set, and run A/B comparisons against the base model. You get a detailed evaluation report with every training run.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/llm-fine-tuning/#service",
+    "name": "LLM Fine-Tuning",
+    "description": "Domain-specific AI models trained on your data. Open-source LLMs fine-tuned for your industry. Your data never leaves your infrastructure.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "LLM Fine-Tuning"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'LLM Fine-Tuning', href: '/services/llm-fine-tuning' },
+];
+---
+
+<Layout
+  title="LLM Fine-Tuning | Domain-Specific AI Models | Ironum"
+  description="Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry. Your data never leaves your infrastructure. GDPR compliant."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="LLM FINE-TUNING"
+    title="Domain-Specific AI Models, Trained on Your Data"
+    subtitle="Fine-tune open-source LLMs to speak your industry's language. Trained on your infrastructure, owned by you, with zero data leaving your control."
+  />
+
+  <!-- When to Fine-Tune -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">When to Fine-Tune</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs Fine-Tuning: Choose the Right Tool</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fine-tuning and RAG solve different problems. Understanding when to use each — or both — is critical for AI success. Here is how they compare.</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">Aspect</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">RAG</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-blue-600">Fine-Tuning</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonItems.map((item, index) => (
+              <tr class={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                <td class="px-6 py-4 font-bold text-sm">{item.aspect}</td>
+                <td class="px-6 py-4 text-gray-500 text-sm">{item.rag}</td>
+                <td class="px-6 py-4 text-gray-700 text-sm font-medium">{item.fineTuning}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-gray-500 text-lg font-semibold mt-8 text-center max-w-2xl mx-auto">Not sure which approach fits your use case? We help you decide during our free initial consultation. Many production systems combine both for optimal results.</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Our Process</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">From Raw Data to Production Model</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        {processSteps.map((step) => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="text-3xl font-bold text-blue-600">{step.step}</span>
+              <h3 class="text-xl font-bold">{step.title}</h3>
+            </div>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{step.description}</p>
+            <ul class="space-y-2">
+              {step.details.map((detail) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-4 h-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-gray-600 text-sm font-medium">{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Open-Source Models -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Open-Source First</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Data Stays on Your Infrastructure</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">We fine-tune open-source foundation models — Llama, Mistral, and others — so your proprietary data never leaves your environment. No per-token fees, no data sharing with model providers, full ownership of the resulting model weights.</p>
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">Train on-premises or on German-hosted GPU infrastructure (Hetzner)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">LoRA and QLoRA for efficient fine-tuning — no need for massive GPU clusters</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">You own the model weights — deploy, modify, or redistribute freely</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-700 font-medium">No per-token or per-query costs in production — fixed infrastructure costs only</span>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-4">Supported Base Models</h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                <div>
+                  <p class="font-bold">Llama 3</p>
+                  <p class="text-gray-500 text-sm">Meta's open foundation model</p>
+                </div>
+                <span class="text-xs font-bold bg-green-50 text-green-600 px-3 py-1 rounded-full">8B - 70B</span>
+              </div>
+              <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                <div>
+                  <p class="font-bold">Mistral / Mixtral</p>
+                  <p class="text-gray-500 text-sm">European-built, high performance</p>
+                </div>
+                <span class="text-xs font-bold bg-green-50 text-green-600 px-3 py-1 rounded-full">7B - 46B</span>
+              </div>
+              <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                <div>
+                  <p class="font-bold">Qwen</p>
+                  <p class="text-gray-500 text-sm">Strong multilingual capabilities</p>
+                </div>
+                <span class="text-xs font-bold bg-green-50 text-green-600 px-3 py-1 rounded-full">7B - 72B</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-bold">Custom Selection</p>
+                  <p class="text-gray-500 text-sm">We evaluate the best model for your task</p>
+                </div>
+                <span class="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Any size</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const features = [
+  {
+    title: 'White-Label Ready',
+    description: 'Fully branded to match your corporate identity. Custom colours, logos, tone of voice, and domain. Your customers see your brand, not ours.',
+    icon: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42',
+  },
+  {
+    title: 'Multi-Channel Deployment',
+    description: 'Deploy on your website, Microsoft Teams, Slack, WhatsApp, or custom apps. One knowledge base, consistent answers across every channel your users prefer.',
+    icon: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3',
+  },
+  {
+    title: 'RAG-Powered Answers',
+    description: 'Grounded in your actual documents and data. Every response is sourced from your knowledge base — not hallucinated from general training data. Source citations included.',
+    icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    title: 'GDPR Compliant',
+    description: 'All conversations processed on EU infrastructure. No conversation data leaves your environment. Full data processing agreements and audit trails included.',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'Human Handoff',
+    description: 'Seamless escalation to human agents when the AI detects complex or sensitive queries. Conversation context is preserved for a smooth transition.',
+    icon: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z',
+  },
+  {
+    title: 'Analytics & Insights',
+    description: 'Track conversation volumes, resolution rates, common topics, and user satisfaction. Identify knowledge gaps and continuously improve your chatbot\'s performance.',
+    icon: 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Customer Support',
+    description: 'An e-commerce company handles 3,000+ support tickets monthly. Their AI chatbot resolves 70% of queries instantly — shipping status, return policies, product questions — freeing human agents for complex cases that need empathy and judgment.',
+    stat: '70%',
+    statLabel: 'automated resolution rate',
+  },
+  {
+    title: 'Internal Helpdesk',
+    description: 'A 500-person company deploys an internal AI assistant connected to IT documentation, HR policies, and onboarding materials. Employees get instant answers to "How do I reset my VPN?" or "What\'s our parental leave policy?" — without filing a ticket.',
+    stat: '45%',
+    statLabel: 'reduction in IT tickets',
+  },
+  {
+    title: 'HR & Employee Q&A',
+    description: 'An HR department connects their AI assistant to the employee handbook, benefits documentation, and company policies. Staff across multiple offices and time zones get consistent, accurate answers 24/7 — in their preferred language.',
+    stat: '24/7',
+    statLabel: 'availability across time zones',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'How does the chatbot know about our business?',
+    answer: 'We connect the chatbot to your documents, knowledge base, FAQ content, product data, and internal systems using RAG (Retrieval-Augmented Generation). The AI retrieves relevant information from your actual data to generate answers — it does not rely on general training data. This means answers are accurate, current, and specific to your business.',
+  },
+  {
+    question: 'Can the chatbot handle multiple languages?',
+    answer: 'Yes. Modern LLMs handle multilingual conversations natively. Your chatbot can respond in the user\'s language — German, French, Spanish, Dutch, and many more — even if your source documents are primarily in one language. We configure language detection and response generation to match your market requirements.',
+  },
+  {
+    question: 'What happens when the AI cannot answer a question?',
+    answer: 'We build in intelligent escalation. When the AI detects low confidence, sensitive topics, or explicit user requests, it seamlessly hands off to a human agent. The full conversation context is preserved so the agent can continue without asking the user to repeat themselves. You define the escalation rules.',
+  },
+  {
+    question: 'How do you prevent the chatbot from hallucinating?',
+    answer: 'RAG-powered chatbots are fundamentally different from general-purpose AI. Every answer is grounded in retrieved passages from your documents. We implement confidence thresholds, source citation requirements, and fallback behaviours. If the system cannot find relevant information in your knowledge base, it says so honestly rather than making something up.',
+  },
+  {
+    question: 'How long does it take to deploy a chatbot?',
+    answer: 'A basic chatbot connected to your existing FAQ or documentation can be live in 2 to 3 weeks. More complex deployments with multi-channel integration, CRM connections, and custom workflows typically take 4 to 8 weeks. We always start with a working prototype so you can test and iterate early.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/chatbot-interfaces/#service",
+    "name": "Chatbot & Conversational AI",
+    "description": "AI assistants that know your business. White-label, multi-channel chatbots powered by your own data. GDPR compliant, deployed on your infrastructure.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Conversational AI"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Chatbot Interfaces', href: '/services/chatbot-interfaces' },
+];
+---
+
+<Layout
+  title="AI Chatbot & Conversational Interfaces | GDPR Compliant | Ironum"
+  description="AI assistants that know your business. White-label, multi-channel chatbots powered by your own data. RAG-powered, GDPR compliant, deployed on your infrastructure."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="CHATBOT INTERFACES"
+    title="AI Assistants That Know Your Business"
+    subtitle="White-label chatbots powered by your own data. Deploy across web, Teams, Slack, and WhatsApp — with every conversation processed on EU infrastructure."
+  />
+
+  <!-- Features Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Features</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Enterprise Chatbot Capabilities</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Not another generic chatbot. Every feature is designed for organisations that need accuracy, privacy, and brand control.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">How It Works</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">From Your Data to Smart Conversations</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Connect Data</h3>
+          <p class="text-gray-500 font-medium">We ingest your documents, FAQ content, product data, and knowledge base articles into a private vector store.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Configure</h3>
+          <p class="text-gray-500 font-medium">Set your brand identity, tone of voice, escalation rules, and channel integrations. Define what the bot can and cannot discuss.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Deploy</h3>
+          <p class="text-gray-500 font-medium">Go live on your website, Teams, Slack, or WhatsApp. A single embed code or API integration gets you started.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Optimize</h3>
+          <p class="text-gray-500 font-medium">Monitor conversations, identify gaps, and continuously improve. Analytics dashboard shows what users ask and where the bot needs tuning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbots That Deliver Results</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {useCases.map((useCase) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="mb-6">
+              <span class="text-4xl md:text-5xl font-bold text-blue-600">{useCase.stat}</span>
+              <p class="text-gray-500 font-semibold mt-1">{useCase.statLabel}</p>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

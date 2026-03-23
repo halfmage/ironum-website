@@ -1,0 +1,113 @@
+---
+title: "EU AI Act Compliance Checklist for German SMEs"
+description: "A practical checklist for German SMEs to prepare for the EU AI Act. Understand the timeline, requirements, and steps to ensure your AI systems are compliant by August 2026."
+publishDate: 2026-03-15
+author: "Ironum Team"
+category: "compliance"
+tags: ["EU AI Act", "compliance", "SME", "Germany", "GDPR"]
+draft: false
+---
+
+The EU AI Act is no longer a future concern. With the first enforcement deadlines already behind us and the most impactful provisions taking effect in August 2026, German SMEs that use or develop AI systems need to act now. This checklist breaks down what you need to know, what you need to do, and when you need to do it.
+
+## The EU AI Act Timeline: Key Dates
+
+Understanding the phased rollout is critical for planning your compliance roadmap:
+
+- **February 2, 2025** — Prohibited AI practices banned. If you use social scoring systems, real-time biometric identification in public spaces (with limited exceptions), or manipulative AI techniques, these are already illegal.
+- **August 2, 2025** — Obligations for general-purpose AI (GPAI) models take effect. If you use foundation models like GPT-4, Claude, or Mistral in your products, you need to understand your obligations as a deployer.
+- **August 2, 2026** — The big one. Full enforcement of rules for high-risk AI systems. This is when most SMEs will feel the regulatory impact. Classification rules, conformity assessments, transparency requirements, and human oversight obligations all become enforceable.
+
+The penalties are substantial: up to EUR 35 million or 7% of global annual turnover for the most serious violations. Even for smaller infractions, fines can reach EUR 7.5 million or 1% of turnover. These are not theoretical numbers — the EU has shown with GDPR that it will enforce.
+
+## Step 1: Inventory Your AI Systems
+
+Before you can assess compliance, you need to know what AI you are actually using. Many SMEs are surprised by how much AI is embedded in their operations.
+
+Start by cataloguing every system that qualifies as an AI system under the Act's broad definition. This includes:
+
+- Customer-facing chatbots and virtual assistants
+- Automated decision-making in HR (CV screening, performance scoring)
+- Predictive analytics for sales, inventory, or financial planning
+- Content generation tools used by marketing teams
+- Quality control systems using computer vision
+- Any software that uses machine learning, statistical approaches, or logic-based AI
+
+For each system, document the vendor, the deployment model (cloud vs. on-premises), what data it processes, and who is affected by its outputs.
+
+## Step 2: Classify Your Risk Level
+
+The EU AI Act uses a tiered risk framework. Your obligations depend entirely on which category your AI systems fall into:
+
+**Unacceptable risk (banned):** Social scoring, manipulative subliminal techniques, real-time biometric identification in public. If you use any of these, stop immediately.
+
+**High-risk:** This is where most regulatory burden falls. AI systems are considered high-risk if they are used in areas such as employment and worker management, access to essential services (credit scoring, insurance), education and vocational training, law enforcement, or migration and border control. Additionally, AI systems that are safety components of products covered by EU harmonisation legislation (medical devices, machinery, vehicles) are high-risk.
+
+**Limited risk:** Systems with specific transparency obligations, such as chatbots (must disclose they are AI), emotion recognition systems, and deepfake generators.
+
+**Minimal risk:** Everything else. No specific obligations, though voluntary codes of conduct are encouraged.
+
+Most German SMEs will find that they operate primarily in the limited and minimal risk categories. But do not assume. If you use AI in hiring decisions, credit assessments, or as a component of a regulated product, you likely have high-risk obligations.
+
+## Step 3: High-Risk Compliance Requirements
+
+If any of your AI systems are classified as high-risk, you must implement:
+
+**Risk management system:** A continuous, documented process for identifying, analyzing, and mitigating risks throughout the AI system's lifecycle. This is not a one-time assessment — it must be maintained and updated.
+
+**Data governance:** Training, validation, and testing datasets must meet quality criteria. You need to address biases, ensure representativeness, and document data provenance. For German SMEs using pre-trained models, this means understanding what data your vendor's model was trained on.
+
+**Technical documentation:** Comprehensive documentation that demonstrates compliance before the system is placed on the market or put into service. This includes system architecture, design choices, training methodology, and performance metrics.
+
+**Record-keeping and logging:** Automatic logging of events during the AI system's operation to enable traceability. Logs must be retained for a period appropriate to the system's intended purpose.
+
+**Transparency and user information:** Clear instructions for deployers, including the system's capabilities and limitations, intended purpose, and the level of accuracy, robustness, and cybersecurity achieved.
+
+**Human oversight:** The system must be designed to allow effective human oversight. This means humans can understand the system's outputs, can decide not to use it or override it, and can interrupt or stop its operation.
+
+**Accuracy, robustness, and cybersecurity:** Documented levels of accuracy and robustness, along with measures to address errors, faults, and inconsistencies. Cybersecurity measures must protect against unauthorized third-party manipulation.
+
+## Step 4: Address GDPR Overlap
+
+For German SMEs, the EU AI Act does not exist in isolation. It layers on top of GDPR, and the intersection creates specific challenges:
+
+- AI systems processing personal data must still comply fully with GDPR. The AI Act does not replace or weaken data protection requirements.
+- Automated decision-making under GDPR Article 22 applies in addition to AI Act obligations. If your AI makes decisions with legal or similar significant effects on individuals, you need both GDPR safeguards and AI Act compliance.
+- Data used for AI training and testing must be processed on a valid GDPR legal basis. The AI Act's data governance requirements do not create a new legal basis for processing personal data.
+- Where your AI vendor processes data outside the EU (particularly in the US), you face both GDPR transfer restrictions and potential AI Act compliance gaps.
+
+The practical implication: prioritize AI solutions that keep data within the EU and allow you to maintain full control over data processing.
+
+## Step 5: Assess Your Supply Chain
+
+Most SMEs do not build AI systems from scratch. You use third-party tools, APIs, and platforms. Under the EU AI Act, the distribution of obligations depends on your role:
+
+**As a deployer** (you use someone else's AI system): You must use the system according to instructions, ensure human oversight, monitor for risks, and report serious incidents.
+
+**As a provider** (you develop or place an AI system on the market): You bear the full weight of high-risk obligations, including conformity assessment, CE marking, and post-market monitoring.
+
+**Critical point:** If you substantially modify a third-party AI system — for example, by fine-tuning a model on your data and deploying it as a product — you may become the provider and assume all provider obligations.
+
+Review your vendor contracts. Ensure your AI providers can supply the technical documentation, conformity declarations, and cooperation you need for your own compliance.
+
+## Step 6: Build Your Compliance Roadmap
+
+With less than six months until full enforcement in August 2026, German SMEs should prioritize:
+
+1. **Immediate (now):** Complete your AI inventory and risk classification. Identify any prohibited practices and eliminate them.
+2. **Q2 2026:** For high-risk systems, begin implementing risk management systems, data governance frameworks, and technical documentation. Engage legal counsel experienced in both GDPR and AI regulation.
+3. **Q3 2026:** Conduct internal conformity assessments. Test your human oversight mechanisms. Train relevant staff on AI Act obligations.
+4. **Ongoing:** Establish post-market monitoring processes. Create incident reporting procedures. Plan for regular compliance audits.
+
+## How Ironum Helps
+
+Ironum's infrastructure is designed from the ground up for EU AI Act and GDPR compliance. Our on-premises and private cloud AI deployments mean your data never leaves your control. We provide:
+
+- **Sovereign AI infrastructure** deployed on German or EU servers, eliminating cross-border data transfer concerns
+- **Full documentation and audit trails** for AI system operation, supporting your technical documentation and logging requirements
+- **Human-in-the-loop architectures** that satisfy the AI Act's human oversight requirements
+- **Vendor-independent, open-source AI models** that give you full transparency into model behavior and training data
+
+Compliance is not just a legal checkbox. It is a competitive advantage. European customers and partners increasingly demand AI solutions that respect data sovereignty and meet regulatory requirements. The SMEs that get this right now will be the ones winning contracts in 2027 and beyond.
+
+If you need help assessing your AI systems or building a compliant AI infrastructure, [book a call with our team](/contact/) to discuss your specific situation.

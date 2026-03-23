@@ -1,0 +1,265 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/industries/' },
+  { label: 'Legal', href: '/industries/legal/' },
+];
+
+const faqItems = [
+  {
+    question: 'How does Ironum ensure client confidentiality when using AI for legal work?',
+    answer: 'All data processing happens on your own infrastructure — on-premise servers, private Azure instances, or German-hosted Hetzner cloud. No data is ever sent to third-party AI providers like OpenAI or Google. Every deployment includes a DPA (Data Processing Agreement) and NDA as standard. Your client data never leaves your controlled environment.',
+  },
+  {
+    question: 'Is Ironum compliant with the EU AI Act for legal applications?',
+    answer: 'Yes. Legal AI applications fall under scrutiny in the EU AI Act. Our deployments include risk classification documentation, transparency requirements, human oversight mechanisms, and full audit trails. We help you prepare for the August 2026 compliance deadline, with penalties of up to EUR 35M or 7% of global turnover for non-compliance.',
+  },
+  {
+    question: 'What types of legal documents can the AI process?',
+    answer: 'Our RAG-based systems handle contracts, NDAs, compliance documentation, regulatory filings, case law, internal policies, and correspondence. The system supports PDF, DOCX, and plain text formats. It can be fine-tuned to your specific legal domain, jurisdiction, and terminology.',
+  },
+  {
+    question: 'How long does deployment take for a law firm?',
+    answer: 'A standard deployment takes 4-8 weeks from initial consultation to production. This includes infrastructure setup, document ingestion, model configuration, testing, and team training. Pilot projects with limited scope can be operational within 2-3 weeks.',
+  },
+  {
+    question: 'Can we use our existing document management system?',
+    answer: 'Yes. Our solutions integrate with common legal DMS platforms and can ingest documents from network drives, SharePoint, and other enterprise storage. We use n8n workflow automation to connect with your existing tools without disrupting established processes.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/industries/legal/#service",
+    "name": "Legal AI Solutions",
+    "description": "GDPR-compliant AI for contract review, compliance automation, and legal research. Deployed on-premise or private cloud with complete client confidentiality.",
+    "url": "https://www.ironum.com/industries/legal/",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Infrastructure for Legal Industry"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="Legal AI Solutions - GDPR Compliant Contract Review & Compliance | Ironum"
+  description="AI-powered contract review, compliance automation, and legal Q&A with complete client confidentiality. On-premise deployment, EU AI Act ready. No data leaves your infrastructure."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="AI FOR LEGAL"
+    title="AI That Never Compromises Client Confidentiality"
+    subtitle="61% of European lawyers already use AI, but only 14% have specialized legal tools. Deploy compliant legal AI before the EU AI Act deadline in August 2026."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Legal AI Has a Trust Problem</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Law firms and legal departments face unique obstacles when adopting AI — obstacles that generic cloud solutions cannot solve.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Unstructured Contract Chaos</h3>
+          <p class="text-gray-500">Thousands of contracts in PDFs, emails, and legacy systems with no consistent structure. Manual review is slow, expensive, and error-prone — yet the stakes of missing a clause are enormous.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Regulatory Compliance Burden</h3>
+          <p class="text-gray-500">GDPR, EU AI Act, sector-specific regulations, and cross-border requirements create a compliance maze. The August 2026 EU AI Act deadline adds urgency — with penalties up to EUR 35M or 7% of global turnover.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Confidentiality vs. Cloud AI</h3>
+          <p class="text-gray-500">Sending privileged client data to ChatGPT or cloud AI services violates professional obligations. 44% of enterprises cite data security as the primary barrier to AI adoption — for law firms, the stakes are even higher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Solutions</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Legal AI That Stays On Your Infrastructure</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">GDPR Contract Review</h3>
+          <p class="text-gray-500 mb-4">RAG-powered contract analysis that identifies risk clauses, compliance gaps, and inconsistencies across your entire document library. Trained on your specific templates and standards.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automated clause extraction and comparison</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Risk scoring against your compliance frameworks</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Multi-language support for cross-border work</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Compliance Document Analysis</h3>
+          <p class="text-gray-500 mb-4">Automated analysis of regulatory documents, internal policies, and compliance requirements. Map obligations across jurisdictions and identify gaps before auditors do.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Regulatory change tracking and alerts</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Cross-jurisdictional obligation mapping</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automated audit trail generation</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Legal Q&A Chatbot</h3>
+          <p class="text-gray-500 mb-4">Internal knowledge assistant trained on your firm's precedents, templates, and expertise. Junior associates get instant answers without interrupting senior partners.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited responses with document links</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Role-based access control per matter</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Continuous learning from new documents</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In practice</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Real-World Legal AI Scenarios</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8 md:p-10">
+          <div class="text-blue-600 text-sm font-semibold mb-2">SCENARIO 1</div>
+          <h3 class="text-2xl font-bold mb-4">Law Firm: 500 Contracts, GDPR Compliance Review</h3>
+          <p class="text-gray-500 text-lg mb-6">A mid-size German law firm needs to review 500 client contracts for GDPR compliance gaps before a regulatory deadline. Manual review would take 6 attorneys working full-time for 3 months.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">01</span>
+              <p class="text-gray-600">Deploy on-premise RAG system trained on GDPR requirements and firm-specific compliance templates</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">02</span>
+              <p class="text-gray-600">Ingest all 500 contracts through automated document processing pipeline</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">03</span>
+              <p class="text-gray-600">AI identifies non-compliant clauses, missing provisions, and risk areas across all contracts</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
+              <p class="text-gray-600">Attorneys review AI-flagged items only — reducing review time by 70% while improving accuracy</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8 md:p-10">
+          <div class="text-blue-600 text-sm font-semibold mb-2">SCENARIO 2</div>
+          <h3 class="text-2xl font-bold mb-4">In-House Legal: Automated NDA Review</h3>
+          <p class="text-gray-500 text-lg mb-6">A corporate legal department processes 200+ NDAs per quarter. Each NDA requires comparison against company standards, risk assessment, and redline suggestions — creating a bottleneck for business operations.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">01</span>
+              <p class="text-gray-600">Configure AI with company-specific NDA templates, approved clause libraries, and risk thresholds</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">02</span>
+              <p class="text-gray-600">n8n workflow automation routes incoming NDAs through the AI review pipeline</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">03</span>
+              <p class="text-gray-600">AI generates redline suggestions and risk scores — standard NDAs auto-approved, flagged ones escalated</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
+              <p class="text-gray-600">Turnaround drops from 5 business days to same-day for 80% of NDAs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white" style="background-image: url('/hero-background.png'); background-size: cover; background-position: bottom;">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Compliance</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Compliance Is Not Optional</h2>
+        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Every Ironum deployment meets the highest European compliance standards — because in legal, anything less is unacceptable.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">EU AI Act</h3>
+          <p class="text-gray-300 text-sm">Full compliance with high-risk classification requirements, transparency obligations, and human oversight mandates before the August 2026 deadline.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">GDPR Article 28</h3>
+          <p class="text-gray-300 text-sm">Compliant data processing with standard contractual clauses, Data Processing Agreements, and documented technical and organizational measures.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">On-Premise Guarantee</h3>
+          <p class="text-gray-300 text-sm">Client data never leaves your premises. No external API calls, no cloud processing of sensitive information, no third-party data access.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">DPA & NDA Included</h3>
+          <p class="text-gray-300 text-sm">Every engagement includes a comprehensive Data Processing Agreement and Non-Disclosure Agreement as standard — not as an upsell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">70%</div>
+          <p class="text-gray-500 text-lg font-semibold">Faster contract review with AI-assisted analysis and automated clause extraction</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Data sovereignty — client data never leaves your controlled infrastructure</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">14→100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Move from the 14% with specialized legal AI to full coverage of your practice areas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

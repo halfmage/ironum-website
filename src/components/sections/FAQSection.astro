@@ -1,0 +1,37 @@
+---
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  items: FAQItem[];
+  title?: string;
+}
+
+const { items, title = 'Frequently Asked Questions' } = Astro.props;
+---
+
+<section class="px-4 md:px-20 py-20 md:py-32">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold text-center mb-16">{title}</h2>
+    <div class="space-y-4" x-data="{ openIndex: null }">
+      {items.map((item, index) => (
+        <div class="border-2 border-gray-100 rounded-2xl overflow-hidden">
+          <button
+            class="w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold hover:bg-gray-50 transition-colors min-h-[48px] touch-manipulation"
+            x-on:click={`openIndex = openIndex === ${index} ? null : ${index}`}
+          >
+            <span>{item.question}</span>
+            <svg class="w-5 h-5 shrink-0 ml-4 transition-transform" x-bind:class={`openIndex === ${index} && 'rotate-180'`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="px-6 pb-5" x-show={`openIndex === ${index}`} x-transition x-cloak>
+            <p class="text-gray-500 text-lg">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

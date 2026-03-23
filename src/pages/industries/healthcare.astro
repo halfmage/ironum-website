@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Industries', href: '/industries/' },
+  { label: 'Healthcare', href: '/industries/healthcare/' },
+];
+
+const faqItems = [
+  {
+    question: 'Does Ironum process clinical patient data?',
+    answer: 'Our healthcare solutions focus on administrative automation, documentation assistance, and knowledge management — not clinical decision-making. All patient data remains on your infrastructure and is never sent to external AI services. We do not position our AI as a medical device or clinical decision support system.',
+  },
+  {
+    question: 'How does on-premise deployment work in a hospital environment?',
+    answer: 'We deploy directly within your hospital IT infrastructure, behind your firewall and within your existing security perimeter. The system integrates with your HIS (Hospital Information System) via secure APIs. All data processing is local, ensuring compliance with patient data protection requirements.',
+  },
+  {
+    question: 'What administrative tasks can be automated?',
+    answer: 'Common use cases include medical documentation summarization, discharge letter drafting, referral letter generation, insurance documentation, and internal knowledge management. Leading hospitals are achieving 30-40% adoption rates for documentation tools, with some approaching 90% utilization.',
+  },
+  {
+    question: 'Is the solution compliant with German healthcare data regulations?',
+    answer: 'Yes. Our deployments comply with GDPR, the German Patientendaten-Schutz-Gesetz (PDSG), and relevant Landesdatenschutzgesetz requirements. Data processing agreements and technical-organizational measures documentation are included as standard. We also support preparation for EU AI Act compliance.',
+  },
+  {
+    question: 'Can the AI be trained on our specific medical terminology and workflows?',
+    answer: 'Yes. Our RAG-based systems are configured with your specific clinical documentation templates, medical terminology, internal protocols, and departmental workflows. The system learns from your approved content — not from the general internet — ensuring accuracy and relevance to your institution.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/industries/healthcare/#service",
+    "name": "Healthcare AI Solutions",
+    "description": "Administrative automation and documentation assistance for European healthcare. Patient data stays on your infrastructure. GDPR and healthcare data regulation compliant.",
+    "url": "https://www.ironum.com/industries/healthcare/",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Infrastructure for Healthcare"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="Healthcare AI Solutions - Patient Data Sovereignty | Ironum"
+  description="Administrative AI automation for European healthcare. Documentation assistance, knowledge management, and workflow automation. Patient data never leaves your infrastructure."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="AI FOR HEALTHCARE"
+    title="Patient Data Stays on Your Infrastructure"
+    subtitle="Healthcare is the fastest-growing AI vertical in Europe. Leading hospitals are approaching 90% utilization of documentation tools. Deploy administrative AI without compromising patient data sovereignty."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Healthcare Data Is the Most Sensitive Data</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Patient data demands absolute protection. Healthcare institutions need AI productivity gains without risking data sovereignty or regulatory compliance.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Documentation Overload</h3>
+          <p class="text-gray-500">Physicians spend up to 50% of their time on documentation rather than patient care. Discharge summaries, referral letters, and insurance forms create an administrative burden that AI can significantly reduce.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Patient Data Sensitivity</h3>
+          <p class="text-gray-500">Health data is a special category under GDPR Article 9. Using public cloud AI for patient-related tasks creates unacceptable data protection risks. 44% of organizations cite data security as their primary barrier to cloud AI adoption.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Knowledge Fragmentation</h3>
+          <p class="text-gray-500">Clinical protocols, treatment guidelines, and institutional knowledge are scattered across documents, intranets, and departmental silos. Staff spend valuable time searching instead of caring for patients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Solutions</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Administrative AI for Healthcare</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Focused on administrative efficiency — not clinical decision-making. AI that reduces paperwork so your staff can focus on patient care.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Administrative Automation</h3>
+          <p class="text-gray-500 mb-4">Automate repetitive administrative tasks including appointment scheduling workflows, insurance documentation, and interdepartmental communication using n8n workflow automation.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Insurance and billing workflow automation</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Referral and discharge process optimization</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Self-hosted n8n — no external data transfer</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Documentation Assistance</h3>
+          <p class="text-gray-500 mb-4">AI-assisted drafting of discharge summaries, referral letters, and clinical notes. Reduces documentation time while maintaining medical accuracy through RAG-powered templates.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Discharge summary generation from structured data</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Template-based with physician review step</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Trained on your institution's documentation standards</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Knowledge Management</h3>
+          <p class="text-gray-500 mb-4">Internal knowledge chatbot trained on your clinical protocols, treatment guidelines, and institutional policies. Staff get instant, accurate answers from your approved knowledge base.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Protocol and guideline search in natural language</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited answers with document references</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Role-based access for different departments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Market data</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Healthcare AI Adoption in Europe</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">#1</div>
+          <p class="text-gray-500 text-lg font-semibold">Fastest-growing AI vertical in Europe</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-4xl font-bold mb-2">30-40%</div>
+          <p class="text-gray-500 text-lg font-semibold">Adoption rate of medical documentation AI tools</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">90%</div>
+          <p class="text-gray-500 text-lg font-semibold">Utilization at leading European hospitals</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Patient data stays on your infrastructure</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

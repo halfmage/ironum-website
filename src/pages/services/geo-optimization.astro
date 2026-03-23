@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const howItWorks = [
+  {
+    step: '01',
+    title: 'AI Visibility Audit',
+    description: 'We analyse how your brand currently appears in AI-generated answers across ChatGPT, Perplexity, Google AI Overviews, and other engines. You get a baseline report showing where you are visible, where competitors appear, and where opportunities exist.',
+    deliverables: ['Brand mention analysis across AI engines', 'Competitor visibility comparison', 'Opportunity gap assessment'],
+  },
+  {
+    step: '02',
+    title: 'Content Optimization',
+    description: 'We restructure and enhance your content to be preferred by AI answer engines. This includes adding structured data, optimizing for entity recognition, creating authoritative topical content, and building the citation signals that AI models use to determine trustworthiness.',
+    deliverables: ['Content restructuring plan', 'Structured data implementation', 'Topical authority content creation'],
+  },
+  {
+    step: '03',
+    title: 'Monitoring & Iteration',
+    description: 'GEO is not a one-time project. AI engines update constantly. We continuously monitor your brand\'s visibility, track ranking changes, and adapt your strategy. Monthly reports show progress and identify new optimization opportunities.',
+    deliverables: ['Monthly visibility reports', 'Ongoing content optimization', 'Competitive tracking'],
+  },
+];
+
+const seoVsGeo = [
+  {
+    aspect: 'Goal',
+    seo: 'Rank in search result pages',
+    geo: 'Get cited in AI-generated answers',
+  },
+  {
+    aspect: 'User behaviour',
+    seo: 'User clicks through to your website',
+    geo: 'User gets answer directly — with your brand mentioned',
+  },
+  {
+    aspect: 'Ranking factors',
+    seo: 'Backlinks, keywords, page speed',
+    geo: 'Entity authority, structured data, citation signals',
+  },
+  {
+    aspect: 'Content format',
+    seo: 'Optimized for keywords and readability',
+    geo: 'Optimized for AI extraction and entity recognition',
+  },
+  {
+    aspect: 'Measurement',
+    seo: 'Rankings, clicks, impressions',
+    geo: 'AI mentions, citation frequency, answer presence',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'What is Generative Engine Optimization (GEO)?',
+    answer: 'GEO is the practice of optimizing your brand\'s content and online presence to be cited and recommended by AI-powered answer engines — ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot, and others. As more users get answers directly from AI instead of clicking through search results, brands that are not optimized for AI visibility risk becoming invisible to their customers.',
+  },
+  {
+    question: 'How is GEO different from SEO?',
+    answer: 'Traditional SEO optimizes for search engine result pages (SERPs) — you want to rank high so users click through to your website. GEO optimizes for AI-generated answers — you want your brand to be cited, recommended, and accurately represented when AI engines answer user queries. The ranking factors are different: GEO prioritizes entity authority, structured data, topical depth, and citation signals over traditional keyword optimization.',
+  },
+  {
+    question: 'What is AskMention and how does it work?',
+    answer: 'AskMention (askmention.com) is our proprietary GEO monitoring tool. It tracks how your brand appears across major AI answer engines, monitors competitor visibility, and identifies optimization opportunities. Think of it as an analytics platform specifically built for AI visibility — showing you where you are mentioned, how accurately, and what you can do to improve.',
+  },
+  {
+    question: 'How long does it take to see results from GEO?',
+    answer: 'Initial improvements are often visible within 4 to 8 weeks as AI engines re-crawl and reprocess your optimized content. However, GEO is an ongoing discipline — AI models update their knowledge regularly, and competitive landscapes shift. We recommend a minimum 6-month engagement for sustained visibility improvements, with monthly reporting to track progress.',
+  },
+  {
+    question: 'Do I still need SEO if I invest in GEO?',
+    answer: 'Yes. SEO and GEO are complementary, not replacements for each other. Search engines still drive significant traffic, and many AI engines use search results as input signals. A strong SEO foundation actually improves your GEO performance. We recommend integrating both disciplines into a unified visibility strategy.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/geo-optimization/#service",
+    "name": "Generative Engine Optimization (GEO)",
+    "description": "Get found by AI, not just search engines. Optimize your brand visibility across ChatGPT, Perplexity, and AI-powered answer engines.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Generative Engine Optimization"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'GEO Optimization', href: '/services/geo-optimization' },
+];
+---
+
+<Layout
+  title="Generative Engine Optimization (GEO) | AI Visibility | Ironum"
+  description="Get found by AI, not just search engines. Optimize your brand visibility across ChatGPT, Perplexity, and AI-powered answer engines. Powered by AskMention."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="GEO OPTIMIZATION"
+    title="Get Found by AI — Not Just Search Engines"
+    subtitle="Your customers are asking ChatGPT, Perplexity, and Google AI for recommendations. Is your brand showing up in the answers?"
+  />
+
+  <!-- What is GEO -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Shift</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">From Search to Answers</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">The way people find information is fundamentally changing. Instead of browsing 10 blue links, users ask AI engines a question and get a direct answer — often with specific brand recommendations. If your brand is not part of those answers, you are invisible to a growing segment of your audience.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-4">Studies show that AI-powered search is growing at 60%+ year-over-year. By 2027, Gartner predicts traditional search volumes will drop by 25%. Generative Engine Optimization (GEO) is the discipline of ensuring your brand remains visible in this new landscape.</p>
+          <div class="mt-8 grid grid-cols-2 gap-6">
+            <div>
+              <p class="text-3xl md:text-4xl font-bold text-blue-600">60%+</p>
+              <p class="text-gray-500 font-medium text-sm mt-1">YoY growth in AI search usage</p>
+            </div>
+            <div>
+              <p class="text-3xl md:text-4xl font-bold text-blue-600">25%</p>
+              <p class="text-gray-500 font-medium text-sm mt-1">predicted drop in traditional search by 2027</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="bg-black rounded-2xl p-8 text-white">
+            <p class="text-white/60 text-sm font-medium mb-4">User asks ChatGPT:</p>
+            <p class="text-lg font-medium mb-6">"What are the best GDPR-compliant AI solutions for European businesses?"</p>
+            <div class="border-t border-white/20 pt-6">
+              <p class="text-white/60 text-sm font-medium mb-4">AI response includes:</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-white/80 text-sm">Brand A — mentioned with detailed description</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-white/80 text-sm">Brand B — recommended for specific use case</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                  <span class="text-orange-300 text-sm font-medium">Your brand? Not mentioned.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO vs GEO Comparison -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">SEO vs GEO</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Different Games, Different Rules</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">SEO and GEO are complementary but distinct disciplines. Understanding the differences is key to a complete visibility strategy.</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden bg-white">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">Aspect</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">Traditional SEO</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-blue-600">GEO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {seoVsGeo.map((item, index) => (
+              <tr class={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                <td class="px-6 py-4 font-bold text-sm">{item.aspect}</td>
+                <td class="px-6 py-4 text-gray-500 text-sm">{item.seo}</td>
+                <td class="px-6 py-4 text-gray-700 text-sm font-medium">{item.geo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">How It Works</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Three Steps to AI Visibility</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {howItWorks.map((step) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <span class="text-3xl font-bold text-blue-600">{step.step}</span>
+            <h3 class="text-xl font-bold mt-4 mb-3">{step.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{step.description}</p>
+            <div class="pt-6 border-t border-gray-100">
+              <p class="text-sm font-bold text-gray-700 mb-3">Deliverables:</p>
+              <ul class="space-y-2">
+                {step.deliverables.map((deliverable) => (
+                  <li class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span class="text-gray-600 text-sm font-medium">{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AskMention Tool -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-black rounded-2xl p-8 md:p-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Our Tool</span>
+            <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">AskMention</h2>
+            <p class="text-white/80 text-lg font-medium mt-4">Our proprietary GEO monitoring platform. Track your brand's visibility across AI answer engines, monitor competitors, and identify optimization opportunities — all in one dashboard.</p>
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Track mentions across ChatGPT, Perplexity, Google AI, and more</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Compare your visibility against competitors</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Get actionable recommendations to improve AI citations</span>
+              </li>
+            </ul>
+            <a href="https://askmention.com/" target="_blank"
+              class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation mt-8">
+              Try AskMention
+            </a>
+          </div>
+          <div class="bg-white/10 rounded-2xl p-8">
+            <div class="space-y-6">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-white font-medium text-sm">ChatGPT Visibility</span>
+                  <span class="text-white font-bold text-sm">72%</span>
+                </div>
+                <div class="h-2 bg-white/20 rounded-full">
+                  <div class="h-2 bg-green-400 rounded-full" style="width: 72%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-white font-medium text-sm">Perplexity Mentions</span>
+                  <span class="text-white font-bold text-sm">58%</span>
+                </div>
+                <div class="h-2 bg-white/20 rounded-full">
+                  <div class="h-2 bg-blue-400 rounded-full" style="width: 58%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-white font-medium text-sm">Google AI Overview</span>
+                  <span class="text-white font-bold text-sm">45%</span>
+                </div>
+                <div class="h-2 bg-white/20 rounded-full">
+                  <div class="h-2 bg-orange-400 rounded-full" style="width: 45%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-white font-medium text-sm">Competitor Gap</span>
+                  <span class="text-white font-bold text-sm">+14pts</span>
+                </div>
+                <div class="h-2 bg-white/20 rounded-full">
+                  <div class="h-2 bg-purple-400 rounded-full" style="width: 64%"></div>
+                </div>
+              </div>
+            </div>
+            <p class="text-white/40 text-xs mt-6 text-center">Sample dashboard view</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

@@ -1,0 +1,179 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Enterprise RAG Solutions',
+    description: 'Turn scattered documents into a searchable, private knowledge base. Deploy retrieval-augmented generation on your own infrastructure with GDPR compliance built in.',
+    href: '/services/enterprise-rag',
+    icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    title: 'Workflow Automation',
+    description: 'Eliminate manual processes with n8n-based workflow automation. Self-hosted, open-source, and integrated with 400+ business tools — no vendor lock-in.',
+    href: '/services/workflow-automation',
+    icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
+  },
+  {
+    title: 'AI Consulting & Audits',
+    description: 'Get a clear roadmap from AI strategy to production. Technical audits, readiness assessments, and integration planning tailored to European compliance requirements.',
+    href: '/services/ai-consulting',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'Chatbot & Conversational AI',
+    description: 'Deploy AI assistants that actually know your business. White-label, multi-channel chatbots powered by your own data with enterprise-grade privacy.',
+    href: '/services/chatbot-interfaces',
+    icon: 'M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z',
+  },
+  {
+    title: 'LLM Fine-Tuning',
+    description: 'Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry — your data never leaves your infrastructure.',
+    href: '/services/llm-fine-tuning',
+    icon: 'M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342',
+  },
+  {
+    title: 'Generative Engine Optimization',
+    description: 'Get found by AI — not just search engines. Optimize your brand visibility across ChatGPT, Perplexity, and other AI-powered answer engines.',
+    href: '/services/geo-optimization',
+    icon: 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418',
+  },
+];
+
+const deploymentOptions = [
+  {
+    title: 'Cloud APIs',
+    description: 'Connect to OpenAI, Anthropic, or Google APIs for rapid deployment and access to frontier models. Ideal for teams getting started with AI.',
+    features: ['OpenAI, Anthropic, Google', 'Fastest time to value', 'Pay-per-use pricing'],
+  },
+  {
+    title: 'Microsoft Azure (GDPR)',
+    description: 'Deploy on Azure with EU data residency guarantees. Your data stays in European data centres with full GDPR compliance and enterprise SLAs.',
+    features: ['EU data residency', 'Enterprise SLAs', 'GDPR compliant by default'],
+  },
+  {
+    title: 'On-Premises / Hetzner',
+    description: 'Full data sovereignty with on-premises deployment or German-hosted infrastructure on Hetzner. Zero data leaves your control.',
+    features: ['100% data sovereignty', 'German hosting available', 'Open-source LLMs'],
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/#service",
+    "name": "Ironum AI Services",
+    "description": "Full-service AI partner for European businesses. Enterprise RAG, workflow automation, AI consulting, chatbots, LLM fine-tuning, and GEO.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "AI Solutions"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+];
+---
+
+<Layout
+  title="AI Services for European Businesses | Ironum AI Core"
+  description="Full-service AI partner: Enterprise RAG, workflow automation, AI consulting, chatbots, LLM fine-tuning, and Generative Engine Optimization. GDPR compliant, European-hosted."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="OUR SERVICES"
+    title="AI Solutions for European Businesses"
+    subtitle="Your full-service AI partner — from strategy to production. Every solution GDPR compliant, every deployment on infrastructure you control."
+  />
+
+  <!-- Services Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What We Build</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Six Pillars of Enterprise AI</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Each service is designed to work standalone or as part of an integrated AI stack. All solutions deploy on your infrastructure with full data sovereignty.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-200 group block">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={service.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{service.description}</p>
+            <span class="inline-flex items-center text-blue-600 font-semibold mt-4 group-hover:gap-2 transition-all">
+              Learn more
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deployment Options -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Deployment</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Infrastructure, Your Rules</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Choose the deployment model that fits your compliance requirements. Every option is production-ready and fully managed by our team.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {deploymentOptions.map((option) => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-3">{option.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{option.description}</p>
+            <ul class="space-y-3">
+              {option.features.map((feature) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-gray-700 font-medium">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EU Compliance Banner -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-black rounded-2xl p-8 md:p-16 text-center">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Compliance First</span>
+        <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">Built for the EU AI Act Era</h2>
+        <p class="text-white/80 text-lg md:text-xl font-medium mt-4 max-w-3xl mx-auto">The EU AI Act entered into force in August 2024 with phased compliance deadlines through 2027. Every Ironum solution is designed from the ground up to meet these requirements — so you can deploy AI with confidence, not legal risk.</p>
+        <div class="grid md:grid-cols-3 gap-8 mt-12 text-left">
+          <div>
+            <h3 class="text-white text-lg font-bold mb-2">GDPR Compliant</h3>
+            <p class="text-white/60 font-medium">All data processing stays within EU boundaries. No transatlantic data transfers, no third-party access.</p>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-bold mb-2">EU AI Act Ready</h3>
+            <p class="text-white/60 font-medium">Risk assessments, transparency documentation, and human oversight built into every deployment.</p>
+          </div>
+          <div>
+            <h3 class="text-white text-lg font-bold mb-2">Audit-Ready</h3>
+            <p class="text-white/60 font-medium">Full logging, model documentation, and data lineage tracking for regulatory audits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

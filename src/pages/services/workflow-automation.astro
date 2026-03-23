@@ -1,0 +1,255 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FAQSection from '../../components/sections/FAQSection.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+
+const features = [
+  {
+    title: 'Visual Workflow Builder',
+    description: 'Design complex automation flows with a drag-and-drop canvas. No coding required for standard workflows — full code access when you need it.',
+    icon: 'M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z',
+  },
+  {
+    title: '400+ Integrations',
+    description: 'Connect to Slack, HubSpot, Salesforce, SAP, Microsoft 365, Google Workspace, databases, and hundreds more. Custom API integrations for internal tools.',
+    icon: 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244',
+  },
+  {
+    title: 'Self-Hosted & GDPR Ready',
+    description: 'n8n runs on your own servers or private cloud. All workflow data, credentials, and execution logs stay within your infrastructure. No data leaves your environment.',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'AI-Powered Orchestration',
+    description: 'Integrate LLMs directly into workflows. Classify emails, extract data from documents, generate reports, and route decisions — all automated with AI.',
+    icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z',
+  },
+  {
+    title: 'Error Handling & Monitoring',
+    description: 'Built-in retry logic, error branches, and alerting. Get notified when workflows fail and automatically recover without manual intervention.',
+    icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
+  },
+  {
+    title: 'Scalable Architecture',
+    description: 'Handle thousands of workflow executions per hour. Scale horizontally across multiple workers. Queue-based execution for high-volume processing.',
+    icon: 'M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Invoice Processing',
+    description: 'Incoming invoices are automatically extracted from email, parsed with AI, validated against purchase orders in your ERP, and routed for approval. From days to minutes.',
+    before: 'Manual data entry, 3-day processing',
+    after: 'Automated extraction, same-day processing',
+  },
+  {
+    title: 'Email Triage & Routing',
+    description: 'AI classifies incoming emails by intent, urgency, and department. Support requests are categorized, customer data is enriched from your CRM, and tickets are created in the right queue automatically.',
+    before: 'Manual sorting, missed priorities',
+    after: 'AI classification, instant routing',
+  },
+  {
+    title: 'Cross-System Data Sync',
+    description: 'Keep CRM, ERP, HR, and project management tools in sync. When a deal closes in Salesforce, automatically update SAP, create a project in Monday.com, and notify the team in Slack.',
+    before: 'Manual updates, data inconsistencies',
+    after: 'Real-time sync, single source of truth',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'What is n8n and why do you use it?',
+    answer: 'n8n is an open-source workflow automation platform with a visual builder and 400+ integrations. We chose n8n because it can be fully self-hosted (critical for GDPR), has no vendor lock-in, supports custom code nodes for complex logic, and integrates natively with AI models. Unlike Zapier or Make, your workflow data and credentials never leave your infrastructure.',
+  },
+  {
+    question: 'Can you automate workflows that involve AI decision-making?',
+    answer: 'Yes. We integrate LLMs directly into n8n workflows for tasks like document classification, data extraction, sentiment analysis, content generation, and decision routing. The AI components run on the same private infrastructure as your workflows, so sensitive data stays secure.',
+  },
+  {
+    question: 'How do you handle failures and monitoring?',
+    answer: 'Every workflow includes error handling branches, automatic retries with exponential backoff, and alerting via email, Slack, or your monitoring tool of choice. We also set up dashboards for execution monitoring, so your team has full visibility into workflow performance.',
+  },
+  {
+    question: 'What systems can you integrate with?',
+    answer: 'n8n has native connectors for 400+ tools including Microsoft 365, Google Workspace, Salesforce, HubSpot, SAP, Slack, Jira, databases (PostgreSQL, MySQL, MongoDB), and more. For internal or legacy systems, we build custom API integrations or use webhooks. If it has an API, we can connect it.',
+  },
+  {
+    question: 'How is pricing structured for workflow automation?',
+    answer: 'Since n8n is open-source, there are no per-workflow or per-execution license fees. You pay for infrastructure hosting and our services: initial workflow design, implementation, testing, and ongoing maintenance. This typically results in 60-80% lower total cost compared to proprietary platforms like Zapier or Make at enterprise scale.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/services/workflow-automation/#service",
+    "name": "Workflow Automation with n8n",
+    "description": "Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, GDPR compliant. No vendor lock-in.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Workflow Automation"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Workflow Automation', href: '/services/workflow-automation' },
+];
+---
+
+<Layout
+  title="Workflow Automation with n8n | GDPR Compliant | Ironum"
+  description="Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, no vendor lock-in. GDPR compliant, European-hosted."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="WORKFLOW AUTOMATION"
+    title="Automate Business Processes Without Vendor Lock-In"
+    subtitle="Self-hosted n8n workflows that connect your tools, integrate AI, and run on infrastructure you control. Open-source, GDPR compliant, infinitely customizable."
+  />
+
+  <!-- Problem Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Problem</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Manual Work Is Eating Your Margins</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">European SMEs lose an average of 30% of productive time to repetitive tasks that should be automated. Legacy approaches create new problems.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Manual Processes</h3>
+          <p class="text-gray-500 text-lg font-semibold">Data entry, email sorting, report generation, system updates — your team spends hours on tasks a machine could handle in seconds.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Data Silos</h3>
+          <p class="text-gray-500 text-lg font-semibold">Information trapped in disconnected systems. CRM, ERP, HR, and project tools that don't talk to each other — leading to duplicate work and errors.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Expensive Proprietary Tools</h3>
+          <p class="text-gray-500 text-lg font-semibold">Zapier and Make charge per execution. At enterprise scale, costs balloon quickly — and your workflow data sits on US servers outside GDPR protection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Solution</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">n8n: Open-Source Automation That Scales</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">We deploy and customize n8n — the leading open-source workflow automation platform — on your own infrastructure. Design workflows visually, connect 400+ tools, and integrate AI for intelligent automation. No per-execution fees, no vendor lock-in, full GDPR compliance.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank"
+              class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
+              Schedule a Demo
+            </a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-6">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl font-bold text-blue-600">0</span>
+              <div>
+                <h4 class="font-bold">Per-Execution Fees</h4>
+                <p class="text-gray-500 text-sm">Open-source license. Run unlimited workflows.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-6">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl font-bold text-blue-600">400+</span>
+              <div>
+                <h4 class="font-bold">Native Integrations</h4>
+                <p class="text-gray-500 text-sm">Plus custom API connections for any system.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-6">
+            <div class="flex items-center gap-4">
+              <span class="text-3xl font-bold text-blue-600">100%</span>
+              <div>
+                <h4 class="font-bold">Data Sovereignty</h4>
+                <p class="text-gray-500 text-sm">Self-hosted on your infrastructure. GDPR by design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Capabilities</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Built for Enterprise Workflows</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Automation in Practice</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {useCases.map((useCase) => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{useCase.description}</p>
+            <div class="space-y-3 pt-6 border-t border-gray-100">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                <span class="text-gray-500 text-sm font-medium">{useCase.before}</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-gray-700 text-sm font-medium">{useCase.after}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

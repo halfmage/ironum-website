@@ -1,12 +1,83 @@
 ---
 import '../styles/global.css';
 
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
 export interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  structuredData?: object[];
 }
 
-const { title = "Ironum AI Core - GDPR Compliant Enterprise AI Solutions", description = "Deploy GDPR-compliant AI infrastructure in your private cloud or on-premise. Secure, European-hosted enterprise AI solutions for data sovereignty and compliance. No AI team required." } = Astro.props;
+const {
+  title = "Ironum AI Core - GDPR Compliant Enterprise AI Solutions",
+  description = "Deploy GDPR-compliant AI infrastructure in your private cloud or on-premise. Secure, European-hosted enterprise AI solutions for data sovereignty and compliance. No AI team required.",
+  ogImage = "/social.png",
+  breadcrumbs,
+  structuredData,
+} = Astro.props;
+
+const canonicalUrl = `https://www.ironum.com${Astro.url.pathname}`;
+
+const defaultStructuredData = [
+  {
+    "@type": "Organization",
+    "@id": "https://www.ironum.com/#organization",
+    "name": "Ironum",
+    "legalName": "LearnSlice UG (haftungsbeschränkt)",
+    "url": "https://www.ironum.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.ironum.com/ironum-logo.svg",
+      "width": 120,
+      "height": 24
+    },
+    "description": "Deploy GDPR-compliant AI in your own cloud or on-prem. Boost productivity, protect data, and automate workflows—without hiring an AI team.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Luisenstraße 66",
+      "postalCode": "40215",
+      "addressLocality": "Düsseldorf",
+      "addressCountry": "DE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+49-15758539892",
+      "email": "info@ironum.com",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "German"]
+    },
+    "foundingDate": "2024",
+    "areaServed": { "@type": "Place", "name": "Europe" }
+  },
+  {
+    "@type": "WebSite",
+    "@id": "https://www.ironum.com/#website",
+    "url": "https://www.ironum.com",
+    "name": "Ironum AI Core",
+    "description": "Deploy GDPR-compliant AI in your own cloud or on-prem.",
+    "publisher": { "@id": "https://www.ironum.com/#organization" },
+    "inLanguage": "en-US"
+  }
+];
+
+const allStructuredData = structuredData || defaultStructuredData;
+
+const breadcrumbSchema = breadcrumbs ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.label,
+    "item": `https://www.ironum.com${item.href}`
+  }))
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -17,108 +88,25 @@ const { title = "Ironum AI Core - GDPR Compliant Enterprise AI Solutions", descr
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.png" type="image/x-icon" />
-    
-    <meta property="og:title" content="Ironum: Secure, Compliant AI for Your Business" />
-    <meta property="og:description" content="Ironum delivers enterprise-grade, private AI hosted in your cloud. Save time, protect IP, and go live in a week—no AI team needed." />
-    <meta property="og:image" content="/social.png" />
-    <meta property="og:url" content="https://www.ironum.com" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Ironum" />
-    
-    <!-- Critical Resource Preloading -->
-    <link rel="preload" href="/hero-background.png" as="image" type="image/png" />
+
     <link rel="preload" href="/ironum-logo.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="/avatar-gerrit.png" as="image" type="image/png" />
     <link rel="dns-prefetch" href="//outlook.office.com" />
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href={`https://www.ironum.com${Astro.url.pathname}`} />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://www.ironum.com/#organization",
-          "name": "Ironum",
-          "legalName": "LearnSlice UG (haftungsbeschränkt)",
-          "url": "https://www.ironum.com",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.ironum.com/ironum-logo.svg",
-            "width": 120,
-            "height": 24
-          },
-          "description": "Deploy GDPR-compliant AI in your own cloud or on-prem. Boost productivity, protect data, and automate workflows—without hiring an AI team.",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Luisenstraße 66",
-            "postalCode": "40215",
-            "addressLocality": "Düsseldorf",
-            "addressCountry": "DE"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+49-15758539892",
-            "email": "info@ironum.com",
-            "contactType": "customer service",
-            "availableLanguage": ["English", "German"]
-          },
-          "sameAs": [
-            "https://www.ironum.com"
-          ],
-          "foundingDate": "2024",
-          "areaServed": {
-            "@type": "Place",
-            "name": "Europe"
-          }
-        },
-        {
-          "@type": "Product",
-          "@id": "https://www.ironum.com/#product",
-          "name": "Ironum AI Core",
-          "description": "Secure, private company AI infrastructure built in Europe, made for Europe. GDPR-compliant AI deployment in your own cloud or on-premises.",
-          "brand": {
-            "@id": "https://www.ironum.com/#organization"
-          },
-          "manufacturer": {
-            "@id": "https://www.ironum.com/#organization"
-          },
-          "category": "AI Infrastructure Software",
-          "audience": {
-            "@type": "BusinessAudience",
-            "audienceType": "Enterprise"
-          },
-          "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "EUR",
-            "seller": {
-              "@id": "https://www.ironum.com/#organization"
-            }
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://www.ironum.com/#website",
-          "url": "https://www.ironum.com",
-          "name": "Ironum AI Core",
-          "description": "Deploy GDPR-compliant AI in your own cloud or on-prem. Boost productivity, protect data, and automate workflows—without hiring an AI team.",
-          "publisher": {
-            "@id": "https://www.ironum.com/#organization"
-          },
-          "inLanguage": "en-US"
-        }
-      ]
-    }
-    </script>
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": allStructuredData })} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
   </head>
   <body class="bg-white text-black">
     <slot />
-    <!-- 100% privacy-first analytics -->
     <script is:inline data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>
 </html>

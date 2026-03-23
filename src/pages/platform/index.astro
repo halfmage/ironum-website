@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="The Ironum Platform — Enterprise AI Infrastructure for Europe"
+  description="Modular AI platform with LLM orchestration, RAG pipelines, workflow automation, and full GDPR compliance. Deploy on-premises or in sovereign European cloud."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="PLATFORM"
+    title="The Ironum Platform"
+    subtitle="A modular, enterprise-grade AI infrastructure designed for European data sovereignty. From LLMs to integrations — everything runs where you control it."
+  />
+
+  <!-- Architecture Overview -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">ARCHITECTURE</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Four Layers. One Platform.</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-2xl">Every Ironum deployment is built on four modular layers that can be configured independently to match your security, performance, and compliance requirements.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-600 text-5xl font-bold">01</span>
+          <h3 class="text-2xl font-bold mt-4 mb-2">LLM Orchestration Layer</h3>
+          <p class="text-gray-500 text-lg font-semibold">Route queries to the optimal model based on task complexity, cost, and compliance requirements. Switch providers without changing a single line of application code.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-600 text-5xl font-bold">02</span>
+          <h3 class="text-2xl font-bold mt-4 mb-2">RAG & Knowledge Layer</h3>
+          <p class="text-gray-500 text-lg font-semibold">Ingest, chunk, embed, and retrieve your private documents. Vector databases run on your infrastructure — your knowledge never leaves your control.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-600 text-5xl font-bold">03</span>
+          <h3 class="text-2xl font-bold mt-4 mb-2">Integration Layer</h3>
+          <p class="text-gray-500 text-lg font-semibold">Connect AI to your existing systems through n8n workflows. APIs, databases, email, CRM, ERP — all orchestrated with open-source tooling and zero vendor lock-in.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <span class="text-blue-600 text-5xl font-bold">04</span>
+          <h3 class="text-2xl font-bold mt-4 mb-2">Security & Compliance Layer</h3>
+          <p class="text-gray-500 text-lg font-semibold">End-to-end encryption, role-based access control, audit logging, and DPA/NDA enforcement. Built for GDPR and EU AI Act compliance from the ground up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported LLMs -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">MODEL FLEXIBILITY</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Any Model. Your Choice.</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-2xl">We are model-agnostic. Choose the best LLM for your use case — or let us recommend one based on performance, cost, and compliance requirements.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-4">Commercial APIs</h3>
+          <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+            <li>OpenAI (GPT-4o, o1, o3)</li>
+            <li>Anthropic (Claude 4 Sonnet, Opus)</li>
+            <li>Google (Gemini 2.5 Pro, Flash)</li>
+            <li>Azure OpenAI (GDPR-compliant)</li>
+          </ul>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-4">Open-Source Models</h3>
+          <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+            <li>Meta Llama 4 (Scout, Maverick)</li>
+            <li>Mistral (Large, Small, Codestral)</li>
+            <li>Qwen 3 (various sizes)</li>
+            <li>DeepSeek R1 / V3</li>
+          </ul>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-4">Custom & Fine-Tuned</h3>
+          <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+            <li>Domain-specific fine-tunes</li>
+            <li>LoRA adapters for efficiency</li>
+            <li>Quantized models for edge</li>
+            <li>Your proprietary models</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Capabilities -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">INTEGRATIONS</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Connects to Everything</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-2xl">Powered by n8n, the Ironum platform integrates with 400+ applications out of the box. Custom API connections for anything else.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">APIs & Webhooks</h3>
+          <p class="text-gray-500 font-semibold">REST, GraphQL, SOAP</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Databases</h3>
+          <p class="text-gray-500 font-semibold">PostgreSQL, MySQL, MongoDB</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Document Stores</h3>
+          <p class="text-gray-500 font-semibold">SharePoint, S3, local FS</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Email & Chat</h3>
+          <p class="text-gray-500 font-semibold">Outlook, Gmail, Slack, Teams</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">CRM</h3>
+          <p class="text-gray-500 font-semibold">Salesforce, HubSpot, Pipedrive</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">ERP</h3>
+          <p class="text-gray-500 font-semibold">SAP, Oracle, custom</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Cloud Storage</h3>
+          <p class="text-gray-500 font-semibold">Azure Blob, GCS, MinIO</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Vector DBs</h3>
+          <p class="text-gray-500 font-semibold">Qdrant, Pinecone, Weaviate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Pages -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">EXPLORE FURTHER</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Go Deeper</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <a href="/platform/deployment/" class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block bg-white">
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Deployment Options</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-4">Cloud APIs, Azure GDPR, or fully on-premises — choose the deployment model that fits your compliance and performance needs.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1">
+            Compare options
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a href="/platform/compliance/" class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block bg-white">
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Compliance & Data Sovereignty</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-4">GDPR, EU AI Act, data residency, encryption, audit logs — everything you need to deploy AI with confidence in Europe.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1">
+            Learn more
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
