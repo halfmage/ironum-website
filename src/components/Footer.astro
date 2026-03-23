@@ -8,10 +8,9 @@
       <div class="max-w-2xl">
         <h3 class="text-xl font-bold mb-2">Stay updated on AI compliance and innovation</h3>
         <p class="text-white/60 text-sm mb-6">Get insights on EU AI Act developments, deployment strategies, and practical AI use cases for European businesses.</p>
-        <form action="https://formsubmit.co/gerrit@ironum.com" method="POST" class="flex flex-col sm:flex-row gap-3">
-          <input type="hidden" name="_subject" value="Newsletter Signup">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_captcha" value="false">
+        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3">
+          <input type="hidden" name="form-name" value="newsletter">
+          <input name="bot-field" class="hidden">
           <input type="email" name="email" required placeholder="Enter your email" class="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/40 transition-colors">
           <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-sm hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation whitespace-nowrap">Subscribe</button>
         </form>

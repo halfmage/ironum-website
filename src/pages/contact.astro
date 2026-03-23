@@ -25,10 +25,9 @@ import Footer from '../components/Footer.astro';
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">SEND A MESSAGE</span>
         <h2 class="text-3xl md:text-5xl font-bold mb-4">Prefer to Write?</h2>
         <p class="text-gray-500 text-lg font-semibold mb-8">Send us a message and we'll respond within one business day.</p>
-        <form action="https://formsubmit.co/gerrit@ironum.com" method="POST" class="space-y-6">
-          <input type="hidden" name="_subject" value="New Contact Form Submission">
-          <input type="text" name="_honey" style="display:none">
-          <input type="hidden" name="_captcha" value="false">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-bold mb-2">Name <span class="text-red-500">*</span></label>
