@@ -10,7 +10,7 @@ const processSteps = [
   {
     step: '01',
     title: 'Data Preparation',
-    description: 'We work with your team to identify, clean, and structure your training data. This includes domain-specific documents, examples of ideal outputs, and edge cases. Data quality determines model quality — we invest heavily in this step.',
+    description: 'We work with your team to identify, clean, and structure your training data. This includes domain-specific documents, examples of ideal outputs, and edge cases. Data quality determines model quality, so we invest heavily in this step.',
     details: ['Data audit and quality assessment', 'Format conversion and cleaning', 'Training/validation split design', 'Privacy-sensitive data handling'],
   },
   {
@@ -46,7 +46,7 @@ const comparisonItems = [
   },
   {
     aspect: 'Knowledge updates',
-    rag: 'Instant — add or remove documents',
+    rag: 'Instant: add or remove documents',
     fineTuning: 'Requires retraining with new data',
   },
   {
@@ -56,8 +56,8 @@ const comparisonItems = [
   },
   {
     aspect: 'Hallucination risk',
-    rag: 'Low — grounded in retrieved sources',
-    fineTuning: 'Medium — depends on training quality',
+    rag: 'Low: grounded in retrieved sources',
+    fineTuning: 'Medium: depends on training quality',
   },
   {
     aspect: 'Setup time',
@@ -73,7 +73,7 @@ const faqItems = [
   },
   {
     question: 'How much training data do I need?',
-    answer: 'With modern techniques like LoRA, meaningful improvements are possible with as few as 100 to 500 high-quality examples. For specialized tasks, 1,000 to 5,000 examples typically produce strong results. The quality of training data matters far more than quantity — 200 carefully curated examples often outperform 10,000 noisy ones. We help you identify and prepare the right data during the data preparation phase.',
+    answer: 'With modern techniques like LoRA, meaningful improvements are possible with as few as 100 to 500 high-quality examples. For specialized tasks, 1,000 to 5,000 examples typically produce strong results. The quality of training data matters far more than quantity. 200 carefully curated examples often outperform 10,000 noisy ones. We help you identify and prepare the right data during the data preparation phase.',
   },
   {
     question: 'Which base models do you work with?',
@@ -81,7 +81,7 @@ const faqItems = [
   },
   {
     question: 'Does my data stay private during training?',
-    answer: 'Yes. Training runs on infrastructure you control — your own servers, our German-hosted GPU infrastructure on Hetzner, or Azure EU regions. Your training data is never uploaded to third-party platforms or model providers. After training, you own the model weights and can deploy them independently.',
+    answer: 'Yes. Training runs on infrastructure you control: your own servers, our German-hosted GPU infrastructure on Hetzner, or Azure EU regions. Your training data is never uploaded to third-party platforms or model providers. After training, you own the model weights and can deploy them independently.',
   },
   {
     question: 'How do you measure model quality?',
@@ -128,7 +128,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">When to Fine-Tune</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs Fine-Tuning: Choose the Right Tool</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fine-tuning and RAG solve different problems. Understanding when to use each — or both — is critical for AI success. Here is how they compare.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fine-tuning and RAG solve different problems. Understanding when to use each, or both, is critical for AI success. Here is how they compare.</p>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden">
@@ -190,7 +190,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Open-Source First</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Data Stays on Your Infrastructure</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">We fine-tune open-source foundation models — Llama, Mistral, and others — so your proprietary data never leaves your environment. No per-token fees, no data sharing with model providers, full ownership of the resulting model weights.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">We fine-tune open-source foundation models, including Llama, Mistral, and others, so your proprietary data never leaves your environment. No per-token fees, no data sharing with model providers, full ownership of the resulting model weights.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -198,15 +198,15 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">LoRA and QLoRA for efficient fine-tuning — no need for massive GPU clusters</span>
+              <span class="text-gray-700 font-medium">LoRA and QLoRA for efficient fine-tuning, with no need for massive GPU clusters</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">You own the model weights — deploy, modify, or redistribute freely</span>
+              <span class="text-gray-700 font-medium">You own the model weights. Deploy, modify, or redistribute freely</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">No per-token or per-query costs in production — fixed infrastructure costs only</span>
+              <span class="text-gray-700 font-medium">No per-token or per-query costs in production, just fixed infrastructure costs</span>
             </li>
           </ul>
         </div>

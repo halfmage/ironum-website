@@ -12,11 +12,11 @@ Your company has years of accumulated knowledge locked in documents, emails, wik
 
 ## What RAG Is, in Plain Language
 
-RAG stands for Retrieval-Augmented Generation. It is a method for making AI language models useful with your company's own data — without retraining the model itself.
+RAG stands for Retrieval-Augmented Generation. It is a method for making AI language models useful with your company's own data, without retraining the model itself.
 
 Here is how it works, step by step:
 
-1. **Your documents are indexed.** Company documents — PDFs, Word files, wiki pages, emails, database records — are processed and stored in a searchable format called a vector database. Each piece of content is converted into a mathematical representation (an "embedding") that captures its meaning, not just its keywords.
+1. **Your documents are indexed.** Company documents (PDFs, Word files, wiki pages, emails, database records) are processed and stored in a searchable format called a vector database. Each piece of content is converted into a mathematical representation (an "embedding") that captures its meaning, not just its keywords.
 
 2. **A user asks a question.** An employee types a question in natural language, such as "What is our return policy for enterprise customers?" or "What were the key findings from last quarter's compliance audit?"
 
@@ -32,7 +32,7 @@ Business leaders often hear about two approaches to making AI work with company 
 
 **Fine-tuning** takes an existing AI model and continues training it on your company's data. The model's internal weights change, encoding your information into the model itself. This is expensive, requires ML expertise, needs to be repeated whenever your data changes, and creates a model that may "forget" general knowledge. Fine-tuning makes sense for highly specialized tasks (like [medical diagnosis](/industries/healthcare/) or [legal clause classification](/industries/legal/)) but is overkill for most enterprise knowledge management.
 
-**RAG** leaves the base model untouched. Instead, it dynamically retrieves relevant information at the moment a question is asked. Your data stays in a database, separate from the model. When information changes, you update the database — no retraining needed. RAG is more flexible, more maintainable, and significantly less expensive for most enterprise use cases.
+**RAG** leaves the base model untouched. Instead, it dynamically retrieves relevant information at the moment a question is asked. Your data stays in a database, separate from the model. When information changes, you update the database. No retraining needed. RAG is more flexible, more maintainable, and significantly less expensive for most enterprise use cases.
 
 In practice, the best enterprise AI deployments often combine both: a base model (potentially fine-tuned for domain-specific language) augmented with RAG for access to current, company-specific information.
 
@@ -64,12 +64,12 @@ The most critical factor is whether the system finds the right information. Poor
 
 - What embedding models do they use, and do they support multilingual retrieval (critical for German and multilingual European companies)?
 - Do they use hybrid search (combining semantic search with keyword matching)?
-- How do they handle documents with complex structures — tables, charts, multi-column layouts?
+- How do they handle documents with complex structures such as tables, charts, and multi-column layouts?
 - Can the system retrieve from multiple data sources simultaneously?
 
 ### Source Attribution
 
-A RAG system that gives answers without citing sources is useless in a business context. You need to verify the answer, and your employees need to trust it. Demand systems that provide specific source citations — not just "this came from the HR wiki" but "this comes from paragraph 3 of the Remote Work Policy, version 2.4, last updated January 2026."
+A RAG system that gives answers without citing sources is useless in a business context. You need to verify the answer, and your employees need to trust it. Demand systems that provide specific source citations, not just "this came from the HR wiki" but "this comes from paragraph 3 of the Remote Work Policy, version 2.4, last updated January 2026."
 
 ### Data Freshness
 
