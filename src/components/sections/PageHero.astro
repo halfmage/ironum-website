@@ -37,12 +37,12 @@ const {
       dark ? "text-white" : "text-gray-500"
     ]}>{subtitle}</p>}
     {ctaLink && (
-      <a href={ctaLink} target="_blank"
+      <a href={ctaLink} target="_blank" rel="noopener noreferrer"
         class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 pl-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
         <Image src={avatarGerrit} alt="Gerrit" class="size-8 mr-2" width={32} height={32} loading="eager" />
         {ctaText}
       </a>
     )}
   </div>
-  {dark && <Image src={logoOverlay} alt="" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" width={600} height={600} loading="eager" />}
+  {dark && <Image src={logoOverlay} alt="" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" width={600} height={600} loading="lazy" />}
 </section>
