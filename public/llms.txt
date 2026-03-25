@@ -1,0 +1,37 @@
+# Ironum
+
+> Full-service AI development partner for European businesses. We build sovereign AI systems on European infrastructure — enterprise RAG, workflow automation, chatbots, custom LLM fine-tuning, and AI consulting. GDPR compliant, deployed on your infrastructure, no vendor lock-in.
+
+## Services
+
+- [Enterprise RAG Solutions](https://ironum.com/services/enterprise-rag/): Private document AI using Retrieval-Augmented Generation. Deployed on-premises or EU cloud. Supports PDF, DOCX, email, SharePoint, Confluence. 4-8 week deployment.
+- [AI Consulting & Audits](https://ironum.com/services/ai-consulting/): Technical AI audits, readiness assessments, and EU AI Act compliance planning. Engineer-led, not management consulting.
+- [Workflow Automation](https://ironum.com/services/workflow-automation/): Self-hosted n8n workflow automation with 400+ integrations. GDPR compliant, zero per-execution fees.
+- [AI Assistants & Chatbots](https://ironum.com/services/chatbot-interfaces/): Customer-facing and internal AI assistants. Multi-channel, branded, private infrastructure.
+- [LLM Fine-Tuning](https://ironum.com/services/llm-fine-tuning/): Custom AI models trained on industry-specific data. Open-source foundations (Llama, Mistral). No per-query API costs.
+- [GEO Optimization](https://ironum.com/services/geo-optimization/): AI search visibility optimization for ChatGPT, Perplexity, and AI-powered search engines.
+
+## Industries
+
+- [Legal](https://ironum.com/industries/legal/): Document review, contract analysis, compliance monitoring for law firms.
+- [Manufacturing](https://ironum.com/industries/manufacturing/): Industry 4.0 AI integration, quality control, predictive maintenance.
+- [Healthcare](https://ironum.com/industries/healthcare/): Patient data processing on sovereign infrastructure, GDPR Article 9 compliant.
+- [Financial Services](https://ironum.com/industries/financial-services/): KYC/AML screening, transaction monitoring, regulatory compliance.
+- [Education](https://ironum.com/industries/education/): Learning platforms, assessment tools, institutional knowledge management.
+- [Public Sector](https://ironum.com/industries/public-sector/): Sovereign infrastructure for government document processing.
+
+## Resources
+
+- [Enterprise RAG Guide](https://ironum.com/resources/blog/enterprise-rag-explained/): Non-technical guide to RAG for enterprise decision makers.
+- [EU AI Act Checklist](https://ironum.com/resources/blog/eu-ai-act-compliance-checklist/): 6-step compliance checklist for German SMEs.
+- [European AI Sovereignty](https://ironum.com/resources/blog/european-ai-sovereignty/): Analysis of Europe's AI infrastructure dependence.
+- [GDPR-Compliant AI Guide](https://ironum.com/resources/blog/gdpr-compliant-ai-guide/): GDPR requirements for enterprise AI deployment.
+- [n8n vs Zapier vs Make](https://ironum.com/resources/blog/n8n-vs-zapier-vs-make/): Comparison of workflow automation platforms for European businesses.
+
+## Company
+
+- Legal entity: LearnSlice UG (haftungsbeschrankt)
+- Location: Dusseldorf, Germany
+- Founded: 2024
+- Service area: Europe
+- Contact: info@ironum.com
