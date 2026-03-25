@@ -3,12 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/cards/ServiceCard.astro';
-import IndustryCard from '../components/cards/IndustryCard.astro';
 import Infrastructure from '../components/Infrastructure.astro';
 import Impacts from '../components/Impacts.astro';
+import Testimonials from '../components/Testimonials.astro';
 import ProcessSteps from '../components/sections/ProcessSteps.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
+import BlogPostCard from '../components/cards/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const latestPosts = (await getCollection('blog'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
 ---
 
 <Layout>
@@ -73,22 +80,7 @@ import Footer from '../components/Footer.astro';
     </a>
   </div>
 
-  <!-- Industry Solutions -->
-  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
-    <div class="max-w-7xl mx-auto space-y-8">
-      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">INDUSTRIES</span>
-      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Built for Your Industry</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
-        <IndustryCard title="Legal" description="GDPR-compliant contract review and compliance automation." href="/industries/legal/" stat="61% of lawyers use AI, but only 14% have specialized tools" />
-        <IndustryCard title="Manufacturing" description="Industry 4.0 AI for production, quality, and maintenance." href="/industries/manufacturing/" stat="34.6% CAGR, EUR 5.5B German government support" />
-        <IndustryCard title="Financial Services" description="Data-driven advisory with full data sovereignty." href="/industries/financial-services/" stat="Moving from AI exploration to implementation" />
-        <IndustryCard title="Education" description="LearnSlice AI Mentor for training, exams, and onboarding." href="/industries/education/" stat="EUR 2.11B market. Germany leads with 30.1% share" />
-        <IndustryCard title="Healthcare" description="Administrative AI that keeps patient data on your servers." href="/industries/healthcare/" stat="Fastest-growing AI vertical in Europe" />
-        <IndustryCard title="Public Sector" description="Sovereign AI for citizen services and document processing." href="/industries/public-sector/" stat="245 AI initiatives across 21 European countries" />
-      </div>
-    </div>
-  </section>
-
+  <Testimonials />
   <Impacts />
   <Infrastructure />
 
@@ -102,33 +94,24 @@ import Footer from '../components/Footer.astro';
     ]}
   />
 
-  <!-- Why Ironum -->
-  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white">
+  <!-- Latest Insights -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
     <div class="max-w-7xl mx-auto space-y-8">
-      <div class="text-center space-y-4">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">WHY IRONUM</span>
-        <h2 class="text-3xl md:text-5xl font-bold">Why European Companies Choose Ironum</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
-        <div class="border border-white/10 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mb-3">Your Data Never Leaves</h3>
-          <p class="text-white/60 text-sm">Every byte stays on your servers. No third-party access, no cloud dependencies, no transatlantic data transfers.</p>
-        </div>
-        <div class="border border-white/10 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mb-3">Built for Your Business</h3>
-          <p class="text-white/60 text-sm">Not a template. Not a generic platform. Every solution is engineered for your specific workflows, data, and industry.</p>
-        </div>
-        <div class="border border-white/10 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mb-3">Compliant by Default</h3>
-          <p class="text-white/60 text-sm">GDPR, EU AI Act, audit trails: built into every deployment from day one. Not bolted on as an afterthought.</p>
-        </div>
-        <div class="border border-white/10 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mb-3">No Lock-In. Ever.</h3>
-          <p class="text-white/60 text-sm">Open-source foundations mean you own your models, your data, and your infrastructure. Walk away anytime, but you won't want to.</p>
-        </div>
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">INSIGHTS</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Latest from the Blog</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {latestPosts.map(post => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            href={`/resources/blog/${post.slug}/`}
+            date={post.data.publishDate.toISOString()}
+            category={post.data.category}
+          />
+        ))}
       </div>
       <div class="text-center pt-4">
-        <a href="/platform/" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">See How It Works</a>
+        <a href="/resources/blog/" class="text-blue-600 font-semibold text-lg hover:underline">View all articles →</a>
       </div>
     </div>
   </section>

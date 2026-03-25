@@ -16,7 +16,7 @@ export interface Props {
 
 const {
   title = "Ironum | Enterprise AI Without the Compliance Risk",
-  description = "European AI engineering partner. We build private AI systems, including knowledge search, automation, chatbots, and custom models, deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.",
+  description = "European AI engineering partner. Private AI systems deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.",
   ogImage = "/social.png",
   breadcrumbs,
   structuredData,
@@ -96,6 +96,13 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Ironum" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, 'https://www.ironum.com').href} />
+
+    <meta name="robots" content="index, follow" />
 
     <link rel="preload" href="/ironum-logo.svg" as="image" type="image/svg+xml" />
     <link rel="dns-prefetch" href="//outlook.office.com" />

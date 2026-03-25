@@ -13,5 +13,10 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [alpinejs(), sitemap(), mdx()]
+  integrations: [alpinejs(), sitemap({
+    serialize(item) {
+      item.lastmod = new Date().toISOString();
+      return item;
+    }
+  }), mdx()]
 });

@@ -12,8 +12,21 @@ export interface Props {
 }
 
 const { eyebrow, title, steps } = Astro.props;
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": title,
+  "step": steps.map((step, index) => ({
+    "@type": "HowToStep",
+    "position": index + 1,
+    "name": step.title,
+    "text": step.description
+  }))
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto">
   {eyebrow && <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-6">{eyebrow}</span>}
   <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold mb-12">{title}</h2>
