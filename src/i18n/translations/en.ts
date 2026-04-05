@@ -89,7 +89,7 @@ export const en = {
     location: 'Düsseldorf, Germany',
   },
   finalCta: {
-    badge: 'Your competitors are already using AI to move faster. Don\'t get left behind',
+    badge: 'Leading European businesses are already deploying private AI — see how they started',
     title: 'Ready to Put AI to Work?',
     description: 'Free 30-minute strategy call with Gerrit: no sales pitch, just a concrete roadmap for your business.',
     ctaButton: 'Book My Free Strategy Call',
@@ -189,7 +189,7 @@ export const en = {
     problemTitle: 'European Companies Are Stuck in an AI Catch-22',
     problemCards: [
       { title: '"We want to use AI..."', description: 'Your competitors are shipping AI features monthly. Your team sees the potential. Leadership is asking when you\'ll catch up.' },
-      { title: '"...but we can\'t risk our data."', description: 'Every AI vendor wants your data in their cloud. Your legal team says no. Your DPO says no. GDPR says no. And the EU AI Act deadline is 4 months away.' },
+      { title: '"...but we can\'t risk our data."', description: 'Every AI vendor wants your data in their cloud. Your legal team says no. Your DPO says no. GDPR says no. And the EU AI Act just added another layer of requirements.' },
       { title: '"So nothing happens."', description: 'Promising AI pilots stall in legal review. Teams go back to manual work. The gap between you and AI-native competitors grows wider every quarter.' },
     ],
     servicesEyebrow: 'WHAT WE BUILD FOR YOU',

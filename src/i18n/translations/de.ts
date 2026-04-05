@@ -2,7 +2,7 @@ export const de = {
   locale: 'de' as const,
   meta: {
     defaultTitle: 'Ironum | KI-Lösungen für den Mittelstand – DSGVO-konform',
-    defaultDescription: 'Ihr europäischer KI-Partner. Souveräne KI-Systeme auf Ihrer Infrastruktur. DSGVO-konform. Keine Herstellerabhängigkeit. Kostenloses Strategiegespräch buchen.',
+    defaultDescription: 'Wir entwickeln souveräne KI-Systeme auf Ihrer Infrastruktur — DSGVO-konform und ohne Herstellerabhängigkeit. Kostenloses Strategiegespräch mit unserem Team in Düsseldorf buchen.',
   },
   nav: {
     services: 'Dienstleistungen',
@@ -48,7 +48,7 @@ export const de = {
   footer: {
     newsletter: {
       title: 'Bleiben Sie informiert über KI-Compliance und Innovation',
-      description: 'Erhalten Sie Einblicke zu EU AI Act, Deployment-Strategien und praktischen KI-Anwendungsfällen für europäische Unternehmen.',
+      description: 'Erhalten Sie Einblicke zur EU-KI-Verordnung, Bereitstellungsstrategien und praktischen KI-Anwendungsfällen für europäische Unternehmen.',
       placeholder: 'Ihre E-Mail-Adresse',
       button: 'Abonnieren',
       formName: 'newsletter-de',
@@ -196,14 +196,14 @@ export const de = {
     servicesTitle: 'Sechs Wege, wie KI in Ihrem Unternehmen wirkt',
     servicesSubtitle: 'Jede Lösung läuft auf Ihrer Infrastruktur, bleibt DSGVO-konform und ist in Wochen produktionsbereit – nicht in Monaten.',
     serviceCards: [
-      { title: 'KI-Strategie & Audits', description: 'Erfahren Sie genau, wo KI Ihnen Zeit und Geld spart – und was es braucht, um dort compliant hinzukommen.', href: '/de/dienstleistungen/ki-beratung/' },
+      { title: 'KI-Strategie & Audits', description: 'Erfahren Sie genau, wo KI Ihnen Zeit und Geld spart – und was es braucht, um regelkonform dorthin zu gelangen.', href: '/de/dienstleistungen/ki-beratung/' },
       { title: 'Workflow-Automatisierung', description: 'Eliminieren Sie manuelle Dateneingabe, Genehmigungen und Berichte mit über 400 automatisierten Integrationen. Keine Abhängigkeit.', href: '/de/dienstleistungen/workflow-automatisierung/' },
       { title: 'Private Wissenssuche', description: 'Ihr Team stellt Fragen, KI findet Antworten in allen Dokumenten – sofort, auf Ihren Servern.', href: '/de/dienstleistungen/enterprise-rag/' },
       { title: 'KI-Assistenten & Chatbots', description: 'Kundenorientierte und interne KI-Assistenten, die Ihr Unternehmen kennen: markenkonform, privat, multikanalfähig.', href: '/de/dienstleistungen/chatbot-schnittstellen/' },
       { title: 'Individuelle KI-Modelle', description: 'KI, die speziell mit Ihren Branchendaten trainiert wurde. Ihr Modell. Ihre Server. Keine Per-Abfrage-API-Kosten.', href: '/de/dienstleistungen/llm-feinabstimmung/' },
       { title: 'KI-Suchsichtbarkeit', description: 'Werden Sie von ChatGPT, Perplexity und KI-gestützten Suchmaschinen empfohlen.', href: '/de/dienstleistungen/geo-optimierung/' },
     ],
-    midCta: 'Nicht sicher, welcher Service passt? Kostenloses Strategiegespräch buchen →',
+    midCta: 'Nicht sicher, welches Angebot passt? Kostenloses Strategiegespräch buchen →',
     insightsEyebrow: 'EINBLICKE',
     insightsTitle: 'Neueste Blogbeiträge',
     insightsLink: 'Alle Artikel ansehen →',
