@@ -50,7 +50,6 @@ const homeHref = locale === 'de' ? '/de/' : '/';
     </li>
 
     <li><a href={t.nav.platformHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith(locale === 'de' ? '/de/plattform' : '/platform') ? 'bg-white/10' : ''}`}>{t.nav.platform}</a></li>
-    <li><a href={t.nav.blogHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith('/resources') ? 'bg-white/10' : ''}`}>{t.nav.blog}</a></li>
     <li><a href={t.nav.aboutHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath === (locale === 'de' ? '/de/ueber-uns/' : '/about/') ? 'bg-white/10' : ''}`}>{t.nav.about}</a></li>
 
     <!-- Language Switcher -->
@@ -104,7 +103,6 @@ const homeHref = locale === 'de' ? '/de/' : '/';
     </div>
 
     <a href={t.nav.platformHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.platform}</a>
-    <a href={t.nav.blogHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.blog}</a>
     <a href={t.nav.aboutHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.about}</a>
     <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer" class="text-white py-3 px-2 block bg-blue-600 hover:bg-blue-700 rounded-lg min-h-[48px] touch-manipulation text-center mt-2">{t.nav.ctaButton}</a>
   </div>
