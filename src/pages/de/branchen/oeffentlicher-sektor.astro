@@ -15,11 +15,11 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'Wie funktioniert souveräne KI für Behörden?',
-    answer: 'Die gesamte KI-Verarbeitung findet auf deutscher Infrastruktur statt: entweder On-Premise in Ihrem Rechenzentrum oder auf dedizierten Hetzner-Cloud-Servern in Deutschland. Keine Daten werden an US-Cloud-Anbieter oder KI-Drittanbieter gesendet. Wir nutzen Open-Source-KI-Modelle, die vollständig auditiert werden können -- für volle Transparenz und kein Vendor-Lock-in.',
+    answer: 'Die gesamte KI-Verarbeitung findet auf deutscher Infrastruktur statt: entweder On-Premise in Ihrem Rechenzentrum oder auf dedizierten Hetzner-Cloud-Servern in Deutschland. Keine Daten werden an US-Cloud-Anbieter oder KI-Drittanbieter gesendet. Wir nutzen Open-Source-KI-Modelle, die vollständig auditiert werden können, für volle Transparenz und kein Vendor-Lock-in.',
   },
   {
     question: 'Kann die KI Bürgeranfragen in mehreren Sprachen bearbeiten?',
-    answer: 'Ja. Unsere Chatbot-Lösungen unterstützen Deutsch, Englisch und weitere europäische Sprachen. Sie können für mehrsprachige Bürgerservices konfiguriert werden, erkennen automatisch die Sprache der Anfrage und antworten entsprechend -- alles lokal auf Ihrer Infrastruktur verarbeitet.',
+    answer: 'Ja. Unsere Chatbot-Lösungen unterstützen Deutsch, Englisch und weitere europäische Sprachen. Sie können für mehrsprachige Bürgerservices konfiguriert werden, erkennen automatisch die Sprache der Anfrage und antworten entsprechend, alles lokal auf Ihrer Infrastruktur verarbeitet.',
   },
   {
     question: 'Welche Open-Source-Modelle setzen Sie ein?',
@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     question: 'Wie verhält sich das zu bestehenden KI-Initiativen der öffentlichen Hand in Europa?',
-    answer: 'In 21 europäischen Ländern wurden 245 KI-Anwendungsfälle im öffentlichen Sektor erfasst. Chatbots stellen 20% der aktuellen Initiativen dar. Europäische Regierungen hinken jedoch bei der KI-Adoption hinterher -- eine Chance, mit souveräner, DSGVO-konformer KI-Infrastruktur das Bürgervertrauen zu stärken.',
+    answer: 'In europäischen Ländern wurden über 200 KI-Anwendungsfälle im öffentlichen Sektor erfasst (laut EU-Studien). Chatbots stellen 20% der aktuellen Initiativen dar. Europäische Regierungen hinken jedoch bei der KI-Adoption hinterher. Eine Chance, mit souveräner, DSGVO-konformer KI-Infrastruktur das Bürgervertrauen zu stärken.',
   },
   {
     question: 'Wie sieht der Beschaffungsprozess für KI im öffentlichen Sektor aus?',
@@ -69,7 +69,7 @@ const structuredData = [
   <PageHero
     eyebrow="KI FÜR DEN ÖFFENTLICHEN SEKTOR"
     title="Souveräne KI auf deutscher Infrastruktur"
-    subtitle="245 KI-Anwendungsfälle in 21 europäischen Ländern erfasst -- doch Behörden hinken bei der KI-Adoption hinterher. Setzen Sie bürgernahe und interne KI auf vollständig souveräner, in Deutschland gehosteter Infrastruktur ein."
+    subtitle="Über 200 KI-Anwendungsfälle in europäischen Ländern erfasst (laut EU-Studien), doch Behörden hinken bei der KI-Adoption hinterher. Setzen Sie bürgernahe und interne KI auf vollständig souveräner, in Deutschland gehosteter Infrastruktur ein."
   />
 
   <!-- Challenges Section -->
@@ -144,7 +144,7 @@ const structuredData = [
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Interne Wissensdatenbank</h3>
-          <p class="text-gray-500 mb-4">RAG-gestützter interner Assistent für Behördenmitarbeiter. Sofortiger Zugriff auf Vorschriften, Verfahren und institutionelles Wissen -- verkürzt Einarbeitungszeiten und verbessert Service-Konsistenz.</p>
+          <p class="text-gray-500 mb-4">RAG-gestützter interner Assistent für Behördenmitarbeiter. Sofortiger Zugriff auf Vorschriften, Verfahren und institutionelles Wissen, verkürzt Einarbeitungszeiten und verbessert Service-Konsistenz.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Natürlichsprachliche Suche über alle Richtlinien</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Quellenbasierte Antworten für Nachweisbarkeit</li>
@@ -184,8 +184,8 @@ const structuredData = [
         </div>
         <div class="grid grid-cols-2 gap-6">
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-5xl font-bold mb-2">245</div>
-            <p class="text-gray-500 text-sm font-semibold">KI-Anwendungsfälle in 21 EU-Ländern erfasst</p>
+            <div class="text-blue-600 text-5xl font-bold mb-2">200+</div>
+            <p class="text-gray-500 text-sm font-semibold">KI-Anwendungsfälle in EU-Ländern erfasst (laut EU-Studien)</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
             <div class="text-blue-600 text-5xl font-bold mb-2">20%</div>

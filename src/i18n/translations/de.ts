@@ -1,8 +1,8 @@
 export const de = {
   locale: 'de' as const,
   meta: {
-    defaultTitle: 'Ironum | KI-Lösungen für den Mittelstand – DSGVO-konform',
-    defaultDescription: 'Wir entwickeln souveräne KI-Systeme auf Ihrer Infrastruktur — DSGVO-konform und ohne Herstellerabhängigkeit. Kostenloses Strategiegespräch mit unserem Team in Düsseldorf buchen.',
+    defaultTitle: 'Ironum | KI-Lösungen für den Mittelstand. DSGVO-konform',
+    defaultDescription: 'Wir entwickeln souveräne KI-Systeme auf Ihrer Infrastruktur. DSGVO-konform und ohne Herstellerabhängigkeit. Kostenloses Strategiegespräch mit unserem Team in Düsseldorf buchen.',
   },
   nav: {
     services: 'Dienstleistungen',
@@ -38,9 +38,9 @@ export const de = {
   },
   hero: {
     eyebrow: 'KI-PARTNER FÜR DEN EUROPÄISCHEN MITTELSTAND',
-    title: 'KI für den Mittelstand –<br>ohne Compliance-Risiko',
-    subtitle: 'Wir entwickeln und betreiben souveräne KI-Systeme auf europäischer Infrastruktur – damit Ihr Team schneller arbeitet, ohne DSGVO-Risiken oder Herstellerabhängigkeit.',
-    trustLine: 'Vertraut von FH Dortmund, Smella und europäischen Unternehmen in Finanz-, Bildungs- und Reisebranche',
+    title: 'KI für den Mittelstand.<br>Ohne Compliance-Risiko',
+    subtitle: 'Wir entwickeln und betreiben souveräne KI-Systeme auf europäischer Infrastruktur. Damit Ihr Team schneller arbeitet, ohne DSGVO-Risiken oder Herstellerabhängigkeit.',
+    trustLine: 'Vertraut von FH Dortmund, Smella und europäischen Unternehmen der Finanz-, Bildungs- und Reisebranche',
     ctaButton: 'Kostenloses KI-Strategiegespräch',
     ctaSubtext: '30 Minuten mit Gerrit · Konkreter Fahrplan · Unverbindlich',
     ctaAlt: 'oder <a href="/de/kontakt/" class="text-blue-400 hover:text-blue-300 underline">schreiben Sie uns</a>',
@@ -85,11 +85,11 @@ export const de = {
       { name: 'Impressum', href: '/de/impressum/' },
       { name: 'Datenschutz', href: '/de/datenschutz/' },
     ],
-    copyright: '© 2025 Ironum (LearnSlice UG). Alle Rechte vorbehalten.',
+    copyright: '© 2026 Ironum (LearnSlice UG). Alle Rechte vorbehalten.',
     location: 'Düsseldorf, Deutschland',
   },
   finalCta: {
-    badge: 'Führende Mittelständler setzen bereits auf KI-Lösungen – starten auch Sie jetzt',
+    badge: 'Führende Mittelständler setzen bereits auf KI-Lösungen. Starten auch Sie jetzt',
     title: 'Bereit für den nächsten Schritt?',
     description: 'Kostenloses 30-minütiges Strategiegespräch mit Gerrit: kein Verkaufsgespräch, sondern ein konkreter Fahrplan für Ihr Unternehmen.',
     ctaButton: 'Kostenloses Strategiegespräch buchen',
@@ -132,15 +132,15 @@ export const de = {
       { title: 'Verschlüsselt & isoliert', description: 'Bereitstellung in deutschen oder europäischen Rechenzentren mit Enterprise-Verschlüsselung. Kein Zugang über das öffentliche Internet.' },
       { title: 'Mit Ihren Systemen verbunden', description: 'Direkte Integration mit Ihren internen Dokumenten, APIs und Datenbanken. Keine Datenmigration erforderlich.' },
       { title: 'Audit-fähig von Anfang an', description: 'Vollständige DSGVO-Dokumentation, rollenbasierte Zugriffsprotokolle und AVV/NDA bei jeder Bereitstellung inklusive.' },
-      { title: 'Für Ihre Workflows gebaut', description: 'Jede Lösung wird auf Ihre Prozesse, Ihre Daten und Ihr Team zugeschnitten – keine Standardvorlage.' },
-      { title: 'Produktiv in Wochen', description: 'Vom Erstgespräch zum funktionierenden System in 4–8 Wochen. Keine 18-monatigen Enterprise-Rollouts.' },
+      { title: 'Für Ihre Workflows gebaut', description: 'Jede Lösung wird auf Ihre Prozesse, Ihre Daten und Ihr Team zugeschnitten. Keine Standardvorlage.' },
+      { title: 'Produktiv in Wochen', description: 'Vom Erstgespräch zum funktionierenden System in 4-8 Wochen. Keine 18-monatigen Enterprise-Rollouts.' },
       { title: 'Keine Abhängigkeit. Niemals.', description: 'Open-Source-Grundlagen bedeuten: Ihre Modelle, Ihre Daten, Ihre Infrastruktur. Jederzeit wechselbar.' },
     ],
   },
   testimonials: {
     eyebrow: 'DAS SAGEN UNSERE KUNDEN',
     title: 'Echte Ergebnisse. Echte Unternehmen.',
-    subtitle: 'Von KI-Suchsichtbarkeit bis zur souveränen Lernplattform – so nutzen europäische Unternehmen Ironum.',
+    subtitle: 'Von KI-Suchsichtbarkeit bis zur souveränen Lernplattform. So nutzen europäische Unternehmen Ironum.',
     items: [
       {
         badge: 'GEO-Optimierung',
@@ -154,7 +154,7 @@ export const de = {
       },
       {
         badge: 'LLM-Feinabstimmung',
-        quote: '„Wir haben die quizbasierte KI-Plattform in verschiedene Lehrmethoden integriert, von Inverted Classrooms bis zu quizbasierten Hausaufgaben. Die Software steigerte die Motivation der Studierenden und half ihnen, Prüfungen erfolgreicher zu bestehen. Sie passt sich nahtlos an individuelle Lernbedürfnisse an – genau das, was moderne Hochschulbildung verlangt."',
+        quote: '„Wir haben die quizbasierte KI-Plattform in verschiedene Lehrmethoden integriert, von Inverted Classrooms bis zu quizbasierten Hausaufgaben. Die Software steigerte die Motivation der Studierenden und half ihnen, Prüfungen erfolgreicher zu bestehen. Sie passt sich nahtlos an individuelle Lernbedürfnisse an. Genau das, was moderne Hochschulbildung verlangt."',
         name: 'Prof. Dr. Carsten Wolff',
         role: 'Vorstand IDiAL, FH Dortmund',
         avatar: '/avatars/carsten-wolff.png',
@@ -164,7 +164,7 @@ export const de = {
       },
       {
         badge: 'Chatbot-Schnittstellen',
-        quote: '„Unsere Kunden vertrauen uns ihre Daten an. Als wir KI-gestützte Personalisierung brauchten, konnten wir Studierendenprofile nicht in eine US-Cloud senden. Ironum gab uns eine souveräne KI-Schicht, die komplett auf europäischer Infrastruktur läuft. Unsere Lernenden erhalten eine moderne, personalisierte Lernerfahrung – und ihre Daten verlassen nie unsere Kontrolle."',
+        quote: '„Unsere Kunden vertrauen uns ihre Daten an. Als wir KI-gestützte Personalisierung brauchten, konnten wir Studierendenprofile nicht in eine US-Cloud senden. Ironum gab uns eine souveräne KI-Schicht, die komplett auf europäischer Infrastruktur läuft. Unsere Lernenden erhalten eine moderne, personalisierte Lernerfahrung. Und ihre Daten verlassen nie unsere Kontrolle."',
         name: 'Alesia Kunz',
         role: 'CEO @ LearnSlice',
         avatar: '/avatars/alesia-kunz.jpg',
@@ -179,7 +179,7 @@ export const de = {
     title: 'Vom Erstgespräch zur Produktion',
     steps: [
       { number: '01', title: 'Erstgespräch', description: 'Wir bewerten Ihre Infrastruktur, Datenlandschaft und Compliance-Anforderungen in einer kostenlosen Beratung.' },
-      { number: '02', title: 'Proof of Concept', description: 'Ein funktionierender Prototyp, bereitgestellt in Ihrer Umgebung innerhalb von 2 Wochen – nicht Monaten.' },
+      { number: '02', title: 'Proof of Concept', description: 'Ein funktionierender Prototyp, bereitgestellt in Ihrer Umgebung innerhalb von 2 Wochen, nicht Monaten.' },
       { number: '03', title: 'Produktivbetrieb', description: 'Vollständiger Rollout mit Monitoring, Schulung und laufendem Support. Ihr Team arbeitet schneller. Ihre Daten bleiben privat. Ihre Infrastruktur.' },
     ],
   },
@@ -194,11 +194,11 @@ export const de = {
     ],
     servicesEyebrow: 'WAS WIR FÜR SIE ENTWICKELN',
     servicesTitle: 'Sechs Wege, wie KI in Ihrem Unternehmen wirkt',
-    servicesSubtitle: 'Jede Lösung läuft auf Ihrer Infrastruktur, bleibt DSGVO-konform und ist in Wochen produktionsbereit – nicht in Monaten.',
+    servicesSubtitle: 'Jede Lösung läuft auf Ihrer Infrastruktur, bleibt DSGVO-konform und ist in Wochen produktionsbereit, nicht in Monaten.',
     serviceCards: [
-      { title: 'KI-Strategie & Audits', description: 'Erfahren Sie genau, wo KI Ihnen Zeit und Geld spart – und was es braucht, um regelkonform dorthin zu gelangen.', href: '/de/dienstleistungen/ki-beratung/' },
+      { title: 'KI-Strategie & Audits', description: 'Erfahren Sie genau, wo KI Ihnen Zeit und Geld spart. Und was es braucht, um regelkonform dorthin zu gelangen.', href: '/de/dienstleistungen/ki-beratung/' },
       { title: 'Workflow-Automatisierung', description: 'Eliminieren Sie manuelle Dateneingabe, Genehmigungen und Berichte mit über 400 automatisierten Integrationen. Keine Abhängigkeit.', href: '/de/dienstleistungen/workflow-automatisierung/' },
-      { title: 'Private Wissenssuche', description: 'Ihr Team stellt Fragen, KI findet Antworten in allen Dokumenten – sofort, auf Ihren Servern.', href: '/de/dienstleistungen/enterprise-rag/' },
+      { title: 'Private Wissenssuche', description: 'Ihr Team stellt Fragen, KI findet Antworten in allen Dokumenten. Sofort, auf Ihren Servern.', href: '/de/dienstleistungen/enterprise-rag/' },
       { title: 'KI-Assistenten & Chatbots', description: 'Kundenorientierte und interne KI-Assistenten, die Ihr Unternehmen kennen: markenkonform, privat, multikanalfähig.', href: '/de/dienstleistungen/chatbot-schnittstellen/' },
       { title: 'Individuelle KI-Modelle', description: 'KI, die speziell mit Ihren Branchendaten trainiert wurde. Ihr Modell. Ihre Server. Keine Per-Abfrage-API-Kosten.', href: '/de/dienstleistungen/llm-feinabstimmung/' },
       { title: 'KI-Suchsichtbarkeit', description: 'Werden Sie von ChatGPT, Perplexity und KI-gestützten Suchmaschinen empfohlen.', href: '/de/dienstleistungen/geo-optimierung/' },

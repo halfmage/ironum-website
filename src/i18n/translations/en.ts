@@ -85,11 +85,11 @@ export const en = {
       { name: 'Imprint', href: '/imprint/' },
       { name: 'Privacy Policy', href: '/privacy/' },
     ],
-    copyright: '© 2025 Ironum (LearnSlice UG). All rights reserved.',
+    copyright: '© 2026 Ironum (LearnSlice UG). All rights reserved.',
     location: 'Düsseldorf, Germany',
   },
   finalCta: {
-    badge: 'Leading European businesses are already deploying private AI — see how they started',
+    badge: 'Leading European businesses are already deploying private AI. See how they started',
     title: 'Ready to Put AI to Work?',
     description: 'Free 30-minute strategy call with Gerrit: no sales pitch, just a concrete roadmap for your business.',
     ctaButton: 'Book My Free Strategy Call',
