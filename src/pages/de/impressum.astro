@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  locale="de"
+  title="Impressum - Ironum AI Core"
+  description="Impressum und rechtliche Angaben für Ironum AI Core. Kontaktinformationen, Registrierungsdaten und rechtliche Hinweise der LearnSlice UG."
+>
+  <Navigation />
+
+  <!-- Impressum Inhalt -->
+  <section class="px-4 md:px-20 py-20 md:py-32 space-y-8 md:space-y-16 max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Impressum</h2>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-2">Angaben gemäß § 5 DDG</h2>
+      <dl>
+        <dd>Ironum ist ein Produkt der LearnSlice UG (haftungsbeschränkt)</dd>
+        <dt class="font-bold mt-4">Adresse:</dt>
+        <dd>Luisenstraße 66<br>
+            40215 Düsseldorf</dd>
+        <dt class="font-bold mt-4">Registrierung:</dt>
+        <dd>Handelsregister: HRB 108192<br>
+            Registergericht: Amtsgericht Düsseldorf</dd>
+        <dt class="font-bold mt-4">Vertreten durch:</dt>
+        <dd>Alesia Kunz</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-2">Kontaktinformationen</h2>
+      <dl>
+        <dt class="font-bold">Telefon:</dt>
+        <dd>+49 (0) 15758539892</dd>
+        <dt class="font-bold mt-4">E-Mail:</dt>
+        <dd><a class="underline" href="mailto:info@ironum.com">info@ironum.com</a></dd>
+        <dt class="font-bold mt-4">Internetadresse:</dt>
+        <dd><a class="underline" rel="noopener noreferrer" href="https://www.ironum.com" target="_blank">www.ironum.com</a></dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-2">Umsatzsteuer-ID</h2>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
+        <br>Steuernummer: 106/5769/1318
+        <br>(Umsatzsteuer wird erhoben)
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-2">Aufsichtsbehörde</h2>
+      <p>Gewerbeanmeldung nach §15 Abs.1 GewO
+        <br>Landeshauptstadt Düsseldorf, Ordnungsamt
+        <br>Worringer Str. 111, 40210 Düsseldorf
+        <br>
+        <a class="underline" rel="noopener noreferrer" href="https://service.duesseldorf.de" target="_blank">https://service.duesseldorf.de</a>
+        <br>Industrie- und Handelskammer: IHK Düsseldorf
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-2">Haftungsausschluss</h2>
+
+      <h3 class="font-bold mt-4">Haftung für Inhalte</h3>
+      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.</p>
+      <br>
+      <h3 class="font-bold">Haftung für Links</h3>
+      <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Zum Zeitpunkt der Verlinkung wurden keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+      <br>
+      <h3 class="font-bold">Urheberrecht</h3>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+    </section>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

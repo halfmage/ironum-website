@@ -1,0 +1,9 @@
+[[headers]]
+  for = "/de/*"
+  [headers.values]
+    Content-Language = "de"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Language = "en"

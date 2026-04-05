@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { getLangFromUrl, useTranslations, type Locale } from '../i18n/utils';
+import { getAlternateUrl } from '../i18n/routes';
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,17 +14,28 @@ export interface Props {
   ogImage?: string;
   breadcrumbs?: BreadcrumbItem[];
   structuredData?: object[];
+  locale?: Locale;
 }
 
+const locale = Astro.props.locale || getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+
 const {
-  title = "Ironum | Enterprise AI Without the Compliance Risk",
-  description = "European AI engineering partner. Private AI systems deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.",
+  title = t.meta.defaultTitle,
+  description = t.meta.defaultDescription,
   ogImage = "/social.png",
   breadcrumbs,
   structuredData,
 } = Astro.props;
 
 const canonicalUrl = `https://www.ironum.com${Astro.url.pathname}`;
+const currentPath = Astro.url.pathname;
+const enPath = locale === 'en' ? currentPath : getAlternateUrl(currentPath, 'de');
+const dePath = locale === 'de' ? currentPath : getAlternateUrl(currentPath, 'en');
+const enUrl = `https://www.ironum.com${enPath}`;
+const deUrl = `https://www.ironum.com${dePath}`;
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const ogLocaleAlt = locale === 'de' ? 'en_US' : 'de_DE';
 
 const defaultStructuredData = [
   {
@@ -62,7 +75,7 @@ const defaultStructuredData = [
     "name": "Ironum AI Core",
     "description": "Full-service AI development partner for European businesses.",
     "publisher": { "@id": "https://www.ironum.com/#organization" },
-    "inLanguage": "en-US"
+    "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
   }
 ];
 
@@ -81,7 +94,7 @@ const breadcrumbSchema = breadcrumbs ? {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale === 'de' ? 'de' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -94,7 +107,8 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta property="og:image" content={new URL(ogImage, 'https://www.ironum.com').href} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta property="og:site_name" content="Ironum" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -108,6 +122,9 @@ const breadcrumbSchema = breadcrumbs ? {
     <link rel="dns-prefetch" href="//outlook.office.com" />
 
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="de" href={deUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": allStructuredData })} />
     {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}

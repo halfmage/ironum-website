@@ -1,42 +1,34 @@
 ---
 import { Image } from 'astro:assets';
 import ironumLogo from '../../public/ironum-logo.svg';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getAlternateUrl } from '../i18n/routes';
 
-const services = [
-  { name: 'AI Consulting & Audits', href: '/services/ai-consulting/' },
-  { name: 'Workflow Automation', href: '/services/workflow-automation/' },
-  { name: 'Enterprise RAG', href: '/services/enterprise-rag/' },
-  { name: 'Chatbot Interfaces', href: '/services/chatbot-interfaces/' },
-  { name: 'LLM Fine-Tuning', href: '/services/llm-fine-tuning/' },
-  { name: 'GEO Optimization', href: '/services/geo-optimization/' },
-];
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 
-const industries = [
-  { name: 'Legal', href: '/industries/legal/' },
-  { name: 'Manufacturing', href: '/industries/manufacturing/' },
-  { name: 'Financial Services', href: '/industries/financial-services/' },
-  { name: 'Education', href: '/industries/education/' },
-  { name: 'Healthcare', href: '/industries/healthcare/' },
-  { name: 'Public Sector', href: '/industries/public-sector/' },
-];
+const services = t.nav.serviceItems;
+const industries = t.nav.industryItems;
 
 const currentPath = Astro.url.pathname;
+const alternatePath = getAlternateUrl(currentPath, locale);
+const homeHref = locale === 'de' ? '/de/' : '/';
 ---
 
 <nav class="w-full bg-black flex justify-between items-center px-4 md:px-8 py-4 sticky top-0 z-50" x-data="{ mobileMenuOpen: false, servicesOpen: false, industriesOpen: false, mobileServices: false, mobileIndustries: false }">
   <div class="flex items-center">
-    <a href="/"><Image src={ironumLogo} alt="Ironum AI Core" class="h-6 w-auto" width={120} height={24} loading="eager" /></a>
+    <a href={homeHref}><Image src={ironumLogo} alt="Ironum AI Core" class="h-6 w-auto" width={120} height={24} loading="eager" /></a>
   </div>
 
   <ul class="hidden lg:flex items-center gap-1">
     <!-- Services Dropdown -->
     <li class="relative" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
-      <button class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation flex items-center gap-1 ${currentPath.startsWith('/services') ? 'bg-white/10' : ''}`}>
-        Services
+      <button class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation flex items-center gap-1 ${currentPath.startsWith(locale === 'de' ? '/de/dienstleistungen' : '/services') ? 'bg-white/10' : ''}`}>
+        {t.nav.services}
         <svg class="w-4 h-4 transition-transform" :class="servicesOpen && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div class="absolute top-full left-0 mt-1 bg-gray-900 rounded-xl p-2 min-w-[240px] shadow-xl border border-white/10" x-cloak x-show="servicesOpen" x-transition.opacity>
-        <a href="/services/" class="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors">All Services</a>
+        <a href={t.nav.servicesHref} class="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors">{t.nav.allServices}</a>
         {services.map(s => (
           <a href={s.href} class={`block px-4 py-2 hover:bg-white/10 rounded-lg text-sm transition-colors ${currentPath === s.href ? 'text-blue-400' : 'text-white/70 hover:text-white'}`}>{s.name}</a>
         ))}
@@ -45,23 +37,31 @@ const currentPath = Astro.url.pathname;
 
     <!-- Industries Dropdown -->
     <li class="relative" @mouseenter="industriesOpen = true" @mouseleave="industriesOpen = false">
-      <button class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation flex items-center gap-1 ${currentPath.startsWith('/industries') ? 'bg-white/10' : ''}`}>
-        Industries
+      <button class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation flex items-center gap-1 ${currentPath.startsWith(locale === 'de' ? '/de/branchen' : '/industries') ? 'bg-white/10' : ''}`}>
+        {t.nav.industries}
         <svg class="w-4 h-4 transition-transform" :class="industriesOpen && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div class="absolute top-full left-0 mt-1 bg-gray-900 rounded-xl p-2 min-w-[220px] shadow-xl border border-white/10" x-cloak x-show="industriesOpen" x-transition.opacity>
-        <a href="/industries/" class="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors">All Industries</a>
+        <a href={t.nav.industriesHref} class="block px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg text-sm transition-colors">{t.nav.allIndustries}</a>
         {industries.map(i => (
           <a href={i.href} class={`block px-4 py-2 hover:bg-white/10 rounded-lg text-sm transition-colors ${currentPath === i.href ? 'text-blue-400' : 'text-white/70 hover:text-white'}`}>{i.name}</a>
         ))}
       </div>
     </li>
 
-    <li><a href="/platform/compliance/" class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith('/platform') ? 'bg-white/10' : ''}`}>Platform</a></li>
-    <li><a href="/resources/blog/" class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith('/resources') ? 'bg-white/10' : ''}`}>Blog</a></li>
-    <li><a href="/about/" class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath === '/about/' ? 'bg-white/10' : ''}`}>About</a></li>
+    <li><a href={t.nav.platformHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith(locale === 'de' ? '/de/plattform' : '/platform') ? 'bg-white/10' : ''}`}>{t.nav.platform}</a></li>
+    <li><a href={t.nav.blogHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath.startsWith('/resources') ? 'bg-white/10' : ''}`}>{t.nav.blog}</a></li>
+    <li><a href={t.nav.aboutHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath === (locale === 'de' ? '/de/ueber-uns/' : '/about/') ? 'bg-white/10' : ''}`}>{t.nav.about}</a></li>
+
+    <!-- Language Switcher -->
     <li>
-      <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="text-white px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 transition-all duration-200 min-h-[44px] touch-manipulation ml-2">Free AI Strategy Call</a>
+      <a href={alternatePath} class="text-white/60 hover:text-white px-3 py-2 text-sm font-semibold transition-colors">
+        {locale === 'de' ? 'EN' : 'DE'}
+      </a>
+    </li>
+
+    <li>
+      <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer" class="text-white px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 transition-all duration-200 min-h-[44px] touch-manipulation ml-2">{t.nav.ctaButton}</a>
     </li>
   </ul>
 
@@ -74,13 +74,18 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Menu -->
   <div class="lg:hidden absolute top-full left-0 w-full bg-black px-4 py-4" x-show="mobileMenuOpen" x-transition>
+    <!-- Language Switcher Mobile -->
+    <a href={alternatePath} class="text-white/60 hover:text-white py-2 px-2 block text-sm font-semibold mb-2">
+      {locale === 'de' ? '🇬🇧 English' : '🇩🇪 Deutsch'}
+    </a>
+
     <!-- Services Accordion -->
     <button class="text-white py-3 px-2 w-full text-left flex justify-between items-center hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation" @click="mobileServices = !mobileServices">
-      Services
+      {t.nav.services}
       <svg class="w-4 h-4 transition-transform" :class="mobileServices && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
     </button>
     <div class="pl-4" x-show="mobileServices" x-transition>
-      <a href="/services/" class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">All Services</a>
+      <a href={t.nav.servicesHref} class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">{t.nav.allServices}</a>
       {services.map(s => (
         <a href={s.href} class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">{s.name}</a>
       ))}
@@ -88,19 +93,19 @@ const currentPath = Astro.url.pathname;
 
     <!-- Industries Accordion -->
     <button class="text-white py-3 px-2 w-full text-left flex justify-between items-center hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation" @click="mobileIndustries = !mobileIndustries">
-      Industries
+      {t.nav.industries}
       <svg class="w-4 h-4 transition-transform" :class="mobileIndustries && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
     </button>
     <div class="pl-4" x-show="mobileIndustries" x-transition>
-      <a href="/industries/" class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">All Industries</a>
+      <a href={t.nav.industriesHref} class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">{t.nav.allIndustries}</a>
       {industries.map(i => (
         <a href={i.href} class="text-white/70 py-2 px-2 block hover:bg-white/10 rounded-lg text-sm">{i.name}</a>
       ))}
     </div>
 
-    <a href="/platform/compliance/" class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">Platform</a>
-    <a href="/resources/blog/" class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">Blog</a>
-    <a href="/about/" class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">About</a>
-    <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="text-white py-3 px-2 block bg-blue-600 hover:bg-blue-700 rounded-lg min-h-[48px] touch-manipulation text-center mt-2">Free AI Strategy Call</a>
+    <a href={t.nav.platformHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.platform}</a>
+    <a href={t.nav.blogHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.blog}</a>
+    <a href={t.nav.aboutHref} class="text-white py-3 px-2 block hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation">{t.nav.about}</a>
+    <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer" class="text-white py-3 px-2 block bg-blue-600 hover:bg-blue-700 rounded-lg min-h-[48px] touch-manipulation text-center mt-2">{t.nav.ctaButton}</a>
   </div>
 </nav>

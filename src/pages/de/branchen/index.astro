@@ -1,0 +1,147 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const industries = [
+  {
+    name: 'Recht',
+    href: '/de/branchen/recht/',
+    stat: '61%',
+    statLabel: 'der DACH-Anwälte nutzen bereits KI',
+    description: 'DSGVO-konforme Vertragsprüfung, Compliance-Automatisierung und juristische Q&A -- mit vollständiger Mandantenvertraulichkeit auf Ihrer eigenen Infrastruktur.',
+  },
+  {
+    name: 'Fertigung',
+    href: '/de/branchen/fertigung/',
+    stat: '34,6%',
+    statLabel: 'CAGR im KI-Fertigungsmarkt',
+    description: 'Industrie 4.0 KI für Predictive Maintenance, Qualitätsprüfung und Workflow-Automatisierung -- gehostet auf deutscher Infrastruktur.',
+  },
+  {
+    name: 'Finanzdienstleistungen',
+    href: '/de/branchen/finanzdienstleistungen/',
+    stat: '€37 Mrd.',
+    statLabel: 'prognostizierter KI-Markt in Deutschland bis 2031',
+    description: 'Datensouveräne KI für Betrugserkennung, KYC/AML-Automatisierung, Risikomodellierung und regulatorische Compliance.',
+  },
+  {
+    name: 'Bildung & Weiterbildung',
+    href: '/de/branchen/bildung/',
+    stat: '32,47%',
+    statLabel: 'CAGR im europäischen EdTech-KI-Markt',
+    description: 'Intelligente Lernplattformen mit Schutz der Lernenden-Daten. White-Label KI-Mentor-Lösungen für Prüfungsvorbereitung und betriebliche Weiterbildung.',
+  },
+  {
+    name: 'Gesundheitswesen',
+    href: '/de/branchen/gesundheitswesen/',
+    stat: '90%',
+    statLabel: 'Nutzungsrate an führenden EU-Kliniken',
+    description: 'Administrative Automatisierung, Dokumentationsassistenz und klinisches Wissensmanagement. Patientendaten verlassen niemals Ihre Infrastruktur.',
+  },
+  {
+    name: 'Öffentlicher Sektor',
+    href: '/de/branchen/oeffentlicher-sektor/',
+    stat: '245',
+    statLabel: 'erfasste KI-Anwendungen in 21 EU-Ländern',
+    description: 'Souveräne KI für Bürgerservices, Dokumentenverarbeitung und internes Wissensmanagement auf deutscher Infrastruktur.',
+  },
+];
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+];
+
+const structuredData = [
+  {
+    "@type": "CollectionPage",
+    "@id": "https://www.ironum.com/de/branchen/#page",
+    "name": "KI-Lösungen für jede Branche in der DACH-Region",
+    "description": "DSGVO-konforme KI-Lösungen für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in Deutschland, Österreich und der Schweiz.",
+    "url": "https://www.ironum.com/de/branchen/",
+    "inLanguage": "de-DE",
+    "isPartOf": { "@id": "https://www.ironum.com/#website" },
+    "publisher": { "@id": "https://www.ironum.com/#organization" }
+  }
+];
+---
+
+<Layout
+  title="KI-Branchenlösungen - DSGVO-konform | Ironum AI Core"
+  description="Entdecken Sie DSGVO-konforme KI-Lösungen für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in der DACH-Region."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="BRANCHEN"
+    title="KI-Lösungen für jede Branche"
+    subtitle="Speziell entwickelte KI-Lösungen für regulierte Branchen. DSGVO-konform, On-Premise, Private Cloud oder auf europäischen Servern bereitgestellt."
+  />
+
+  <!-- Industry Cards Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Nach Branche entdecken</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Maßgeschneiderte KI für regulierte Branchen</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Nur 17% der europäischen KMU nutzen KI, verglichen mit 55% der Großunternehmen. Wir schließen diese Lücke mit Infrastruktur, die Ihre Compliance-Anforderungen erfüllt.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {industries.map((industry) => (
+          <a href={industry.href} class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group">
+            <div class="text-blue-600 text-5xl font-bold mb-2">{industry.stat}</div>
+            <p class="text-gray-400 text-sm font-semibold mb-4">{industry.statLabel}</p>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">{industry.name}</h3>
+            <p class="text-gray-500 text-base">{industry.description}</p>
+            <div class="mt-4 text-blue-600 font-semibold text-sm flex items-center gap-1">
+              Mehr erfahren
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Industry Capabilities -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Branchenübergreifend</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Entwickelt für europäische Compliance</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jede Branchenlösung teilt unser Kernversprechen: Datensouveränität, regulatorische Compliance und europäische Infrastruktur.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">DSGVO-Konformität</h3>
+          <p class="text-gray-500">Vollständige DSGVO-Konformität by Design. Auftragsverarbeitungsverträge, Datenschutz-Folgenabschätzungen und Art. 28-konforme Infrastruktur. 44% der Unternehmen nennen Datensicherheit als Hauptbedenken bei Cloud-KI. Wir beseitigen diese Hürde.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">On-Premise & Private Cloud</h3>
+          <p class="text-gray-500">Betrieb auf Ihren eigenen Servern, Azure oder Hetzner-Infrastruktur in Deutschland. 72% der EU-Sicherheitsexperten berichten über erhöhte Nachfrage nach Datenlokalisierung. Unsere Infrastruktur erfüllt diese Anforderung ab Tag eins.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">EU AI Act Ready</h3>
+          <p class="text-gray-500">Proaktive Compliance mit dem EU AI Act vor der Frist im August 2026. Risikoklassifizierung, Transparenzanforderungen und Audit-Trails in jedem Deployment integriert. Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

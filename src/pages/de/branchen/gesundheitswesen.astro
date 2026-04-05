@@ -1,0 +1,214 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+  { label: 'Gesundheitswesen', href: '/de/branchen/gesundheitswesen/' },
+];
+
+const faqItems = [
+  {
+    question: 'Verarbeitet Ironum klinische Patientendaten?',
+    answer: 'Unsere Gesundheitslösungen konzentrieren sich auf administrative Automatisierung, Dokumentationsassistenz und Wissensmanagement -- nicht auf klinische Entscheidungsfindung. Alle Patientendaten verbleiben auf Ihrer Infrastruktur und werden niemals an externe KI-Dienste gesendet. Wir positionieren unsere KI nicht als Medizinprodukt oder klinisches Entscheidungsunterstützungssystem.',
+  },
+  {
+    question: 'Wie funktioniert On-Premise-Deployment in einer Krankenhausumgebung?',
+    answer: 'Wir deployen direkt innerhalb Ihrer Krankenhaus-IT-Infrastruktur, hinter Ihrer Firewall und innerhalb Ihres bestehenden Sicherheitsperimeters. Das System integriert sich über sichere APIs mit Ihrem KIS (Krankenhausinformationssystem). Die gesamte Datenverarbeitung ist lokal und gewährleistet Konformität mit Patientendatenschutzanforderungen.',
+  },
+  {
+    question: 'Welche administrativen Aufgaben können automatisiert werden?',
+    answer: 'Häufige Anwendungsfälle umfassen medizinische Dokumentationszusammenfassung, Erstellung von Arztbriefen, Überweisungsschreiben, Versicherungsdokumentation und internes Wissensmanagement. Führende Krankenhäuser erreichen 30-40% Adoptionsraten für Dokumentationstools, einige nähern sich 90% Nutzung.',
+  },
+  {
+    question: 'Ist die Lösung konform mit deutschen Gesundheitsdaten-Vorschriften?',
+    answer: 'Ja. Unsere Deployments sind konform mit DSGVO, dem Patientendaten-Schutz-Gesetz (PDSG) und relevanten Landesdatenschutzgesetzen. Auftragsverarbeitungsverträge und TOM-Dokumentation sind standardmäßig inklusive. Wir unterstützen auch die Vorbereitung auf EU AI Act Compliance und KRITIS-Anforderungen.',
+  },
+  {
+    question: 'Kann die KI auf unsere spezifische medizinische Terminologie und Workflows trainiert werden?',
+    answer: 'Ja. Unsere RAG-basierten Systeme werden mit Ihren spezifischen klinischen Dokumentationsvorlagen, medizinischer Terminologie, internen Protokollen und abteilungsspezifischen Workflows konfiguriert. Das System lernt aus Ihren genehmigten Inhalten -- nicht aus dem allgemeinen Internet -- und gewährleistet so Genauigkeit und Relevanz für Ihre Einrichtung.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/branchen/gesundheitswesen/#service",
+    "name": "KI-Lösungen für das Gesundheitswesen",
+    "description": "Administrative Automatisierung und Dokumentationsassistenz für das europäische Gesundheitswesen. Patientendaten bleiben auf Ihrer Infrastruktur. DSGVO- und KRITIS-konform.",
+    "url": "https://www.ironum.com/de/branchen/gesundheitswesen/",
+    "inLanguage": "de-DE",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Deutschland, Österreich, Schweiz" },
+    "serviceType": "KI-Infrastruktur für das Gesundheitswesen"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="KI für das Gesundheitswesen - Patientendaten-Souveränität | Ironum"
+  description="Administrative KI-Automatisierung für das Gesundheitswesen. Dokumentationsassistenz, Wissensmanagement und Workflow-Automatisierung. Patientendaten verlassen niemals Ihre Infrastruktur. KRITIS-konform."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="KI FÜR DAS GESUNDHEITSWESEN"
+    title="Patientendaten bleiben auf Ihrer Infrastruktur"
+    subtitle="Das Gesundheitswesen ist die am schnellsten wachsende KI-Branche in Europa. Führende Kliniken erreichen bis zu 90% Nutzung bei Dokumentationstools. Setzen Sie administrative KI ein, ohne die Patientendaten-Souveränität zu gefährden."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Gesundheitsdaten sind die sensibelsten Daten</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Patientendaten erfordern absoluten Schutz. Gesundheitseinrichtungen brauchen KI-Produktivitätsgewinne, ohne Datensouveränität oder regulatorische Compliance zu riskieren.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Dokumentationsüberlastung</h3>
+          <p class="text-gray-500">Ärzte verbringen bis zu 50% ihrer Zeit mit Dokumentation statt Patientenversorgung. Arztbriefe, Überweisungsschreiben und Versicherungsformulare schaffen eine administrative Last, die KI erheblich reduzieren kann.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Sensibilität der Patientendaten</h3>
+          <p class="text-gray-500">Gesundheitsdaten sind eine besondere Kategorie nach DSGVO Art. 9. Die Nutzung öffentlicher Cloud-KI für patientenbezogene Aufgaben schafft inakzeptable Datenschutzrisiken. Als KRITIS-Betreiber gelten zusätzliche Sicherheitsanforderungen.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Wissensfragmentierung</h3>
+          <p class="text-gray-500">Klinische Protokolle, Behandlungsleitlinien und institutionelles Wissen sind über Dokumente, Intranets und Abteilungssilos verstreut. Personal verbringt wertvolle Zeit mit Suchen statt mit Patientenversorgung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Lösungen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Administrative KI für das Gesundheitswesen</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fokus auf administrative Effizienz, nicht auf klinische Entscheidungsfindung. KI, die Papierkram reduziert, damit Ihr Personal sich auf die Patientenversorgung konzentrieren kann.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Administrative Automatisierung</h3>
+          <p class="text-gray-500 mb-4">Automatisieren Sie repetitive administrative Aufgaben einschließlich Terminplanungs-Workflows, Versicherungsdokumentation und abteilungsübergreifende Kommunikation mit n8n-Workflow-Automatisierung.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Versicherungs- und Abrechnungs-Workflow-Automatisierung</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Optimierung von Überweisungs- und Entlassungsprozessen</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Self-hosted n8n: keine externe Datenübertragung</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Dokumentationsassistenz</h3>
+          <p class="text-gray-500 mb-4">KI-gestützte Erstellung von Arztbriefen, Überweisungsschreiben und klinischen Notizen. Dokumentationszeit reduzieren bei medizinischer Genauigkeit durch RAG-gestützte Vorlagen.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Arztbrief-Generierung aus strukturierten Daten</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Vorlagenbasiert mit ärztlichem Prüfschritt</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Trainiert auf die Dokumentationsstandards Ihrer Einrichtung</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Wissensmanagement</h3>
+          <p class="text-gray-500 mb-4">Interner Wissens-Chatbot, trainiert auf Ihren klinischen Protokollen, Behandlungsleitlinien und institutionellen Richtlinien. Personal erhält sofortige, akkurate Antworten aus Ihrer genehmigten Wissensbasis.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Protokoll- und Leitliniensuche in natürlicher Sprache</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Quellenbasierte Antworten mit Dokumentenreferenzen</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Rollenbasierter Zugriff für verschiedene Abteilungen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Marktdaten</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">KI-Adoption im europäischen Gesundheitswesen</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">#1</div>
+          <p class="text-gray-500 text-lg font-semibold">Am schnellsten wachsende KI-Branche in Europa</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-4xl font-bold mb-2">30-40%</div>
+          <p class="text-gray-500 text-lg font-semibold">Adoptionsrate medizinischer Dokumentations-KI-Tools</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">90%</div>
+          <p class="text-gray-500 text-lg font-semibold">Nutzungsrate an führenden europäischen Kliniken</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Patientendaten bleiben auf Ihrer Infrastruktur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">VERWANDTE SERVICES</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Lösungen, die Gesundheits-KI antreiben</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/de/services/enterprise-rag/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Enterprise RAG</h3>
+          <p class="text-gray-500 font-semibold mb-4">Klinische Protokolle, Behandlungsleitlinien und institutionelle Dokumentation mit KI-gestütztem Wissensabruf durchsuchen.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Chatbot-Oberflächen</h3>
+          <p class="text-gray-500 font-semibold mb-4">Interne Wissensassistenten für sofortigen Zugriff auf Protokolle, Leitlinien und institutionelle Richtlinien.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/ki-beratung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">KI-Beratung</h3>
+          <p class="text-gray-500 font-semibold mb-4">KI-Readiness-Assessments für das Gesundheitswesen mit DSGVO-, KRITIS- und Patientendatenschutz-Compliance von Anfang an.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

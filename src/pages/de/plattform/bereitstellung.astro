@@ -1,0 +1,225 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout
+  title="Bereitstellungsoptionen: Cloud, Azure DSGVO oder On-Premise | Ironum"
+  description="KI nach Ihren Vorgaben bereitstellen: Cloud-APIs für Geschwindigkeit, Azure DSGVO-Regionen für Compliance oder vollständig On-Premise für maximale Datensouveränität. Ironum-Bereitstellungsoptionen vergleichen."
+  locale="de"
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="BEREITSTELLUNG"
+    title="Bereitstellung nach Ihren Vorgaben"
+    subtitle="Jede Organisation hat unterschiedliche Compliance-, Performance- und Sicherheitsanforderungen. Wählen Sie das Deployment-Modell, das passt -- oder kombinieren Sie mehrere."
+  />
+
+  <!-- 3-Column Comparison -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">OPTIONEN VERGLEICHEN</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Drei Wege in die Produktion</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+        <!-- Cloud APIs -->
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col">
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">SCHNELLSTER START</span>
+          <h3 class="text-2xl font-bold mt-2 mb-4">Cloud-APIs</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Kommerzielle LLM-APIs (OpenAI, Anthropic, Google) mit Ironum-Orchestrierung nutzen. Schnellste Time-to-Value für nicht-sensible Workloads.</p>
+          <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              In Tagen live, nicht Wochen
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Keine Infrastruktur zu verwalten
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Pay-per-Token-Preismodell
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-yellow-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
+              Daten verlassen Ihr Netzwerk
+            </li>
+          </ul>
+          <p class="text-sm text-gray-400 font-semibold">Ideal für: PoCs, nicht-regulierte Workloads, schnelles Experimentieren</p>
+        </div>
+
+        <!-- Azure GDPR -->
+        <div class="border-2 border-blue-600 rounded-2xl p-6 md:p-8 flex flex-col relative">
+          <span class="absolute -top-3 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">EMPFOHLEN</span>
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">DSGVO-KONFORM</span>
+          <h3 class="text-2xl font-bold mt-2 mb-4">Azure DSGVO-Regionen</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Enterprise-KI über Microsoft Azures EU-Rechenzentren. Volle DSGVO-Konformität mit AVV, Datenresidenz-Garantien und Enterprise-SLAs.</p>
+          <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Daten bleiben in EU-Regionen
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Microsoft-AVV inklusive
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Enterprise-SLA (99,9%+)
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Kein Modelltraining auf Ihren Daten
+            </li>
+          </ul>
+          <p class="text-sm text-gray-400 font-semibold">Ideal für: Regulierte Branchen, Enterprise-Kunden, DSGVO-sensible Daten</p>
+        </div>
+
+        <!-- On-Premises -->
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col">
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">MAXIMALE KONTROLLE</span>
+          <h3 class="text-2xl font-bold mt-2 mb-4">On-Premise</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Vollständiges Deployment auf Ihrer eigenen Hardware oder in Ihrem privaten Rechenzentrum. Open-Source-Modelle, vollständige Air-Gap-Fähigkeit, null externe Abhängigkeiten.</p>
+          <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Null Daten verlassen Ihr Netzwerk
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Air-Gap-Deployment möglich
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Nur Open-Source-Modelle
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-yellow-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
+              Erfordert GPU-Hardware
+            </li>
+          </ul>
+          <p class="text-sm text-gray-400 font-semibold">Ideal für: Verteidigung, Behörden, Gesundheitswesen, maximale Datensouveränität</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decision Matrix -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">ENTSCHEIDUNGSHILFE</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Wann welche Option wählen</h2>
+
+      <div class="overflow-x-auto pt-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="py-4 pr-4 text-lg font-bold">Anforderung</th>
+              <th class="py-4 px-4 text-lg font-bold">Cloud-APIs</th>
+              <th class="py-4 px-4 text-lg font-bold">Azure DSGVO</th>
+              <th class="py-4 pl-4 text-lg font-bold">On-Premise</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-500 font-semibold">
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">DSGVO-Konformität</td>
+              <td class="py-4 px-4">Teilweise</td>
+              <td class="py-4 px-4 text-green-600">Vollständig</td>
+              <td class="py-4 pl-4 text-green-600">Vollständig</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">EU AI Act Ready</td>
+              <td class="py-4 px-4">Anbieterabhängig</td>
+              <td class="py-4 px-4 text-green-600">Ja</td>
+              <td class="py-4 pl-4 text-green-600">Ja</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">Datenresidenz</td>
+              <td class="py-4 px-4">Global</td>
+              <td class="py-4 px-4">EU-Regionen</td>
+              <td class="py-4 pl-4">Ihre Räumlichkeiten</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">Setup-Zeit</td>
+              <td class="py-4 px-4 text-green-600">Tage</td>
+              <td class="py-4 px-4">1-2 Wochen</td>
+              <td class="py-4 pl-4">2-4 Wochen</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">Hardware erforderlich</td>
+              <td class="py-4 px-4 text-green-600">Keine</td>
+              <td class="py-4 px-4 text-green-600">Keine</td>
+              <td class="py-4 pl-4">GPU-Server</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-4 pr-4">Air-Gap-fähig</td>
+              <td class="py-4 px-4">Nein</td>
+              <td class="py-4 px-4">Nein</td>
+              <td class="py-4 pl-4 text-green-600">Ja</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-4">Modellauswahl</td>
+              <td class="py-4 px-4">Kommerziell</td>
+              <td class="py-4 px-4">Azure-Katalog</td>
+              <td class="py-4 pl-4">Open-Source / Custom</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Requirements -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">TECHNISCHE SPEZIFIKATIONEN</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Technische Anforderungen</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-4">Cloud-APIs</h3>
+          <ul class="space-y-2 text-gray-500 text-lg font-semibold">
+            <li>API-Keys der gewählten Anbieter</li>
+            <li>Stabile Internetverbindung</li>
+            <li>n8n-Instanz (wir deployen für Sie)</li>
+            <li>Keine GPU oder spezielle Hardware</li>
+          </ul>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-4">Azure DSGVO</h3>
+          <ul class="space-y-2 text-gray-500 text-lg font-semibold">
+            <li>Azure-Abonnement (EU-Region)</li>
+            <li>Azure OpenAI-Zugang genehmigt</li>
+            <li>Netzwerkverbindung zu Azure</li>
+            <li>Optional: Azure AD für SSO</li>
+          </ul>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-4">On-Premise</h3>
+          <ul class="space-y-2 text-gray-500 text-lg font-semibold">
+            <li>NVIDIA GPU (A100/H100 empfohlen)</li>
+            <li>64GB+ RAM, 1TB+ Speicher</li>
+            <li>Docker / Kubernetes-Umgebung</li>
+            <li>Linux-Server (Ubuntu 22.04+)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={[
+    { question: "Kann ich Deployment-Modelle kombinieren?", answer: "Ja. Viele Kunden nutzen Azure DSGVO für sensible Workloads und Cloud-APIs für nicht-sensible Aufgaben. Unsere Orchestrierungsebene leitet Anfragen automatisch basierend auf Datenklassifizierungsregeln, die Sie definieren, an das richtige Backend weiter." },
+    { question: "Wie lange dauert das Deployment?", answer: "Cloud-API-Setups können in 2-3 Tagen live sein. Azure DSGVO-Deployments dauern typischerweise 1-2 Wochen inklusive AVV-Setup. On-Premise-Deployments dauern 2-4 Wochen, abhängig von Hardware-Bereitschaft und Netzwerkkonfiguration." },
+    { question: "Brauche ich ein eigenes IT-Team?", answer: "Nein. Ironum übernimmt Deployment, Konfiguration, Monitoring und laufende Wartung. Wir schulen Ihr Team für den täglichen Betrieb, bleiben aber für Support und Updates verfügbar." },
+    { question: "Kann ich später zwischen Deployment-Modellen migrieren?", answer: "Ja. Unsere modulare Architektur ermöglicht es Ihnen, mit Cloud-APIs zu starten und zu Azure DSGVO oder On-Premise zu migrieren, wenn sich Ihre Anforderungen entwickeln. Wir übernehmen die Migration ohne Downtime." },
+    { question: "Was ist mit Latenz und Performance?", answer: "Cloud-APIs haben typischerweise 200-500ms Antwortzeiten. Azure DSGVO ist vergleichbar. On-Premise-Deployments können Sub-100ms-Latenz für lokale Modelle erreichen und sind damit ideal für Echtzeit-Anwendungen." }
+  ]} />
+
+  <FinalCTA />
+  <Footer />
+</Layout>

@@ -1,0 +1,235 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+  { label: 'Öffentlicher Sektor', href: '/de/branchen/oeffentlicher-sektor/' },
+];
+
+const faqItems = [
+  {
+    question: 'Wie funktioniert souveräne KI für Behörden?',
+    answer: 'Die gesamte KI-Verarbeitung findet auf deutscher Infrastruktur statt: entweder On-Premise in Ihrem Rechenzentrum oder auf dedizierten Hetzner-Cloud-Servern in Deutschland. Keine Daten werden an US-Cloud-Anbieter oder KI-Drittanbieter gesendet. Wir nutzen Open-Source-KI-Modelle, die vollständig auditiert werden können -- für volle Transparenz und kein Vendor-Lock-in.',
+  },
+  {
+    question: 'Kann die KI Bürgeranfragen in mehreren Sprachen bearbeiten?',
+    answer: 'Ja. Unsere Chatbot-Lösungen unterstützen Deutsch, Englisch und weitere europäische Sprachen. Sie können für mehrsprachige Bürgerservices konfiguriert werden, erkennen automatisch die Sprache der Anfrage und antworten entsprechend -- alles lokal auf Ihrer Infrastruktur verarbeitet.',
+  },
+  {
+    question: 'Welche Open-Source-Modelle setzen Sie ein?',
+    answer: 'Wir deployen Open-Source-LLMs, die von Ihrem IT-Sicherheitsteam vollständig geprüft und inspiziert werden können. Dies eliminiert das "Black-Box"-Bedenken bei proprietären KI-Diensten und gewährleistet Konformität mit Transparenzanforderungen bei öffentlichen Vergaben. Die spezifische Modellauswahl hängt von Ihrem Anwendungsfall und Ihrer Infrastrukturkapazität ab.',
+  },
+  {
+    question: 'Wie verhält sich das zu bestehenden KI-Initiativen der öffentlichen Hand in Europa?',
+    answer: 'In 21 europäischen Ländern wurden 245 KI-Anwendungsfälle im öffentlichen Sektor erfasst. Chatbots stellen 20% der aktuellen Initiativen dar. Europäische Regierungen hinken jedoch bei der KI-Adoption hinterher -- eine Chance, mit souveräner, DSGVO-konformer KI-Infrastruktur das Bürgervertrauen zu stärken.',
+  },
+  {
+    question: 'Wie sieht der Beschaffungsprozess für KI im öffentlichen Sektor aus?',
+    answer: 'Wir arbeiten innerhalb der üblichen Vergaberahmen und können sowohl Direktvergaben unter Schwellenwerten als auch formelle Ausschreibungsverfahren unterstützen. Unsere Lösungen nutzen Open-Source-Komponenten und adressieren damit gängige Vergabeanforderungen bezüglich Herstellerunabhängigkeit und langfristiger Nachhaltigkeit.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/branchen/oeffentlicher-sektor/#service",
+    "name": "KI-Lösungen für den öffentlichen Sektor",
+    "description": "Souveräne KI auf deutscher Infrastruktur für Behörden. Bürgerservice-Automatisierung, Dokumentenverarbeitung und internes Wissensmanagement mit voller Datensouveränität.",
+    "url": "https://www.ironum.com/de/branchen/oeffentlicher-sektor/",
+    "inLanguage": "de-DE",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Deutschland, Österreich, Schweiz" },
+    "serviceType": "KI-Infrastruktur für den öffentlichen Sektor"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="KI für den öffentlichen Sektor - Souveräne KI auf deutscher Infrastruktur | Ironum"
+  description="Souveräne KI für Behörden. Bürgerservice-Automatisierung, Dokumentenverarbeitung und Wissensmanagement. Deutsches Hosting, Open-Source, volle Datensouveränität. KRITIS-konform."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="KI FÜR DEN ÖFFENTLICHEN SEKTOR"
+    title="Souveräne KI auf deutscher Infrastruktur"
+    subtitle="245 KI-Anwendungsfälle in 21 europäischen Ländern erfasst -- doch Behörden hinken bei der KI-Adoption hinterher. Setzen Sie bürgernahe und interne KI auf vollständig souveräner, in Deutschland gehosteter Infrastruktur ein."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Behördliche KI erfordert absolute Souveränität</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">KI im öffentlichen Sektor steht vor einzigartigen Einschränkungen: Bürgerdatenschutz, Vergabevorschriften, Transparenzanforderungen und die Pflicht zur Nutzung souveräner Infrastruktur.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm6-11h.01M9 5h.01" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Digitale Souveränität als Pflicht</h3>
+          <p class="text-gray-500">Behördendaten können nicht von US-Cloud-Anbietern verarbeitet werden, die dem CLOUD Act unterliegen. 72% der EU-Sicherheitsexperten berichten über erhöhte Nachfrage nach Datenlokalisierung. Im öffentlichen Sektor ist dies nicht verhandelbar. KRITIS-Anforderungen verschärfen die Lage zusätzlich.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Rückstau bei Bürgerservices</h3>
+          <p class="text-gray-500">Behörden stehen wachsenden Bürgererwartungen an digitale Dienste gegenüber und kämpfen gleichzeitig mit Personalmangel und manuellen Prozessen. Chatbots sind der häufigste KI-Anwendungsfall im öffentlichen Sektor (20% der Initiativen), aber den meisten fehlt Datensouveränität.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Transparenz & Prüfbarkeit</h3>
+          <p class="text-gray-500">KI im öffentlichen Sektor muss erklärbar, prüfbar und frei von Vendor-Lock-in sein. Proprietäre KI-Modelle bestehen Transparenzanforderungen nicht. Open-Source-Lösungen mit vollständigen Audit-Trails sind essentiell für das Bürgervertrauen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Lösungen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Open-Source-KI für Behörden</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">In Deutschland gehostet, Open-Source KI-Stack mit voller Datensouveränität. Keine US-Cloud-Anbieter, kein proprietäres Lock-in, vollständige Transparenz.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Bürgerservice-Chatbot</h3>
+          <p class="text-gray-500 mb-4">KI-gestützter Bürgerservice-Assistent, der Fragen zu Verwaltungsleistungen, Genehmigungen, Vorschriften und Verfahren beantwortet. Auf deutscher Infrastruktur bereitgestellt mit mehrsprachiger Unterstützung.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>24/7-Verfügbarkeit für Bürgeranfragen</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Trainiert auf die spezifischen Leistungen Ihrer Behörde</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Deutsch und mehrsprachige Unterstützung</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Dokumentenverarbeitung</h3>
+          <p class="text-gray-500 mb-4">Automatisierte Verarbeitung, Klassifizierung und Extraktion von Behördendokumenten. Manuelle Bearbeitung von Anträgen, Genehmigungen und Korrespondenz mit KI-gestützter Workflow-Automatisierung reduzieren.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automatische Dokumentenklassifizierung und -weiterleitung</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Datenextraktion aus Formularen und Anträgen</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>n8n-Workflow-Automatisierung für Verarbeitungsketten</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Interne Wissensdatenbank</h3>
+          <p class="text-gray-500 mb-4">RAG-gestützter interner Assistent für Behördenmitarbeiter. Sofortiger Zugriff auf Vorschriften, Verfahren und institutionelles Wissen -- verkürzt Einarbeitungszeiten und verbessert Service-Konsistenz.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Natürlichsprachliche Suche über alle Richtlinien</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Quellenbasierte Antworten für Nachweisbarkeit</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Open-Source-Stack, vollständig auditierbar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sovereign Infrastructure -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Souveräne Infrastruktur</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Entwickelt für behördliches Vertrauen</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Jede Komponente unseres Public-Sector-KI-Stacks ist auf Souveränität, Transparenz und öffentliche Rechenschaftspflicht ausgelegt.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>Deutsches Hosting:</strong> Hetzner-Rechenzentren in Deutschland, kein US-CLOUD-Act-Risiko</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>Open-Source:</strong> Vollständig auditierbare KI-Modelle, keine proprietären Black Boxes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>Kein Vendor-Lock-in:</strong> Offene Standards und portable Deployments</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600"><strong>EU AI Act ready:</strong> Vollständige Compliance-Dokumentation und Risikomanagement</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">245</div>
+            <p class="text-gray-500 text-sm font-semibold">KI-Anwendungsfälle in 21 EU-Ländern erfasst</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">20%</div>
+            <p class="text-gray-500 text-sm font-semibold">Der KI-Initiativen im öffentlichen Sektor sind Chatbots</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">72%</div>
+            <p class="text-gray-500 text-sm font-semibold">Der EU-Sicherheitsexperten fordern Datenlokalisierung</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
+            <p class="text-gray-500 text-sm font-semibold">Souverän: Daten verlassen Deutschland nicht</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">VERWANDTE SERVICES</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Lösungen, die KI im öffentlichen Sektor antreiben</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/de/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Chatbot-Oberflächen</h3>
+          <p class="text-gray-500 font-semibold mb-4">Mehrsprachige Bürgerservice-Chatbots auf souveräner deutscher Infrastruktur für 24/7-Verfügbarkeit.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/workflow-automatisierung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Workflow-Automatisierung</h3>
+          <p class="text-gray-500 font-semibold mb-4">Dokumentenverarbeitung, Genehmigungsanträge und behördenübergreifende Workflows mit self-hosted n8n automatisieren.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/enterprise-rag/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Enterprise RAG</h3>
+          <p class="text-gray-500 font-semibold mb-4">Interne Wissensdatenbanken für Behördenmitarbeiter mit sofortigem Zugriff auf Vorschriften, Verfahren und Richtlinien.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

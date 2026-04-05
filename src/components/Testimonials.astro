@@ -1,80 +1,37 @@
 ---
-// Testimonials section with use case screenshots
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 ---
 
 <section class="px-4 md:px-20 py-20 md:py-32">
   <div class="max-w-7xl mx-auto space-y-12">
     <div class="text-center space-y-4">
-      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">WHAT OUR CLIENTS SAY</span>
-      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Real Results. Real Businesses.</h2>
-      <p class="text-gray-500 text-lg font-semibold max-w-2xl mx-auto">From AI search visibility to sovereign learning platforms, here is how European companies use Ironum.</p>
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.testimonials.eyebrow}</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">{t.testimonials.title}</h2>
+      <p class="text-gray-500 text-lg font-semibold max-w-2xl mx-auto">{t.testimonials.subtitle}</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
-
-      <!-- Testimonial 1: Helena Vossen — GEO / SEO -->
-      <a href="/services/geo-optimization/" class="border-2 border-gray-100 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-600 transition-all duration-200 no-underline">
-        <div>
-          <span class="inline-block bg-orange-500/10 text-orange-500 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">GEO Optimisation</span>
-          <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
-            "Our competitors were getting recommended constantly and I couldn't figure out why. Our product was better, our site was faster. Turns out they had structured data and a stronger review footprint on the right platforms. The audit made it obvious. We fixed it in two weeks. Now we're in the recommendations alongside them."
-          </blockquote>
-        </div>
-        <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-          <img src="/avatars/helena-vossen.webp" alt="Helena Vossen" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" />
+      {t.testimonials.items.map(item => (
+        <a href={item.href} class="border-2 border-gray-100 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-600 transition-all duration-200 no-underline">
           <div>
-            <p class="font-bold text-gray-900">Helena Vossen</p>
-            <p class="text-gray-500 text-sm">CEO @ smella.de</p>
+            <span class="inline-block bg-orange-500/10 text-orange-500 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">{item.badge}</span>
+            <blockquote class="text-gray-700 text-base leading-relaxed mb-6">{item.quote}</blockquote>
           </div>
-        </div>
-        <!-- Screenshot: askmention.com audit tool -->
-        <div class="mt-6 rounded-xl overflow-hidden border border-gray-100">
-          <img src="/screenshots/askmention.webp" alt="AskMention AI Presence Report showing visibility across ChatGPT, Gemini, Perplexity, Claude, and Copilot" class="w-full h-auto" loading="lazy" />
-        </div>
-      </a>
-
-      <!-- Testimonial 2: Prof. Dr. Carsten Wolff — LLM Fine-Tuning -->
-      <a href="/services/llm-fine-tuning/" class="border-2 border-gray-100 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-600 transition-all duration-200 no-underline">
-        <div>
-          <span class="inline-block bg-orange-500/10 text-orange-500 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">LLM Fine-Tuning</span>
-          <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
-            "We integrated quiz-based AI platform across multiple teaching methods, from inverted classrooms to quiz-based homework. The software boosted student motivation and helped them pass exams more successfully. It adapts seamlessly to individual learning needs, which is exactly what modern higher education demands."
-          </blockquote>
-        </div>
-        <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-          <img src="/avatars/carsten-wolff.png" alt="Prof. Dr. Carsten Wolff" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" />
-          <div>
-            <p class="font-bold text-gray-900">Prof. Dr. Carsten Wolff</p>
-            <p class="text-gray-500 text-sm">Board of Directors IDiAL, FH Dortmund</p>
+          <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+            <img src={item.avatar} alt={item.name} class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" />
+            <div>
+              <p class="font-bold text-gray-900">{item.name}</p>
+              <p class="text-gray-500 text-sm">{item.role}</p>
+            </div>
           </div>
-        </div>
-        <!-- Screenshot: FH Dortmund quiz library -->
-        <div class="mt-6 rounded-xl overflow-hidden border border-gray-100">
-          <img src="/screenshots/fh-dortmund.webp" alt="LearnSlice quiz library with SCRUM, orientation, and logistics courses at FH Dortmund" class="w-full h-auto" loading="lazy" />
-        </div>
-      </a>
-
-      <!-- Testimonial 3: Alesia Kunz — Chatbot Interfaces -->
-      <a href="/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-600 transition-all duration-200 no-underline">
-        <div>
-          <span class="inline-block bg-orange-500/10 text-orange-500 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Chatbot Interfaces</span>
-          <blockquote class="text-gray-700 text-base leading-relaxed mb-6">
-            "Our customers trust us with their data. When we needed AI-powered personalisation, we couldn't send student profiles to a US cloud. Ironum gave us a sovereign AI layer that runs entirely on European infrastructure. Our learners get a modern, personalised learning journey, and their data never leaves our control."
-          </blockquote>
-        </div>
-        <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
-          <img src="/avatars/alesia-kunz.jpg" alt="Alesia Kunz" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" />
-          <div>
-            <p class="font-bold text-gray-900">Alesia Kunz</p>
-            <p class="text-gray-500 text-sm">CEO @ LearnSlice</p>
+          <div class="mt-6 rounded-xl overflow-hidden border border-gray-100">
+            <img src={item.screenshot} alt={item.screenshotAlt} class="w-full h-auto" loading="lazy" />
           </div>
-        </div>
-        <!-- Screenshot: LearnSlice platform -->
-        <div class="mt-6 rounded-xl overflow-hidden border border-gray-100">
-          <img src="/screenshots/learnslice.webp" alt="LearnSlice AI learning platform with personalised learning modes and sovereign data processing" class="w-full h-auto" loading="lazy" />
-        </div>
-      </a>
-
+        </a>
+      ))}
     </div>
   </div>
 </section>

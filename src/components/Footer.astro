@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 ---
 
 <footer class="w-full bg-black text-white">
@@ -6,62 +10,54 @@
     <!-- Newsletter Signup -->
     <div class="pb-12 mb-12 border-b border-white/10">
       <div class="max-w-2xl">
-        <h3 class="text-xl font-bold mb-2">Stay updated on AI compliance and innovation</h3>
-        <p class="text-white/60 text-sm mb-6">Get insights on EU AI Act developments, deployment strategies, and practical AI use cases for European businesses.</p>
-        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3">
-          <input type="hidden" name="form-name" value="newsletter">
+        <h3 class="text-xl font-bold mb-2">{t.footer.newsletter.title}</h3>
+        <p class="text-white/60 text-sm mb-6">{t.footer.newsletter.description}</p>
+        <form name={t.footer.newsletter.formName} method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3">
+          <input type="hidden" name="form-name" value={t.footer.newsletter.formName}>
           <input name="bot-field" class="hidden">
-          <input type="email" name="email" required placeholder="Enter your email" class="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/40 transition-colors">
-          <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-sm hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation whitespace-nowrap">Subscribe</button>
+          <input type="email" name="email" required placeholder={t.footer.newsletter.placeholder} class="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/40 transition-colors">
+          <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-sm hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation whitespace-nowrap">{t.footer.newsletter.button}</button>
         </form>
       </div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
       <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">Services</h4>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">{t.footer.servicesTitle}</h4>
         <ul class="space-y-2">
-          <li><a href="/services/ai-consulting/" class="text-white/60 hover:text-white text-sm transition-colors">AI Consulting</a></li>
-          <li><a href="/services/workflow-automation/" class="text-white/60 hover:text-white text-sm transition-colors">Workflow Automation</a></li>
-          <li><a href="/services/enterprise-rag/" class="text-white/60 hover:text-white text-sm transition-colors">Enterprise RAG</a></li>
-          <li><a href="/services/chatbot-interfaces/" class="text-white/60 hover:text-white text-sm transition-colors">Chatbot Interfaces</a></li>
-          <li><a href="/services/llm-fine-tuning/" class="text-white/60 hover:text-white text-sm transition-colors">LLM Fine-Tuning</a></li>
-          <li><a href="/services/geo-optimization/" class="text-white/60 hover:text-white text-sm transition-colors">GEO Optimization</a></li>
+          {t.footer.serviceLinks.map(link => (
+            <li><a href={link.href} class="text-white/60 hover:text-white text-sm transition-colors">{link.name}</a></li>
+          ))}
         </ul>
       </div>
       <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">Industries</h4>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">{t.footer.industriesTitle}</h4>
         <ul class="space-y-2">
-          <li><a href="/industries/legal/" class="text-white/60 hover:text-white text-sm transition-colors">Legal</a></li>
-          <li><a href="/industries/manufacturing/" class="text-white/60 hover:text-white text-sm transition-colors">Manufacturing</a></li>
-          <li><a href="/industries/financial-services/" class="text-white/60 hover:text-white text-sm transition-colors">Financial Services</a></li>
-          <li><a href="/industries/education/" class="text-white/60 hover:text-white text-sm transition-colors">Education</a></li>
-          <li><a href="/industries/healthcare/" class="text-white/60 hover:text-white text-sm transition-colors">Healthcare</a></li>
-          <li><a href="/industries/public-sector/" class="text-white/60 hover:text-white text-sm transition-colors">Public Sector</a></li>
+          {t.footer.industryLinks.map(link => (
+            <li><a href={link.href} class="text-white/60 hover:text-white text-sm transition-colors">{link.name}</a></li>
+          ))}
         </ul>
       </div>
       <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">{t.footer.resourcesTitle}</h4>
         <ul class="space-y-2">
-          <li><a href="/resources/blog/" class="text-white/60 hover:text-white text-sm transition-colors">Blog</a></li>
-          <li><a href="/platform/" class="text-white/60 hover:text-white text-sm transition-colors">Platform</a></li>
-          <li><a href="/platform/deployment/" class="text-white/60 hover:text-white text-sm transition-colors">Deployment Options</a></li>
-          <li><a href="/platform/compliance/" class="text-white/60 hover:text-white text-sm transition-colors">Compliance</a></li>
+          {t.footer.resourceLinks.map(link => (
+            <li><a href={link.href} class="text-white/60 hover:text-white text-sm transition-colors">{link.name}</a></li>
+          ))}
         </ul>
       </div>
       <div>
-        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-4">{t.footer.companyTitle}</h4>
         <ul class="space-y-2">
-          <li><a href="/about/" class="text-white/60 hover:text-white text-sm transition-colors">About Us</a></li>
-          <li><a href="/contact/" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a></li>
-          <li><a href="/imprint/" class="text-white/60 hover:text-white text-sm transition-colors">Imprint</a></li>
-          <li><a href="/privacy/" class="text-white/60 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
+          {t.footer.companyLinks.map(link => (
+            <li><a href={link.href} class="text-white/60 hover:text-white text-sm transition-colors">{link.name}</a></li>
+          ))}
         </ul>
       </div>
     </div>
     <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-white/40 text-sm">&copy; 2025 Ironum (LearnSlice UG). All rights reserved.</p>
-      <p class="text-white/40 text-sm">Düsseldorf, Germany</p>
+      <p class="text-white/40 text-sm">{t.footer.copyright}</p>
+      <p class="text-white/40 text-sm">{t.footer.location}</p>
     </div>
   </div>
 </footer>

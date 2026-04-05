@@ -1,0 +1,261 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+  { label: 'Bildung', href: '/de/branchen/bildung/' },
+];
+
+const faqItems = [
+  {
+    question: 'Was ist der LearnSlice KI-Mentor und wie funktioniert er?',
+    answer: 'Der KI-Mentor ist unsere White-Label-Lösung für intelligentes Tutoring, basierend auf RAG-Technologie. Er bietet personalisierte Lernpfade, adaptives Fragen und sofortiges Feedback -- trainiert auf Ihren spezifischen Lerninhalten. Er kann für Prüfungsvorbereitung, betriebliche Weiterbildung oder institutionelle Bildungsprogramme eingesetzt werden.',
+  },
+  {
+    question: 'Wie geht Ironum mit dem Schutz von Lernenden-Daten um?',
+    answer: 'Die gesamte Verarbeitung von Lernenden-Daten findet auf Ihrer Infrastruktur statt: On-Premise-Server oder dedizierte deutsche Cloud. Keine Lernenden-Daten werden jemals an KI-Drittanbieter gesendet. Dies ist entscheidend, da der EU AI Act Bildungs-KI als "Hochrisiko" einstuft und strenge Daten-Governance, Transparenz und menschliche Aufsicht erfordert.',
+  },
+  {
+    question: 'Kann der KI-Mentor für IHK-Prüfungsvorbereitung angepasst werden?',
+    answer: 'Ja. Wir haben spezifische Erfahrung mit IHK-Prüfungsvorbereitungsinhalten (Industrie- und Handelskammer). Der KI-Mentor kann auf offizielle Prüfungsmaterialien, Übungsfragen und Kompetenzrahmen trainiert werden, um gezielte Vorbereitung mit adaptiven Schwierigkeitsgraden zu bieten.',
+  },
+  {
+    question: 'Gibt es eine White-Label-Option für Bildungsträger?',
+    answer: 'Absolut. Der KI-Mentor ist als White-Label-Lösung konzipiert. Bildungsträger, Verlage und Unternehmen können ihn unter ihrer eigenen Marke mit individuellem Styling, Inhalten und domänenspezifischen Konfigurationen einsetzen.',
+  },
+  {
+    question: 'Welche Compliance-Anforderungen stellt der EU AI Act an Bildungs-KI?',
+    answer: 'Der EU AI Act stuft KI-Systeme im Bildungsbereich als "Hochrisiko" unter Anhang III ein. Das bedeutet verpflichtende Konformitätsbewertungen, Risikomanagementsysteme, Daten-Governance-Anforderungen, Transparenzpflichten, menschliche Aufsicht und Registrierung in der EU-Datenbank. Bei Nichteinhaltung drohen Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/branchen/bildung/#service",
+    "name": "KI-Lösungen für Bildung und Weiterbildung",
+    "description": "Intelligente Lernplattformen mit Schutz der Lernenden-Daten. White-Label KI-Mentor für Prüfungsvorbereitung, betriebliche Weiterbildung und institutionelle Bildung.",
+    "url": "https://www.ironum.com/de/branchen/bildung/",
+    "inLanguage": "de-DE",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Deutschland, Österreich, Schweiz" },
+    "serviceType": "KI-Infrastruktur für Bildung"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="KI für Bildung & Weiterbildung - Intelligentes Lernen, geschützt by Design | Ironum"
+  description="KI-gestützte Lernplattformen mit vollständigem Schutz der Lernenden-Daten. White-Label KI-Mentor für IHK-Prüfungsvorbereitung, betriebliche Weiterbildung und Upskilling. EU AI Act konform."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="KI FÜR BILDUNG"
+    title="Intelligentes Lernen, geschützt by Design"
+    subtitle="Der europäische EdTech-KI-Markt wächst von 2,11 Mrd. EUR auf 19,97 Mrd. EUR bis 2034. Deutschland hält 30,1% Marktanteil. Setzen Sie konforme KI-Lernlösungen auf souveräner Infrastruktur ein."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Bildungs-KI erfordert höchste Standards</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Der EU AI Act stuft Bildungs-KI als "Hochrisiko" ein -- aus gutem Grund. Daten von Lernenden erfordern den strengsten Schutz.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Hochrisiko-Einstufung</h3>
+          <p class="text-gray-500">Der EU AI Act stuft Bildungs-KI unter Anhang III als "Hochrisiko" ein. Dies löst verpflichtende Konformitätsbewertungen, Risikomanagementsysteme und Registrierungspflichten aus -- mit Strafen bis zu 35 Mio. EUR bei Nichteinhaltung.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Schutz der Lernenden-Daten</h3>
+          <p class="text-gray-500">Leistungsdaten, Lernmuster und Prüfungsergebnisse von Lernenden sind hochsensible personenbezogene Daten. Diese an öffentliche Cloud-KI-Dienste zu senden, verletzt DSGVO-Grundsätze und institutionelle Datenschutzpflichten.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Qualitätskontrolle der Inhalte</h3>
+          <p class="text-gray-500">Generische KI erzeugt generische Inhalte. Bildungs-KI muss auf verifizierten, lehrplankonformen Materialien trainiert werden, um akkurate, pädagogisch fundierte Antworten zu liefern -- keine halluzinierten Ergebnisse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">LearnSlice KI-Mentor</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">White-Label KI-Lernlösungen</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Basierend auf unserer LearnSlice KI-Mentor-Plattform -- eine bewährte White-Label-Lösung, die Bildungseinrichtungen und Weiterbildungsunternehmen unter ihrer eigenen Marke einsetzen.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">IHK-Prüfungsvorbereitung</h3>
+          <p class="text-gray-500">Adaptives KI-Tutoring für IHK-Zertifizierungsprüfungen. Personalisierte Fragenpfade, sofortige Erklärungen und Fortschrittsverfolgung, abgestimmt auf offizielle Kompetenzrahmen.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Finanzkompetenz</h3>
+          <p class="text-gray-500">KI-gestützte Finanzbildungsmodule für Banken, Versicherer und Bildungsverlage. Interaktive Lernpfade, die sich an individuelle Wissensstände anpassen.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">HR Onboarding</h3>
+          <p class="text-gray-500">KI-geführte Onboarding-Programme, die sich an Rollen, Erfahrungslevel und Lerntempo neuer Mitarbeiter anpassen. Time-to-Productivity reduzieren bei konsistentem Wissenstransfer.</p>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Betriebliches Upskilling</h3>
+          <p class="text-gray-500">Kontinuierliche Lernplattformen für Personalentwicklung. KI identifiziert Kompetenzlücken, empfiehlt Lernpfade und verfolgt die Kompetenzentwicklung in Ihrer gesamten Organisation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- See It in Action -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In Aktion sehen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Für Lernende und Lehrende entwickelt</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Von personalisiertem KI-Tutoring bis zu strukturierten Quiz-Bibliotheken -- der LearnSlice KI-Mentor passt sich jedem Lernkontext an.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
+          <img src="/screenshots/learnslice.webp" alt="LearnSlice KI-Chat-Oberfläche mit IHK-Prüfungsvorbereitung, Onboarding, Unternehmenswissen und Upskilling-Modi" class="w-full h-auto" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">KI-Lern-Chat</h3>
+            <p class="text-gray-500 text-sm">Lernende wählen ihren Modus, stellen Fragen, absolvieren Quizze und erhalten personalisiertes Feedback -- alles innerhalb souveräner Infrastruktur.</p>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
+          <img src="/screenshots/fh-dortmund.webp" alt="LearnSlice Quiz-Bibliothek mit SCRUM-, Orientierungs- und Logistikkursen an der FH Dortmund" class="w-full h-auto" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Quiz-Bibliothek-Management</h3>
+            <p class="text-gray-500 text-sm">Lehrende erstellen, verifizieren und verwalten Quiz-Inhalte über Abteilungen hinweg mit voller Kontrolle über Lehrplanausrichtung und Qualität.</p>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
+          <img src="/screenshots/financial-companion.webp" alt="Financial Companion KI-Oberfläche für Finanzbildung mit Gesundheitscheck und Lernprogramm" class="w-full h-auto" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Finanzkompetenz-Companion</h3>
+            <p class="text-gray-500 text-sm">KI-gestützte Finanzbildung mit Gesundheitscheck und personalisierten Lernprogrammen für Banken und Bildungsverlage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- On-Prem for Education -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Datensouveränität</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Lernenden-Daten bleiben auf Ihrer Infrastruktur</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Jedes KI-Mentor-Deployment läuft auf Ihrer Infrastruktur: On-Premise-Server, Hetzner in Deutschland oder dediziertes Azure. Keine Lernenden-Daten werden jemals von KI-Drittanbietern verarbeitet.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">On-Premise-Deployment für Schulen und Hochschulen</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">EU AI Act Hochrisiko-Compliance-Dokumentation inklusive</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">DSGVO-konforme Datenverarbeitung mit vollständigem AVV</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Menschliche Aufsicht und Transparenzmechanismen integriert</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">&euro;19,97 Mrd.</div>
+            <p class="text-gray-500 text-sm font-semibold">Europäischer EdTech-KI-Markt bis 2034</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">32,47%</div>
+            <p class="text-gray-500 text-sm font-semibold">CAGR-Wachstumsrate bis 2034</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">30,1%</div>
+            <p class="text-gray-500 text-sm font-semibold">Deutschlands Anteil am EU-EdTech-KI-Markt</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
+            <div class="text-blue-600 text-4xl font-bold mb-2">100%</div>
+            <p class="text-gray-500 text-sm font-semibold">Datensouveränität garantiert</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">VERWANDTE SERVICES</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Lösungen, die Bildungs-KI antreiben</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/de/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Chatbot-Oberflächen</h3>
+          <p class="text-gray-500 font-semibold mb-4">White-Label KI-Tutoring-Assistenten mit personalisierten Lernpfaden und sofortigem Feedback für Lernende.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/llm-fine-tuning/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">LLM Fine-Tuning</h3>
+          <p class="text-gray-500 font-semibold mb-4">Modelle auf lehrplanspezifische Inhalte trainieren für akkurate, pädagogisch fundierte Antworten.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/workflow-automatisierung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Workflow-Automatisierung</h3>
+          <p class="text-gray-500 font-semibold mb-4">Einschreibungs-Workflows, Fortschrittsverfolgung und administrative Prozesse für Bildungseinrichtungen automatisieren.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

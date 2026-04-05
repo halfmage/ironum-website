@@ -1,0 +1,244 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+  { label: 'Finanzdienstleistungen', href: '/de/branchen/finanzdienstleistungen/' },
+];
+
+const faqItems = [
+  {
+    question: 'Wie stellt Ironum die Konformität mit BaFin- und EZB-Regulierungen sicher?',
+    answer: 'Unsere Deployments sind für regulierte Finanzumgebungen konzipiert. Die gesamte Datenverarbeitung findet auf Ihrer Infrastruktur statt -- ob On-Premise oder in einem dedizierten Azure-Tenant. Dies gewährleistet Konformität mit BaFin-IT-Anforderungen (BAIT/VAIT), EZB-Aufsichtserwartungen und der DSGVO. Vollständige Audit-Trails, Modelldokumentation und Erklärbarkeits-Features für Finanzregulierer sind inklusive.',
+  },
+  {
+    question: 'Kann die KI in unserer bestehenden Bankinfrastruktur bereitgestellt werden?',
+    answer: 'Ja. Wir deployen direkt in Ihr Rechenzentrum, Ihre Private Cloud oder dedizierte Azure-Umgebung. Unsere Lösungen integrieren sich über sichere APIs und n8n-Workflow-Automatisierung mit Kernbankensystemen. Kundendaten verlassen niemals Ihre kontrollierte Umgebung.',
+  },
+  {
+    question: 'Welche Betrugserkennungsfähigkeiten bieten Sie an?',
+    answer: 'Unsere KI-Modelle analysieren Transaktionsmuster in Echtzeit zur Erkennung von Anomalien, die auf Betrug hinweisen. Die Modelle werden auf Ihren historischen Daten trainiert und lernen kontinuierlich aus neuen Mustern. Die gesamte Verarbeitung erfolgt On-Premise, sodass Kundentransaktionsdaten vollständig souverän bleiben.',
+  },
+  {
+    question: 'Wie unterscheidet sich das von ChatGPT oder öffentlichen KI-Diensten für Finanzanalysen?',
+    answer: 'Öffentliche KI-Dienste sind für Finanzdaten ungeeignet -- wegen Datensouveränitätsbedenken, regulatorischer Nichteinhaltung und dem Risiko von Datenlecks. Unsere On-Premise-Deployments bieten dieselben KI-Fähigkeiten (Dokumentenanalyse, Risikomodellierung, Compliance-Automatisierung), ohne Kundendaten an Drittanbieter-Server zu senden. 44% der Unternehmen nennen Datensicherheit als Hauptgrund gegen Cloud-KI.',
+  },
+  {
+    question: 'Wie ist der typische Deployment-Zeitrahmen für ein Finanzinstitut?',
+    answer: 'Ein Pilot-Deployment dauert typischerweise 6-10 Wochen, inklusive Sicherheitsbewertung, Infrastruktur-Setup, Modelltraining und Compliance-Dokumentation. Der vollständige Produktions-Rollout erfolgt phasenweise, abgestimmt auf Ihre Change-Management- und regulatorischen Genehmigungsprozesse.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/branchen/finanzdienstleistungen/#service",
+    "name": "KI-Lösungen für Finanzdienstleistungen",
+    "description": "Datensouveräne KI für Betrugserkennung, KYC/AML-Automatisierung, Risikomodellierung und regulatorische Compliance. On-Premise-Deployment für Bankdaten.",
+    "url": "https://www.ironum.com/de/branchen/finanzdienstleistungen/",
+    "inLanguage": "de-DE",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Deutschland, Österreich, Schweiz" },
+    "serviceType": "KI-Infrastruktur für Finanzdienstleistungen"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="KI für Finanzdienstleistungen - Datensouveräne Betrugserkennung & Compliance | Ironum"
+  description="KI-gestützte Betrugserkennung, KYC/AML-Automatisierung, Risikomodellierung und Compliance für europäische Finanzinstitute. Volle Datensouveränität auf Ihrer Infrastruktur."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="KI FÜR FINANZDIENSTLEISTUNGEN"
+    title="Datengetriebene Beratung mit voller Datensouveränität"
+    subtitle="Europäische Banken wechseln 2026 von der KI-Exploration zur operativen Implementierung. Setzen Sie On-Premise-KI für Betrugserkennung, Compliance-Automatisierung und Risikomodellierung ein -- ohne Kundendaten zu gefährden."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Bankdaten gehören nicht in die Cloud</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Finanzinstitute stehen vor einzigartigen Einschränkungen bei der KI-Einführung: regulatorischer Druck, Datensensibilität und die Notwendigkeit erklärbarer Entscheidungen.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Regulatorische Komplexität</h3>
+          <p class="text-gray-500">BaFin-IT-Anforderungen (BAIT/VAIT), EZB-Aufsichtserwartungen, DSGVO, EU AI Act und MiFID II schaffen überlappende Compliance-Pflichten, die generische KI-Tools nicht adressieren können.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Kundendaten-Souveränität</h3>
+          <p class="text-gray-500">Transaktionsdaten, Kontoinformationen und Kundenprofile können nicht von KI-Drittanbietern verarbeitet werden. 72% der EU-Sicherheitsexperten berichten über erhöhte Nachfrage nach Datenlokalisierung im Finanzbereich.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Erklärbarkeitsanforderungen</h3>
+          <p class="text-gray-500">Regulierer verlangen, dass KI-gestützte Entscheidungen bei Kreditvergabe, Risikobewertung und Compliance erklärt und geprüft werden können. Black-Box-KI-Modelle sind in der regulierten Finanzwelt nicht akzeptabel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Lösungen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Ihre KI-Fabrik, Ihre Infrastruktur</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Führende europäische Banken bauen "KI-Fabriken" für regionale Bereitstellung. Wir liefern die Infrastruktur und Expertise, um Ihre zu errichten.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">DIN-Analyse-Companion</h3>
+          <p class="text-gray-500 mb-4">KI-gestützte Analyse von DIN-Finanzstandards, regulatorischen Publikationen und Compliance-Dokumentation. Sofortige Suche, Vergleich und Extraktion von Anforderungen aus tausenden regulatorischen Dokumenten.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>RAG-gestützte regulatorische Dokumentensuche</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Querverweise über DIN, BaFin und EZB</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Quellenbasierte Antworten mit Dokumentenlinks</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Regulatorische Compliance-Automatisierung</h3>
+          <p class="text-gray-500 mb-4">KYC/AML-Screening, Transaktionsüberwachung und regulatorisches Reporting automatisieren. Manuellen Compliance-Aufwand reduzieren bei vollständigen Audit-Trails für aufsichtliche Prüfungen.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automatisierte KYC/AML-Dokumentenprüfung</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Echtzeit-Transaktions-Anomalieerkennung</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Regulatorische Report-Generierung mit n8n</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">KI für Finanzplanung</h3>
+          <p class="text-gray-500 mb-4">KI-gestützte Risikomodellierung, Portfolioanalyse und Finanzplanung. Berater mit datengetriebenen Insights unterstützen, während alle Kundenfinanzdaten auf Ihren eigenen Servern bleiben.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Risikobewertung mit erklärbaren KI-Modellen</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Marktdatenanalyse und Zusammenfassung</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>On-Prem oder dediziertes Azure-Deployment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- See It in Action -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In Aktion sehen</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Financial Companion</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Ein KI-gestütztes Finanzbildungs- und Gesundheitscheck-Tool, das vollständig auf souveräner Infrastruktur läuft. Nutzer erhalten personalisierte Finanzberatung, ohne dass ihre Daten jemals die Plattform verlassen.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Finanz-Gesundheitscheck mit bewährter Methodik</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Personalisierte 5-Schritte-Lernprogramme zu Finanzthemen</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">White-Label-Deployment für Banken und Finanzberater</span>
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
+          <img src="/screenshots/financial-companion.webp" alt="Financial Companion KI-Oberfläche mit Finanz-Gesundheitscheck und personalisiertem Lernprogramm" class="w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Marktdaten</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Der KI-Wandel im europäischen Finanzwesen</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-4xl font-bold mb-2">&euro;37 Mrd.</div>
+          <p class="text-gray-500 text-lg font-semibold">Prognostizierter KI-Markt in Deutschland bis 2031</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">72%</div>
+          <p class="text-gray-500 text-lg font-semibold">Der EU-Sicherheitsexperten fordern Datenlokalisierung</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">44%</div>
+          <p class="text-gray-500 text-lg font-semibold">Nennen Datensicherheit als Hindernis für Cloud-KI</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Kundendaten bleiben auf Ihrer Infrastruktur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">VERWANDTE SERVICES</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Lösungen, die Finanz-KI antreiben</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/de/services/enterprise-rag/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Enterprise RAG</h3>
+          <p class="text-gray-500 font-semibold mb-4">KI-gestützte Suche über regulatorische Dokumente, DIN-Standards und Compliance-Archive mit Quellenangaben.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/workflow-automatisierung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Workflow-Automatisierung</h3>
+          <p class="text-gray-500 font-semibold mb-4">KYC/AML-Screening, Transaktionsüberwachung und regulatorisches Reporting mit self-hosted n8n-Workflows automatisieren.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/llm-fine-tuning/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">LLM Fine-Tuning</h3>
+          <p class="text-gray-500 font-semibold mb-4">Domänenspezifische Modelle trainiert auf Finanzterminologie, Risiko-Frameworks und regulatorische Sprache.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

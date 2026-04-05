@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  locale="de"
+  title="Über Ironum | Europäische KI-Souveränität aus Düsseldorf"
+  description="Ironum wird von LearnSlice UG in Düsseldorf entwickelt. Gegründet 2024, liefern wir DSGVO-konforme, datenschutzorientierte KI-Lösungen für den europäischen Mittelstand."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="ÜBER UNS"
+    title="In Europa gebaut, für Europa"
+    subtitle="Wir sind überzeugt: Europäische Unternehmen verdienen KI-Lösungen, die ihre Daten, ihre Vorschriften und ihre Souveränität respektieren."
+  />
+
+  <!-- Unternehmensgeschichte -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">UNSERE GESCHICHTE</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Vom Bildungsstart-up zur KI-Infrastruktur für den Mittelstand</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+        <div class="space-y-6">
+          <p class="text-gray-500 text-lg font-semibold">Ironum ist ein Produkt der LearnSlice UG (haftungsbeschränkt), gegründet 2024 in Düsseldorf. Was als KI-gestützte Bildungsplattform begann, offenbarte schnell eine größere Chance: Der deutsche Mittelstand brauchte KI-Lösungen, die beim Datenschutz keine Kompromisse eingehen.</p>
+          <p class="text-gray-500 text-lg font-semibold">Jede Woche sprachen wir mit mittelständischen Unternehmen, die KI einsetzen wollten, aber durch DSGVO-Bedenken, Angst vor Vendor Lock-in und fehlendes technisches Know-how ausgebremst wurden. Die großen Cloud-Anbieter boten Leistung, aber keine Souveränität. Die Open-Source-Community bot Freiheit, aber keine Unternehmenstauglichkeit.</p>
+          <p class="text-gray-500 text-lg font-semibold">Ironum schließt diese Lücke. Wir verbinden Open-Source-Grundlagen mit unternehmenstauglicher Bereitstellung und verankern europäische Compliance von Anfang an. Keine Daten verlassen die EU. Kein Vendor Lock-in. Keine Kompromisse.</p>
+        </div>
+        <div class="space-y-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">2024</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">Gegründet in Düsseldorf, Deutschland</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">100%</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">Europäisch gehostete Infrastruktur</p>
+          </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-6xl font-bold block">0</span>
+            <p class="text-gray-500 text-lg font-semibold mt-2">Datenübertragungen außerhalb der EU</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white">
+    <div class="max-w-7xl mx-auto space-y-8 text-center">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">UNSERE MISSION</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Europäische KI-Souveränität</h2>
+      <p class="text-white/70 text-lg md:text-xl font-semibold max-w-3xl mx-auto">Wir existieren, um Unternehmens-KI für europäische Organisationen zugänglich, konform und souverän zu machen. KI soll menschliche Fähigkeiten verstärken -- nicht die Privatsphäre gefährden, Abhängigkeiten schaffen oder europäische Daten in fremde Rechtsräume exportieren.</p>
+    </div>
+  </section>
+
+  <!-- Gründer -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start max-w-4xl">
+        <img src="/gerrit-halfmann.jpg" alt="Gerrit Halfmann, Gründer von Ironum" class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shrink-0" />
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-6">GEGRÜNDET VON</span>
+          <h3 class="text-2xl font-bold mb-2">Gerrit Halfmann</h3>
+          <p class="text-gray-500 text-lg font-semibold">Kreativer Technologe und Webdesigner seit den frühen 2000ern mit über 20 Jahren Erfahrung und mehr als 100 realisierten Projekten -- von Design-Systemen und Icon-Bibliotheken bis hin zu SaaS-Produkten und Frontend-Tooling. Er entwickelte LearnSlice, eine KI-gestützte Bildungsplattform, und AskMention, ein Tool für Generative Engine Optimization. Mit Ironum hilft er europäischen Unternehmen, KI-Lösungen einzusetzen, die privat, anpassbar und zukunftssicher sind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Werte -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">UNSERE WERTE</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Was uns antreibt</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Datenschutz an erster Stelle</h3>
+          <p class="text-gray-500 text-lg font-semibold">Datenschutz ist kein Feature. Er ist ein Grundrecht. Jede Architekturentscheidung beginnt mit der Frage: Wie schützen wir die Daten?</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Open Source als Fundament</h3>
+          <p class="text-gray-500 text-lg font-semibold">Wir bauen auf Open-Source-Technologie, weil Transparenz Vertrauen schafft. Keine Black Boxes, kein Vendor Lock-in, keine versteckten Abhängigkeiten.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Europäische Souveränität</h3>
+          <p class="text-gray-500 text-lg font-semibold">Europa braucht eine eigene KI-Infrastruktur. Wir bauen sie hier, hosten sie hier und halten sie hier -- denn Souveränität erfordert Unabhängigkeit.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+          <h3 class="text-2xl font-bold mb-3">Radikale Einfachheit</h3>
+          <p class="text-gray-500 text-lg font-semibold">Unternehmens-KI sollte kein eigenes KI-Team erfordern. Wir machen komplexe Technologie zugänglich durch klare Oberflächen, umfassende Dokumentation und persönlichen Support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standort -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">STANDORT</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">So finden Sie uns</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">Adresse</h3>
+          <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschränkt)<br>Luisenstraße 66<br>40215 Düsseldorf<br>Deutschland</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">E-Mail</h3>
+          <p class="text-gray-500 text-lg font-semibold"><a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a></p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+          <h3 class="text-xl font-bold mb-2">Telefon</h3>
+          <p class="text-gray-500 text-lg font-semibold"><a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>

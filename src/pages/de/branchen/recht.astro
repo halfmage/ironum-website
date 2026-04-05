@@ -1,0 +1,292 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Branchen', href: '/de/branchen/' },
+  { label: 'Recht', href: '/de/branchen/recht/' },
+];
+
+const faqItems = [
+  {
+    question: 'Wie gewährleistet Ironum die Mandantenvertraulichkeit beim Einsatz von KI für juristische Arbeit?',
+    answer: 'Die gesamte Datenverarbeitung findet auf Ihrer eigenen Infrastruktur statt: On-Premise-Server, private Azure-Instanzen oder deutscher Hetzner-Cloud. Keine Daten werden jemals an Drittanbieter wie OpenAI oder Google gesendet. Jedes Deployment beinhaltet standardmäßig einen AVV (Auftragsverarbeitungsvertrag) und eine NDA. Ihre Mandantendaten verlassen niemals Ihre kontrollierte Umgebung.',
+  },
+  {
+    question: 'Ist Ironum konform mit dem EU AI Act für juristische Anwendungen?',
+    answer: 'Ja. Juristische KI-Anwendungen unterliegen besonderer Prüfung im EU AI Act. Unsere Deployments umfassen Risikoklassifizierungsdokumentation, Transparenzanforderungen, Human-Oversight-Mechanismen und vollständige Audit-Trails. Wir helfen Ihnen bei der Vorbereitung auf die Compliance-Frist im August 2026 -- mit Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes bei Nichteinhaltung.',
+  },
+  {
+    question: 'Welche Arten juristischer Dokumente kann die KI verarbeiten?',
+    answer: 'Unsere RAG-basierten Systeme verarbeiten Verträge, NDAs, Compliance-Dokumentation, regulatorische Eingaben, Rechtsprechung, interne Richtlinien und Korrespondenz. Das System unterstützt PDF, DOCX und Klartext-Formate. Es kann auf Ihre spezifische Rechtsdomäne, Jurisdiktion und Terminologie feinabgestimmt werden.',
+  },
+  {
+    question: 'Wie lange dauert die Bereitstellung für eine Kanzlei?',
+    answer: 'Ein Standard-Deployment dauert 4-8 Wochen von der Erstberatung bis zur Produktion. Dies umfasst Infrastruktur-Setup, Dokumentenaufnahme, Modellkonfiguration, Testing und Teamschulung. Pilotprojekte mit begrenztem Umfang können innerhalb von 2-3 Wochen betriebsbereit sein.',
+  },
+  {
+    question: 'Können wir unser bestehendes Dokumentenmanagementsystem verwenden?',
+    answer: 'Ja. Unsere Lösungen integrieren sich mit gängigen juristischen DMS-Plattformen und können Dokumente von Netzlaufwerken, SharePoint und anderen Enterprise-Speichern einlesen. Wir nutzen n8n-Workflow-Automatisierung zur Anbindung an Ihre bestehenden Tools, ohne etablierte Prozesse zu stören.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/branchen/recht/#service",
+    "name": "KI-Lösungen für die Rechtsbranche",
+    "description": "DSGVO-konforme KI für Vertragsprüfung, Compliance-Automatisierung und juristische Recherche. On-Premise oder Private Cloud mit vollständiger Mandantenvertraulichkeit.",
+    "url": "https://www.ironum.com/de/branchen/recht/",
+    "inLanguage": "de-DE",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Deutschland, Österreich, Schweiz" },
+    "serviceType": "KI-Infrastruktur für die Rechtsbranche"
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  }
+];
+---
+
+<Layout
+  title="KI für Kanzleien - DSGVO-konforme Vertragsprüfung & Compliance | Ironum"
+  description="KI-gestützte Vertragsprüfung, Compliance-Automatisierung und juristische Q&A mit vollständiger Mandantenvertraulichkeit. On-Premise-Deployment, EU AI Act ready."
+  locale="de"
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="KI FÜR RECHT"
+    title="KI, die Mandantenvertraulichkeit niemals kompromittiert"
+    subtitle="61% der europäischen Anwälte nutzen bereits KI, aber nur 14% verfügen über spezialisierte juristische Tools. Setzen Sie konforme Legal-KI ein -- vor der EU AI Act Frist im August 2026."
+  />
+
+  <!-- Challenges Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Juristische KI hat ein Vertrauensproblem</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Kanzleien und Rechtsabteilungen stehen vor einzigartigen Hindernissen bei der KI-Einführung -- Hindernisse, die generische Cloud-Lösungen nicht lösen können.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Unstrukturiertes Vertragschaos</h3>
+          <p class="text-gray-500">Tausende Verträge in PDFs, E-Mails und Legacy-Systemen ohne einheitliche Struktur. Manuelle Prüfung ist langsam, teuer und fehleranfällig -- doch die Risiken einer übersehenen Klausel sind enorm.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.072 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Regulatorische Compliance-Last</h3>
+          <p class="text-gray-500">DSGVO, EU AI Act, branchenspezifische Regulierungen und grenzüberschreitende Anforderungen schaffen ein Compliance-Labyrinth. Die EU AI Act Frist im August 2026 erhöht den Druck -- mit Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes.</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Vertraulichkeit vs. Cloud-KI</h3>
+          <p class="text-gray-500">Privilegierte Mandantendaten an ChatGPT oder Cloud-KI-Dienste zu senden, verletzt berufsrechtliche Pflichten. 44% der Unternehmen nennen Datensicherheit als Haupthindernis für KI-Einführung. Für Kanzleien steht noch mehr auf dem Spiel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Lösungen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Juristische KI, die auf Ihrer Infrastruktur bleibt</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">DSGVO-konforme Vertragsprüfung</h3>
+          <p class="text-gray-500 mb-4">RAG-gestützte Vertragsanalyse, die Risikoklauseln, Compliance-Lücken und Inkonsistenzen in Ihrer gesamten Dokumentenbibliothek identifiziert. Trainiert auf Ihre spezifischen Vorlagen und Standards.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automatisierte Klauselextraktion und -vergleich</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Risikobewertung anhand Ihrer Compliance-Frameworks</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Mehrsprachige Unterstützung für grenzüberschreitende Arbeit</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Compliance-Dokumentenanalyse</h3>
+          <p class="text-gray-500 mb-4">Automatisierte Analyse regulatorischer Dokumente, interner Richtlinien und Compliance-Anforderungen. Pflichten über Jurisdiktionen hinweg abbilden und Lücken identifizieren, bevor es die Prüfer tun.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Regulatorisches Änderungs-Tracking und Alerts</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Jurisdiktionsübergreifendes Pflichten-Mapping</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automatische Audit-Trail-Generierung</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Juristischer Q&A-Chatbot</h3>
+          <p class="text-gray-500 mb-4">Interner Wissensassistent, trainiert auf den Präzedenzfällen, Vorlagen und der Expertise Ihrer Kanzlei. Berufseinsteiger erhalten sofortige Antworten, ohne Senior-Partner zu unterbrechen.</p>
+          <ul class="space-y-2 text-gray-500 text-sm">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Quellenbasierte Antworten mit Dokumentenlinks</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Rollenbasierte Zugriffskontrolle pro Mandat</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Kontinuierliches Lernen aus neuen Dokumenten</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenarios Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In der Praxis</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Juristische KI im Einsatz</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-2 border-gray-100 rounded-2xl p-8 md:p-10">
+          <div class="text-blue-600 text-sm font-semibold mb-2">SZENARIO 1</div>
+          <h3 class="text-2xl font-bold mb-4">Kanzlei: 500 Verträge, DSGVO-Compliance-Prüfung</h3>
+          <p class="text-gray-500 text-lg mb-6">Eine mittelständische deutsche Kanzlei muss 500 Mandantenverträge vor einer regulatorischen Frist auf DSGVO-Compliance-Lücken prüfen. Die manuelle Prüfung würde 6 Anwälte in Vollzeit für 3 Monate erfordern.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">01</span>
+              <p class="text-gray-600">On-Premise-RAG-System bereitstellen, trainiert auf DSGVO-Anforderungen und kanzleispezifische Compliance-Vorlagen</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">02</span>
+              <p class="text-gray-600">Alle 500 Verträge über automatisierte Dokumentenverarbeitungspipeline einlesen</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">03</span>
+              <p class="text-gray-600">KI identifiziert nicht-konforme Klauseln, fehlende Bestimmungen und Risikobereiche in allen Verträgen</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
+              <p class="text-gray-600">Anwälte prüfen nur die von der KI markierten Punkte -- 70% kürzere Prüfungszeit bei höherer Genauigkeit</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8 md:p-10">
+          <div class="text-blue-600 text-sm font-semibold mb-2">SZENARIO 2</div>
+          <h3 class="text-2xl font-bold mb-4">Rechtsabteilung: Automatisierte NDA-Prüfung</h3>
+          <p class="text-gray-500 text-lg mb-6">Eine Unternehmensrechtsabteilung bearbeitet über 200 NDAs pro Quartal. Jede NDA erfordert den Abgleich mit Unternehmensstandards, Risikobewertung und Änderungsvorschläge -- ein Engpass für den Geschäftsbetrieb.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">01</span>
+              <p class="text-gray-600">KI mit unternehmensspezifischen NDA-Vorlagen, genehmigten Klauselbibliotheken und Risikoschwellenwerten konfigurieren</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">02</span>
+              <p class="text-gray-600">n8n-Workflow-Automatisierung leitet eingehende NDAs durch die KI-Prüfungspipeline</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">03</span>
+              <p class="text-gray-600">KI erstellt Änderungsvorschläge und Risikobewertungen. Standard-NDAs werden automatisch genehmigt, markierte eskaliert</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
+              <p class="text-gray-600">Bearbeitungszeit sinkt von 5 Werktagen auf taggleiche Bearbeitung für 80% der NDAs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white" style="background-image: url('/hero-background.png'); background-size: cover; background-position: bottom;">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Compliance</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Compliance ist keine Option</h2>
+        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jedes Ironum-Deployment erfüllt die höchsten europäischen Compliance-Standards. Im Rechtsbereich ist weniger inakzeptabel.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">EU AI Act</h3>
+          <p class="text-gray-300 text-sm">Vollständige Konformität mit Hochrisiko-Klassifizierungsanforderungen, Transparenzpflichten und Human-Oversight-Vorgaben vor der Frist im August 2026.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">DSGVO Art. 28</h3>
+          <p class="text-gray-300 text-sm">Konforme Datenverarbeitung mit Standardvertragsklauseln, Auftragsverarbeitungsverträgen und dokumentierten technischen und organisatorischen Maßnahmen.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">On-Premise-Garantie</h3>
+          <p class="text-gray-300 text-sm">Mandantendaten verlassen niemals Ihre Räumlichkeiten. Keine externen API-Aufrufe, keine Cloud-Verarbeitung sensibler Informationen, kein Datenzugriff durch Dritte.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
+          <h3 class="text-lg font-bold mb-2">AVV & NDA inklusive</h3>
+          <p class="text-gray-300 text-sm">Jedes Engagement beinhaltet standardmäßig einen umfassenden Auftragsverarbeitungsvertrag und eine Geheimhaltungsvereinbarung -- nicht als Upsell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">70%</div>
+          <p class="text-gray-500 text-lg font-semibold">Schnellere Vertragsprüfung durch KI-gestützte Analyse und automatisierte Klauselextraktion</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Datensouveränität: Mandantendaten verlassen niemals Ihre kontrollierte Infrastruktur</p>
+        </div>
+        <div class="border-2 border-gray-100 rounded-2xl p-8">
+          <div class="text-blue-600 text-6xl font-bold mb-2">14→100%</div>
+          <p class="text-gray-500 text-lg font-semibold">Von den 14% mit spezialisierter Legal-KI zur vollständigen Abdeckung Ihrer Praxisbereiche</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">VERWANDTE SERVICES</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Lösungen, die juristische KI antreiben</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/de/services/enterprise-rag/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Enterprise RAG</h3>
+          <p class="text-gray-500 font-semibold mb-4">Vertragsarchive und Rechtsprechung in eine durchsuchbare, quellenbasierte Wissensdatenbank verwandeln.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/ki-beratung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">KI-Beratung</h3>
+          <p class="text-gray-500 font-semibold mb-4">Strategische Beratung für Kanzleien bei der KI-Einführung, EU AI Act Compliance und Infrastrukturentscheidungen.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Chatbot-Oberflächen</h3>
+          <p class="text-gray-500 font-semibold mb-4">Interne juristische Q&A-Assistenten, trainiert auf den Präzedenzfällen, Vorlagen und der Expertise Ihrer Kanzlei.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

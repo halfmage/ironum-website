@@ -1,0 +1,270 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const features = [
+  {
+    title: 'White-Label-faehig',
+    description: 'Vollstaendig an Ihre Unternehmensidentitaet angepasst. Individuelle Farben, Logos, Tonalitaet und Domain. Ihre Kunden sehen Ihre Marke, nicht unsere.',
+    icon: 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42',
+  },
+  {
+    title: 'Multi-Channel-Deployment',
+    description: 'Deployment auf Ihrer Website, Microsoft Teams, Slack, WhatsApp oder individuellen Apps. Eine Wissensbasis, konsistente Antworten auf jedem Kanal, den Ihre Nutzer bevorzugen.',
+    icon: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3',
+  },
+  {
+    title: 'RAG-basierte Antworten',
+    description: 'Verankert in Ihren echten Dokumenten und Daten. Jede Antwort stammt aus Ihrer Wissensbasis, nicht halluziniert aus allgemeinen Trainingsdaten. Quellenangaben inklusive.',
+    icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
+  },
+  {
+    title: 'DSGVO-konform',
+    description: 'Alle Konversationen werden auf EU-Infrastruktur verarbeitet. Keine Gespraechsdaten verlassen Ihre Umgebung. Vollstaendige Auftragsverarbeitungsvertraege und Audit-Trails inklusive.',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'Human Handoff',
+    description: 'Nahtlose Eskalation an menschliche Agenten, wenn die KI komplexe oder sensible Anfragen erkennt. Der Gespraechskontext bleibt fuer einen reibungslosen Uebergang erhalten.',
+    icon: 'M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z',
+  },
+  {
+    title: 'Analytik & Insights',
+    description: 'Verfolgen Sie Gespraechsvolumen, Loesungsraten, haeufige Themen und Nutzerzufriedenheit. Identifizieren Sie Wissensluecken und verbessern Sie die Chatbot-Performance kontinuierlich.',
+    icon: 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Kundensupport',
+    description: 'Ein E-Commerce-Unternehmen bearbeitet monatlich ueber 3.000 Support-Tickets. Ihr KI-Chatbot loest 70 % der Anfragen sofort, einschliesslich Versandstatus, Rueckgaberichtlinien und Produktfragen, und entlastet menschliche Agenten fuer komplexe Faelle, die Empathie und Urteilsvermoegen erfordern.',
+    stat: '70 %',
+    statLabel: 'automatische Loesungsrate',
+  },
+  {
+    title: 'Interner Helpdesk',
+    description: 'Ein Unternehmen mit 500 Mitarbeitenden setzt einen internen KI-Assistenten ein, der an IT-Dokumentation, HR-Richtlinien und Onboarding-Materialien angebunden ist. Mitarbeitende erhalten sofort Antworten auf Fragen wie "Wie setze ich mein VPN zurueck?" oder "Wie ist unsere Elternzeitregelung?", ohne ein Ticket zu erstellen.',
+    stat: '45 %',
+    statLabel: 'weniger IT-Tickets',
+  },
+  {
+    title: 'HR & Mitarbeiter-Q&A',
+    description: 'Eine HR-Abteilung verbindet ihren KI-Assistenten mit dem Mitarbeiterhandbuch, der Benefits-Dokumentation und den Unternehmensrichtlinien. Mitarbeitende an verschiedenen Standorten und in verschiedenen Zeitzonen erhalten konsistente, praezise Antworten rund um die Uhr, in ihrer bevorzugten Sprache.',
+    stat: '24/7',
+    statLabel: 'Verfuegbarkeit ueber alle Zeitzonen',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Woher weiss der Chatbot ueber unser Unternehmen Bescheid?',
+    answer: 'Wir verbinden den Chatbot mit Ihren Dokumenten, Ihrer Wissensbasis, FAQ-Inhalten, Produktdaten und internen Systemen per RAG (Retrieval-Augmented Generation). Die KI ruft relevante Informationen aus Ihren echten Daten ab, um Antworten zu generieren. Sie stuetzt sich nicht auf allgemeine Trainingsdaten. Das bedeutet: Antworten sind praezise, aktuell und spezifisch fuer Ihr Unternehmen.',
+  },
+  {
+    question: 'Kann der Chatbot mehrere Sprachen?',
+    answer: 'Ja. Moderne LLMs beherrschen mehrsprachige Konversationen nativ. Ihr Chatbot kann in der Sprache des Nutzers antworten, darunter Deutsch, Franzoesisch, Spanisch, Niederlaendisch und viele weitere, selbst wenn Ihre Quelldokumente ueberwiegend in einer Sprache vorliegen. Wir konfigurieren Spracherkennung und Antwortgenerierung passend zu Ihren Marktanforderungen.',
+  },
+  {
+    question: 'Was passiert, wenn die KI eine Frage nicht beantworten kann?',
+    answer: 'Wir bauen intelligente Eskalation ein. Wenn die KI geringe Konfidenz, sensible Themen oder explizite Nutzerwuensche erkennt, uebergibt sie nahtlos an einen menschlichen Agenten. Der vollstaendige Gespraechskontext bleibt erhalten, sodass der Agent weiterarbeiten kann, ohne den Nutzer bitten zu muessen, sich zu wiederholen. Sie definieren die Eskalationsregeln.',
+  },
+  {
+    question: 'Wie verhindern Sie, dass der Chatbot halluziniert?',
+    answer: 'RAG-basierte Chatbots unterscheiden sich grundlegend von allgemeinen KI-Systemen. Jede Antwort ist in abgerufenen Passagen aus Ihren Dokumenten verankert. Wir implementieren Konfidenz-Schwellenwerte, Quellenangaben-Pflicht und Fallback-Verhalten. Wenn das System keine relevanten Informationen in Ihrer Wissensbasis findet, sagt es das ehrlich, anstatt etwas zu erfinden.',
+  },
+  {
+    question: 'Wie lange dauert es, einen Chatbot zu deployen?',
+    answer: 'Ein einfacher Chatbot, der an Ihre bestehenden FAQs oder Dokumentation angebunden ist, kann in 2 bis 3 Wochen live sein. Komplexere Deployments mit Multi-Channel-Integration, CRM-Anbindung und individuellen Workflows benoetigen typischerweise 4 bis 8 Wochen. Wir starten immer mit einem funktionierenden Prototyp, damit Sie frueh testen und iterieren koennen.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/dienstleistungen/chatbot-schnittstellen/#service",
+    "name": "Chatbot & Conversational AI",
+    "description": "KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten. DSGVO-konform, deployed auf Ihrer Infrastruktur.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Conversational AI",
+    "inLanguage": "de"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de' },
+  { label: 'Dienstleistungen', href: '/de/dienstleistungen' },
+  { label: 'Chatbot-Schnittstellen', href: '/de/dienstleistungen/chatbot-schnittstellen' },
+];
+---
+
+<Layout
+  locale="de"
+  title="KI-Chatbot & Conversational AI | DSGVO-konform | Ironum"
+  description="KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten. RAG-basiert, DSGVO-konform, auf Ihrer Infrastruktur."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="CHATBOT-SCHNITTSTELLEN"
+    title="KI-Assistenten, die Ihr Unternehmen kennen"
+    subtitle="White-Label-Chatbots auf Basis Ihrer eigenen Daten. Deployment ueber Web, Teams, Slack und WhatsApp, mit jeder Konversation auf EU-Infrastruktur verarbeitet."
+  />
+
+  <!-- Features Grid -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Funktionen</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbot-Funktionen fuer den Mittelstand</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Kein weiterer generischer Chatbot. Jede Funktion ist fuer Unternehmen konzipiert, die Praezision, Datenschutz und Markenkontrolle benoetigen.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">So funktioniert es</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Von Ihren Daten zu intelligenten Gespraechen</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Daten anbinden</h3>
+          <p class="text-gray-500 font-medium">Wir nehmen Ihre Dokumente, FAQ-Inhalte, Produktdaten und Wissensartikel in einen privaten Vector Store auf.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Konfigurieren</h3>
+          <p class="text-gray-500 font-medium">Legen Sie Ihre Markenidentitaet, Tonalitaet, Eskalationsregeln und Kanal-Integrationen fest. Definieren Sie, was der Bot besprechen darf und was nicht.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Deployen</h3>
+          <p class="text-gray-500 font-medium">Gehen Sie live auf Ihrer Website, Teams, Slack oder WhatsApp. Ein einzelner Embed-Code oder eine API-Integration genuegt.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="text-white text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Optimieren</h3>
+          <p class="text-gray-500 font-medium">Ueberwachen Sie Gespraeche, identifizieren Sie Luecken und verbessern Sie kontinuierlich. Das Analytics-Dashboard zeigt, was Nutzer fragen und wo Tuning noetig ist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Anwendungsfaelle</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbots, die Ergebnisse liefern</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {useCases.map((useCase) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <div class="mb-6">
+              <span class="text-4xl md:text-5xl font-bold text-blue-600">{useCase.stat}</span>
+              <p class="text-gray-500 font-semibold mt-1">{useCase.statLabel}</p>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- See It in Action -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In der Praxis</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Financial Companion</h2>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Ein White-Label-KI-Companion fuer Finanzkompetenz und Gesundheits-Assessments. Nutzer starten ein Gespraech, waehlen ihren Modus und erhalten personalisierte Beratung, alles auf souveraener Infrastruktur.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Finanz-Gesundheitscheck mit bewaehrter Methodik</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">Personalisierte 5-Schritte-Lernprogramme</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span class="text-gray-600">White-Label-faehig fuer Banken und Finanzberater</span>
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
+          <img src="/screenshots/financial-companion.webp" alt="Financial Companion KI-Chat-Oberflaeche mit Finanz-Gesundheitscheck und personalisiertem Lernprogramm" class="w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">BRANCHEN</span>
+      <h2 class="text-3xl md:text-5xl font-bold">Fuer wen wir das bauen</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="/de/branchen/bildung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Bildung</h3>
+          <p class="text-gray-500 font-semibold mb-4">KI-Tutoring-Assistenten und Lernbegleiter fuer Studierende, trainiert auf lehrplanspezifischen Inhalten.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/branchen/gesundheitswesen/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Gesundheitswesen</h3>
+          <p class="text-gray-500 font-semibold mb-4">Interne Wissensassistenten fuer Klinikpersonal zum sofortigen Zugriff auf klinische Protokolle und Leitlinien.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/branchen/oeffentlicher-sektor/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Oeffentlicher Sektor</h3>
+          <p class="text-gray-500 font-semibold mb-4">Mehrsprachige Buergerservice-Chatbots fuer Behoerden auf souveraener deutscher Infrastruktur.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="/de/branchen/recht/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">Recht</h3>
+          <p class="text-gray-500 font-semibold mb-4">Interne Rechts-Q&A-Bots fuer Associates zum Zugriff auf Kanzlei-Praezedenzfaelle und Expertise on demand.</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

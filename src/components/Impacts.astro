@@ -1,22 +1,20 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 ---
 
 <section id="impacts" class="px-4 md:px-20 py-20 md:py-32 space-y-8 md:space-y-16 max-w-7xl mx-auto">
-  <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">PROVEN RESULTS</span>
-  <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">What Our Clients Measure After Deployment</h2>
+  <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.impacts.eyebrow}</span>
+  <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">{t.impacts.title}</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border-2 border-gray-100 p-4 md:p-6 rounded-2xl">
-      <span class="text-blue-600 text-6xl font-bold">40%</span>
-      <p class="text-lg md:text-2xl font-semibold mt-6">Lower operational costs through automated workflows and AI-powered processes.</p>
-    </div>
-    <div class="border-2 border-gray-100 p-4 md:p-6 rounded-2xl">
-      <span class="text-blue-600 text-6xl font-bold">70%</span>
-      <p class="text-lg md:text-2xl font-semibold mt-6">Faster compliance and regulatory response: from weeks to hours.</p>
-    </div>
-    <div class="border-2 border-gray-100 p-4 md:p-6 rounded-2xl">
-      <span class="text-blue-600 text-6xl font-bold">100%</span>
-      <p class="text-lg md:text-2xl font-semibold mt-6">Data sovereignty. Zero data leaves your European infrastructure.</p>
-    </div>
-    <p class="text-gray-400 text-sm mt-8">Results from enterprise deployments across legal, education, and financial services.</p>
+    {t.impacts.items.map(item => (
+      <div class="border-2 border-gray-100 p-4 md:p-6 rounded-2xl">
+        <span class="text-blue-600 text-6xl font-bold">{item.stat}</span>
+        <p class="text-lg md:text-2xl font-semibold mt-6">{item.description}</p>
+      </div>
+    ))}
+    <p class="text-gray-400 text-sm mt-8">{t.impacts.footnote}</p>
   </div>
 </section>

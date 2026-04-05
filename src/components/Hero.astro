@@ -3,23 +3,27 @@ import { Image } from 'astro:assets';
 import heroBackground from '../../public/hero-background.png';
 import logoOverlay from '../../public/logo-mark-overlay.png';
 import avatarGerrit from '../../public/avatar-gerrit.png';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
 ---
 
 <section class="relative flex flex-col items-center justify-center text-center bg-black px-4 py-20 md:py-32 md:min-h-[60vh] overflow-hidden"
   style="background-image: url('/hero-background.png'); background-size: cover; background-position: bottom;">
   <div class="relative z-10 flex flex-col items-center gap-6 w-full">
-    <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">AI DEVELOPMENT PARTNER FOR EUROPE</span>
-    <h1 class="max-w-4xl text-white font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">Enterprise AI Without<br>the Compliance Risk</h1>
-    <p class="max-w-xl text-white text-lg md:text-2xl font-medium">We build and deploy sovereign AI systems on European infrastructure, so your team works faster without GDPR headaches or vendor lock-in.</p>
-    <p class="text-white/60 text-sm font-semibold">Trusted by FH Dortmund, Smella, and European enterprises in finance, education, and travel</p>
+    <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{t.hero.eyebrow}</span>
+    <h1 class="max-w-4xl text-white font-bold text-4xl md:text-6xl lg:text-7xl leading-tight" set:html={t.hero.title} />
+    <p class="max-w-xl text-white text-lg md:text-2xl font-medium">{t.hero.subtitle}</p>
+    <p class="text-white/60 text-sm font-semibold">{t.hero.trustLine}</p>
     <div class="flex flex-col items-center gap-3">
-      <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer"
+      <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer"
         class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 pl-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
         <Image src={avatarGerrit} alt="Gerrit Halfmann, Ironum AI Core founder and GDPR AI compliance expert" class="size-8 mr-2" width={32} height={32} loading="eager" />
-        Book a Free AI Strategy Call
+        {t.hero.ctaButton}
       </a>
-      <span class="text-white/40 text-sm">30 minutes with Gerrit · Get a concrete roadmap · No commitment</span>
-      <span class="text-white/50 text-sm">or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a></span>
+      <span class="text-white/40 text-sm">{t.hero.ctaSubtext}</span>
+      <span class="text-white/50 text-sm" set:html={t.hero.ctaAlt} />
     </div>
   </div>
   <Image src={logoOverlay} alt="Ironum AI Core logo overlay" class="absolute md:w-1/2 motion-safe:animate-[spin_120s_linear_infinite]" width={600} height={600} loading="lazy" />

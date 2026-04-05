@@ -1,0 +1,263 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import FinalCTA from '../../../components/FinalCTA.astro';
+import Footer from '../../../components/Footer.astro';
+
+const howItWorks = [
+  {
+    step: '01',
+    title: 'KI-Sichtbarkeits-Audit',
+    description: 'Wir analysieren, wie Ihre Marke aktuell in KI-generierten Antworten auf ChatGPT, Perplexity, Google AI Overviews und anderen Engines erscheint. Sie erhalten einen Baseline-Bericht, der zeigt, wo Sie sichtbar sind, wo Wettbewerber erscheinen und wo Chancen liegen.',
+    deliverables: ['Markenerwaehnungs-Analyse ueber KI-Engines', 'Wettbewerber-Sichtbarkeitsvergleich', 'Chancen-Gap-Assessment'],
+  },
+  {
+    step: '02',
+    title: 'Content-Optimierung',
+    description: 'Wir restrukturieren und verbessern Ihren Content, damit er von KI-Antwortmaschinen bevorzugt wird. Dazu gehoeren strukturierte Daten, Optimierung fuer Entity Recognition, authoritative thematische Inhalte und der Aufbau der Zitationssignale, die KI-Modelle zur Vertrauenswuerdigkeitsbewertung nutzen.',
+    deliverables: ['Content-Restrukturierungsplan', 'Structured-Data-Implementierung', 'Thematische Autoritaets-Content-Erstellung'],
+  },
+  {
+    step: '03',
+    title: 'Monitoring & Iteration',
+    description: 'GEO ist kein einmaliges Projekt. KI-Engines aktualisieren sich staendig. Wir ueberwachen kontinuierlich die Sichtbarkeit Ihrer Marke, tracken Ranking-Veraenderungen und passen Ihre Strategie an. Monatliche Berichte zeigen den Fortschritt und identifizieren neue Optimierungsmoeglichkeiten.',
+    deliverables: ['Monatliche Sichtbarkeitsberichte', 'Laufende Content-Optimierung', 'Wettbewerber-Tracking'],
+  },
+];
+
+const seoVsGeo = [
+  {
+    aspect: 'Ziel',
+    seo: 'In Suchergebnisseiten ranken',
+    geo: 'In KI-generierten Antworten zitiert werden',
+  },
+  {
+    aspect: 'Nutzerverhalten',
+    seo: 'Nutzer klickt durch auf Ihre Website',
+    geo: 'Nutzer erhaelt Antwort direkt, mit Ihrer Markenerwaehnung',
+  },
+  {
+    aspect: 'Ranking-Faktoren',
+    seo: 'Backlinks, Keywords, Seitengeschwindigkeit',
+    geo: 'Entity-Autoritaet, strukturierte Daten, Zitationssignale',
+  },
+  {
+    aspect: 'Content-Format',
+    seo: 'Optimiert fuer Keywords und Lesbarkeit',
+    geo: 'Optimiert fuer KI-Extraktion und Entity Recognition',
+  },
+  {
+    aspect: 'Messung',
+    seo: 'Rankings, Klicks, Impressionen',
+    geo: 'KI-Erwaehnungen, Zitationshaeufigkeit, Antwort-Praesenz',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Was ist Generative Engine Optimization (GEO)?',
+    answer: 'GEO ist die Praxis, den Content und die Online-Praesenz Ihrer Marke so zu optimieren, dass sie von KI-gesteuerten Antwortmaschinen zitiert und empfohlen wird: ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot und andere. Da immer mehr Nutzer Antworten direkt von KI erhalten, statt durch Suchergebnisse zu klicken, riskieren Marken, die nicht fuer KI-Sichtbarkeit optimiert sind, fuer ihre Kunden unsichtbar zu werden.',
+  },
+  {
+    question: 'Wie unterscheidet sich GEO von SEO?',
+    answer: 'Traditionelles SEO optimiert fuer Suchergebnisseiten (SERPs), wo Sie hoch ranken moechten, damit Nutzer auf Ihre Website klicken. GEO optimiert fuer KI-generierte Antworten, wo Sie moechten, dass Ihre Marke zitiert, empfohlen und korrekt dargestellt wird, wenn KI-Engines Nutzeranfragen beantworten. Die Ranking-Faktoren sind unterschiedlich: GEO priorisiert Entity-Autoritaet, strukturierte Daten, thematische Tiefe und Zitationssignale ueber traditionelle Keyword-Optimierung.',
+  },
+  {
+    question: 'Was ist AskMention und wie funktioniert es?',
+    answer: 'AskMention (askmention.com) ist unser proprietaeres GEO-Monitoring-Tool. Es trackt, wie Ihre Marke in den wichtigsten KI-Antwortmaschinen erscheint, ueberwacht die Sichtbarkeit von Wettbewerbern und identifiziert Optimierungsmoeglichkeiten. Stellen Sie es sich als eine Analyseplattform vor, die speziell fuer KI-Sichtbarkeit gebaut wurde und zeigt, wo Sie erwaehnt werden, wie genau, und was Sie verbessern koennen.',
+  },
+  {
+    question: 'Wie lange dauert es, bis man Ergebnisse von GEO sieht?',
+    answer: 'Erste Verbesserungen sind oft innerhalb von 4 bis 8 Wochen sichtbar, wenn KI-Engines Ihren optimierten Content neu crawlen und verarbeiten. Allerdings ist GEO eine laufende Disziplin. KI-Modelle aktualisieren ihr Wissen regelmaessig und Wettbewerbslandschaften verschieben sich. Wir empfehlen ein Mindestengagement von 6 Monaten fuer nachhaltige Sichtbarkeitsverbesserungen, mit monatlichem Reporting zur Fortschrittsverfolgung.',
+  },
+  {
+    question: 'Brauche ich noch SEO, wenn ich in GEO investiere?',
+    answer: 'Ja. SEO und GEO sind komplementaer, kein Ersatz fuereinander. Suchmaschinen treiben weiterhin signifikanten Traffic, und viele KI-Engines nutzen Suchergebnisse als Input-Signale. Eine starke SEO-Basis verbessert tatsaechlich Ihre GEO-Performance. Wir empfehlen, beide Disziplinen in eine einheitliche Sichtbarkeitsstrategie zu integrieren.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://www.ironum.com/de/dienstleistungen/geo-optimierung/#service",
+    "name": "Generative Engine Optimization (GEO)",
+    "description": "Werden Sie von KI gefunden, nicht nur von Suchmaschinen. Optimieren Sie Ihre Markensichtbarkeit in ChatGPT, Perplexity und KI-Antwortmaschinen.",
+    "provider": { "@id": "https://www.ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Generative Engine Optimization",
+    "inLanguage": "de"
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de' },
+  { label: 'Dienstleistungen', href: '/de/dienstleistungen' },
+  { label: 'GEO-Optimierung', href: '/de/dienstleistungen/geo-optimierung' },
+];
+---
+
+<Layout
+  locale="de"
+  title="Generative Engine Optimization (GEO) | KI-Sichtbarkeit | Ironum"
+  description="Werden Sie von KI gefunden, nicht nur von Suchmaschinen. Optimieren Sie Ihre Markensichtbarkeit in ChatGPT, Perplexity und KI-Antwortmaschinen. Powered by AskMention."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="GEO-OPTIMIERUNG"
+    title="Werden Sie von KI gefunden, nicht nur von Suchmaschinen"
+    subtitle="Ihre Kunden fragen ChatGPT, Perplexity und Google AI nach Empfehlungen. Erscheint Ihre Marke in den Antworten?"
+  />
+
+  <!-- What is GEO -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Der Wandel</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">Von der Suche zu Antworten</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Die Art, wie Menschen Informationen finden, aendert sich grundlegend. Anstatt 10 blaue Links zu durchsuchen, stellen Nutzer einer KI-Engine eine Frage und erhalten eine direkte Antwort, oft mit konkreten Markenempfehlungen. Wenn Ihre Marke nicht Teil dieser Antworten ist, sind Sie fuer ein wachsendes Segment Ihrer Zielgruppe unsichtbar.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-4">Studien zeigen, dass KI-gestuetzte Suche um ueber 60 % jaehrlich waechst. Bis 2027 prognostiziert Gartner einen Rueckgang des traditionellen Suchvolumens um 25 %. Generative Engine Optimization (GEO) ist die Disziplin, die sicherstellt, dass Ihre Marke in dieser neuen Landschaft sichtbar bleibt.</p>
+          <div class="mt-8 grid grid-cols-2 gap-6">
+            <div>
+              <p class="text-3xl md:text-4xl font-bold text-blue-600">60 %+</p>
+              <p class="text-gray-500 font-medium text-sm mt-1">jaehrliches Wachstum der KI-Suche</p>
+            </div>
+            <div>
+              <p class="text-3xl md:text-4xl font-bold text-blue-600">25 %</p>
+              <p class="text-gray-500 font-medium text-sm mt-1">prognostizierter Rueckgang traditioneller Suche bis 2027</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="bg-black rounded-2xl p-8 text-white">
+            <p class="text-white/60 text-sm font-medium mb-4">Nutzer fragt ChatGPT:</p>
+            <p class="text-lg font-medium mb-6">"Was sind die besten DSGVO-konformen KI-Loesungen fuer europaeische Unternehmen?"</p>
+            <div class="border-t border-white/20 pt-6">
+              <p class="text-white/60 text-sm font-medium mb-4">KI-Antwort enthaelt:</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-white/80 text-sm">Marke A: erwaehnt mit detaillierter Beschreibung</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-white/80 text-sm">Marke B: empfohlen fuer spezifischen Anwendungsfall</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-orange-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                  <span class="text-orange-300 text-sm font-medium">Ihre Marke? Nicht erwaehnt.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO vs GEO Comparison -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">SEO vs. GEO</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Andere Spielregeln, anderes Spiel</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">SEO und GEO sind komplementaere, aber unterschiedliche Disziplinen. Das Verstaendnis der Unterschiede ist der Schluessel zu einer vollstaendigen Sichtbarkeitsstrategie.</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden bg-white">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">Aspekt</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-gray-500">Traditionelles SEO</th>
+              <th class="text-left px-6 py-4 font-bold text-sm uppercase tracking-wider text-blue-600">GEO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {seoVsGeo.map((item, index) => (
+              <tr class={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                <td class="px-6 py-4 font-bold text-sm">{item.aspect}</td>
+                <td class="px-6 py-4 text-gray-500 text-sm">{item.seo}</td>
+                <td class="px-6 py-4 text-gray-700 text-sm font-medium">{item.geo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">So funktioniert es</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Drei Schritte zur KI-Sichtbarkeit</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {howItWorks.map((step) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-8">
+            <span class="text-3xl font-bold text-blue-600">{step.step}</span>
+            <h3 class="text-xl font-bold mt-4 mb-3">{step.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold mb-6">{step.description}</p>
+            <div class="pt-6 border-t border-gray-100">
+              <p class="text-sm font-bold text-gray-700 mb-3">Ergebnisse:</p>
+              <ul class="space-y-2">
+                {step.deliverables.map((deliverable) => (
+                  <li class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span class="text-gray-600 text-sm font-medium">{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AskMention Tool -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-black rounded-2xl p-8 md:p-16">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Unser Tool</span>
+            <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">AskMention</h2>
+            <p class="text-white/80 text-lg font-medium mt-4">Unsere proprietaere GEO-Monitoring-Plattform. Tracken Sie die Sichtbarkeit Ihrer Marke in KI-Antwortmaschinen, ueberwachen Sie Wettbewerber und identifizieren Sie Optimierungsmoeglichkeiten, alles in einem Dashboard.</p>
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Erwaehnungen tracken in ChatGPT, Perplexity, Google AI und mehr</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Vergleichen Sie Ihre Sichtbarkeit mit Wettbewerbern</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-400 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-white/80 font-medium">Erhalten Sie umsetzbare Empfehlungen zur Verbesserung der KI-Zitationen</span>
+              </li>
+            </ul>
+            <a href="https://askmention.com/" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation mt-8">
+              AskMention testen
+            </a>
+          </div>
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/screenshots/askmention.webp" alt="AskMention KI-Praesenz-Report mit Markensichtbarkeit in ChatGPT, Gemini, Perplexity, Claude und Copilot" class="w-full h-auto rounded-2xl" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} />
+  <FinalCTA />
+  <Footer />
+</Layout>

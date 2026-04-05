@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  locale="de"
+  title="Kontakt | Kostenloses KI-Strategiegespräch buchen | Ironum"
+  description="Nehmen Sie Kontakt mit Ironum auf für eine kostenlose KI-Strategieberatung. Buchen Sie ein Gespräch mit Gerrit, schreiben Sie uns oder besuchen Sie unser Büro in Düsseldorf."
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="KONTAKT"
+    title="Sprechen wir über Ihre KI-Strategie"
+    subtitle="Buchen Sie eine kostenlose Beratung, um Ihre KI-Bereitschaft, Compliance-Anforderungen und unsere Unterstützungsmöglichkeiten zu besprechen."
+  />
+
+  <!-- Kontaktformular -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-2xl mx-auto">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">NACHRICHT SENDEN</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Lieber schreiben?</h2>
+        <p class="text-gray-500 text-lg font-semibold mb-8">Senden Sie uns eine Nachricht und wir antworten innerhalb eines Werktages.</p>
+        <form name="contact-de" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact-de">
+          <p class="hidden"><label>Dieses Feld nicht ausfüllen: <input name="bot-field" /></label></p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-bold mb-2">Name <span class="text-red-500">*</span></label>
+              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-bold mb-2">E-Mail-Adresse <span class="text-red-500">*</span></label>
+              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            </div>
+          </div>
+          <div>
+            <label for="company" class="block text-sm font-bold mb-2">Unternehmen</label>
+            <input type="text" name="company" id="company" class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-bold mb-2">Nachricht <span class="text-red-500">*</span></label>
+            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buchung & Kontakt -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Buchung -->
+        <div class="space-y-8">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">TERMIN BUCHEN</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Kostenloses Erstgespräch</h2>
+            <p class="text-gray-500 text-lg font-semibold">Vereinbaren Sie ein 30-minütiges Gespräch mit Gerrit, um Ihre KI-Strategie, Infrastrukturanforderungen und Compliance-Bedürfnisse zu besprechen. Keine Verpflichtung, kein Verkaufsgespräch -- nur eine ehrliche Einschätzung, wie KI Ihrem Unternehmen helfen kann.</p>
+          </div>
+          <a href="https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Gespräch mit Gerrit buchen</a>
+          <div class="space-y-4 pt-4">
+            <h3 class="text-xl font-bold">Was Sie erwartet</h3>
+            <ul class="space-y-3 text-gray-500 text-lg font-semibold">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Bewertung Ihrer aktuellen KI-Bereitschaft
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Identifikation von Quick-Win-Automatisierungsmöglichkeiten
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                DSGVO- und EU AI Act-Compliance-Prüfung
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Konkrete nächste Schritte und Zeitplanung
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kontaktdaten -->
+        <div class="space-y-8">
+          <div>
+            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">KONTAKTDATEN</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Direkter Kontakt</h2>
+          </div>
+
+          <div class="space-y-6">
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">E-Mail</h3>
+              <a href="mailto:info@ironum.com" class="text-blue-600 text-lg font-semibold hover:underline">info@ironum.com</a>
+              <p class="text-gray-500 font-semibold mt-1">Wir antworten innerhalb eines Werktages.</p>
+            </div>
+
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">Telefon</h3>
+              <a href="tel:+4915758539892" class="text-blue-600 text-lg font-semibold hover:underline">+49 157 585 39892</a>
+              <p class="text-gray-500 font-semibold mt-1">Erreichbar Montag bis Freitag, 9:00 - 18:00 Uhr MEZ.</p>
+            </div>
+
+            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+              <h3 class="text-xl font-bold mb-2">Büro</h3>
+              <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschränkt)<br>Luisenstraße 66<br>40215 Düsseldorf<br>Deutschland</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+  <Footer />
+</Layout>
