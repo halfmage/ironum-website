@@ -10,54 +10,54 @@ const processSteps = [
   {
     step: '01',
     title: 'Datenvorbereitung',
-    description: 'Wir arbeiten mit Ihrem Team, um Ihre Trainingsdaten zu identifizieren, bereinigen und strukturieren. Dazu gehoeren domainspezifische Dokumente, Beispiele idealer Outputs und Randfaelle. Datenqualitaet bestimmt Modellqualitaet, deshalb investieren wir intensiv in diesen Schritt.',
-    details: ['Daten-Audit und Qualitaets-Assessment', 'Formatkonvertierung und Bereinigung', 'Training/Validierungs-Split-Design', 'Umgang mit datenschutzsensiblen Daten'],
+    description: 'Wir arbeiten mit Ihrem Team, um Ihre Trainingsdaten zu identifizieren, bereinigen und strukturieren. Dazu gehören domainspezifische Dokumente, Beispiele idealer Outputs und Randfälle. Datenqualität bestimmt Modellqualität, deshalb investieren wir intensiv in diesen Schritt.',
+    details: ['Daten-Audit und Qualitäts-Assessment', 'Formatkonvertierung und Bereinigung', 'Training/Validierungs-Split-Design', 'Umgang mit datenschutzsensiblen Daten'],
   },
   {
     step: '02',
     title: 'Modelltraining',
-    description: 'Wir stimmen Open-Source-Foundation-Models (Llama, Mistral oder aehnliche) auf Ihrem vorbereiteten Datensatz fein ab. Das Training laeuft auf Ihrer Infrastruktur oder unseren deutschen GPU-Servern. Mehrere Trainingslaeufe mit verschiedenen Hyperparametern fuer die optimale Konfiguration.',
+    description: 'Wir stimmen Open-Source-Foundation-Models (Llama, Mistral oder ähnliche) auf Ihrem vorbereiteten Datensatz fein ab. Das Training läuft auf Ihrer Infrastruktur oder unseren deutschen GPU-Servern. Mehrere Trainingsläufe mit verschiedenen Hyperparametern für die optimale Konfiguration.',
     details: ['Basismodell-Auswahl', 'Hyperparameter-Optimierung', 'LoRA/QLoRA effiziente Feinabstimmung', 'Training auf Ihrer Infrastruktur'],
   },
   {
     step: '03',
     title: 'Evaluation',
-    description: 'Rigoroses Testen gegen Ihre Qualitaets-Benchmarks. Wir evaluieren Genauigkeit, Halluzinationsraten, Antwortqualitaet und Domaen-Abdeckung. Ihre Fachexperten validieren Outputs, bevor wir zum Deployment uebergehen.',
+    description: 'Rigoroses Testen gegen Ihre Qualitäts-Benchmarks. Wir evaluieren Genauigkeit, Halluzinationsraten, Antwortqualität und Domän-Abdeckung. Ihre Fachexperten validieren Outputs, bevor wir zum Deployment übergehen.',
     details: ['Automatisierte Benchmark-Tests', 'Menschliche Evaluation mit Fachexperten', 'Halluzinationserkennung', 'A/B-Tests gegen das Basismodell'],
   },
   {
     step: '04',
     title: 'Deployment',
-    description: 'Produktions-Deployment auf Ihrer gewaehlten Infrastruktur mit Monitoring, Logging und Versionsverwaltung. Wir richten Model Serving, API-Endpoints und die Integration mit Ihren bestehenden Anwendungen ein.',
+    description: 'Produktions-Deployment auf Ihrer gewählten Infrastruktur mit Monitoring, Logging und Versionsverwaltung. Wir richten Model Serving, API-Endpoints und die Integration mit Ihren bestehenden Anwendungen ein.',
     details: ['Optimiertes Model Serving (vLLM, TGI)', 'API-Endpoint-Konfiguration', 'Monitoring und Alerting', 'Versionsverwaltung und Rollback'],
   },
 ];
 
 const comparisonItems = [
   {
-    aspect: 'Am besten fuer',
+    aspect: 'Am besten für',
     rag: 'Abfrage bestehender Dokumentenbasen',
     fineTuning: 'Domainspezifische Sprache und Verhalten',
   },
   {
     aspect: 'Datenanforderung',
     rag: 'Funktioniert mit vorhandenen Dokumenten wie sie sind',
-    fineTuning: 'Benoetigt kuratierte Trainingsbeispiele (100+)',
+    fineTuning: 'Benötigt kuratierte Trainingsbeispiele (100+)',
   },
   {
     aspect: 'Wissensaktualisierung',
-    rag: 'Sofort: Dokumente hinzufuegen oder entfernen',
+    rag: 'Sofort: Dokumente hinzufügen oder entfernen',
     fineTuning: 'Erfordert Nachtraining mit neuen Daten',
   },
   {
     aspect: 'Kosten pro Anfrage',
-    rag: 'Hoeher (Retrieval + Generierung)',
-    fineTuning: 'Niedriger (kein Retrieval-Schritt noetig)',
+    rag: 'Höher (Retrieval + Generierung)',
+    fineTuning: 'Niedriger (kein Retrieval-Schritt nötig)',
   },
   {
     aspect: 'Halluzinationsrisiko',
     rag: 'Niedrig: verankert in abgerufenen Quellen',
-    fineTuning: 'Mittel: abhaengig von der Trainingsqualitaet',
+    fineTuning: 'Mittel: abhängig von der Trainingsqualität',
   },
   {
     aspect: 'Setup-Zeit',
@@ -69,23 +69,23 @@ const comparisonItems = [
 const faqItems = [
   {
     question: 'Wann sollte ich feinabstimmen statt RAG zu nutzen?',
-    answer: 'Feinabstimmung ist die richtige Wahl, wenn das Modell domainspezifische Sprache verstehen, bestimmte Ausgabeformate einhalten oder konsistente Verhaltensmuster aufweisen muss, die durch Prompting allein nicht erreichbar sind. Beispiele sind medizinische Berichtsgenerierung, juristische Klauselentwuerfe oder technische Dokumentation in Spezialgebieten. Wenn Sie primaer bestehende Dokumente abfragen muessen, ist RAG meist kosteneffizienter. Viele Produktionssysteme kombinieren beide Ansaetze.',
+    answer: 'Feinabstimmung ist die richtige Wahl, wenn das Modell domainspezifische Sprache verstehen, bestimmte Ausgabeformate einhalten oder konsistente Verhaltensmuster aufweisen muss, die durch Prompting allein nicht erreichbar sind. Beispiele sind medizinische Berichtsgenerierung, juristische Klauselentwürfe oder technische Dokumentation in Spezialgebieten. Wenn Sie primär bestehende Dokumente abfragen müssen, ist RAG meist kosteneffizienter. Viele Produktionssysteme kombinieren beide Ansätze.',
   },
   {
     question: 'Wie viele Trainingsdaten brauche ich?',
-    answer: 'Mit modernen Techniken wie LoRA sind bedeutende Verbesserungen bereits mit 100 bis 500 hochwertigen Beispielen moeglich. Fuer spezialisierte Aufgaben liefern 1.000 bis 5.000 Beispiele typischerweise starke Ergebnisse. Die Qualitaet der Trainingsdaten zaehlt weit mehr als die Menge. 200 sorgfaeltig kuratierte Beispiele uebertreffen oft 10.000 verrauschte. Wir helfen Ihnen, die richtigen Daten in der Vorbereitungsphase zu identifizieren.',
+    answer: 'Mit modernen Techniken wie LoRA sind bedeutende Verbesserungen bereits mit 100 bis 500 hochwertigen Beispielen möglich. Für spezialisierte Aufgaben liefern 1.000 bis 5.000 Beispiele typischerweise starke Ergebnisse. Die Qualität der Trainingsdaten zählt weit mehr als die Menge. 200 sorgfältig kuratierte Beispiele übertreffen oft 10.000 verrauschte. Wir helfen Ihnen, die richtigen Daten in der Vorbereitungsphase zu identifizieren.',
   },
   {
     question: 'Welche Basismodelle nutzen Sie?',
-    answer: 'Wir arbeiten primaer mit Open-Source-Modellen: Llama 3 (Meta), Mistral, Mixtral und aehnliche. Diese Modelle bieten starke Basisleistung, volle Transparenz und koennen deployed werden, ohne dass Daten Ihre Infrastruktur verlassen. Wir stimmen auch Modelle auf Azure OpenAI fein ab fuer Unternehmen, die verwaltete Infrastruktur mit EU-Datenresidenz bevorzugen.',
+    answer: 'Wir arbeiten primär mit Open-Source-Modellen: Llama 3 (Meta), Mistral, Mixtral und ähnliche. Diese Modelle bieten starke Basisleistung, volle Transparenz und können deployed werden, ohne dass Daten Ihre Infrastruktur verlassen. Wir stimmen auch Modelle auf Azure OpenAI fein ab für Unternehmen, die verwaltete Infrastruktur mit EU-Datenresidenz bevorzugen.',
   },
   {
-    question: 'Bleiben meine Daten waehrend des Trainings privat?',
-    answer: 'Ja. Das Training laeuft auf Infrastruktur, die Sie kontrollieren: Ihre eigenen Server, unsere deutsche GPU-Infrastruktur auf Hetzner oder Azure EU-Regionen. Ihre Trainingsdaten werden nie auf Drittanbieter-Plattformen oder zu Modellanbietern hochgeladen. Nach dem Training gehoeren Ihnen die Modell-Weights und Sie koennen sie unabhaengig deployen.',
+    question: 'Bleiben meine Daten während des Trainings privat?',
+    answer: 'Ja. Das Training läuft auf Infrastruktur, die Sie kontrollieren: Ihre eigenen Server, unsere deutsche GPU-Infrastruktur auf Hetzner oder Azure EU-Regionen. Ihre Trainingsdaten werden nie auf Drittanbieter-Plattformen oder zu Modellanbietern hochgeladen. Nach dem Training gehören Ihnen die Modell-Weights und Sie können sie unabhängig deployen.',
   },
   {
-    question: 'Wie messen Sie die Modellqualitaet?',
-    answer: 'Wir verwenden eine Kombination aus automatisierten Metriken (Perplexitaet, BLEU/ROUGE-Scores, aufgabenspezifische Benchmarks) und menschlicher Evaluation durch Ihre Domaen-Experten. Wir etablieren die Baseline-Performance vor dem Training, messen Verbesserungen auf einem gehaltenen Test-Set und fuehren A/B-Vergleiche gegen das Basismodell durch. Sie erhalten einen detaillierten Evaluierungsbericht mit jedem Trainingslauf.',
+    question: 'Wie messen Sie die Modellqualität?',
+    answer: 'Wir verwenden eine Kombination aus automatisierten Metriken (Perplexität, BLEU/ROUGE-Scores, aufgabenspezifische Benchmarks) und menschlicher Evaluation durch Ihre Domän-Experten. Wir etablieren die Baseline-Performance vor dem Training, messen Verbesserungen auf einem gehaltenen Test-Set und führen A/B-Vergleiche gegen das Basismodell durch. Sie erhalten einen detaillierten Evaluierungsbericht mit jedem Trainingslauf.',
   },
 ];
 
@@ -94,7 +94,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://www.ironum.com/de/dienstleistungen/llm-feinabstimmung/#service",
     "name": "LLM-Feinabstimmung",
-    "description": "Domainspezifische KI-Modelle, trainiert auf Ihren Daten. Open-Source-LLMs, feinabgestimmt fuer Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur.",
+    "description": "Domainspezifische KI-Modelle, trainiert auf Ihren Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur.",
     "provider": { "@id": "https://www.ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "LLM-Feinabstimmung",
@@ -112,7 +112,7 @@ const breadcrumbs = [
 <Layout
   locale="de"
   title="LLM-Feinabstimmung | Domainspezifische KI-Modelle | Ironum"
-  description="Trainieren Sie domainspezifische KI-Modelle mit Ihren eigenen Daten. Open-Source-LLMs, feinabgestimmt fuer Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur. DSGVO-konform."
+  description="Trainieren Sie domainspezifische KI-Modelle mit Ihren eigenen Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur. DSGVO-konform."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -129,8 +129,8 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Wann feinabstimmen</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs. Feinabstimmung: Das richtige Werkzeug waehlen</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Feinabstimmung und RAG loesen unterschiedliche Probleme. Zu verstehen, wann man welches einsetzt, oder beide, ist entscheidend fuer den KI-Erfolg. So vergleichen sie sich.</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs. Feinabstimmung: Das richtige Werkzeug wählen</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Feinabstimmung und RAG lösen unterschiedliche Probleme. Zu verstehen, wann man welches einsetzt, oder beide, ist entscheidend für den KI-Erfolg. So vergleichen sie sich.</p>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden">
@@ -152,7 +152,7 @@ const breadcrumbs = [
           </tbody>
         </table>
       </div>
-      <p class="text-gray-500 text-lg font-semibold mt-8 text-center max-w-2xl mx-auto">Nicht sicher, welcher Ansatz zu Ihrem Anwendungsfall passt? Wir beraten Sie in unserem kostenlosen Erstgespraech. Viele Produktionssysteme kombinieren beide Ansaetze fuer optimale Ergebnisse.</p>
+      <p class="text-gray-500 text-lg font-semibold mt-8 text-center max-w-2xl mx-auto">Nicht sicher, welcher Ansatz zu Ihrem Anwendungsfall passt? Wir beraten Sie in unserem kostenlosen Erstgespräch. Viele Produktionssysteme kombinieren beide Ansätze für optimale Ergebnisse.</p>
     </div>
   </section>
 
@@ -192,7 +192,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Open Source zuerst</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Ihre Daten bleiben auf Ihrer Infrastruktur</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">Wir stimmen Open-Source-Foundation-Models fein ab, darunter Llama, Mistral und andere, damit Ihre proprietaeren Daten nie Ihre Umgebung verlassen. Keine Per-Token-Gebuehren, kein Datenaustausch mit Modellanbietern, volles Eigentum an den resultierenden Modell-Weights.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Wir stimmen Open-Source-Foundation-Models fein ab, darunter Llama, Mistral und andere, damit Ihre proprietären Daten nie Ihre Umgebung verlassen. Keine Per-Token-Gebühren, kein Datenaustausch mit Modellanbietern, volles Eigentum an den resultierenden Modell-Weights.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -200,7 +200,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">LoRA und QLoRA fuer effiziente Feinabstimmung, ohne massive GPU-Cluster</span>
+              <span class="text-gray-700 font-medium">LoRA und QLoRA für effiziente Feinabstimmung, ohne massive GPU-Cluster</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -214,7 +214,7 @@ const breadcrumbs = [
         </div>
         <div class="space-y-6">
           <div class="border-2 border-gray-100 rounded-2xl p-8">
-            <h3 class="text-xl font-bold mb-4">Unterstuetzte Basismodelle</h3>
+            <h3 class="text-xl font-bold mb-4">Unterstützte Basismodelle</h3>
             <div class="space-y-4">
               <div class="flex items-center justify-between pb-4 border-b border-gray-100">
                 <div>
@@ -226,23 +226,23 @@ const breadcrumbs = [
               <div class="flex items-center justify-between pb-4 border-b border-gray-100">
                 <div>
                   <p class="font-bold">Mistral / Mixtral</p>
-                  <p class="text-gray-500 text-sm">Europaeisch gebaut, hohe Leistung</p>
+                  <p class="text-gray-500 text-sm">Europäisch gebaut, hohe Leistung</p>
                 </div>
                 <span class="text-xs font-bold bg-green-50 text-green-600 px-3 py-1 rounded-full">7B - 46B</span>
               </div>
               <div class="flex items-center justify-between pb-4 border-b border-gray-100">
                 <div>
                   <p class="font-bold">Qwen</p>
-                  <p class="text-gray-500 text-sm">Starke mehrsprachige Faehigkeiten</p>
+                  <p class="text-gray-500 text-sm">Starke mehrsprachige Fähigkeiten</p>
                 </div>
                 <span class="text-xs font-bold bg-green-50 text-green-600 px-3 py-1 rounded-full">7B - 72B</span>
               </div>
               <div class="flex items-center justify-between">
                 <div>
                   <p class="font-bold">Individuelle Auswahl</p>
-                  <p class="text-gray-500 text-sm">Wir evaluieren das beste Modell fuer Ihre Aufgabe</p>
+                  <p class="text-gray-500 text-sm">Wir evaluieren das beste Modell für Ihre Aufgabe</p>
                 </div>
-                <span class="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Jede Groesse</span>
+                <span class="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Jede Größe</span>
               </div>
             </div>
           </div>
@@ -255,21 +255,21 @@ const breadcrumbs = [
   <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
     <div class="max-w-7xl mx-auto space-y-8">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">BRANCHEN</span>
-      <h2 class="text-3xl md:text-5xl font-bold">Fuer wen wir das bauen</h2>
+      <h2 class="text-3xl md:text-5xl font-bold">Für wen wir das bauen</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <a href="/de/branchen/finanzdienstleistungen/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Finanzdienstleistungen</h3>
-          <p class="text-gray-500 font-semibold mb-4">Modelle trainiert auf Finanzterminologie, Risikorahmenwerke und regulatorische Sprache fuer Banking und Versicherungen.</p>
+          <p class="text-gray-500 font-semibold mb-4">Modelle trainiert auf Finanzterminologie, Risikorahmenwerke und regulatorische Sprache für Banking und Versicherungen.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/de/branchen/bildung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Bildung</h3>
-          <p class="text-gray-500 font-semibold mb-4">Lehrplanalignierte Modelle fuer adaptives Lernen, Pruefungsvorbereitung und paedagogisch fundiertes KI-Tutoring.</p>
+          <p class="text-gray-500 font-semibold mb-4">Lehrplanalignierte Modelle für adaptives Lernen, Prüfungsvorbereitung und pädagogisch fundiertes KI-Tutoring.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/de/branchen/fertigung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Fertigung</h3>
-          <p class="text-gray-500 font-semibold mb-4">Domainspezifische Modelle trainiert auf technischer Dokumentation, Produktspezifikationen und Qualitaetsstandards.</p>
+          <p class="text-gray-500 font-semibold mb-4">Domainspezifische Modelle trainiert auf technischer Dokumentation, Produktspezifikationen und Qualitätsstandards.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       </div>
