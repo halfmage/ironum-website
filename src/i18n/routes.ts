@@ -24,6 +24,7 @@ export const enToDe: Record<string, string> = {
   '/imprint': '/de/impressum/',
   '/privacy': '/de/datenschutz/',
   '/resources': '/de/ressourcen/',
+  '/resources/blog': '/de/ressourcen/blog/',
 };
 
 /** Reverse mapping: DE paths → EN paths */

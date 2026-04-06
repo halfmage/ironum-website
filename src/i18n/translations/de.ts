@@ -32,7 +32,7 @@ export const de = {
     servicesHref: '/de/dienstleistungen/',
     industriesHref: '/de/branchen/',
     platformHref: '/de/plattform/compliance/',
-    blogHref: '/resources/blog/',
+    blogHref: '/de/ressourcen/blog/',
     aboutHref: '/de/ueber-uns/',
     contactHref: '/de/kontakt/',
   },
@@ -74,7 +74,7 @@ export const de = {
       { name: 'Öffentlicher Sektor', href: '/de/branchen/oeffentlicher-sektor/' },
     ],
     resourceLinks: [
-      { name: 'Blog', href: '/resources/blog/' },
+      { name: 'Blog', href: '/de/ressourcen/blog/' },
       { name: 'Plattform', href: '/de/plattform/' },
       { name: 'Bereitstellungsoptionen', href: '/de/plattform/bereitstellung/' },
       { name: 'Compliance', href: '/de/plattform/compliance/' },
@@ -207,7 +207,7 @@ export const de = {
     insightsEyebrow: 'EINBLICKE',
     insightsTitle: 'Neueste Blogbeiträge',
     insightsLink: 'Alle Artikel ansehen →',
-    insightsLinkHref: '/resources/blog/',
+    insightsLinkHref: '/de/ressourcen/blog/',
   },
   bookingUrl: 'https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
 } as const;

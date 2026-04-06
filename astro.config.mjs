@@ -26,7 +26,16 @@ export default defineConfig({
       locales: { en: 'en', de: 'de' },
     },
     serialize(item) {
-      item.lastmod = new Date().toISOString();
+      if (item.url.includes('/blog/') && item.url !== 'https://www.ironum.com/resources/blog/') {
+        item.changefreq = 'monthly';
+        item.priority = 0.7;
+      } else if (item.url === 'https://www.ironum.com/' || item.url === 'https://www.ironum.com/de/') {
+        item.changefreq = 'weekly';
+        item.priority = 1.0;
+      } else {
+        item.changefreq = 'monthly';
+        item.priority = 0.8;
+      }
       return item;
     }
   }), mdx()]
