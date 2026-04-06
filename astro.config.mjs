@@ -8,7 +8,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.ironum.com',
+  site: 'https://ironum.com',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de'],
@@ -26,10 +26,10 @@ export default defineConfig({
       locales: { en: 'en', de: 'de' },
     },
     serialize(item) {
-      if (item.url.includes('/blog/') && item.url !== 'https://www.ironum.com/resources/blog/') {
+      if (item.url.includes('/blog/') && item.url !== 'https://ironum.com/resources/blog/') {
         item.changefreq = 'monthly';
         item.priority = 0.7;
-      } else if (item.url === 'https://www.ironum.com/' || item.url === 'https://www.ironum.com/de/') {
+      } else if (item.url === 'https://ironum.com/' || item.url === 'https://ironum.com/de/') {
         item.changefreq = 'weekly';
         item.priority = 1.0;
       } else {

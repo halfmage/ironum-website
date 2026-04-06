@@ -42,15 +42,15 @@ const articleSchema = [{
   "@type": "BlogPosting",
   "headline": frontmatter.title,
   "description": frontmatter.description,
-  "author": { "@type": "Organization", "name": "Ironum", "@id": "https://www.ironum.com/#organization" },
-  "publisher": { "@id": "https://www.ironum.com/#organization" },
+  "author": { "@type": "Organization", "name": "Ironum", "@id": "https://ironum.com/#organization" },
+  "publisher": { "@id": "https://ironum.com/#organization" },
   "datePublished": frontmatter.publishDate,
   "dateModified": frontmatter.publishDate,
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://www.ironum.com${Astro.url.pathname}`
+    "@id": `https://ironum.com${Astro.url.pathname}`
   },
-  "image": "https://www.ironum.com/social.png",
+  "image": "https://ironum.com/social.png",
   "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
 }];
 ---
