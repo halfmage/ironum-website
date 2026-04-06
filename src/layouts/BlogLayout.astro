@@ -21,12 +21,18 @@ const { frontmatter } = Astro.props;
 const locale = getLangFromUrl(Astro.url);
 const dateLocale = locale === 'de' ? 'de-DE' : 'en-US';
 
-const allPosts = (await getCollection('blog')).filter(p => !p.data.draft);
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
+const currentLocale = locale === 'de' ? 'de' : 'en';
+const allPosts = (await getCollection('blog')).filter(p => !p.data.draft && (p.data.locale || 'en') === currentLocale);
 const relatedPosts = allPosts
-  .filter(p => p.data.category === frontmatter.category && p.slug !== Astro.url.pathname.split('/').filter(Boolean).pop())
+  .filter(p => p.data.category === frontmatter.category && p.slug !== currentSlug)
   .slice(0, 3);
 
-const breadcrumbs = [
+const breadcrumbs = locale === 'de' ? [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Blog', href: '/de/ressourcen/blog/' },
+  { label: frontmatter.title, href: Astro.url.pathname },
+] : [
   { label: 'Home', href: '/' },
   { label: 'Blog', href: '/resources/blog/' },
   { label: frontmatter.title, href: Astro.url.pathname },
@@ -74,10 +80,10 @@ const articleSchema = [{
   </article>
   {relatedPosts.length > 0 && (
     <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto border-t border-gray-100">
-      <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
+      <h2 class="text-2xl font-bold mb-8">{locale === 'de' ? 'Weitere Artikel' : 'Related Articles'}</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {relatedPosts.map(post => (
-          <BlogPostCard title={post.data.title} description={post.data.description} href={`/resources/blog/${post.slug}/`} date={post.data.publishDate.toISOString()} category={post.data.category} />
+          <BlogPostCard title={post.data.title} description={post.data.description} href={locale === 'de' ? `/de/ressourcen/blog/${post.slug}/` : `/resources/blog/${post.slug}/`} date={post.data.publishDate.toISOString()} category={post.data.category} />
         ))}
       </div>
     </section>

@@ -8,14 +8,15 @@ export interface Props {
 }
 
 const { title, description, href, date, category } = Astro.props;
+const dateLocale = href.startsWith('/de/') ? 'de-DE' : 'en-US';
 ---
 
-<a href={href} class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block">
+<a href={href} class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors flex flex-col h-full">
   <div class="flex items-center gap-3 mb-4">
     <span class="text-orange-500 text-sm font-semibold uppercase tracking-wider">{category}</span>
     <span class="text-gray-300">·</span>
-    <time class="text-gray-400 text-sm" datetime={date}>{new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+    <time class="text-gray-400 text-sm" datetime={date}>{new Date(date).toLocaleDateString(dateLocale, { month: 'short', day: 'numeric', year: 'numeric' })}</time>
   </div>
-  <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
-  <p class="text-gray-500 font-semibold">{description}</p>
+  <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-3">{title}</h3>
+  <p class="text-gray-500 font-semibold line-clamp-3">{description}</p>
 </a>
