@@ -14,6 +14,9 @@ export interface Props {
     author: string;
     category: string;
     tags?: string[];
+    ogImage?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
   };
 }
 
@@ -50,14 +53,25 @@ const articleSchema = [{
     "@type": "WebPage",
     "@id": `https://ironum.com${Astro.url.pathname}`
   },
-  "image": "https://ironum.com/social.png",
+  "image": new URL(frontmatter.heroImage ?? frontmatter.ogImage ?? '/social.png', 'https://ironum.com').href,
   "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
 }];
 ---
 
-<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema}>
+<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage}>
   <Navigation />
   <article class="px-4 md:px-20 py-20 md:py-32 max-w-4xl mx-auto">
+    {frontmatter.heroImage && (
+      <figure class="mb-12 -mx-4 md:mx-0">
+        <img
+          src={frontmatter.heroImage}
+          alt={frontmatter.heroImageAlt ?? ''}
+          class="w-full h-auto rounded-lg object-cover aspect-[16/9] md:aspect-[21/9]"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    )}
     <div class="mb-12">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{frontmatter.category}</span>
       <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">{frontmatter.title}</h1>

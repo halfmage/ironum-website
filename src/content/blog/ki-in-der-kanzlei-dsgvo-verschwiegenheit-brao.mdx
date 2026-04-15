@@ -1,0 +1,133 @@
+---
+title: "KI in der Kanzlei: DSGVO, Verschwiegenheit und BRAO im Jahr 2026"
+description: "Darf eine Kanzlei ChatGPT einsetzen? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden konkret fordern, und welche KI-Architektur 2026 wirklich BRAO-konform ist."
+publishDate: 2026-04-15
+author: "Ironum Team"
+category: "compliance"
+tags: ["Kanzlei", "BRAO", "DSGVO", "Verschwiegenheit", "KI", "Anwalt"]
+heroImage: "/blog/legal-library-reading-room.jpg"
+heroImageAlt: "Runde, mehrstöckige Bibliothek mit Lesetischen und einem Globus im Zentrum."
+ogImage: "/blog/legal-library-reading-room.jpg"
+locale: "de"
+draft: false
+---
+
+Nach der BRAK-Mitgliederstatistik waren zum 1. Januar 2025 in Deutschland **166.504 Rechtsanwältinnen und Rechtsanwälte** zugelassen ([BRAK-Pressemitteilung](https://www.brak.de/presse/presseerklaerungen/der-brak-2025/mitglieder-und-fachanwaltsstatistik-zum-01012025/)). Einen verlässlichen Prozentsatz derer, die bereits KI-Tools wie ChatGPT, Copilot oder Claude in der Mandatsarbeit nutzen, gibt es nicht. Eben deshalb hat die BRAK im Juni 2025 eine eigene Umfrage dazu gestartet. Was es aber gibt, sind klare berufsrechtliche Grenzen. Und die werden in der Praxis häufig gerissen.
+
+Dieser Beitrag erklärt, was § 43a BRAO, § 2 BORA und § 203 StGB für den KI-Einsatz in der Kanzlei bedeuten, was die BRAK Ende 2024 in ihrem Leitfaden dazu gesagt hat und welche Setups tatsächlich BRAO-konform sind.
+
+## Warum § 43a BRAO ChatGPT in der Standardkonfiguration ausschließt
+
+### Der Wortlaut
+
+§ 43a Abs. 2 BRAO ist knapp und eindeutig ([gesetze-im-internet.de](https://www.gesetze-im-internet.de/brao/__43a.html)):
+
+> "Der Rechtsanwalt ist zur Verschwiegenheit verpflichtet. Diese Pflicht bezieht sich auf alles, was ihm in Ausübung seines Berufes bekanntgeworden ist."
+
+§ 2 Abs. 1 BORA bekräftigt das und erweitert es ausdrücklich auf die Zeit nach Mandatsende. Entscheidend wird § 2 Abs. 2 BORA ([dejure.org](https://dejure.org/gesetze/BORA/2.html)):
+
+> "Die Verschwiegenheitspflicht gebietet es der Rechtsanwältin und dem Rechtsanwalt, die zum Schutze des Mandatsgeheimnisses erforderlichen organisatorischen und technischen Maßnahmen zu ergreifen, die risikoadäquat und für den Anwaltsberuf zumutbar sind. [...] Sonstige technische Maßnahmen müssen ebenfalls dem Stand der Technik entsprechen."
+
+Die Berufsordnung verlangt also nicht abstrakt "Verschwiegenheit", sondern **konkrete technische und organisatorische Maßnahmen auf dem Stand der Technik**. Das ist der Prüfungsmaßstab, an dem sich jeder KI-Einsatz in der Kanzlei messen lassen muss.
+
+### Die strafrechtliche Flanke: § 203 StGB
+
+Parallel zur berufsrechtlichen Pflicht läuft § 203 Abs. 1 Nr. 3 StGB: Wer als Rechtsanwalt unbefugt ein fremdes Geheimnis offenbart, das ihm anvertraut oder sonst bekannt geworden ist, wird mit Freiheitsstrafe bis zu einem Jahr oder mit Geldstrafe bestraft ([§ 203 StGB im Wortlaut](https://www.gesetze-im-internet.de/stgb/__203.html)). "Offenbaren" setzt **nicht** voraus, dass jemand die Information tatsächlich zur Kenntnis nimmt. Es reicht, die Kenntnismöglichkeit einzuräumen. Genau an diesem Punkt wird cloud-basierte KI berufsrechtlich riskant.
+
+### Der BRAK-Leitfaden vom Dezember 2024
+
+Die BRAK hat am 8. Januar 2025 ihren "Leitfaden mit Hinweisen zum KI-Einsatz" (Stand 12/2024), verfasst von Dr. Frank Remmertz, veröffentlicht ([BRAK-Newsletter 1/2025](https://www.brak.de/newsroom/newsletter/nachrichten-aus-berlin/2025/ausgabe-1-2025-v-812025/kuenstliche-intelligenz-in-anwaltskanzleien-brak-veroeffentlicht-leitfaden/) · [Leitfaden als PDF](https://www.brak.de/fileadmin/service/publikationen/Handlungshinweise/BRAK_Leitfaden_mit_Hinweisen_zum_KI-Einsatz_Stand_12_2024.pdf)). Die Kernaussagen für die Frage "ChatGPT in der Kanzlei, ja oder nein":
+
+- **Die Übertragung von Mandantendaten an öffentliche KI-Dienste ist regelmäßig nicht erforderlich**, weil die jeweilige Aufgabe auch anders lösbar ist. Wer sie trotzdem hochlädt, handelt nicht nur fahrlässig, sondern ohne sachlichen Grund.
+- **Für den Tatbestand des § 203 StGB kommt es nicht darauf an, ob der Anbieter tatsächlich Kenntnis nimmt.** Maßgeblich ist bereits die Möglichkeit der Kenntnisnahme. Standard-OpenAI- oder Microsoft-Copilot-Konfigurationen, in denen Prompts zum Anbieter-Training oder zur Missbrauchskontrolle verarbeitet werden, erfüllen diese Bedingung.
+- **Kontroll- und Prüfpflichten**: Halluzinationen und fehlerhafte Ausgaben sind kein Grund zur Entlastung. Der Anwalt haftet weiter vollständig für das, was unter seinem Briefkopf herausgeht.
+- **KI-Verordnung (EU AI Act)** greift zusätzlich; die Kanzlei kann je nach Anwendungsfall Deployer im Sinne der Verordnung sein.
+
+Die Konsequenz ist pragmatisch, nicht ideologisch: Die BRAK verbietet KI nicht. Sie präzisiert, welche Setups mit dem Berufsrecht vereinbar sind und welche nicht. Und sie macht deutlich, dass die Voreinstellung "Prompt mit echten Mandatsdaten ins öffentliche ChatGPT" keine davon ist.
+
+## Vier KI-Anwendungsfälle, die in der Kanzlei funktionieren
+
+Die wichtigste Weichenstellung ist nicht "KI ja oder nein", sondern **wo die Daten liegen und wer sie theoretisch sehen kann**. Folgende vier Muster haben wir in Kanzleiprojekten belastbar gesehen.
+
+### 1. Mandatsakten-Suche über privates RAG
+
+Das klassische Problem: Die Kanzlei hat über Jahre tausende Schriftsätze, Gutachten, Urteile und Mandatsakten angesammelt. Volltextsuche findet zu viel, Aktenzeichensuche zu wenig. Die Lösung ist Retrieval-Augmented Generation (RAG) auf einer privat betriebenen Infrastruktur: Die Dokumente werden lokal indexiert und in eine Vektordatenbank geschrieben; ein Sprachmodell beantwortet Fragen ausschließlich auf Basis dieser internen Quellen.
+
+- **Was geht:** Das gesamte System läuft in einem europäischen Rechenzentrum oder on-premise. Keine Prompts, keine Mandatsdokumente verlassen die Kontrolle der Kanzlei.
+- **Was nicht geht:** Die gleiche Funktionalität mit "ChatGPT Enterprise + File Upload", wenn dabei Mandatsinhalte an OpenAI übertragen werden, auch wenn vertraglich kein Training stattfindet. Die Möglichkeit der Kenntnisnahme bleibt bestehen.
+- **Setup-Richtung:** Open-Source-Modelle (Llama 3.x, Mistral Large, Qwen) oder europäisch gehostete kommerzielle Modelle, in Kombination mit einer dedizierten Vektordatenbank und Zugriffssteuerung pro Mandat.
+
+### 2. Schriftsatzentwürfe mit anonymisierten Inputs
+
+Erste Entwürfe, Formulierungsvarianten, Gliederungsvorschläge: dort ist KI produktiv. Die berufsrechtlich tragfähige Variante ist **Anonymisierung vor dem Prompt**. Namen, Aktenzeichen, individualisierbare Sachverhaltselemente werden entfernt oder durch Platzhalter ersetzt, bevor überhaupt ein Modell angesprochen wird.
+
+Technisch lässt sich dieser Anonymisierungsschritt selbst automatisieren, und sollte es auch, weil manuelle Anonymisierung unter Zeitdruck erfahrungsgemäß versagt. Auch hier gilt § 2 Abs. 2 BORA: Die Anonymisierung muss dem "Stand der Technik" entsprechen, eine simple Find-and-Replace-Heuristik reicht nicht.
+
+### 3. Rechtsprechungs- und Literaturrecherche
+
+Dieser Anwendungsfall ist der unproblematischste, weil keine Mandatsdaten im Spiel sind. Ein Sprachmodell kann Fragen zur aktuellen Rechtsprechung beantworten, Urteile zusammenfassen, Kommentarstellen finden. Entscheidend ist nur, dass die Recherche auf einer vertrauenswürdigen Wissensbasis aufsetzt (juris, beck-online, NJW-Archive) und nicht auf dem, was ein allgemeines LLM "weiß". Sonst sind Halluzinationen und falsche Fundstellen vorprogrammiert.
+
+### 4. Dokument-Zusammenfassungen und Due-Diligence-Vorbereitung
+
+Lange Vertragsentwürfe, Datenräume, technische Unterlagen: KI kann strukturieren und zusammenfassen. Berufsrechtskonform wird der Anwendungsfall durch das gleiche Prinzip wie bei der Mandatssuche: Die Verarbeitung findet in einer privaten Umgebung statt, die Dokumente verlassen die Kanzleiinfrastruktur nicht.
+
+## On-Premise, EU-Cloud oder US-SaaS: eine Entscheidungsmatrix
+
+Dies ist die Frage, die am häufigsten zu hitzigen Partner-Diskussionen führt. Unsere Einschätzung, bewusst zugespitzt:
+
+| Kriterium | On-Premise / privates Hosting (DE/EU) | EU-Cloud mit europäischer Rechtshoheit | US-SaaS mit EU-Rechenzentrum | Öffentliches ChatGPT/Copilot |
+|---|---|---|---|---|
+| **§ 43a BRAO / § 203 StGB** | Konform bei sauberem Setup | Grundsätzlich konform, Anbieter prüfen | Kritisch: Zugriffsmöglichkeit durch US-Mutter bleibt (CLOUD Act) | Nicht konform in Standardkonfiguration |
+| **DSGVO** | Art. 28, 32 erfüllbar; keine Drittlandübermittlung | Erfüllbar; keine Drittlandsproblematik | Drittlandübermittlung; DPF aktuell gültig, aber Rechtsstreit anhängig | Erfüllbar nur mit erheblichem Restrisiko |
+| **EU AI Act** | Volle Kontrolle über Dokumentationspflichten | Gut umsetzbar | Abhängigkeit vom Anbieter-Compliance-Stand | Deployer-Pflichten bleiben bei der Kanzlei |
+| **Zeit bis produktiv** | 4 bis 8 Wochen (mit Partner) | 2 bis 4 Wochen | Tage | Stunden |
+| **Laufende Kosten** | Mittel (Hardware/Hosting + Betrieb) | Mittel | Niedrig pro Nutzer, steigt mit Skalierung | Sehr niedrig |
+| **Vendor-Lock-in** | Gering (Open Source) | Mittel | Hoch | Hoch |
+
+Die scheinbar günstigste Option, also US-SaaS oder öffentliches ChatGPT, ist die, die das berufsrechtliche Risiko am höchsten hält. Wer bei einem Haftungsfall begründen muss, warum vertrauliche Mandatsdaten überhaupt in einer Konfiguration verarbeitet wurden, in der der Anbieter theoretisch Zugriff hätte, steht vor einem schwer zu gewinnenden Gespräch mit der Haftpflichtversicherung.
+
+## DSGVO: die zweite Ebene
+
+§ 43a BRAO ist nicht das einzige Regime, dem die Kanzlei unterliegt. Parallel gelten die DSGVO-Pflichten zu Rechtmäßigkeit (Art. 5, 6 DSGVO), Auftragsverarbeitung (Art. 28 DSGVO), technisch-organisatorischen Maßnahmen (Art. 32 DSGVO) und, bei systemisch riskanten Verarbeitungen, zur Datenschutz-Folgenabschätzung nach Art. 35 DSGVO. Für den typischen Kanzlei-KI-Einsatz bedeutet das:
+
+- **Auftragsverarbeitungsvertrag (AVV)** mit jedem KI-Anbieter, der personenbezogene Mandantendaten verarbeitet, einschließlich der dokumentierten Weisungsabhängigkeit nach Art. 29 DSGVO.
+- **DSFA** wenn die Verarbeitung systematisch und umfangreich Daten zu natürlichen Personen betrifft, die aus einer sensiblen Situation stammen (Strafverfahren, Familienrecht, Insolvenz, Arbeitsrecht). Der Schwellenwert ist in der Praxis niedriger, als viele Kanzleien annehmen.
+- **Informationspflichten** gegenüber Mandanten nach Art. 13/14 DSGVO, wenn KI in der Bearbeitung eingesetzt wird, idealerweise bereits in der Mandatsvereinbarung.
+
+Die gute Nachricht: Wenn die berufsrechtliche Prüfung sauber durchläuft (private Infrastruktur, keine Kenntnismöglichkeit Dritter), ist die DSGVO-Seite meist ohne Zusatzaufwand ebenfalls sauber, weil beide Regime in dieselbe Richtung zeigen.
+
+## Einführungsplan für Kanzleien in 90 Tagen
+
+Ein Fahrplan, der sich in der Praxis bewährt hat, bewusst knapp, weil Kanzleien selten Kapazität für akademische KI-Strategien haben:
+
+1. **Woche 1 bis 2: Anwendungsfall-Audit.** Welche drei Aufgaben kosten heute am meisten Zeit? Mandatssuche? Schriftsatzerstellung? Due Diligence? Priorisieren.
+2. **Woche 3 bis 4: Pilotdesign.** Einen einzigen Anwendungsfall auswählen, der maximalen Nutzen und minimales berufsrechtliches Risiko verbindet, typischerweise die Mandatssuche auf einem abgegrenzten Aktenbestand.
+3. **Woche 5 bis 6: Infrastruktur und Daten.** Hosting-Entscheidung treffen, Datenzugriff und -rechte klären, AVV mit allen Beteiligten, Anonymisierungs- und Zugriffslogik festlegen.
+4. **Woche 7 bis 10: Pilot mit zwei bis drei Partnern/Dezernaten.** Kontrolliertes Rollout, tägliches Feedback, Qualitätsprüfung jeder Ausgabe.
+5. **Woche 11 bis 12: Evaluation und Rollout-Entscheidung.** Wirklich messen: gesparte Stunden, Qualitätsabweichungen, Akzeptanz im Team. Nur ausrollen, wenn diese Zahlen stimmen.
+
+**Begleitend zu allen Phasen:** Datenschutzbeauftragter und, sofern vorhanden, Betriebsrat frühzeitig einbinden. Zu Mitbestimmungsfragen rund um KI-Einführung haben wir einen [eigenen Beitrag](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/) veröffentlicht; er gilt für Kanzleien mit angestellten Anwältinnen und Anwälten genauso wie für andere Arbeitgeber.
+
+## FAQ
+
+**Darf ich ChatGPT in der Kanzlei nutzen?**
+In der Standardkonfiguration, mit echten Mandatsdaten als Prompt-Input: nein. Die BRAK weist in ihrem Leitfaden vom Dezember 2024 darauf hin, dass die Übertragung von Mandatsgeheimnissen an öffentliche KI-Dienste regelmäßig nicht erforderlich ist und dass für § 203 StGB bereits die Möglichkeit der Kenntnisnahme durch den Anbieter ausreicht. Mit Anonymisierung und klaren Prozessen sind Teilanwendungen möglich, aber sie brauchen ein durchdachtes Setup, keine ad-hoc-Nutzung.
+
+**Ist Microsoft Copilot für Anwälte BRAO-konform?**
+Es kommt auf die Variante an. Microsoft 365 Copilot in einer europäisch betriebenen Enterprise-Konfiguration mit EU Data Boundary und vertraglichen Zusagen zur Datennichtverwendung kann in Grenzen genutzt werden. Die Prüfung muss aber konkret erfolgen, inklusive CLOUD-Act-Exposition, Protokollierungsverhalten und Auftragsverarbeitung nach Art. 28 DSGVO. Für hochsensible Mandate (Strafverteidigung, Schiedsverfahren, M&A-Due-Diligence) bleibt on-premise oder privates EU-Hosting der belastbarere Weg.
+
+**Brauche ich eine Datenschutz-Folgenabschätzung nach Art. 35 DSGVO?**
+Wenn die Kanzlei KI systematisch und umfangreich in der Mandatsarbeit einsetzt und dabei besondere Kategorien personenbezogener Daten oder Daten in sensiblen Lebenssituationen verarbeitet, ist die DSFA regelmäßig erforderlich. Im Zweifel: ja, und ordentlich dokumentiert.
+
+**Was kostet eine private KI für eine mittelgroße Kanzlei?**
+Ein Mandatssuche-RAG-System für eine Kanzlei mit 20 bis 50 Berufsträgern liegt projektseitig typischerweise im niedrigen bis mittleren fünfstelligen Bereich für die Initial-Implementierung, plus laufende Infrastruktur- und Betriebskosten im niedrigen vierstelligen Bereich pro Monat. Die Varianz ist groß und hängt stark an Datenmenge, Sicherheitsanforderungen und gewünschter Tiefe der Integration.
+
+**Was bedeutet der EU AI Act für meine Kanzlei?**
+Die Kanzlei ist beim KI-Einsatz regelmäßig Deployer im Sinne der KI-Verordnung. Für viele Kanzlei-Anwendungsfälle (Mandatssuche, Schriftsatzentwürfe) greift die Limited-Risk-Kategorie mit Transparenzpflichten. Hochrisiko-Einstufungen können relevant werden, wenn KI z. B. in HR-Entscheidungen der Kanzlei selbst einfließt. Einen praxisnahen Einstieg bietet unser Beitrag [EU AI Act für den Mittelstand: Fristen, Kosten und was Sie jetzt tun müssen](/de/ressourcen/blog/eu-ai-act-mittelstand-fristen-kosten/).
+
+**Wo sollte die Kanzlei-KI gehostet werden?**
+In einer Umgebung, in der ein möglicher Ermittler oder Haftpflichtversicherer die Frage "wer hatte theoretisch Zugriff auf die Mandatsdaten?" mit "niemand außer der Kanzlei selbst" beantworten kann. In der Praxis heißt das: eigenes Rechenzentrum oder europäische Infrastruktur ohne US-Muttergesellschaft. Einen Überblick über konkrete Anbieter gibt unser [Vergleich europäischer KI-Hosting-Optionen (Hetzner, IONOS, OVHcloud)](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
+
+---
+
+*Ironum entwickelt private, DSGVO- und BRAO-konforme KI-Systeme für Kanzleien und den deutschen Mittelstand, von der ersten Machbarkeitsprüfung bis zur Produktiv-Umgebung. Wenn Sie überlegen, wie Ihre Kanzlei KI berufsrechtlich sauber einsetzen kann, [sprechen Sie uns an](/de/dienstleistungen/ki-beratung/).*

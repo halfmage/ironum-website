@@ -10,6 +10,8 @@ const blog = defineCollection({
     category: z.enum(['compliance', 'implementation', 'industry', 'thought-leadership']),
     tags: z.array(z.string()).default([]),
     ogImage: z.string().optional(),
+    heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
     draft: z.boolean().default(false),
     locale: z.enum(['en', 'de']).default('en'),
   }),

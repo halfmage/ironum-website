@@ -1,0 +1,137 @@
+---
+title: "Does the EU AI Act Apply to US Companies? A 2026 Compliance Guide"
+description: "The EU AI Act reaches US companies whose systems touch Europe, even without an EU office. Here is who it covers, which dates matter, and what to do before 2 August 2026."
+publishDate: 2026-04-15
+author: "Ironum Team"
+category: "compliance"
+tags: ["EU AI Act", "compliance", "US companies", "GDPR", "data sovereignty"]
+heroImage: "/blog/eu-parliament-hemicycle.jpg"
+heroImageAlt: "Empty plenary chamber of the European Parliament with EU member-state flags at the central podium."
+ogImage: "/blog/eu-parliament-hemicycle.jpg"
+locale: "en"
+draft: false
+---
+
+If you run product, legal, or compliance at a US company and your AI touches anyone in Europe, the EU AI Act is your problem, whether or not you have an office there. The August 2026 general application date is close enough that "we'll look at it later" is already late, and the law is structured so that the usual US assumption ("we're not in the EU, so we're fine") is exactly wrong.
+
+This guide answers, in order: does it apply to you, what changes on which date, what the biggest US-side misreads are, and what a sensible six-step response looks like in 2026.
+
+## TL;DR: does the EU AI Act apply to US companies?
+
+Yes, in any of these cases:
+
+1. **You place an AI system or a general-purpose AI model on the EU market.** For example, a US SaaS vendor selling an AI feature to EU customers (Article 2(1)(a)).
+2. **You are a provider or deployer established in a third country whose AI system's output is used in the Union**, even if the system itself never "enters" the EU (Article 2(1)(c)).
+3. **You deploy AI inside an EU establishment**, including subsidiaries, EU-resident employees, or EU-based end users whose data runs through your system (Article 2(1)(b)).
+
+The legal basis is Article 2 of [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), the EU AI Act. The text says the Regulation applies "to providers placing on the market or putting into service AI systems... irrespective of whether those providers are established or located within the Union or in a third country," and to "providers and deployers of AI systems... in a third country, where the output produced by the AI system is used in the Union" ([Article 2](https://artificialintelligenceact.eu/article/2/)). That second clause is the one US counsel most often misses.
+
+## The extraterritoriality trap
+
+Three concrete US scenarios that most teams do not initially flag:
+
+**1. The US SaaS vendor with a single EU customer.**
+You are a Delaware C-corp. You sell a SaaS product with an AI feature (résumé screening, fraud scoring, marketing personalisation). One of your customers is a German manufacturer. That single customer pulls you into the AI Act as a provider under Article 2(1)(a) the moment your AI feature is "made available on the Union market" in the course of their use, regardless of where your servers sit.
+
+**2. The US-headquartered multinational with EU operations.**
+Your Texas parent company builds an internal AI tool for employee performance analysis. You roll it out globally, including to staff in the Netherlands and Ireland. Those EU-based deployers are covered under Article 2(1)(b), and for high-risk use cases (HR, access to essential services) the full Chapter III high-risk regime attaches on 2 August 2026.
+
+**3. The US law firm with European clients.**
+You run an AI-assisted e-discovery pipeline in Chicago. The underlying matter is a dispute involving an EU company, and the output (the document review results) is delivered to EU counsel and used in an EU proceeding. Article 2(1)(c) catches this: the provider is in a third country, but the output is used in the Union.
+
+If any of these match your setup, you are in scope. The question is not whether, it is which obligations.
+
+## What changes on which date
+
+The AI Act did not switch on all at once. Article 113 sets a staggered application schedule, and the dates you most need on a calendar are these ([Article 113 text](https://artificialintelligenceact.eu/article/113/)):
+
+| Date | What becomes applicable |
+|---|---|
+| **1 August 2024** | Regulation enters into force |
+| **2 February 2025** | Chapter II: prohibited AI practices (Article 5) banned |
+| **2 August 2025** | Chapter V: obligations for general-purpose AI (GPAI) models; governance rules; penalties |
+| **2 August 2026** | General application: high-risk system rules under Annex III, transparency obligations, most provider and deployer duties |
+| **2 August 2027** | High-risk systems that are safety components of products regulated under Annex I (product-safety legacy route under Article 6(1)) |
+
+If you are a US company that has not yet inventoried your AI, the practical deadline is not August 2026. It is roughly six months earlier, because risk classification, documentation, and conformity work takes that long to build the first time.
+
+## Risk tiers, in plain language
+
+The Act sorts AI systems into four buckets. Most US companies will find they touch more than one.
+
+**Prohibited (Article 5).** Banned since February 2025. The list covers subliminal manipulation, exploitation of vulnerability based on age or disability, social scoring, predictive policing based solely on profiling, untargeted facial-recognition database scraping, emotion inference in workplaces and schools, biometric categorisation inferring protected characteristics, and real-time remote biometric identification in public spaces for law enforcement (with narrow exceptions). Full list: [Article 5](https://artificialintelligenceact.eu/article/5/). If any of these match a US product sold into the EU, stop now. This is not a compliance workstream, it is a product-kill decision.
+
+**High-risk (Article 6).** Two routes in. Route one: your AI system is, or is a safety component of, a product covered by EU harmonisation legislation listed in Annex I (medical devices, machinery, vehicles, toys, and similar). Route two: your AI system falls into one of the use cases enumerated in Annex III: employment and worker management, access to essential private and public services (including credit scoring), education, law enforcement, migration, critical infrastructure, and administration of justice and democratic processes. See [Article 6](https://artificialintelligenceact.eu/article/6/). High-risk is where the heavy obligations live.
+
+**Limited risk (transparency obligations).** Chatbots that interact with humans, emotion-recognition systems, biometric categorisation systems, and generative AI producing deepfake or synthetic content all carry disclosure duties. Lightweight compared to high-risk, but real.
+
+**Minimal risk.** Everything else: spam filters, simple recommendation engines, games. No mandatory obligations, voluntary codes encouraged.
+
+One trap: the AI Act presumes Annex III systems are high-risk. If you believe yours is not, the burden is on you to document why under Article 6(3), before placing it on the market.
+
+## The GDPR collision, and the US cloud problem
+
+Even if the AI Act alone is manageable, it does not displace GDPR. For any AI system that touches personal data of people in the EU, you are running two parallel regimes, and GDPR is the older, more aggressively enforced one.
+
+The sharpest US-specific issue: data transfers. In 2020, the CJEU invalidated the EU-US Privacy Shield in its [Schrems II judgment (Case C-311/18)](https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:62018CJ0311) on 16 July 2020, finding that US surveillance law did not meet the essential equivalence standard required by GDPR and the EU Charter. Standard Contractual Clauses survived but only on condition that controllers assess, case by case, whether the recipient country's law actually provides equivalent protection.
+
+The [EU-US Data Privacy Framework](https://commission.europa.eu/document/fa09cbad-dd7d-4684-ae04-21efaaa4fe4e_en) adopted in July 2023 currently fills the Privacy Shield gap. As of April 2026, the adequacy decision is still in force: the EU General Court dismissed the Latombe challenge in September 2025, and an appeal is pending at the CJEU. A working assumption is that the DPF holds this year and next. A prudent assumption is that it may not hold forever. The first Privacy Shield lasted four years, the Safe Harbor before it lasted fifteen.
+
+Practically, this means: US companies whose AI systems process EU personal data on US infrastructure are currently compliant, but fragile. Every architecture choice you lock in this year should be answerable to the question "what happens to this system if the DPF is invalidated in 2027?"
+
+## Five things US compliance teams get wrong
+
+1. **"We're US-based, so the AI Act does not reach us."** False. Article 2(1)(a) and (c) reach third-country providers and output-users. Geography of incorporation is not a defence.
+2. **"Our hyperscaler handles compliance."** Hyperscalers provide infrastructure compliance for their own services. They do not assume your provider or deployer obligations under the AI Act. Read the shared-responsibility matrix line by line.
+3. **"We have a GDPR DPA, so the AI Act is covered."** The AI Act is a separate regulation with its own obligations: risk management, data governance, technical documentation, logging, human oversight, post-market monitoring. A DPA does not substitute for any of these.
+4. **"We'll just wait for enforcement cases."** The first GDPR multi-million-euro fines landed within 18 months of application. Penalties under [Article 99](https://artificialintelligenceact.eu/article/99/) of the AI Act top out at €35 million or 7% of worldwide annual turnover for prohibited-practice violations, and €15 million or 3% for most other provider and deployer breaches. The downside is not theoretical.
+5. **"We don't need an EU representative."** Under [Article 22](https://artificialintelligenceact.eu/article/22/), providers of high-risk AI systems established outside the EU must, by written mandate, appoint an authorised representative established in the Union before placing the system on the market. No exceptions for size, no exceptions for intent.
+
+## A six-step action plan for US companies in 2026
+
+This is the plan I use when a US client asks "where do we start?" It is deliberately concrete and sequenced.
+
+1. **Inventory.** List every AI system you build, buy, or deploy. Include embedded AI in SaaS you subscribe to, vendor APIs, and any fine-tuned models. Capture: system purpose, vendor, data inputs, data outputs, users, deployment region.
+2. **Classify.** For each system, determine (a) whether you are the provider or the deployer under the Act, (b) whether it touches EU users or produces EU-used output (Article 2 scope), and (c) which risk tier it falls into. Flag any Annex I or Annex III matches.
+3. **Gap-analyse.** For high-risk systems, compare current state to the Chapter III obligations: risk management system, data governance, technical documentation, record-keeping, transparency information for deployers, human oversight, accuracy/robustness/cybersecurity, conformity assessment, registration in the EU database. Any gap is work.
+4. **Pick a deployment model.** This is the hard one for US teams. Options: keep on US cloud and rely on DPF + SCCs + supplementary measures; move EU-affected workloads to an EU-region deployment of your existing hyperscaler; deploy on European-operated infrastructure with no US parent exposure. Each has different compliance cost, latency, and resilience-to-Schrems-III profile. Pick consciously, document the reasoning.
+5. **Document.** Write the technical documentation and the instructions for use. This is the work most teams underestimate. The Act does not care about your Notion wiki; it requires a specific set of artefacts that a conformity assessor can inspect.
+6. **Monitor.** Set up post-market monitoring, incident reporting, and a review cadence. The AI Act is not a one-time certification; it is a continuous obligation. If your product changes, your risk profile changes, and your documentation has to keep up.
+
+A sensible timeline for most US companies: inventory and classification in Q2 2026, gap analysis and deployment decisions in Q3, documentation and conformity in Q4, go-live 2 August 2026. That is tight. Starting now buys you rework time you will need.
+
+## When US companies choose European infrastructure
+
+Not every US company needs to move AI workloads to Europe. Plenty will run the US-cloud + DPF route successfully, and for minimal-risk systems it is the right answer. But there are specific situations where European-operated infrastructure is materially easier:
+
+- **You have a high-risk system that processes sensitive personal data** (health, biometric, employment, credit, legal). The DPF-plus-SCC posture is defensible today but exposes you to a 2027-or-later invalidation risk that is hard to engineer around retroactively.
+- **Your EU customers ask about data residency in RFPs.** Increasingly, European buyers are writing "no US processing" into procurement requirements, independent of what the law requires.
+- **You operate in a sector where a single regulator action can cost you the market**: regulated finance, healthcare, legal services, critical infrastructure.
+
+We work with US companies in exactly these situations, mostly on private, sovereign AI deployments hosted on European infrastructure, built with open-source models and full documentation. The selling point is not "we are cheaper than AWS" (we are not); it is "your compliance surface shrinks from 'complicated transatlantic transfer posture' to 'the data never left the EU.'" If that tradeoff is interesting, [see our AI Strategy & Audits service](/services/ai-consulting/) or [book a 30-minute call](/contact/).
+
+For a companion view from the German SME side of the same regulation, see our [EU AI Act compliance checklist for German SMEs](/resources/blog/eu-ai-act-compliance-checklist/). For the GDPR dimension specifically, see our [GDPR-compliant AI guide](/resources/blog/gdpr-compliant-ai-guide/). And for the broader "why European infrastructure" case, see [Why European AI sovereignty matters](/resources/blog/european-ai-sovereignty/).
+
+## FAQ
+
+**Does the EU AI Act apply to US companies?**
+Yes, whenever a US company places an AI system on the EU market, operates an AI deployment inside the Union, or, under Article 2(1)(c), produces AI output that is used in the Union, regardless of where the company or its infrastructure is located.
+
+**When does the EU AI Act take effect for US companies?**
+The general application date is 2 August 2026 under Article 113. Prohibited practices have been banned since 2 February 2025 and general-purpose AI model obligations since 2 August 2025. Some product-safety-route high-risk systems have a longer runway to 2 August 2027.
+
+**What are the penalties under the EU AI Act?**
+Under Article 99, up to €35 million or 7% of worldwide annual turnover (whichever is higher) for prohibited-practice violations; up to €15 million or 3% for most other infringements; and up to €7.5 million or 1% for supplying incorrect or misleading information to authorities.
+
+**Do US companies need an EU authorised representative?**
+Yes, if you are a provider of a high-risk AI system established outside the EU. Article 22 requires you to appoint, by written mandate, an authorised representative established in the Union before placing the system on the market.
+
+**Is the EU AI Act stricter than US AI regulation?**
+In most respects, yes. The US currently regulates AI through sectoral rules (FTC, HHS, DOL, state laws like Colorado SB 24-205 and the NYC AEDT law) and the federal AI executive order framework, none of which impose the horizontal, cross-sector obligations the AI Act does. For companies operating in both markets, the AI Act is typically the ceiling to design to.
+
+**Does GDPR still apply if we comply with the AI Act?**
+Yes. The two regimes run in parallel. The AI Act does not displace GDPR; any AI system processing EU personal data has to satisfy both, and where they overlap, for example on automated decision-making under GDPR Article 22, the stricter rule applies.
+
+---
+
+*Ironum is an AI engineering partner based in Düsseldorf, Germany, that builds private, sovereign AI systems for European and US companies with EU operations. If you are mapping your AI Act exposure and want a second set of eyes, [get in touch](/contact/).*
