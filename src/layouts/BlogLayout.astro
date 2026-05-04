@@ -17,6 +17,7 @@ export interface Props {
     ogImage?: string;
     heroImage?: string;
     heroImageAlt?: string;
+    faq?: Array<{ question: string; answer: string }>;
   };
 }
 
@@ -41,7 +42,7 @@ const breadcrumbs = locale === 'de' ? [
   { label: frontmatter.title, href: Astro.url.pathname },
 ];
 
-const articleSchema = [{
+const articleSchema: object[] = [{
   "@type": "BlogPosting",
   "headline": frontmatter.title,
   "description": frontmatter.description,
@@ -56,6 +57,20 @@ const articleSchema = [{
   "image": new URL(frontmatter.heroImage ?? frontmatter.ogImage ?? '/social.png', 'https://ironum.com').href,
   "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
 }];
+
+if (frontmatter.faq && frontmatter.faq.length > 0) {
+  articleSchema.push({
+    "@type": "FAQPage",
+    "mainEntity": frontmatter.faq.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  });
+}
 ---
 
 <Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage}>

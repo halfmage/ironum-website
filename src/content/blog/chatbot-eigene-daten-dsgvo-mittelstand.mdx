@@ -1,0 +1,187 @@
+---
+title: "Chatbot mit eigenen Daten: DSGVO-konform im Mittelstand 2026"
+description: "Wie der Mittelstand einen Chatbot auf eigenen Daten einsetzt — DSGVO-konform, in 4 Wochen produktiv. Mit Architektur, Kostenrahmen und 90-Tage-Plan."
+publishDate: 2026-05-04
+author: "Ironum Team"
+category: "implementation"
+tags: ["Chatbot", "DSGVO", "RAG", "Mittelstand", "KI", "On-Premise"]
+heroImage: "/blog/chatbot-mittelstand-modes-ui.png"
+heroImageAlt: "Chatbot-Oberfläche mit drei Lernmodi: IHK-Prüfungen, Onboarding und Weiterbildung."
+ogImage: "/blog/chatbot-mittelstand-modes-ui.png"
+draft: false
+locale: "de"
+faq:
+  - question: "Brauche ich für einen DSGVO-konformen Chatbot zwingend On-Premise-Hosting?"
+    answer: "Nein. Ein europäischer Cloud-Anbieter mit sauberem AVV, Sub-Verarbeiterliste und Open-Source-Modell auf seinen Servern erfüllt die DSGVO-Pflichten genauso. On-Premise ist sinnvoll für besonders sensible Daten oder bei sehr restriktiven Konzernrichtlinien — nicht aber als Default für jeden Mittelständler."
+  - question: "Kann ich ChatGPT oder Microsoft Copilot als Chatbot-Plattform nutzen?"
+    answer: "Mit Einschränkungen. Microsoft 365 Copilot in einer Enterprise-Konfiguration mit EU Data Boundary kann für interne, nicht hochsensible Anwendungen tragfähig sein, ist aber CLOUD-Act-exponiert. Für kundenfacing Chatbots oder Verarbeitung besonders sensibler Daten (Gesundheit, Recht, Finanzen) ist eine eigene EU-Architektur belastbarer. ChatGPT in der Standardvariante reicht für DSGVO-konforme Verarbeitung von personenbezogenen Daten regelmäßig nicht aus."
+  - question: "Wie verhindere ich, dass der Chatbot halluziniert?"
+    answer: "RAG ist die wichtigste Halluzinationsbremse: Das Modell antwortet ausschließlich auf Basis abgerufener Dokumentenpassagen, nicht aus Allgemeinwissen. Ergänzend: Konfidenzschwellen (Wenn keine relevanten Quellen gefunden werden, antworte ehrlich, dass du es nicht weißt), verpflichtende Quellenangaben in der Antwort und systematische Qualitätsprüfung der ersten Konversationen vor dem breiten Rollout."
+  - question: "Was passiert, wenn die KI eine Frage nicht beantworten kann?"
+    answer: "Saubere Setups eskalieren an einen menschlichen Agenten — mit vollständigem Kontext, sodass der Nutzer sich nicht wiederholen muss. Die Eskalationsregeln definieren Sie selbst: niedrige Konfidenz, sensible Themen (rechtlich, gesundheitlich, finanziell), explizite Nutzerwünsche oder bestimmte Kundengruppen."
+  - question: "Wie viele eigene Dokumente brauche ich, damit RAG funktioniert?"
+    answer: "Wichtiger als die reine Menge ist die Qualität der Quellen. Schon ein begrenzter, gut gepflegter Korpus genügt für einen sinnvollen Pilot. Größere Dokumentenmengen verbessern die thematische Tiefe — gepflegte, halbwegs aktuelle Quellen schlagen einen unstrukturierten Datenfriedhof bei jedem Volumen."
+  - question: "Muss der Betriebsrat beim Chatbot mitreden?"
+    answer: "Wenn Mitarbeitende den Bot nutzen und das System Konversationen protokolliert oder leistungsbezogene Auswertungen ermöglicht, greift § 87 Abs. 1 Nr. 6 BetrVG (technische Einrichtung zur Überwachung). Eine Betriebsvereinbarung ist dann der saubere Weg."
+  - question: "Was kostet die Wartung nach dem Go-Live?"
+    answer: "Wartungskosten variieren stark mit Änderungsfrequenz, Datenvolumen und gewünschtem Qualitätsniveau. Die wiederkehrenden Aufgaben sind Dokumenten-Reindexierung bei Änderungen, Modell-Updates, Monitoring der Antwortqualität, Anpassung der Retrieval-Parameter, Bugfixes und kleine Erweiterungen — sinnvoll als planbare Größe einzuplanen, nicht als Aufwandsposition."
+  - question: "Kann ich später auf einen anderen Anbieter wechseln?"
+    answer: "Bei einer Open-Source-basierten Architektur (Llama, Mistral, Qwen plus eine offene Vektordatenbank wie Qdrant oder Weaviate) ist die Migration zwischen Hostern eine Frage von Tagen, nicht Monaten. Bei US-SaaS-Plattformen ist die Migration teuer bis unmöglich, weil sowohl Daten als auch Konfiguration im Anbieter-Format liegen. Vendor Lock-in ist eine der wichtigsten Architekturentscheidungen am Anfang."
+---
+
+Ein Chatbot, der die Fragen Ihrer Kunden, Mitarbeitenden oder Außendienstler aus *Ihren* Dokumenten beantwortet — Produktdatenblätter, Wartungshandbücher, HR-Richtlinien, Angebotsvorlagen, Service-Tickets — und das DSGVO-konform, ohne dass auch nur ein Satz an einen US-Anbieter wandert. Das ist 2026 kein Forschungsprojekt mehr. Es ist ein Vier-Wochen-Vorhaben, das die meisten Mittelständler unterschätzen — in beide Richtungen.
+
+Sie unterschätzen, wie einfach die Integration heute ist, wenn sie sauber aufgesetzt wird. Und sie unterschätzen, wie viele Standardlösungen am Markt die DSGVO-Schwelle zwar marketingseitig, aber nicht technisch reißen. Dieser Beitrag zeigt, was wirklich funktioniert, was nicht, und in welcher Reihenfolge ein Mittelständler vorgehen sollte.
+
+## Warum der "Chatbot auf eigenen Daten" der pragmatischste KI-Use-Case 2026 ist
+
+**36 % der deutschen Unternehmen** setzen laut [Bitkom KI-Studie 2026](https://www.bitkom.org/Presse/Presseinformation/Durchbruch-Kuenstliche-Intelligenz) inzwischen KI ein, fast doppelt so viele wie 2025. Die mit Abstand häufigste produktive Anwendung ist nicht "autonomer Agent" oder "generative Marketing-Maschine", sondern **Frage-Antwort-Systeme auf unternehmenseigenen Daten**: interne Helpdesks, Support-Bots, Wissensassistenten für Vertrieb und Service.
+
+Der Grund ist nüchtern: Hier ist der ROI greifbar, das Risiko begrenzt und die Integration in bestehende Prozesse schnell. Wir haben den ROI-Hebel von Dokumenten-KI im [Beitrag zur Dokumentenautomatisierung](/de/ressourcen/blog/dokumenten-ki-automatisierung-unternehmen/) ausführlich beschrieben; für Chatbots gilt im Prinzip dasselbe Muster: ein erheblicher Teil der wiederkehrenden Standardanfragen lässt sich automatisiert beantworten, der Rest geht an Menschen.
+
+Gleichzeitig zeigt die [Bitkom-DSGVO-Befragung von Dezember 2025](https://www.datensicherheit.de/dsgvo-nachbesserung-mehrheit-deutschland-unternehmen-forderung-datenschutz-reform): **69 % der deutschen Unternehmen** sehen den Datenschutz als Bremse beim KI-Training, **93 %** würden einen deutschen Anbieter bevorzugen. Übersetzt heißt das: Der Bedarf ist da, aber die Standardlösung "ChatGPT mit Plugin" ist für den Mittelstand keine Option, sobald echte Kundendaten ins Spiel kommen.
+
+## Was "Chatbot auf eigenen Daten" technisch bedeutet
+
+Die Architektur dahinter heißt **Retrieval-Augmented Generation (RAG)**. Der Chatbot beantwortet Fragen nicht aus dem allgemeinen Trainingswissen eines Sprachmodells, sondern in drei Schritten:
+
+1. **Indexierung.** Ihre Dokumente — PDFs, Wikis, Confluence, SharePoint, Tickets, Produktstammdaten — werden einmalig zerlegt, in semantische Vektoren umgerechnet und in eine Vektordatenbank geschrieben.
+2. **Retrieval.** Bei jeder Nutzerfrage sucht das System die fünf bis zwanzig relevantesten Textpassagen aus diesem Index.
+3. **Generierung.** Diese Passagen plus die Frage werden an ein Sprachmodell übergeben, das eine Antwort formuliert — ausschließlich auf Basis der gefundenen Passagen, mit Quellenangaben.
+
+Der entscheidende Punkt für die DSGVO-Frage: **Die eigentlichen Dokumente verlassen Ihre Infrastruktur in dieser Architektur nicht zwingend.** Was an das Sprachmodell geht, sind die Textfragmente, die für die Antwort gerade gebraucht werden — und je nach Setup geht auch das nirgendwohin außer in einen Container in Ihrem eigenen oder einem europäischen Rechenzentrum.
+
+Wer tiefer in die Mechanik einsteigen will, findet das Konzept im [Enterprise-RAG-Beitrag](/de/ressourcen/blog/enterprise-rag-explained/) ausführlich erklärt. Hier reicht das obige Bild, um die folgenden Architekturentscheidungen zu verstehen.
+
+## Die DSGVO-Frage in vier Pflichten
+
+Bevor wir auf Setups schauen, kurz die rechtliche Klaviatur, an der jede Chatbot-Architektur gemessen wird:
+
+- **Rechtmäßigkeit nach Art. 6 DSGVO.** Sie brauchen eine Rechtsgrundlage für die Verarbeitung — typischerweise berechtigtes Interesse (Art. 6 Abs. 1 lit. f) bei internen Helpdesks, Vertrag (lit. b) im Kundensupport, ggf. Einwilligung (lit. a) bei Marketing-Bots.
+- **Auftragsverarbeitung nach Art. 28 DSGVO.** Jeder externe Anbieter, der personenbezogene Daten in Ihrem Auftrag verarbeitet — KI-Hoster, LLM-Anbieter, Vektordatenbank-Anbieter — braucht einen AVV. Die Standard-Selbstbedienung bei US-SaaS-Lösungen ist kein AVV im Sinne der DSGVO, sondern oft nur eine Datenschutzerklärung.
+- **TOM nach Art. 32 DSGVO.** Verschlüsselung, Zugriffsmanagement, Protokollierung, Löschkonzepte — auf "Stand der Technik". Bei einem Chatbot heißt das u. a.: keine Klartextspeicherung von Konversationen länger als nötig, granulare Berechtigungen pro Nutzergruppe, dokumentierte Lösch-Trigger.
+- **Drittlandsübermittlung nach Kapitel V DSGVO.** Sobald Daten an einen US-Anbieter gehen, greift das EU-US Data Privacy Framework (DPF). Das DPF ist aktuell gültig, aber rechtlich angegriffen — der EuGH hat zwei Vorgängerregelungen bereits gekippt (Safe Harbor 2015, Privacy Shield 2020). Hinzu kommt der CLOUD Act, der US-Behörden auf Daten in der Konzernhoheit von US-Unternehmen zugreifen lässt, unabhängig vom Speicherort des Servers.
+
+Die DSGVO-Frage beim Chatbot ist also nicht: "Hat der Anbieter ein DSGVO-Banner?" Sondern: **Ist die Architektur so gebaut, dass diese vier Pflichten technisch und vertraglich erfüllbar sind, ohne dass Sie auf gutes Wetter beim DPF setzen müssen?**
+
+## Drei Architektur-Pfade, sortiert nach DSGVO-Robustheit
+
+| Kriterium | On-Premise / privates EU-Hosting | EU-Cloud (Hetzner, IONOS, OVHcloud) | US-SaaS-Chatbot mit "EU-Region" |
+|---|---|---|---|
+| **Personenbezogene Daten** | Bleiben physisch und vertraglich in Ihrer Hand | Bleiben in der EU, beim europäischen Anbieter | Werden physisch in der EU gespeichert, sind aber CLOUD-Act-exponiert |
+| **AVV nach Art. 28** | Trivial — Sie sind selbst Verantwortlicher und Verarbeiter | Standard-AVVs der Anbieter sind belastbar | AVV existiert, aber Sub-Verarbeiter-Liste oft lang und außerhalb EU |
+| **Drittlandsübermittlung** | Keine | Keine | DPF-Mechanismus, rechtliche Restunsicherheit |
+| **Vendor Lock-in** | Gering (Open-Source-Modelle: Llama, Mistral, Qwen) | Mittel | Hoch — Migration teuer |
+| **Time-to-Production** | 4–8 Wochen | 2–4 Wochen | Tage bis Wochen |
+| **Initialkosten** | Mittel bis hoch (Hardware oder dediziertes Hosting) | Niedrig bis mittel | Sehr niedrig |
+| **Monatliche Kosten** | Vorhersagbar (Hardware-Abschreibung + Strom + Betrieb) | Vorhersagbar (GPU-Stunden + Speicher) | Pro Nutzer, skaliert linear nach oben |
+| **Geeignet für** | Hochsensible Daten, regulierte Branchen, langfristiger Betrieb | Mittelstands-Standardfall, schneller produktiv | Schnelle Pilotphase, unkritische Daten |
+
+Für die meisten Mittelständler ist **Pfad 2 — EU-Cloud auf Hetzner, IONOS oder OVHcloud — der pragmatische Sweet Spot**. Eine detaillierte Anbieter-Gegenüberstellung mit Preisen und GPU-Verfügbarkeit haben wir im [Hosting-Vergleich](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/) zusammengetragen.
+
+Pfad 3 ist nicht per se illegal, aber er ist die Variante, bei der Sie im Streitfall — Datenschutzbehörde, Mandant, Auftraggeber — am meisten zu erklären haben. Genau das, was die meisten Geschäftsführer am Ende nicht wollen.
+
+## Fünf Integrationspfade, die der Mittelstand wirklich nutzt
+
+Ein Chatbot ist nur dann hilfreich, wenn er da auftaucht, wo Ihre Nutzer ohnehin sind. Die folgenden fünf Kanäle decken den Großteil der typischen Mittelstands-Anwendungsfälle ab, jeweils mit eigenem Integrationsmuster:
+
+### 1. Website-Widget für Kundensupport
+
+Der Klassiker. Ein eingebetteter Chat unten rechts auf der Website beantwortet Produkt-, Versand-, und FAQ-Fragen rund um die Uhr. DSGVO-relevant ist hier vor allem die Cookie- und Einwilligungslogik: Wenn der Bot Konversationen speichert oder Tracking betreibt, braucht es eine entsprechende Einwilligung. Lösbar über klassisches Consent-Management; technisch ist die Einbindung ein einzelnes JavaScript-Snippet plus eine Server-Komponente in Ihrem EU-Hosting.
+
+### 2. Microsoft Teams oder Slack als interner Helpdesk
+
+Mitarbeitende fragen "Wie buche ich Sonderurlaub?" oder "Wo finde ich den aktuellen Onboarding-Plan?" direkt in Teams. Der Bot greift auf HR-Handbuch, IT-Doku und Confluence zu. Integration über Bot-Framework (Teams) bzw. Slack-App; die Authentifizierung läuft über Ihren bestehenden SSO/Entra-ID. Kein zusätzlicher Login, keine zusätzliche Schatten-IT.
+
+Der praktische Mehrwert liegt darin, dass Standardfragen rund um die Uhr sofort beantwortet werden, statt erst am nächsten Werktag — was die Last auf HR- und IT-Helpdesks für wiederkehrende Anfragen spürbar reduziert.
+
+### 3. WhatsApp Business API für Servicekunden
+
+Für Branchen mit hohem Anrufaufkommen — Versicherungen, Reisebüros, Werkstätten, Pflegedienste — ist WhatsApp der niedrigschwelligste Kanal. Die WhatsApp Business API erlaubt automatisierte Antworten unter Beibehaltung der DSGVO-Konformität, wenn Sie auf einen europäischen BSP (Business Solution Provider) setzen, der Auftragsverarbeitung sauber regelt. Wichtig: Sprachnachrichten und Bilder fließen mit; das müssen Sie in Ihrer Verarbeitungslogik berücksichtigen.
+
+### 4. Eingebettet in Ihre Web-App oder Ihr Kundenportal
+
+Wenn Sie eine eigene Anwendung haben — Kundenportal, ERP-Frontend, Buchungsplattform — gehört der Chatbot dorthin, wo der Kontext bereits stimmt. Die Integration läuft über eine REST- oder Streaming-API, der Bot kennt automatisch Kunde, Vertrag, offenen Vorgang. Hier ist der Mehrwert am höchsten und gleichzeitig die DSGVO-Last am leichtesten zu kontrollieren, weil alles in *Ihrer* Anwendungsumgebung läuft.
+
+### 5. Sprach-Schnittstelle für Außendienst und Werkstatt
+
+Der vergessene Kanal. Außendienstler im Auto, Service-Techniker am Fahrzeug, Pflegekräfte unterwegs — sie haben keine Hände frei für eine Chat-Oberfläche. Eine Sprach-Schnittstelle, die Fragen entgegennimmt und vorliest, basiert auf demselben RAG-Backend, ergänzt um Speech-to-Text und Text-to-Speech. Beides läuft auf europäischer Infrastruktur (z. B. mit Whisper-Open-Source-Modellen) ohne Drittlands-Abhängigkeit.
+
+## Vier Fehler, die DSGVO-Konformität zerstören
+
+Bei der Bewertung von Chatbot-Plattformen, die als "DSGVO-konform" beworben werden, tauchen vier typische Fehlermuster immer wieder auf:
+
+1. **Prompt-Daten an US-LLMs.** Eine "europäische" Chatbot-Plattform, die im Hintergrund Prompts an OpenAI, Anthropic oder Google routet, ist DSGVO-rechtlich keine europäische Lösung. Fragen Sie immer nach: Welches Modell läuft wo, und wer ist Sub-Verarbeiter?
+2. **Fehlende oder Standard-AVVs.** Ein AVV per Klick auf "Akzeptieren" auf einer SaaS-Seite ist formal vorhanden, oft aber inhaltlich dünn. Prüfen Sie konkret die Sub-Verarbeiter-Liste und das Recht auf Audit nach Art. 28 Abs. 3 lit. h DSGVO.
+3. **Training auf Konversationsdaten ohne Einwilligung.** Manche Anbieter behalten sich vor, Konversationen zur Modell-Verbesserung zu nutzen. Für personenbezogene Daten ohne explizite Einwilligung der Betroffenen ist das nicht zulässig. Standardklausel: "Opt-out auf Wunsch" reicht nicht.
+4. **Keine Lösch- und Aufbewahrungslogik.** Eine Chat-Historie, die "ewig" gespeichert wird, kollidiert mit Art. 5 Abs. 1 lit. e DSGVO (Speicherbegrenzung). Definieren Sie pro Anwendungsfall eine Aufbewahrungsdauer (typisch: 30 bis 90 Tage für Support-Logs, kürzer für anonymisierbare Inhalte) und automatisieren Sie die Löschung.
+
+Eine vollständige DSGVO-Implementierungs-Checkliste — über Chatbots hinaus — finden Sie im Beitrag [KI und DSGVO 2026](/de/ressourcen/blog/ki-dsgvo-datenschutzkonform-2026/).
+
+## EU AI Act: die zweite Compliance-Schicht
+
+Seit 2. Februar 2025 gilt die KI-Kompetenz-Pflicht aus Art. 4 EU AI Act für alle Unternehmen, die KI einsetzen. Spätestens ab 2. August 2026 greift die volle Anwendung. Für Chatbots ist die einschlägige Kategorie meist **Limited Risk**: Sie müssen den Nutzer transparent darauf hinweisen, dass er mit einem KI-System interagiert (Art. 50). Das ist keine theoretische Pflicht; sie wird in den ersten Bußgeldverfahren das niedrigschwelligste Einfallstor sein, weil sie sich am leichtesten beweisen lässt.
+
+Praktisch heißt das: ein klar formulierter Opener ("Sie chatten mit einem KI-Assistenten von [Firma]. Bei Bedarf übergeben wir an einen Mitarbeiter."), ein Hinweis im Footer und eine Dokumentation, die das festhält. Mehr zur Architektur der Pflichten im [EU-AI-Act-Beitrag für den Mittelstand](/de/ressourcen/blog/eu-ai-act-mittelstand-fristen-kosten/).
+
+Wenn der Chatbot **mitarbeiterbezogen** eingesetzt wird — interner Helpdesk, der Anfragen protokolliert; HR-Bot, der Bewerbungsfragen beantwortet — kommt die Mitbestimmung des Betriebsrats nach § 87 Abs. 1 Nr. 6 BetrVG hinzu. Was Geschäftsführer dazu im Vorfeld wissen sollten, steht im Beitrag [KI und Betriebsrat](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/).
+
+## Kostenstruktur statt Pauschalpreise
+
+Pauschale Preisangaben für ein Chatbot-Projekt führen meist in die falsche Richtung, weil die Spreizung enorm ist. Drei Hebel dominieren das Budget, und an ihnen lässt sich eine Einschätzung für den eigenen Fall ableiten:
+
+- **Initial-Implementierung.** Hängt an Datenvolumen, Anzahl der angebundenen Quellsysteme, Anzahl der Kanäle (nur Website oder auch Teams/WhatsApp/eigene App) und am Reifegrad Ihrer Daten. Ein eng gefasster Pilot auf einer kuratierten Quelle ist deutlich günstiger als eine Mehrkanal-Lösung über fragmentierte Datenlandschaften.
+- **Laufendes Hosting.** GPU-Inferenz plus Vektordatenbank plus App-Hosting. Die Kosten skalieren mit Anfragevolumen und Modellgröße; kleinere Open-Source-Modelle (7B–13B Parameter) sind in der Regel ausreichend und um Größenordnungen günstiger als das Spitzensegment.
+- **Wartung.** Reindexierung bei Dokumentenänderungen, Modell-Updates, Qualitätsmonitoring. Die laufenden Kosten sind kein Posten "nach Aufwand", sondern eine planbare Größe, die sich am Änderungstempo Ihrer Wissensbasis bemisst.
+
+Der wesentliche Unterschied zu Pro-Nutzer-SaaS-Lizenzen: Diese skalieren linear mit der Nutzerzahl. Eigenbetrieb auf europäischer Infrastruktur hat höhere Initialkosten, aber niedrigere Grenzkosten pro zusätzlichem Nutzer und keine kapazitätsabhängige Lizenzfalle. Welcher Pfad sich rechnet, hängt am Erwartungswert der Nutzerzahl über die nächsten 24 bis 36 Monate — und an den Anforderungen an Datensouveränität, die bei vielen Mittelständlern den Ausschlag geben, bevor die reine Wirtschaftlichkeit ins Spiel kommt.
+
+Open-Source-Modelle wie Llama, Mistral oder Qwen sind in den für SME relevanten Größenordnungen kommerziell nutzbar; der Modell-Lizenzposten fällt in der Regel weg, der wesentliche Kostenfaktor bleibt die Infrastruktur.
+
+Die volkswirtschaftliche Größenordnung des Hebels: Das [IW Köln beziffert](https://www.iwkoeln.de/studien/barbara-engels-marc-scheufen-edgar-schmitz-kuenstliche-intelligenz-als-wettbewerbsfaktor-fuer-die-deutsche-wirtschaft.html) den durchschnittlichen Produktivitätszuwachs durch generative KI auf **13 % pro Jahr** — bei den Unternehmen, die produktiv einsetzen, nicht bei denen, die "evaluieren". Der Unterschied liegt fast immer in der Frage, ob in den ersten 90 Tagen ein konkreter Anwendungsfall im echten Betrieb gelandet ist.
+
+## Vier-Wochen-Plan für die erste produktive Integration
+
+Wir bekommen oft die Frage: "Wie schnell ist das wirklich machbar?" Die ehrliche Antwort für ein klar abgegrenztes Pilotprojekt — also: ein Kanal, ein Anwendungsfall, ein Datenkorpus — sieht so aus:
+
+**Woche 1 — Use-Case-Schärfung und Datenaudit.** Welche Frage soll der Chatbot beantworten? Welche Quellen liegen vor (Confluence, SharePoint, PDFs, Tickets)? Wer sind die Nutzer? Was ist das messbare Ziel (z. B. "30 % weniger HR-Tickets in 60 Tagen")? Parallel: Datenschutz und IT abholen, Architekturentscheidung Cloud vs. On-Premise.
+
+**Woche 2 — Setup und Datenanbindung.** EU-Hosting bereitstellen, Vektordatenbank aufsetzen, erste Datenquellen indexieren, Sprachmodell auswählen und einbinden, AVVs unterzeichnen, TOMs dokumentieren.
+
+**Woche 3 — Integration in den Zielkanal.** Website-Widget, Teams-App, WhatsApp oder eigene App anbinden. Authentifizierung, Logging, Lösch-Trigger, Eskalation an Menschen.
+
+**Woche 4 — Geschlossener Pilot mit echten Nutzern.** Eine kleine Gruppe (10–30 Personen) bekommt Zugang. Tägliches Feedback, Quality-Review der Antworten, Anpassung der Retrieval-Parameter. Am Ende der Woche: Go/No-Go für den breiten Rollout.
+
+**Woche 5+ — Skalierung und Erweiterung.** Weitere Kanäle, weitere Datenquellen, Anbindung an angrenzende Systeme. Hier wird aus dem Pilot ein Produkt.
+
+Was bei diesem Tempo entscheidend ist: **Ein Auftraggeber, der entscheidet, statt zu evaluieren.** Die meisten Chatbot-Projekte scheitern nicht an der Technik, sondern an Endlos-Workshops über "die KI-Strategie". Eine grundsätzliche Strategiearbeit ist sinnvoll — aber sie muss nicht am Anfang stehen. Wer einen ersten Use-Case sauber landet, hat danach eine bessere Datenbasis für jede Strategie. Der [Mittelstands-Strategie-Fahrplan in 5 Schritten](/de/ressourcen/blog/ki-im-mittelstand-strategie-2026/) skizziert, wie sich Pilot und Strategie sinnvoll verzahnen.
+
+## FAQ
+
+**Brauche ich für einen DSGVO-konformen Chatbot zwingend On-Premise-Hosting?**
+Nein. Ein europäischer Cloud-Anbieter mit sauberem AVV, Sub-Verarbeiterliste und Open-Source-Modell auf seinen Servern erfüllt die DSGVO-Pflichten genauso. On-Premise ist sinnvoll für besonders sensible Daten oder bei sehr restriktiven Konzernrichtlinien — nicht aber als Default für jeden Mittelständler.
+
+**Kann ich ChatGPT oder Microsoft Copilot als Chatbot-Plattform nutzen?**
+Mit Einschränkungen. Microsoft 365 Copilot in einer Enterprise-Konfiguration mit EU Data Boundary kann für interne, nicht hochsensible Anwendungen tragfähig sein, ist aber CLOUD-Act-exponiert. Für kundenfacing Chatbots oder Verarbeitung besonders sensibler Daten (Gesundheit, Recht, Finanzen) ist eine eigene EU-Architektur belastbarer. ChatGPT in der Standardvariante reicht für DSGVO-konforme Verarbeitung von personenbezogenen Daten regelmäßig nicht aus.
+
+**Wie verhindere ich, dass der Chatbot halluziniert?**
+RAG ist die wichtigste Halluzinationsbremse: Das Modell antwortet ausschließlich auf Basis abgerufener Dokumentenpassagen, nicht aus Allgemeinwissen. Ergänzend: Konfidenzschwellen ("Wenn keine relevanten Quellen gefunden werden, antworte ehrlich, dass du es nicht weißt"), verpflichtende Quellenangaben in der Antwort und systematische Qualitätsprüfung der ersten Konversationen vor dem breiten Rollout.
+
+**Was passiert, wenn die KI eine Frage nicht beantworten kann?**
+Saubere Setups eskalieren an einen menschlichen Agenten — mit vollständigem Kontext, sodass der Nutzer sich nicht wiederholen muss. Die Eskalationsregeln definieren Sie selbst: niedrige Konfidenz, sensible Themen (rechtlich, gesundheitlich, finanziell), explizite Nutzerwünsche oder bestimmte Kundengruppen.
+
+**Wie viele eigene Dokumente brauche ich, damit RAG funktioniert?**
+Wichtiger als die reine Menge ist die Qualität der Quellen. Schon ein begrenzter, gut gepflegter Korpus genügt für einen sinnvollen Pilot. Größere Dokumentenmengen verbessern die thematische Tiefe — gepflegte, halbwegs aktuelle Quellen schlagen einen unstrukturierten Datenfriedhof bei jedem Volumen.
+
+**Muss der Betriebsrat beim Chatbot mitreden?**
+Wenn Mitarbeitende den Bot nutzen und das System Konversationen protokolliert oder leistungsbezogene Auswertungen ermöglicht, greift § 87 Abs. 1 Nr. 6 BetrVG (technische Einrichtung zur Überwachung). Eine Betriebsvereinbarung ist dann der saubere Weg. Details im [Beitrag zu KI und Betriebsrat](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/).
+
+**Was kostet die Wartung nach dem Go-Live?**
+Wartungskosten variieren stark mit Änderungsfrequenz, Datenvolumen und gewünschtem Qualitätsniveau. Die wiederkehrenden Aufgaben sind Dokumenten-Reindexierung bei Änderungen, Modell-Updates, Monitoring der Antwortqualität, Anpassung der Retrieval-Parameter, Bugfixes und kleine Erweiterungen — sinnvoll als planbare Größe einzuplanen, nicht als Aufwandsposition.
+
+**Kann ich später auf einen anderen Anbieter wechseln?**
+Bei einer Open-Source-basierten Architektur (Llama, Mistral, Qwen plus eine offene Vektordatenbank wie Qdrant oder Weaviate) ist die Migration zwischen Hostern eine Frage von Tagen, nicht Monaten. Bei US-SaaS-Plattformen ist die Migration teuer bis unmöglich, weil sowohl Daten als auch Konfiguration im Anbieter-Format liegen. Vendor Lock-in ist eine der wichtigsten Architekturentscheidungen am Anfang.
+
+---
+
+*Ironum baut DSGVO-konforme Chatbots auf eigenen Daten für den deutschen Mittelstand — von der ersten Use-Case-Schärfung bis zum produktiven Mehrkanal-Rollout. Wenn Sie überlegen, wo ein Chatbot in Ihrem Unternehmen den größten Hebel hätte, [sprechen Sie uns an](/de/dienstleistungen/chatbot-schnittstellen/).*

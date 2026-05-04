@@ -1,0 +1,187 @@
+---
+title: "Chatbot on Your Own Data: A GDPR-Compliant SME Playbook"
+description: "How European SMEs deploy a chatbot on their own data — GDPR-compliant, in production within four weeks. Architecture, costs, and a 90-day plan."
+publishDate: 2026-05-04
+author: "Ironum Team"
+category: "implementation"
+tags: ["chatbot", "GDPR", "RAG", "SME", "data sovereignty", "on-premise"]
+heroImage: "/blog/chatbot-mittelstand-modes-ui.png"
+heroImageAlt: "Chatbot interface with three learning modes — German vocational exams (IHK), employee onboarding, and continuing education."
+ogImage: "/blog/chatbot-mittelstand-modes-ui.png"
+draft: false
+locale: "en"
+faq:
+  - question: "Do I need on-premise hosting for a GDPR-compliant chatbot?"
+    answer: "No. A European cloud provider with a clean DPA, transparent sub-processor list, and an open-source model on their servers meets the GDPR obligations equally well. On-premise makes sense for highly sensitive data or strict group policies, not as the default for every SME."
+  - question: "Can I use ChatGPT or Microsoft Copilot as the chatbot platform?"
+    answer: "With caveats. Microsoft 365 Copilot in an enterprise configuration with the EU Data Boundary can be workable for internal, non-highly-sensitive use cases, but it is exposed to the CLOUD Act. For customer-facing chatbots or processing of highly sensitive data (health, legal, financial), a self-controlled EU architecture is more defensible. Standard ChatGPT is generally not sufficient for GDPR-compliant processing of personal data."
+  - question: "How do I prevent the chatbot from hallucinating?"
+    answer: "RAG is the primary brake on hallucinations: the model answers strictly from retrieved document passages, not from general knowledge. On top: confidence thresholds (if no relevant sources, say so honestly), mandatory citations in answers, and systematic quality review of the first conversations before broader rollout."
+  - question: "What happens when the bot cannot answer a question?"
+    answer: "Clean setups escalate to a human agent, with full context, so the user does not have to repeat themselves. You define the escalation rules: low confidence, sensitive topics (legal, medical, financial), explicit user requests, or specific customer segments."
+  - question: "How many documents do I need for RAG to work?"
+    answer: "Quality of sources matters more than raw volume. Even a small, well-maintained corpus is enough for a meaningful pilot. Larger document sets improve thematic depth — well-maintained, reasonably current sources beat an unstructured data graveyard at any size."
+  - question: "Does the works council have a say in our chatbot project?"
+    answer: "If employees use the bot and the system logs conversations or enables performance-related analysis, German § 87(1)(6) BetrVG (and equivalent provisions in other EU jurisdictions) typically applies, meaning a works agreement is the right path. Plan for this in week 1, not after rollout."
+  - question: "What are typical maintenance costs after go-live?"
+    answer: "Maintenance costs vary substantially with change frequency, data volume, and target quality. The recurring activities are document re-indexing on changes, model updates, answer-quality monitoring, retrieval tuning, bug fixes, and small enhancements — best planned as a steady, sized line item rather than ad-hoc effort."
+  - question: "Can I move to a different provider later?"
+    answer: "With an open-source-based architecture (Llama, Mistral, Qwen plus an open vector database such as Qdrant or Weaviate), migration between hosters is days, not months. With US SaaS platforms migration is expensive to impossible because both data and configuration sit in the vendor's format. Vendor lock-in is one of the most consequential architecture choices at the start."
+---
+
+A chatbot that answers questions from your customers, employees, or field staff using *your* documents — product datasheets, service manuals, HR policies, sales playbooks, support tickets — and does so GDPR-compliantly, without a single sentence of customer data leaving European jurisdiction. In 2026, this is no longer a research project. It is a four-week build that most European SMEs underestimate in both directions.
+
+They underestimate how easy the integration has become when set up properly. And they underestimate how many "GDPR-compliant" platforms on the market clear the marketing bar but fail the technical one. This post walks through what actually works, what does not, and the order in which a small or mid-sized company should approach it.
+
+## Why "chatbot on your own data" is the most pragmatic AI use case in 2026
+
+The Bitkom 2026 AI study reports that **36 % of German companies** now use AI, almost double the previous year ([Bitkom](https://www.bitkom.org/Presse/Presseinformation/Durchbruch-Kuenstliche-Intelligenz)). The most common production application is not "autonomous agent" or "generative marketing engine" — it is **question-answering systems on company data**: internal helpdesks, support bots, sales and service knowledge assistants.
+
+The reason is sober: the ROI here is concrete, the risk is bounded, and integration into existing processes is fast. We covered the ROI mechanics of document AI in [Enterprise RAG: A Guide for Non-Technical Decision Makers](/resources/blog/enterprise-rag-explained/); for chatbots the pattern is the same — a substantial share of recurring standard requests can be resolved automatically, the remainder routes to humans.
+
+At the same time, the [Bitkom GDPR survey from December 2025](https://www.datensicherheit.de/dsgvo-nachbesserung-mehrheit-deutschland-unternehmen-forderung-datenschutz-reform) shows that **69 % of German companies** see data protection as a brake on AI training and **93 %** would prefer a German or European provider. Translated: the demand exists, but the off-the-shelf "ChatGPT plus a plugin" is not a real option for SMEs once actual customer or employee data is involved.
+
+## What "chatbot on your own data" means technically
+
+The architecture behind this is **Retrieval-Augmented Generation (RAG)**. The chatbot does not answer from a language model's general training data. It answers in three steps:
+
+1. **Indexing.** Your documents — PDFs, wikis, Confluence, SharePoint, tickets, product master data — are split into passages, converted into semantic vectors, and stored in a vector database.
+2. **Retrieval.** For each user question, the system retrieves the five to twenty most relevant passages from that index.
+3. **Generation.** Those passages plus the question are sent to a language model, which composes an answer grounded strictly in the retrieved passages, with citations.
+
+The point that matters for the GDPR question: **the underlying documents do not have to leave your infrastructure in this architecture.** What goes to the language model are the text fragments needed for the current answer — and depending on the setup, even those fragments stay inside a container in your own data centre or a European provider's, never crossing a border or jurisdiction.
+
+If you want the deeper mechanics, the [Enterprise RAG explainer](/resources/blog/enterprise-rag-explained/) covers it end to end. For the architectural choices below, the picture above is enough.
+
+## GDPR in four obligations
+
+Before we look at setups, the legal scaffolding every chatbot architecture is measured against:
+
+- **Lawfulness under Art. 6 GDPR.** You need a legal basis — typically legitimate interest (Art. 6(1)(f)) for internal helpdesks, contract performance (Art. 6(1)(b)) for customer support, and consent (Art. 6(1)(a)) for marketing bots.
+- **Processor agreements under Art. 28 GDPR.** Every external party processing personal data on your behalf — AI hoster, LLM provider, vector database provider — needs a Data Processing Agreement. A click-through SaaS DPA is formally present but often substantively thin. Check the sub-processor list and the audit right under Art. 28(3)(h).
+- **Technical and organisational measures under Art. 32 GDPR.** Encryption, access management, logging, retention and deletion — at the "state of the art." For a chatbot this means no clear-text conversation storage beyond what is necessary, role-based access, and documented deletion triggers.
+- **Cross-border transfers under Chapter V GDPR.** The moment data flows to a US provider, the EU-US Data Privacy Framework (DPF) governs the transfer. The DPF is currently in force, but legally contested — the CJEU has already struck down two predecessor regimes (Safe Harbor 2015, Privacy Shield 2020). The US CLOUD Act adds a separate exposure: it allows US authorities to compel disclosure of data held by US-headquartered providers regardless of physical storage location. Our [guide for US companies on the EU AI Act](/resources/blog/eu-ai-act-us-companies-guide/) and the broader [GDPR-compliant AI overview](/resources/blog/gdpr-compliant-ai-guide/) go deeper on this exposure.
+
+So the GDPR question for a chatbot is not "does the vendor have a privacy banner." It is: **is the architecture built so that these four obligations can be satisfied technically and contractually, without you betting on the DPF holding up?**
+
+## Three architecture paths, ranked by GDPR robustness
+
+| Criterion | On-premise / private EU hosting | EU cloud (Hetzner, IONOS, OVHcloud) | US SaaS chatbot with "EU region" |
+|---|---|---|---|
+| **Personal data location** | Stays physically and contractually with you | Stays in the EU, with a European provider | Physically in EU, but exposed to the CLOUD Act |
+| **Art. 28 DPA** | Trivial — you are controller and processor in one | Standard provider DPAs are workable | DPA exists, but sub-processor list is often long and outside the EU |
+| **Cross-border transfer** | None | None | DPF-based, with residual legal uncertainty |
+| **Vendor lock-in** | Low (open-source models: Llama, Mistral, Qwen) | Medium | High — migration is expensive |
+| **Time to production** | 4 to 8 weeks | 2 to 4 weeks | Days to weeks |
+| **Initial cost** | Medium to high (hardware or dedicated hosting) | Low to medium | Very low |
+| **Monthly cost** | Predictable (hardware amortisation, power, ops) | Predictable (GPU hours plus storage) | Per-seat, scales linearly |
+| **Best fit** | Highly sensitive data, regulated sectors, long-term operation | SME default, fastest to value | Quick pilots with non-critical data |
+
+For most European SMEs, **path 2 — an EU cloud provider on Hetzner, IONOS, or OVHcloud — is the pragmatic sweet spot**. We benchmarked the providers, GPU availability, and pricing in detail in our [European AI hosting comparison](/resources/blog/ki-hosting-europa-hetzner-ionos-vergleich/) (German source piece, but the numbers and provider selection apply directly).
+
+Path 3 is not per se illegal, but it is the option with the most explaining to do if a regulator, customer, or auditor asks. That is the position most managing directors do not want to be in.
+
+## Five integration channels SMEs actually use
+
+A chatbot is only useful where your users already are. The five channels below cover the bulk of typical SME deployments, each with its own integration pattern:
+
+### 1. Website widget for customer support
+
+The classic. An embedded chat bottom-right on the website handles product, shipping, and FAQ questions around the clock. The GDPR-relevant piece here is cookie and consent logic: if the bot stores conversations or runs analytics, you need an appropriate consent path. Solvable with standard consent management. Technically the integration is a single JavaScript snippet plus a server component in your EU hosting.
+
+### 2. Microsoft Teams or Slack as an internal helpdesk
+
+Employees ask "how do I book special leave" or "where is the latest onboarding plan" directly in Teams. The bot reads from the HR handbook, IT documentation, and Confluence. Integration goes via the Teams Bot Framework or a Slack app; authentication runs through your existing SSO or Entra ID. No additional login, no shadow IT.
+
+The practical value is that standard questions get answered around the clock instead of next business day, which reduces the load on HR and IT helpdesks for recurring queries.
+
+### 3. WhatsApp Business API for service-heavy customers
+
+For sectors with high inbound call volume — insurance, travel, automotive service, home care — WhatsApp is the lowest-friction channel. The WhatsApp Business API supports automated responses while keeping GDPR posture intact, provided you choose a European Business Solution Provider with clean processor terms. Note: voice notes and images come through; your processing logic has to handle them.
+
+### 4. Embedded inside your web app or customer portal
+
+If you run your own application — customer portal, ERP front end, booking platform — the chatbot belongs where the context already exists. Integration runs through a REST or streaming API; the bot already knows the customer, contract, and open case. This is where business value is highest and GDPR exposure is easiest to control, because everything lives inside *your* application boundary.
+
+### 5. Voice interface for field service and floor operations
+
+The forgotten channel. Field reps in the car, service technicians at a machine, care workers on the move — none of them have hands free for a chat UI. A voice interface that takes spoken questions and reads answers aloud sits on the same RAG backend, with speech-to-text and text-to-speech added on top. Both can run on European infrastructure (for example using open-source Whisper variants) without a third-country dependency.
+
+## Four mistakes that break GDPR compliance
+
+When evaluating chatbot platforms marketed as "GDPR-compliant," four failure patterns come up repeatedly:
+
+1. **Prompts to US LLMs.** A "European" chatbot platform that quietly routes prompts to OpenAI, Anthropic, or Google in the background is not a European solution from a GDPR standpoint. Always ask: which model runs where, who is the sub-processor?
+2. **Missing or boilerplate DPAs.** A click-through DPA on a SaaS signup is formally present but often substantively thin. Check the sub-processor list and the Art. 28(3)(h) audit right specifically.
+3. **Training on conversation data without consent.** Some providers reserve the right to use conversations for model improvement. For personal data without explicit consent from data subjects, this is not lawful. A standard "opt out on request" clause is not enough.
+4. **No deletion or retention logic.** A chat history kept "forever" collides with Art. 5(1)(e) GDPR (storage limitation). Define a retention period per use case (typically 30 to 90 days for support logs, shorter for content that can be anonymised) and automate deletion.
+
+A full GDPR implementation checklist beyond chatbots is in [GDPR-Compliant AI: What European Companies Need to Know in 2026](/resources/blog/gdpr-compliant-ai-guide/).
+
+## EU AI Act: the second compliance layer
+
+Since 2 February 2025 the AI literacy duty under Art. 4 of the EU AI Act applies to every organisation that uses AI. Full general application kicks in on 2 August 2026. For chatbots the relevant category is usually **limited risk**: you have to disclose transparently that the user is interacting with an AI system (Art. 50). This is not a theoretical duty — it will be the lowest-effort entry point for the first enforcement actions, because it is the easiest to prove.
+
+In practice: a clear opener ("You are chatting with an AI assistant from [Company]. We hand off to a human when needed."), a footer notice, and documentation that records both. More on the wider obligations in our [EU AI Act compliance checklist](/resources/blog/eu-ai-act-compliance-checklist/) and, if your reporting line includes a US parent, the [EU AI Act guide for US companies](/resources/blog/eu-ai-act-us-companies-guide/).
+
+If the chatbot is deployed for **employees** — internal helpdesk that logs interactions, HR bot that handles policy questions — national labour law and works-council co-determination rules become relevant. In Germany this is § 87(1)(6) BetrVG (technical equipment for employee monitoring) and effectively requires a works agreement; equivalent regimes apply in most EU member states. Plan for this early, not after rollout.
+
+## Cost structure, not blanket pricing
+
+Blanket price ranges for a chatbot project usually mislead — the spread is too wide. Three drivers dominate the budget, and reasoning about them in your specific context is more useful than a fictional "average":
+
+- **Initial implementation.** Driven by data volume, the number of source systems to integrate, the number of channels (website only vs. Teams/WhatsApp/own app), and the maturity of your data. A narrowly scoped pilot on a curated source is materially cheaper than a multi-channel rollout across fragmented data landscapes.
+- **Ongoing hosting.** GPU inference plus vector database plus app hosting. Costs scale with request volume and model size; smaller open-source models (7B–13B parameters) are typically sufficient and substantially cheaper than the high end.
+- **Maintenance.** Re-indexing on document changes, model updates, quality monitoring. This is not "best-effort" — it is a planning line that scales with how often your knowledge base changes.
+
+The structural difference vs. per-seat SaaS licences: SaaS pricing scales linearly with users. Self-hosted on European infrastructure has higher upfront costs but lower marginal cost per additional user, with no capacity-based licence trap. Which path makes sense depends on your expected user count over the next 24 to 36 months — and on your data-sovereignty requirements, which for most European SMEs decide the question before pure economics enter the picture.
+
+Open-source models like Llama, Mistral, or Qwen are commercially usable in SME-relevant sizes; the model-licensing line item typically disappears, leaving infrastructure as the dominant cost driver.
+
+For the macro picture: the [German Economic Institute (IW Köln)](https://www.iwkoeln.de/studien/barbara-engels-marc-scheufen-edgar-schmitz-kuenstliche-intelligenz-als-wettbewerbsfaktor-fuer-die-deutsche-wirtschaft.html) puts the average productivity uplift from generative AI at **13 % per year** — among companies that deploy in production, not those that "evaluate." The difference almost always comes down to whether one concrete use case landed in real operations during the first 90 days.
+
+## Four-week plan to first production
+
+We get this question often: "How fast is this realistically?" For a clearly scoped pilot — one channel, one use case, one document corpus — the honest answer is:
+
+**Week 1 — use-case scoping and data audit.** Which question should the chatbot answer? Which sources exist (Confluence, SharePoint, PDFs, tickets)? Who are the users? What is the measurable target ("30 % fewer HR tickets in 60 days")? In parallel: data protection and IT alignment, architecture decision cloud vs. on-premise.
+
+**Week 2 — setup and data integration.** Provision EU hosting, stand up the vector database, index the first data sources, select and wire up the language model, sign DPAs, document TOMs.
+
+**Week 3 — channel integration.** Website widget, Teams app, WhatsApp, or own application. Authentication, logging, deletion triggers, human escalation.
+
+**Week 4 — closed pilot with real users.** A small group (10 to 30 people) gets access. Daily feedback, quality review of the answers, tuning of retrieval parameters. End of week: go / no-go for broader rollout.
+
+**Week 5 onward — scaling and expansion.** Additional channels, additional sources, integration with adjacent systems. The pilot becomes a product.
+
+What is decisive at this pace: **a sponsor who decides instead of evaluating.** Most chatbot projects fail not at the technology but in endless workshops about "the AI strategy." Strategy work has its place — but it does not have to come first. Whoever lands a first use case cleanly has a much better basis for any strategy that follows. For sequencing pilot and strategy together, see [n8n vs. Zapier vs. Make: why open-source automation wins](/resources/blog/n8n-vs-zapier-vs-make/) for the adjacent automation question, and [Why European AI Sovereignty Matters](/resources/blog/european-ai-sovereignty/) for the strategic frame.
+
+## FAQ
+
+**Do I need on-premise hosting for a GDPR-compliant chatbot?**
+No. A European cloud provider with a clean DPA, transparent sub-processor list, and an open-source model on their servers meets the GDPR obligations equally well. On-premise makes sense for highly sensitive data or strict group policies — not as the default for every SME.
+
+**Can I use ChatGPT or Microsoft Copilot as the chatbot platform?**
+With caveats. Microsoft 365 Copilot in an enterprise configuration with the EU Data Boundary can be workable for internal, non-highly-sensitive use cases, but it is exposed to the CLOUD Act. For customer-facing chatbots or processing of highly sensitive data (health, legal, financial), a self-controlled EU architecture is more defensible. Standard ChatGPT is generally not sufficient for GDPR-compliant processing of personal data.
+
+**How do I prevent the chatbot from hallucinating?**
+RAG is the primary brake on hallucinations: the model answers strictly from retrieved document passages, not from general knowledge. On top: confidence thresholds ("if no relevant sources, say so honestly"), mandatory citations in answers, and systematic quality review of the first conversations before broader rollout.
+
+**What happens when the bot cannot answer a question?**
+Clean setups escalate to a human agent — with full context, so the user does not have to repeat themselves. You define the escalation rules: low confidence, sensitive topics (legal, medical, financial), explicit user requests, or specific customer segments.
+
+**How many documents do I need for RAG to work?**
+Quality of sources matters more than raw volume. Even a small, well-maintained corpus is enough for a meaningful pilot. Larger document sets improve thematic depth — well-maintained, reasonably current sources beat an unstructured data graveyard at any size.
+
+**Does the works council have a say in our chatbot project?**
+If employees use the bot and the system logs conversations or enables performance-related analysis, German § 87(1)(6) BetrVG (and equivalent provisions in other EU jurisdictions) typically applies — meaning a works agreement is the right path. Plan for this in week 1, not after rollout. We covered the German specifics in [KI und Betriebsrat](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/) (German source piece, principles are similar across EU labour law).
+
+**What are typical maintenance costs after go-live?**
+Maintenance costs vary substantially with change frequency, data volume, and target quality. The recurring activities are document re-indexing on changes, model updates, answer-quality monitoring, retrieval tuning, bug fixes, and small enhancements — best planned as a steady, sized line item rather than ad-hoc effort.
+
+**Can I move to a different provider later?**
+With an open-source-based architecture (Llama, Mistral, Qwen plus an open vector database such as Qdrant or Weaviate), migration between hosters is days, not months. With US SaaS platforms migration is expensive to impossible because both data and configuration sit in the vendor's format. Vendor lock-in is one of the most consequential architecture choices at the start.
+
+---
+
+*Ironum builds GDPR-compliant chatbots on your own data for European SMEs — from first use-case scoping to a productive multi-channel rollout. If you are weighing where a chatbot would deliver the highest return in your business, [get in touch](/services/chatbot-interfaces/).*

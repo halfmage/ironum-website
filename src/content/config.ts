@@ -14,6 +14,7 @@ const blog = defineCollection({
     heroImageAlt: z.string().optional(),
     draft: z.boolean().default(false),
     locale: z.enum(['en', 'de']).default('en'),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),
 });
 
