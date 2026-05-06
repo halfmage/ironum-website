@@ -209,5 +209,5 @@ export const en = {
     insightsLink: 'View all articles →',
     insightsLinkHref: '/resources/blog/',
   },
-  bookingUrl: 'https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
+  bookingUrl: 'https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
 } as const;

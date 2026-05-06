@@ -46,7 +46,7 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 - [ ] Set up custom tracking domain for email deliverability
 
 **Quick Wins:**
-- [ ] Verify booking link works: `https://outlook.office.com/book/IronumCallWithGerrit@ironum1.onmicrosoft.com/`
+- [ ] Verify booking link works: `https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/`
 - [ ] Prepare a 1-page PDF "AI for Law Firms" overview (use content from `/industries/legal/` page)
 - [ ] Draft 3 LinkedIn connection request messages (see Templates below)
 
