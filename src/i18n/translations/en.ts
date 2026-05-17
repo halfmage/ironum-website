@@ -1,8 +1,8 @@
 export const en = {
   locale: 'en' as const,
   meta: {
-    defaultTitle: 'Ironum | Enterprise AI Without the Compliance Risk',
-    defaultDescription: 'European AI engineering partner. Private AI systems deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.',
+    defaultTitle: 'Ironum | GDPR-Compliant AI for Companies Serving the EU',
+    defaultDescription: 'Custom AI built on EU-sovereign infrastructure for US and European companies serving EU customers. GDPR and EU AI Act compliant. Book a free 30-min call.',
   },
   nav: {
     services: 'Services',
