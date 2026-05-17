@@ -18,7 +18,7 @@ const latestPosts = (await getCollection('blog'))
   .slice(0, 3);
 ---
 
-<Layout>
+<Layout preloadImage="/hero-background.png">
   <Navigation />
   <Hero />
 
@@ -27,10 +27,10 @@ const latestPosts = (await getCollection('blog'))
     <div class="max-w-7xl mx-auto">
       <p class="text-center text-gray-400 text-sm font-semibold uppercase tracking-[0.2em] mb-8">Trusted by</p>
       <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-        <img src="/logos/learnslice.png" alt="LearnSlice" class="h-20 max-w-[200px] w-auto object-contain" loading="lazy" />
-        <img src="/logos/fh-dortmund.svg" alt="FH Dortmund" class="h-12 max-w-[180px] w-auto object-contain" loading="lazy" />
-        <img src="/logos/smella.png" alt="Smella" class="h-12 max-w-[160px] w-auto object-contain" loading="lazy" />
-        <img src="/logos/ute-becker.svg" alt="Ute Becker Nutrition Consulting" class="h-12 max-w-[180px] w-auto object-contain" loading="lazy" />
+        <img src="/logos/learnslice.png" alt="LearnSlice" width="884" height="352" class="h-20 max-w-[200px] w-auto object-contain" loading="lazy" />
+        <img src="/logos/fh-dortmund.svg" alt="FH Dortmund" width="120" height="32" class="h-12 max-w-[180px] w-auto object-contain" loading="lazy" />
+        <img src="/logos/smella.png" alt="Smella" width="1376" height="384" class="h-12 max-w-[160px] w-auto object-contain" loading="lazy" />
+        <img src="/logos/ute-becker.svg" alt="Ute Becker Nutrition Consulting" width="170" height="48" class="h-12 max-w-[180px] w-auto object-contain" loading="lazy" />
       </div>
     </div>
   </section>

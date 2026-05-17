@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import fs from 'node:fs';
+import path from 'node:path';
 
 import tailwindcss from '@tailwindcss/vite';
 import alpinejs from '@astrojs/alpinejs';
@@ -7,6 +9,28 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 const SITE = 'https://ironum.com';
+
+// Build URL → lastmod map from blog frontmatter (sync, at config-load time).
+const BLOG_DIR = path.resolve('./src/content/blog');
+const BLOG_LASTMODS = new Map();
+try {
+  for (const file of fs.readdirSync(BLOG_DIR)) {
+    if (!file.endsWith('.mdx')) continue;
+    const slug = file.replace(/\.mdx$/, '');
+    const fmMatch = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8').match(/^---\n([\s\S]*?)\n---/);
+    if (!fmMatch) continue;
+    const fm = fmMatch[1];
+    const locale = (fm.match(/^locale:\s*"?(\w+)"?/m) || [])[1] || 'en';
+    const date = (fm.match(/^updatedDate:\s*([\d-]+)/m) || fm.match(/^publishDate:\s*([\d-]+)/m) || [])[1];
+    if (!date) continue;
+    const url = locale === 'de'
+      ? `${SITE}/de/ressourcen/blog/${slug}/`
+      : `${SITE}/resources/blog/${slug}/`;
+    BLOG_LASTMODS.set(url, `${date}T00:00:00Z`);
+  }
+} catch {
+  // best-effort; missing dates just means no lastmod for those URLs
+}
 
 // EN path → DE path. Listed without trailing slash; trailing slash added at lookup time.
 const EN_TO_DE = {
@@ -80,6 +104,9 @@ export default defineConfig({
         item.changefreq = 'monthly';
         item.priority = 0.8;
       }
+
+      const lastmod = BLOG_LASTMODS.get(item.url);
+      if (lastmod) item.lastmod = lastmod;
 
       const pair = URL_TO_PAIR.get(item.url);
       if (pair) {

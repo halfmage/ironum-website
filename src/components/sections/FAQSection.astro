@@ -10,8 +10,22 @@ export interface Props {
 }
 
 const { items, title = 'Frequently Asked Questions' } = Astro.props;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": items.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 <section class="px-4 md:px-20 py-20 md:py-32">
   <div class="max-w-4xl mx-auto">
     <h2 class="text-3xl md:text-5xl font-bold text-center mb-16">{title}</h2>

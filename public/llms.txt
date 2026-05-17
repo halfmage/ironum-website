@@ -20,18 +20,36 @@
 - [Education](https://ironum.com/industries/education/): Learning platforms, assessment tools, institutional knowledge management.
 - [Public Sector](https://ironum.com/industries/public-sector/): Sovereign infrastructure for government document processing.
 
-## Resources
+## Resources (English)
 
-- [Enterprise RAG Guide](https://ironum.com/resources/blog/enterprise-rag-explained/): Non-technical guide to RAG for enterprise decision makers.
-- [EU AI Act Checklist](https://ironum.com/resources/blog/eu-ai-act-compliance-checklist/): 6-step compliance checklist for German SMEs.
-- [European AI Sovereignty](https://ironum.com/resources/blog/european-ai-sovereignty/): Analysis of Europe's AI infrastructure dependence.
-- [GDPR-Compliant AI Guide](https://ironum.com/resources/blog/gdpr-compliant-ai-guide/): GDPR requirements for enterprise AI deployment.
-- [n8n vs Zapier vs Make](https://ironum.com/resources/blog/n8n-vs-zapier-vs-make/): Comparison of workflow automation platforms for European businesses.
+- [Chatbot on Your Own Data: A GDPR-Compliant SME Playbook](https://ironum.com/resources/blog/chatbot-own-data-gdpr-sme/): How European SMEs deploy a chatbot on their own data — GDPR-compliant, in production within four weeks. Architecture, costs, and a 90-day plan.
+- [Enterprise RAG: A Guide for Non-Technical Decision Makers](https://ironum.com/resources/blog/enterprise-rag-explained/): What Retrieval-Augmented Generation (RAG) is, why it matters for enterprise knowledge management, and how to evaluate RAG solutions for your business.
+- [EU AI Act Compliance Checklist for German SMEs](https://ironum.com/resources/blog/eu-ai-act-compliance-checklist/): A practical checklist for German SMEs to prepare for the EU AI Act. Timeline, requirements, and steps to ensure your AI systems are compliant by August 2026.
+- [Does the EU AI Act Apply to US Companies? A 2026 Compliance Guide](https://ironum.com/resources/blog/eu-ai-act-us-companies-guide/): The EU AI Act reaches US companies whose systems touch Europe, even without an EU office. Who it covers, which dates matter, and what to do before 2 August 2026.
+- [Why European AI Sovereignty Matters](https://ironum.com/resources/blog/european-ai-sovereignty/): Europe's growing dependence on US AI infrastructure poses strategic risks. How sovereign AI solutions protect European businesses.
+- [GDPR-Compliant AI: What European Companies Need to Know in 2026](https://ironum.com/resources/blog/gdpr-compliant-ai-guide/): Why most US-based AI APIs create GDPR compliance risks for European companies, and how on-premises and sovereign AI solutions solve the problem.
+- [n8n vs. Zapier vs. Make: Why Open-Source Automation Wins for European Companies](https://ironum.com/resources/blog/n8n-vs-zapier-vs-make/): A comparison of workflow automation platforms for European businesses. Why n8n's open-source approach gives you data sovereignty, GDPR compliance, and zero vendor lock-in.
+
+## Ressourcen (Deutsch)
+
+- [Chatbot mit eigenen Daten: DSGVO-konform im Mittelstand 2026](https://ironum.com/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/): Wie der Mittelstand einen Chatbot auf eigenen Daten einsetzt — DSGVO-konform, in 4 Wochen produktiv. Mit Architektur, Kostenrahmen und 90-Tage-Plan.
+- [Dokumenten-KI: Wie Unternehmen Rechnungen, Verträge und Post automatisieren](https://ironum.com/de/ressourcen/blog/dokumenten-ki-automatisierung-unternehmen/): 73 % Zeitersparnis in der Buchhaltung, 80 % weniger Verarbeitungskosten bei Rechnungen. Dokumenten-KI ist der schnellste Weg zu messbarem KI-ROI im Mittelstand.
+- [EU AI Act für den Mittelstand: Fristen, Kosten und was Sie jetzt tun müssen](https://ironum.com/de/ressourcen/blog/eu-ai-act-mittelstand-fristen-kosten/): Der EU AI Act betrifft auch den Mittelstand. Compliance-Kosten von 50.000 bis 200.000 Euro, verschobene Fristen durch das Digital-Omnibus-Paket und konkrete Pflichten — ein Überblick.
+- [Fachkräftemangel mit KI begegnen: 5 Anwendungsfälle für den Mittelstand](https://ironum.com/de/ressourcen/blog/fachkraeftemangel-ki-loesungen-mittelstand/): 40 % der Mittelständler finden kein qualifiziertes Personal. KI kann den Mangel nicht lösen — aber Ihre vorhandenen Mitarbeiter deutlich produktiver machen. Fünf konkrete Anwendungsfälle.
+- [KI-Agenten in Unternehmen: Was 2026 wirklich funktioniert](https://ironum.com/de/ressourcen/blog/ki-agenten-unternehmen-2026/): Gartner prognostiziert: 40 % der Enterprise-Apps werden bis Ende 2026 KI-Agenten enthalten. Doch was sind KI-Agenten wirklich, und welche Anwendungsfälle funktionieren heute schon?
+- [KI und Betriebsrat: Was Geschäftsführer über Mitbestimmung wissen müssen](https://ironum.com/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/): Der Betriebsrat hat bei der KI-Einführung weitreichende Mitbestimmungsrechte. Welche Paragraphen gelten, wann Sie den Betriebsrat einbinden müssen und wie Sie KI-Projekte reibungslos umsetzen.
+- [KI und DSGVO 2026: So setzen Sie KI datenschutzkonform ein](https://ironum.com/de/ressourcen/blog/ki-dsgvo-datenschutzkonform-2026/): 69 % der Unternehmen sagen, Datenschutz bremst KI. Doch DSGVO-konforme KI ist machbar — mit On-Premise-Deployment, Open-Source-Modellen und europäischer Infrastruktur. Ein praktischer Leitfaden.
+- [KI in der Fertigung: Vom Pilotprojekt zur Produktion](https://ironum.com/de/ressourcen/blog/ki-fertigung-produktion-2026/): 42 % der Fertigungsunternehmen setzen KI bereits in der Produktion ein. Fehlerquoten sinken um 20-40 %, Ausfallzeiten werden planbar. Drei bewährte Anwendungsfälle für den Mittelstand.
+- [KI-Hosting in Europa: Hetzner, IONOS und OVHcloud im Vergleich](https://ironum.com/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/): Welcher europäische Cloud-Anbieter eignet sich am besten für KI-Workloads? GPU-Server, Preise, Datenstandort und DSGVO-Konformität im direkten Vergleich.
+- [KI im Mittelstand 2026: Warum 43 % der Unternehmen noch keine Strategie haben — und wie Sie starten](https://ironum.com/de/ressourcen/blog/ki-im-mittelstand-strategie-2026/): 36 % der deutschen Unternehmen nutzen bereits KI, doch 43 % haben noch keine Strategie. Ein praktischer Fahrplan in 5 Schritten für den Mittelstand — von der Bestandsaufnahme bis zum ersten Pilotprojekt.
+- [KI in der Kanzlei: DSGVO, Verschwiegenheit und BRAO im Jahr 2026](https://ironum.com/de/ressourcen/blog/ki-in-der-kanzlei-dsgvo-verschwiegenheit-brao/): Darf eine Kanzlei ChatGPT einsetzen? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden konkret fordern, und welche KI-Architektur 2026 wirklich BRAO-konform ist.
+- [Produktivität steigern mit KI: Was die Zahlen wirklich sagen](https://ironum.com/de/ressourcen/blog/ki-produktivitaet-unternehmen-statistiken/): 82 % der Unternehmen berichten von Produktivitätssteigerungen durch KI. Doch welche Use Cases liefern echten ROI — und welche nicht? Eine ehrliche Analyse der Datenlage.
 
 ## Company
 
-- Legal entity: LearnSlice UG (haftungsbeschrankt)
-- Location: Dusseldorf, Germany
+- Legal entity: LearnSlice UG (haftungsbeschränkt)
+- Location: Düsseldorf, Germany
 - Founded: 2024
+- Founder: Gerrit Halfmann
 - Service area: Europe
 - Contact: info@ironum.com

@@ -11,6 +11,7 @@ export interface Props {
     title: string;
     description: string;
     publishDate: string;
+    updatedDate?: string;
     author: string;
     category: string;
     tags?: string[];
@@ -24,6 +25,14 @@ export interface Props {
 const { frontmatter } = Astro.props;
 const locale = getLangFromUrl(Astro.url);
 const dateLocale = locale === 'de' ? 'de-DE' : 'en-US';
+
+const SECTION_DISPLAY_NAMES: Record<string, string> = {
+  compliance: 'Compliance & Regulation',
+  implementation: 'Implementation Guide',
+  industry: 'Industry Insights',
+  'thought-leadership': 'Thought Leadership',
+};
+const articleSection = SECTION_DISPLAY_NAMES[frontmatter.category] ?? frontmatter.category;
 
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLocale = locale === 'de' ? 'de' : 'en';
@@ -46,16 +55,21 @@ const articleSchema: object[] = [{
   "@type": "BlogPosting",
   "headline": frontmatter.title,
   "description": frontmatter.description,
-  "author": { "@type": "Organization", "name": "Ironum", "@id": "https://ironum.com/#organization" },
+  "author": { "@id": "https://ironum.com/#person-gerrit" },
   "publisher": { "@id": "https://ironum.com/#organization" },
   "datePublished": frontmatter.publishDate,
-  "dateModified": frontmatter.publishDate,
+  "dateModified": frontmatter.updatedDate ?? frontmatter.publishDate,
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": `https://ironum.com${Astro.url.pathname}`
   },
   "image": new URL(frontmatter.heroImage ?? frontmatter.ogImage ?? '/social.png', 'https://ironum.com').href,
-  "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
+  "inLanguage": locale === 'de' ? 'de-DE' : 'en-US',
+  "articleSection": articleSection,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".prose > p:first-of-type"]
+  }
 }];
 
 if (frontmatter.faq && frontmatter.faq.length > 0) {
@@ -73,7 +87,7 @@ if (frontmatter.faq && frontmatter.faq.length > 0) {
 }
 ---
 
-<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage}>
+<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage} ogType="article">
   <Navigation />
   <article class="px-4 md:px-20 py-20 md:py-32 max-w-4xl mx-auto">
     {frontmatter.heroImage && (

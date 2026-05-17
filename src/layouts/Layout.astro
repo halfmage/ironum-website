@@ -12,9 +12,11 @@ export interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogType?: string;
   breadcrumbs?: BreadcrumbItem[];
   structuredData?: object[];
   locale?: Locale;
+  preloadImage?: string;
 }
 
 const locale = Astro.props.locale || getLangFromUrl(Astro.url);
@@ -24,8 +26,10 @@ const {
   title = t.meta.defaultTitle,
   description = t.meta.defaultDescription,
   ogImage = "/social.png",
+  ogType = "website",
   breadcrumbs,
   structuredData,
+  preloadImage,
 } = Astro.props;
 
 const canonicalUrl = `https://ironum.com${Astro.url.pathname}`;
@@ -40,7 +44,7 @@ const ogLocaleAlt = locale === 'de' ? 'en_US' : 'de_DE';
 
 const defaultStructuredData = [
   {
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": "https://ironum.com/#organization",
     "name": "Ironum",
     "legalName": "LearnSlice UG (haftungsbeschränkt)",
@@ -69,7 +73,31 @@ const defaultStructuredData = [
     "foundingDate": "2024",
     "areaServed": { "@type": "Place", "name": "Europe" },
     "sameAs": [
-      "https://www.linkedin.com/company/ironum"
+      "https://www.linkedin.com/company/ironum",
+      "https://askmention.com/"
+    ],
+    "founder": { "@id": "https://ironum.com/#person-gerrit" }
+  },
+  {
+    "@type": "Person",
+    "@id": "https://ironum.com/#person-gerrit",
+    "name": "Gerrit Halfmann",
+    "jobTitle": "Founder",
+    "worksFor": { "@id": "https://ironum.com/#organization" },
+    "image": "https://ironum.com/gerrit-halfmann.jpg",
+    "description": "Creative technologist and web designer with 20+ years of experience. Founder of Ironum, LearnSlice (AI-powered education platform), and AskMention (Generative Engine Optimization tool). Focused on GDPR-compliant AI deployment for European enterprises.",
+    "knowsAbout": [
+      "Generative AI",
+      "Retrieval-Augmented Generation",
+      "EU AI Act compliance",
+      "GDPR",
+      "European AI sovereignty",
+      "On-premise AI deployment",
+      "Open-source LLMs"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/gerrit-halfmann/",
+      "https://askmention.com/"
     ]
   },
   {
@@ -83,7 +111,7 @@ const defaultStructuredData = [
   }
 ];
 
-const allStructuredData = structuredData || defaultStructuredData;
+const allStructuredData = [...defaultStructuredData, ...(structuredData ?? [])];
 
 const breadcrumbSchema = breadcrumbs ? {
   "@context": "https://schema.org",
@@ -110,7 +138,7 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, 'https://ironum.com').href} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta property="og:site_name" content="Ironum" />
@@ -123,6 +151,7 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta name="robots" content="index, follow" />
 
     <link rel="preload" href="/ironum-logo.svg" as="image" type="image/svg+xml" />
+    {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
     <link rel="dns-prefetch" href="//outlook.office.com" />
 
     <link rel="canonical" href={canonicalUrl} />
