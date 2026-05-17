@@ -37,12 +37,12 @@ export const en = {
     contactHref: '/contact/',
   },
   hero: {
-    eyebrow: 'AI DEVELOPMENT PARTNER FOR EUROPE',
-    title: 'Enterprise AI Without<br>the Compliance Risk',
-    subtitle: 'We build and deploy sovereign AI systems on European infrastructure, so your team works faster without GDPR headaches or vendor lock-in.',
-    trustLine: 'Trusted by FH Dortmund, Smella, and European enterprises in finance, education, and travel',
+    eyebrow: 'EU-NATIVE AI ENGINEERING FOR REGULATED MARKETS',
+    title: 'Custom AI, Built for<br>the EU Regulatory Reality',
+    subtitle: 'We build production AI systems on EU-sovereign infrastructure, so US and European companies serving EU customers ship faster without GDPR or AI Act exposure.',
+    trustLine: 'Trusted by FH Dortmund, Smella, LearnSlice, and European companies in finance, education, and travel',
     ctaButton: 'Book a Free AI Strategy Call',
-    ctaSubtext: '30 minutes with Gerrit · Get a concrete roadmap · No commitment',
+    ctaSubtext: '30 minutes with Gerrit · Bring your EU compliance questions · No commitment',
     ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',
   },
   footer: {
@@ -179,11 +179,11 @@ export const en = {
   homepage: {
     trustedBy: 'Trusted by',
     problemEyebrow: 'THE PROBLEM',
-    problemTitle: 'European Companies Are Stuck in an AI Catch-22',
+    problemTitle: 'Two Problems, One Cause',
     problemCards: [
-      { title: '"We want to use AI..."', description: 'Your competitors are shipping AI features monthly. Your team sees the potential. Leadership is asking when you\'ll catch up.' },
-      { title: '"...but we can\'t risk our data."', description: 'Every AI vendor wants your data in their cloud. Your legal team says no. Your DPO says no. GDPR says no. And the EU AI Act just added another layer of requirements.' },
-      { title: '"So nothing happens."', description: 'Promising AI pilots stall in legal review. Teams go back to manual work. The gap between you and AI-native competitors grows wider every quarter.' },
+      { title: 'For European companies', description: 'Your competitors are shipping AI features monthly. Your DPO says no. Your legal team says no. GDPR says no. Promising pilots stall in compliance review.' },
+      { title: 'For US companies serving the EU', description: 'Your EU customers are starting to ask about data sovereignty in 2026 RFPs. Your US AI stack falls under the CLOUD Act. Your sales cycle slows in EU procurement.' },
+      { title: 'The shared root', description: 'Both problems need the same answer: AI built on EU-sovereign infrastructure, with GDPR and EU AI Act compliance documented from day one.' },
     ],
     servicesEyebrow: 'WHAT WE BUILD FOR YOU',
     servicesTitle: 'Six Ways We Put AI to Work in Your Business',

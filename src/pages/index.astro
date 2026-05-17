@@ -11,6 +11,9 @@ import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('en');
 
 const latestPosts = (await getCollection('blog'))
   .filter(p => !p.data.draft)
@@ -38,21 +41,15 @@ const latestPosts = (await getCollection('blog'))
   <!-- The Problem -->
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto space-y-8">
-      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">THE PROBLEM</span>
-      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">European Companies Are Stuck in an AI Catch-22</h2>
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.homepage.problemEyebrow}</span>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">{t.homepage.problemTitle}</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-2xl font-bold mb-3">"We want to use AI..."</h3>
-          <p class="text-gray-500 text-lg font-semibold">Your competitors are shipping AI features monthly. Your team sees the potential. Leadership is asking when you'll catch up.</p>
-        </div>
-        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-2xl font-bold mb-3">"...but we can't risk our data."</h3>
-          <p class="text-gray-500 text-lg font-semibold">Every AI vendor wants your data in their cloud. Your legal team says no. Your DPO says no. GDPR says no. And the EU AI Act just added another layer of requirements.</p>
-        </div>
-        <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-2xl font-bold mb-3">"So nothing happens."</h3>
-          <p class="text-gray-500 text-lg font-semibold">Promising AI pilots stall in legal review. Teams go back to manual work. The gap between you and AI-native competitors grows wider every quarter.</p>
-        </div>
+        {t.homepage.problemCards.map(card => (
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl font-bold mb-3">{card.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{card.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
