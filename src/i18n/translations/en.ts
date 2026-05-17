@@ -46,13 +46,6 @@ export const en = {
     ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',
   },
   footer: {
-    newsletter: {
-      title: 'Stay updated on AI compliance and innovation',
-      description: 'Get insights on EU AI Act developments, deployment strategies, and practical AI use cases for European businesses.',
-      placeholder: 'Enter your email',
-      button: 'Subscribe',
-      formName: 'newsletter',
-    },
     servicesTitle: 'Services',
     industriesTitle: 'Industries',
     resourcesTitle: 'Resources',

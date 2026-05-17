@@ -46,13 +46,6 @@ export const de = {
     ctaAlt: 'oder <a href="/de/kontakt/" class="text-blue-400 hover:text-blue-300 underline">schreiben Sie uns</a>',
   },
   footer: {
-    newsletter: {
-      title: 'Bleiben Sie informiert über KI-Compliance und Innovation',
-      description: 'Erhalten Sie Einblicke zur EU-KI-Verordnung, Bereitstellungsstrategien und praktischen KI-Anwendungsfällen für europäische Unternehmen.',
-      placeholder: 'Ihre E-Mail-Adresse',
-      button: 'Abonnieren',
-      formName: 'newsletter-de',
-    },
     servicesTitle: 'Dienstleistungen',
     industriesTitle: 'Branchen',
     resourcesTitle: 'Ressourcen',
