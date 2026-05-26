@@ -38,12 +38,8 @@ export const deToEn: Record<string, string> = Object.fromEntries(
   })
 );
 
-/** Get the alternate language path for a given URL */
-export function getAlternateUrl(pathname: string, currentLocale: 'en' | 'de'): string {
+/** Get the alternate language path for a given URL, or null if no counterpart is registered. */
+export function getAlternateUrl(pathname: string, currentLocale: 'en' | 'de'): string | null {
   const clean = pathname.replace(/\/$/, '') || '/';
-
-  if (currentLocale === 'en') {
-    return enToDe[clean] || `/de${pathname}`;
-  }
-  return deToEn[clean] || pathname.replace(/^\/de/, '') || '/';
+  return currentLocale === 'en' ? (enToDe[clean] ?? null) : (deToEn[clean] ?? null);
 }

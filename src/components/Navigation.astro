@@ -53,11 +53,13 @@ const homeHref = locale === 'de' ? '/de/' : '/';
     <li><a href={t.nav.aboutHref} class={`text-white px-4 py-3 rounded-full hover:bg-white/10 transition-all duration-200 min-h-[44px] touch-manipulation ${currentPath === (locale === 'de' ? '/de/ueber-uns/' : '/about/') ? 'bg-white/10' : ''}`}>{t.nav.about}</a></li>
 
     <!-- Language Switcher -->
-    <li>
-      <a href={alternatePath} class="text-white/60 hover:text-white px-3 py-2 text-sm font-semibold transition-colors">
-        {locale === 'de' ? 'EN' : 'DE'}
-      </a>
-    </li>
+    {alternatePath && (
+      <li>
+        <a href={alternatePath} class="text-white/60 hover:text-white px-3 py-2 text-sm font-semibold transition-colors">
+          {locale === 'de' ? 'EN' : 'DE'}
+        </a>
+      </li>
+    )}
 
     <li>
       <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer" class="text-white px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-700 transition-all duration-200 min-h-[44px] touch-manipulation ml-2">{t.nav.ctaButton}</a>
@@ -74,9 +76,11 @@ const homeHref = locale === 'de' ? '/de/' : '/';
   <!-- Mobile Menu -->
   <div class="lg:hidden absolute top-full left-0 w-full bg-black px-4 py-4" x-show="mobileMenuOpen" x-transition>
     <!-- Language Switcher Mobile -->
-    <a href={alternatePath} class="text-white/60 hover:text-white py-2 px-2 block text-sm font-semibold mb-2">
-      {locale === 'de' ? '🇬🇧 English' : '🇩🇪 Deutsch'}
-    </a>
+    {alternatePath && (
+      <a href={alternatePath} class="text-white/60 hover:text-white py-2 px-2 block text-sm font-semibold mb-2">
+        {locale === 'de' ? '🇬🇧 English' : '🇩🇪 Deutsch'}
+      </a>
+    )}
 
     <!-- Services Accordion -->
     <button class="text-white py-3 px-2 w-full text-left flex justify-between items-center hover:bg-white/10 rounded-lg min-h-[48px] touch-manipulation" @click="mobileServices = !mobileServices">
