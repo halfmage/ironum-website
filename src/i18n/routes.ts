@@ -25,6 +25,8 @@ export const enToDe: Record<string, string> = {
   '/privacy': '/de/datenschutz/',
   '/resources': '/de/ressourcen/',
   '/resources/blog': '/de/ressourcen/blog/',
+  '/resources/blog/chatbot-own-data-gdpr-sme': '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/',
+  '/resources/blog/cut-costs-without-layoffs-ai-automation': '/de/ressourcen/blog/kosten-senken-ohne-entlassungen-ki-mittelstand/',
 };
 
 /** Reverse mapping: DE paths → EN paths */
