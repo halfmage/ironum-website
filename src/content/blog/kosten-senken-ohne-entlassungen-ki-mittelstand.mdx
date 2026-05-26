@@ -1,0 +1,143 @@
+---
+title: "Kosten senken ohne Entlassungen: KI-Automatisierung für den Mittelstand 2026"
+description: "23.900 deutsche Firmen sind 2025 in die Insolvenz gegangen, 80 % davon Mittelständler. Wie Sie 2026 Kosten senken, ohne Personal abzubauen — mit KI-Automatisierung."
+publishDate: 2026-05-26
+author: "Ironum Team"
+category: "implementation"
+tags: ["Mittelstand", "KI-Automatisierung", "Kostensenkung", "Entlassungen", "Kurzarbeit", "Workflow-Automatisierung", "Rezession"]
+heroImage: "/blog/ai-automation-sme-alternative-layoffs.jpg"
+heroImageAlt: "Mittelständischer Unternehmer in rotem T-Shirt prüft auf einem Tablet seine Bestände inmitten bunter Folienrollen — der Typ Mittelstands-Operator, der gerade nach Wegen sucht, Kosten zu senken, ohne Personal abzubauen."
+ogImage: "/blog/ai-automation-sme-alternative-layoffs.jpg"
+draft: false
+locale: "de"
+faq:
+  - question: "Kann KI-Automatisierung Entlassungen im Mittelstand wirklich ersetzen?"
+    answer: "Bei Unternehmen, deren Kostendruck aus repetitivem Overhead stammt (Kundenservice, Rechnungswesen, Dokumentenverwaltung, Lead-Bearbeitung), ja. McKinsey beziffert die operativen Einsparungen durch KI-Automatisierung im *State of AI 2025* mit 20 bis 30 Prozent, und gut geschnittene Mittelstands-Einsätze amortisieren sich typischerweise in 60 bis 90 Tagen. Bei Firmen mit strukturellem Kostenproblem (Energie, Nachfrageeinbruch, Regulatorik) verschafft Automatisierung Luft, behebt aber nicht die Ursache. Der Test: Ist die Arbeit, die Sie automatisieren würden, repetitiv, und ist die Einsparung in einem Quartal sichtbar? Wenn ja, ist Automatisierung der günstigere Hebel."
+  - question: "Wie schnell amortisiert sich KI-Automatisierung im Mittelstand?"
+    answer: "60 bis 90 Tage sind typisch für sauber geschnittene Workflows: Service-Triage, Rechnungs- und Kreditorenbearbeitung, Dokumentensuche. Das MIT-Project NANDA hat im August 2025 dokumentiert, dass 95 Prozent aller GenAI-Piloten im Unternehmenseinsatz keinen messbaren ROI liefern. Die Ursache liegt fast immer im Scope und in der Integration, nicht in der Technik. Die 5 Prozent, die funktionieren, haben einen Workflow gewählt, die KPI vor dem Bau definiert und ab Tag eins mit den bestehenden Systemen integriert."
+  - question: "Mit welcher KI-Automatisierung sollte ein Mittelständler anfangen?"
+    answer: "Mit dem Workflow, der pro Woche die meisten Stunden frisst, klare Inputs und Outputs hat und bei dem Fehler reversibel sind. Für die meisten deutschen Mittelständler ist das Kundenservice-Triage (ein RAG-basierter Chatbot auf den eigenen Dokumenten) oder Rechnungsverarbeitung (ein selbstgehosteter n8n-Workflow). Beide haben planbare Einsparungen, einen begrenzten Schadenradius und sind die im Markt am tiefsten verstandenen Use Cases."
+  - question: "Ist Kurzarbeit nicht ohnehin die einfachere Lösung?"
+    answer: "Kurzarbeit verschafft Liquidität, löst aber das Kostenproblem nicht. Das Kurzarbeitergeld wurde 2024/25 erneut verlängert, und viele Mittelständler nutzen es als Brücke. Die strukturellen Kosten bleiben aber, und sobald die Phase endet, steht die ursprüngliche Frage wieder im Raum: produktiver werden oder Stellen streichen. Automatisierung *innerhalb* der Kurzarbeit-Phase zu planen ist der seltene Fall, in dem Brücke und Ziel zusammenfallen — wenn Sie wieder hochfahren, hat die Belegschaft mehr Hebel pro Kopf."
+  - question: "Warum scheitern die meisten KI-Projekte im Mittelstand?"
+    answer: "MIT NANDA hat 300 Unternehmens-Einsätze untersucht und ein konsistentes Muster gefunden: schlechte Datenqualität, kein Integrationsplan für die bestehenden Systeme, KPIs erst nachträglich definiert, zu viele Tools gleichzeitig pilotiert. Dieselbe Studie zeigt: Vendor-Partnerschaften gelingen zu rund 67 Prozent, rein interne Eigenbauten nur in etwa einem Drittel der Fälle. Für einen Mittelständler ohne eigenes KI-Team beantwortet sich die Buy-vs-Build-Frage damit oft von selbst."
+  - question: "Ist Open-Source-KI-Automatisierung DSGVO-konform?"
+    answer: "Nicht automatisch, aber auf einem EU-gehosteten, selbst kontrollierten Stack (selbstgehostetes n8n, EU-basierte LLM-Inferenz, Open-Source-Vektordatenbank) wird DSGVO-Konformität zu einer Konfigurationsfrage statt zu einer Vendor-Risikofrage. Die Architektur ist in unserem [Leitfaden zu DSGVO-konformer KI](/de/ressourcen/blog/ki-dsgvo-datenschutzkonform-2026/) im Detail beschrieben. Stichworte: Daten in der EU halten, AVVs mit allen Verarbeitern, dokumentierte Transferlogik."
+  - question: "Was sollte ein 10-Personen-Unternehmen für KI-Automatisierung budgetieren?"
+    answer: "Ein realistischer Automatisierungs-Stack für ein 5- bis 10-köpfiges Team kostet im laufenden Betrieb etwa 160 bis 260 Euro pro Monat an Tooling, dazu eine einmalige Implementierung. Die voll belasteten Kosten einer Neueinstellung in Deutschland liegen je nach Rolle und Bundesland zwischen 3.000 und 5.000 Euro pro Monat. Die ROI-Rechnung erledigt sich meist, bevor die Tabelle fertig ist."
+  - question: "Verursacht KI-Automatisierung Entlassungen oder verhindert sie sie?"
+    answer: "Es hängt von der Reihenfolge der Entscheidungen ab. Mittelständler, die zuerst automatisieren und freie Kapazität in Wachstumsarbeit umlenken, entlassen tendenziell nicht. Wer erst entlässt und später automatisieren will, landet meist bei einem schlechteren Team, derselben Arbeitslast und einem Automatisierungsprojekt, das mit dem Tagesgeschäft um Aufmerksamkeit kämpft. Die Leadership-IQ-Daten zu Layoff-Survivors (74 Prozent berichten von gesunkener eigener Produktivität) zeigen: Der Zustand nach einer Entlassungsrunde ist eine schlechte Basis für jedes Veränderungsprojekt, KI inklusive."
+---
+
+23.900 deutsche Unternehmen sind 2025 in die Insolvenz gegangen. Höchster Stand seit zehn Jahren, plus 8,3 Prozent zum Vorjahr ([Creditreform](https://www.creditreform.de/aktuelles-wissen/pressemeldungen-fachbeitraege/news-details/show/insolvenzen-in-deutschland-jahr-2025)). Über 80 Prozent davon — 19.500 Firmen — hatten zehn Mitarbeiter oder weniger. Das Bild zur deutschen Insolvenzwelle ist also nicht Thyssenkrupp oder Bosch. Es ist die Lackiererei im Gewerbegebiet. Die Steuerkanzlei, mit der Sie seit fünfzehn Jahren arbeiten. Der familiengeführte Sondermaschinenbauer im Nachbarort. Unternehmen, die so aussehen wie Ihres.
+
+Und es wird nicht besser. Jedes dritte deutsche Unternehmen plant 2026 Personalabbau, in der Industrie sind es vier von zehn ([IW Köln](https://www.iwkoeln.de/presse/pressemitteilungen/michael-groemling-jedes-dritte-unternehmen-plant-2026-stellen-abzubauen.html)). Nur 18 Prozent wollen einstellen. Energiekosten höher als fast überall sonst in Europa, privater Konsum seit zwei Jahren flach, chinesische Konkurrenz hat ganze Branchen umgeschrieben — von der Photovoltaik bis zum Automobil. Die Liste kennen Sie.
+
+Wahrscheinlich blicken Sie gerade auf eine 2026er GuV, die nicht mehr aufgeht. Und der einzige Hebel, der groß genug aussieht, ist die Personalkostenseite. Bevor Sie dort ziehen, sehen Sie sich die Arbeit selbst an. Die meisten Mittelständler haben das immer noch nicht getan.
+
+## Kann KI-Automatisierung Entlassungen wirklich ersetzen?
+
+Lange war das eine theoretische Diskussion. Seit 2025 nicht mehr.
+
+McKinsey beziffert im Bericht [*State of AI in 2025*](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) (November 2025) die operative Kostenreduktion durch KI und Automatisierung auf **20 bis 30 Prozent**, bei Effizienzgewinnen über 40 Prozent. Die SAFE-Umfrage der EZB zeigt, dass Eurozonen-Unternehmen 2026 rund **9 Prozent ihrer Gesamtinvestitionen in KI lenken**. Ernsthafte KI-Anwender im Mittelstand investieren anteilig sogar mehr als Großkonzerne. OECD-Daten zu realen Mittelstands-Einsätzen nennen Amortisationszeiten von **60 bis 90 Tagen** bei den richtigen Workflows.
+
+Das sind keine Folienzahlen. Eine 20-prozentige Reduktion auf der operativen Kostenbasis eines 30-Personen-Mittelständlers ist der Unterschied zwischen sechs gestrichenen Stellen und keiner.
+
+Das ehrliche Gegengewicht: Das MIT-Project NANDA hat in [*The GenAI Divide: State of AI in Business 2025*](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/) 300 GenAI-Einsätze untersucht. **95 Prozent haben keinen messbaren ROI geliefert.** Nur 5 Prozent erzeugten finanziellen Wert. Die Ursache lag nicht in der Technik, sondern im Scope und in der Integration. Wie Sie zu den 5 Prozent gehören, kommt weiter unten.
+
+## Was ist mit Kurzarbeit?
+
+Die typische Reihenfolge im Mittelstand: erst Kosten knipsen, dann Kurzarbeit anmelden, am Ende — wenn das nicht reicht — Personal abbauen. Kurzarbeit ist gesellschaftlich akzeptiert und nach den Verlängerungen des Kurzarbeitergelds 2024/25 weiterhin verfügbar.
+
+Sie löst das Kostenproblem aber nicht. Sie verschiebt es. Sobald die Phase endet, steht die alte Frage wieder im Raum: produktiver werden oder Stellen streichen.
+
+Genau hier liegt der ungenutzte Hebel. Eine Kurzarbeit-Phase ist der seltene Zeitpunkt, an dem Sie gleichzeitig Liquidität und Planungszeit haben. Wer diese Brücke nutzt, um die Workflows neu aufzustellen, kommt mit mehr Hebel pro Kopf aus der Phase heraus. Wer sie nur als Verzögerung verwendet, steht im Sommer 2026 vor derselben Entscheidung wie heute.
+
+## Welche KI-Automatisierungen amortisieren sich am schnellsten?
+
+Für einen Mittelständler unter Kostendruck erzeugen vier Use Cases den Großteil der Einsparungen und amortisieren sich innerhalb eines Quartals. Wählen Sie einen. Setzen Sie ihn End-to-End um. Pilotieren Sie nicht alle vier gleichzeitig.
+
+### 1. Kundenservice und Anfragen
+
+Der größte Topf repetitiver Personalkosten im Mittelstand sitzt im Service. Telefon, E-Mail, Chat — dieselben fünfzig Fragen jede Woche. Ein sauber aufgesetzter Chatbot auf den eigenen Dokumenten löst **70 Prozent der Standardanfragen automatisch**, der Rest geht mit vollem Kontext an einen menschlichen Agenten.
+
+Der Mechanismus heißt Retrieval-Augmented Generation. Der Bot erfindet nichts aus dem allgemeinen Modellwissen. Er antwortet aus *Ihren* Produkthandbüchern, Ihrer Wissensdatenbank, Ihren historischen Tickets — mit Quellenangabe pro Antwort. Die Architektur haben wir in unserem [DSGVO-konformen Chatbot-Playbook für den Mittelstand](/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/) im Detail beschrieben.
+
+Ein fünfköpfiges Service-Team mit 3.000 Tickets pro Monat spart bei 70-Prozent-Deflektion ungefähr die Arbeit von eineinhalb Vollzeitstellen. Das ist die Entlassung, die Sie nicht machen müssen. Anders als nach einer Entlassung bleiben die Antwortzeiten gleich — die Kunden merken nichts Negatives. Und die Mitarbeiter, die bleiben, kümmern sich um die komplexen Fälle statt um Passwort-Resets.
+
+Der häufigste Fehler: den Bot alles beantworten lassen. Die Gewinne stecken in den 70 Prozent Routine. Wer ihn über 85 Prozent treibt, sieht Kundenzufriedenheit sinken. Setzen Sie eine Konfidenzschwelle, leiten Sie den Rest sauber an Menschen weiter, und messen Sie Zufriedenheit auf beiden Pfaden getrennt.
+
+→ [Chatbot-Schnittstellen und wie wir sie ausrollen](/de/dienstleistungen/chatbot-schnittstellen/)
+
+### 2. Rechnungsverarbeitung und Backoffice-Workflows
+
+Die unspektakulärste Kategorie, die mit dem höchsten ROI. Rechnungseingang, Positionserkennung, Buchung im ERP, Freigaberouting, Ausnahmebehandlung. Jeder Mittelständler macht das. Die meisten manuell. Und es ist der Workflow, der auf der Tooling-Seite am besten verstanden ist — geringes Implementierungsrisiko.
+
+Open-Source-Workflow-Automatisierung auf einem selbstgehosteten **n8n**-Stack ist bei realistischer Skalierung **60 bis 80 Prozent günstiger als Zapier oder Make**, weil es keine Per-Execution-Gebühren und keine Per-Seat-Steuer gibt. Wir haben die drei in [n8n vs. Zapier vs. Make](/resources/blog/n8n-vs-zapier-vs-make/) verglichen. Rechnungen, die früher Tage bis zur Buchung im ERP brauchten, landen in Minuten. Die Kreditorenbuchhaltung kümmert sich um Ausnahmen statt um Tippen. Die Ersparnis ist im ersten Monat sichtbar.
+
+Dieselbe Engine deckt die angrenzenden Workflows ab, die im Mittelstand still Kapazität fressen. Vertragsdaten-Extraktion. Reisekosten-Abrechnung. Onboarding-Sequenzen für neue Mitarbeiter. Stammdaten-Sync zwischen CRM und ERP. Statusupdates zwischen HubSpot, SAP und Mail. Jeder Prozess, der heute aussieht wie *„jemand kopiert Daten aus einem System ins nächste und klickt Freigabe"*, ist ein Kandidat. Die meisten Mittelständler finden fünf bis zehn davon, ohne lange suchen zu müssen.
+
+→ [Workflow-Automatisierung mit selbstgehostetem n8n](/de/dienstleistungen/workflow-automatisierung/)
+
+### 3. Dokumentensuche und internes Wissen
+
+Die McKinsey-Forschung kommt seit Jahren auf dieselbe Zahl: Wissensarbeiter verbringen rund ein Fünftel ihrer Woche mit Suchen. In einem Mittelständler mit zwanzig Mitarbeitenden sind das vier Personen, die effektiv nichts anderes tun. Ein Enterprise-RAG-Setup auf Ihrem Dokumentenbestand (Verträge, Spezifikationen, Richtlinien, Projektakten) kollabiert diese Suche auf Sekunden.
+
+Der Kanzlei-Benchmark auf unserer [Enterprise-RAG-Servicepage](/de/dienstleistungen/enterprise-rag/) ist eine **Reduktion der Dokumenten-Review-Zeit um 80 Prozent**. Dieselbe Architektur funktioniert für Konstruktions-Specs im Maschinenbau, Richtlinien-Lookups im HR und Aktenrecherche in der Beratung. Überall dort, wo *„Wo ist nochmal dieses Dokument?"* eine wiederkehrende Frage ist.
+
+Hier hört „freie Kapazität für höherwertige Arbeit" auf, eine Floskel zu sein, und wird zur Zahl in der Kostenrechnung.
+
+### 4. Lead-Triage und Vertriebs-Follow-up
+
+Kleinere Vertriebsteams bedeuten, dass Anfragen länger im Postfach hängen. Und der langsamere Follow-up verliert. Automatisierung ersetzt keine Closer, sondern die *Verzögerung* zwischen Anfrage und echtem Gespräch. Workflow-Automatisierung routet Inbound-Leads, scort sie gegen Ihr ICP, schreibt die Erst-Antwort, bucht den Termin, hakt bei den Stillen höflich nach.
+
+Für ein Vertriebsteam, das von vier auf zwei Personen geschrumpft ist (eine verbreitete Form 2024/25 im deutschen B2B-Mittelstand), ist das der Unterschied zwischen Pipeline-Abdeckung und Pipeline-Leck. Dieselbe n8n-Engine, die die Rechnungen macht, macht auch das. Gleicher Motor, anderer Workflow.
+
+## Was Entlassungen wirklich kosten (der Teil, der nicht in der Tabelle steht)
+
+Die Argumentation für Automatisierung wird deutlich stärker, wenn Sie die Alternative ehrlich durchrechnen. Die GuV-Einsparung einer Entlassungsrunde ist leicht abzulesen. Die nachgelagerten Kosten sind schwerer zu sehen, treten aber zuverlässig ein.
+
+Die Leadership-IQ-Forschung zu Layoff-Survivors ist die sauberste Erhebung dazu. Nach einer Entlassungsrunde in der *verbliebenen* Belegschaft:
+
+- **74 Prozent** berichten, dass die eigene Produktivität gesunken ist.
+- **69 Prozent** sagen, die Qualität des Produkts oder der Dienstleistung ist gesunken.
+- **77 Prozent** beobachten mehr Fehler.
+- **87 Prozent** würden den Arbeitgeber weniger empfehlen.
+
+([Leadership IQ](https://www.leadershipiq.com/blogs/leadershipiq/29062401-dont-expect-layoff-survivors-to-be-grateful))
+
+Die GuV gewinnt also in diesem Quartal. Die Leistungsfähigkeit des verbliebenen Teams sinkt für die nächsten vier bis sechs Quartale. Die Leistungsträger, die am schnellsten anderswo Vorstellungsgespräche bekommen, sind überproportional die, die sechs bis achtzehn Monate nach einer Entlassungsrunde kündigen. Die Einsparung ist real. Die Folgekosten sind ebenfalls real, und sie stehen praktisch nie in der Tabelle, die die Entlassungen autorisiert hat.
+
+Automatisierung hat diesen Schweif nicht. Die Arbeit verschwindet. Das Team nicht.
+
+Wenn Sie automatisierte Systeme einsetzen, die Mitarbeiter-Aktivität protokollieren oder Leistung indirekt messen können, ist die Mitbestimmung nach § 87 Abs. 1 Nr. 6 BetrVG früh einzuplanen — in Woche eins, nicht nach dem Rollout. Den Rahmen haben wir in [KI und Betriebsrat: Mitbestimmung richtig adressieren](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/) detailliert beschrieben.
+
+## Warum der deutsche Mittelstand besser dasteht, als er denkt
+
+Das gängige Narrativ: Europäische Unternehmen hinken bei der KI-Adoption hinter den US-Wettbewerbern her. Auf reiner Adoptionsrate stimmt das. Auf der *Wirtschaftlichkeit* ist es zunehmend umgekehrt.
+
+Der europäische KI-Stack läuft auf Open-Source-Modellen (Llama, Mistral, Qwen), Open-Source-Workflow-Engines (n8n) und EU-Hostern (Hetzner, IONOS, OVHcloud, Scaleway). Die Konsequenz ist nüchtern: **keine Per-Token-Gebühren, keine Per-Execution-Kosten, keine Per-Seat-Steuer.** Ein vollständiger Automatisierungs-Stack für ein 5- bis 10-Personen-Team liegt all-in bei **160 bis 260 Euro pro Monat**. Die voll belasteten Kosten einer Neueinstellung in Deutschland liegen je nach Rolle und Bundesland zwischen 3.000 und 5.000 Euro pro Monat.
+
+Die DSGVO ist der zweite, stille Vorteil. Auf EU-Infrastruktur mit selbst kontrolliertem Datenfluss ist Compliance eine Konfigurationsfrage, kein Vendor-Risiko. Für Mittelständler in regulierten Sektoren (Gesundheit, Recht, Finanzen, Public-Sector-nah) entfällt damit der häufigste Grund, den europäische Konkurrenten gegen schnellere KI-Einführung anführen. Der Architektur-Pattern steht in unserem [Leitfaden zu DSGVO-konformer KI](/de/ressourcen/blog/ki-dsgvo-datenschutzkonform-2026/), der konkrete Hoster-Vergleich in [Hetzner vs. IONOS: KI-Hosting in Europa](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
+
+Genau die Bedingungen, die Europa gerade zu einem schwierigen Standort machen — Energiekosten, Regulatorik, kleinere Binnenmärkte — drängen Sie auf einen Stack, der strukturell niedrigere laufende Kosten hat als die US-Default-Variante. Das ist nicht die Schlagzeile, die in den Tech-Konferenzen läuft. Aber es ist, was die Rechnung ergibt.
+
+## Wie Sie zu den 5 Prozent gehören, deren KI-Projekt funktioniert
+
+Die NANDA-Daten zu dem, was die 5 Prozent funktionierender Piloten von den 95 Prozent unterscheidet, lassen sich in drei Regeln komprimieren. Keine davon ist eine Technologieregel.
+
+**Einen Workflow. Nicht sieben.** Die gescheiterten Projekte haben fast immer versucht, „KI" als horizontale Fähigkeit über das ganze Unternehmen auszurollen. Die erfolgreichen haben den einen Workflow gewählt, der am meisten weh tut — meist Service oder Kreditorenbuchhaltung — und ihn End-to-End automatisiert. Breite kommt später, sobald der erste Workflow sich selbst trägt.
+
+**KPI vor dem Bau.** Eingesparte Stunden pro Woche. Deflektierte Tickets pro Monat. Days-to-Cash. Suchen Sie die Zahl, messen Sie den Ausgangspunkt, bauen Sie gegen die Zahl. Projekte ohne vorher definierte KPI fallen den ROI-Test fast garantiert durch — weil später nichts da ist, wogegen man messen kann.
+
+**Integration ab Tag eins.** Der häufigste Fehler in den NANDA-Daten ist der funktionierende Pilot, der nie an die Live-Systeme angeschlossen wurde und deshalb nie eine Geschäftszahl bewegt hat. Die Demo sieht großartig aus, die Integration kommt nicht, das Projekt verläuft im Sand. Integration ist kein Phase-2-Problem.
+
+Noch ein Datenpunkt aus derselben Studie: **Vendor-Partnerschaften gelingen zu rund 67 Prozent. Reine Eigenbauten gelingen in etwa einem Drittel der Fälle.** Das „der IT-Verantwortliche macht das am Wochenende"-Modell ist statistisch betrachtet genau, wie die meisten Projekte in den 95 Prozent landen, die nicht funktionieren. Das ist keine Verkaufsbotschaft. Es ist, was die Daten sagen.
+
+Eine pragmatische Scoping-Regel: Wenn Sie den Workflow, den Sie automatisieren wollen, nicht in einem Satz jemandem außerhalb Ihres Teams erklären können, ist es nicht der Workflow, mit dem Sie anfangen sollten. Wählen Sie einen, den Sie so erklären können. Bauen Sie ihn. Liefern Sie ihn aus. Messen Sie die Einsparung. Dann zum nächsten.
+
+## Wenn Ihre 2026er GuV nicht aufgeht
+
+Die Entscheidung ist nicht wirklich „Automatisierung oder Entlassungen". Sie ist, ob Sie die Arbeit kürzen oder die Menschen, die sie machen. In einer Abschwungphase ist Zweiteres schneller auf der Tabelle und langsamer in der Erholung — und die Datenlage zu dem, was mit dem Team passiert, das Sie behalten, ist nicht freundlich.
+
+Wenn Sie 60 Minuten darüber sprechen wollen, wo Automatisierung sich in *Ihrem* Unternehmen am schnellsten amortisieren würde — welchen Workflow, was er kostet, wie er sauber geschnitten wird, damit Sie zu den 5 Prozent gehören — [schreiben Sie uns](/de/kontakt/?source=kosten-senken-blog). Oder [buchen Sie direkt ein Erstgespräch](https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled). Wir sagen Ihnen klar, ob Automatisierung in Ihrer Situation der richtige Hebel ist — oder ob die ehrliche Antwort etwas anderes ist.
