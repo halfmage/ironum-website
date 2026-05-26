@@ -60,6 +60,7 @@ const EN_TO_DE = {
   '/resources/blog': '/de/ressourcen/blog',
   // Blog post pairs (only true 1:1 translations)
   '/resources/blog/chatbot-own-data-gdpr-sme': '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand',
+  '/resources/blog/cut-costs-without-layoffs-ai-automation': '/de/ressourcen/blog/kosten-senken-ohne-entlassungen-ki-mittelstand',
 };
 
 // Build reverse lookup and normalized URL pair table once.
