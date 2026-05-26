@@ -93,6 +93,7 @@ export default defineConfig({
       defaultLocale: 'en',
       locales: { en: 'en', de: 'de' },
     },
+    filter: (page) => !page.includes('/thank-you/') && !page.includes('/danke/'),
     serialize(item) {
       if (item.url.includes('/blog/') && item.url !== 'https://ironum.com/resources/blog/') {
         item.changefreq = 'monthly';

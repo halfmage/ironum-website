@@ -17,6 +17,7 @@ export interface Props {
   structuredData?: object[];
   locale?: Locale;
   preloadImage?: string;
+  noindex?: boolean;
 }
 
 const locale = Astro.props.locale || getLangFromUrl(Astro.url);
@@ -30,6 +31,7 @@ const {
   breadcrumbs,
   structuredData,
   preloadImage,
+  noindex = false,
 } = Astro.props;
 
 const canonicalUrl = `https://ironum.com${Astro.url.pathname}`;
@@ -151,7 +153,7 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, 'https://ironum.com').href} />
 
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
     {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
     <link rel="dns-prefetch" href="//outlook.office.com" />

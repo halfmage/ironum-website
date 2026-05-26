@@ -26,8 +26,9 @@ import Footer from '../../components/Footer.astro';
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">NACHRICHT SENDEN</span>
         <h2 class="text-3xl md:text-5xl font-bold mb-4">Lieber schreiben?</h2>
         <p class="text-gray-500 text-lg font-semibold mb-8">Senden Sie uns eine Nachricht und wir antworten innerhalb eines Werktages.</p>
-        <form name="contact-de" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+        <form name="contact-de" method="POST" action="/danke/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact-de">
+          <input type="hidden" name="source" value="">
           <p class="hidden"><label>Dieses Feld nicht ausfüllen: <input name="bot-field" /></label></p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -49,6 +50,15 @@ import Footer from '../../components/Footer.astro';
           </div>
           <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Nachricht senden</button>
         </form>
+        <script is:inline>
+          (() => {
+            const source = new URLSearchParams(window.location.search).get('source');
+            if (!source) return;
+            const safe = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
+            const field = document.querySelector('form[name="contact-de"] input[name="source"]');
+            if (field) field.value = safe;
+          })();
+        </script>
       </div>
     </div>
   </section>

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Thank You | Ironum"
+  description="Your message has been received. We'll respond within one business day."
+  noindex={true}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="MESSAGE RECEIVED"
+    title="Thanks — we'll be in touch within one business day"
+    subtitle="In the meantime, you can explore our recent insights on EU AI Act compliance and sovereign AI deployment, or book a 30-minute call directly with Gerrit."
+    ctaText="Book a call with Gerrit"
+    ctaLink="https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled"
+  />
+
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <h2 class="text-2xl md:text-3xl font-bold">What happens next</h2>
+      <p class="text-gray-500 text-lg font-semibold">
+        Gerrit reads every message personally. You'll hear back from <a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a> within one business day &mdash; typically with a few clarifying questions or a proposed time to talk.
+      </p>
+      <p class="text-gray-500 text-lg font-semibold">
+        If your question is time-sensitive, you can also reach us by phone at <a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a> (Mon&ndash;Fri, 9:00&ndash;18:00 CET).
+      </p>
+      <div class="pt-8">
+        <a href="/resources/blog/" class="inline-block text-blue-600 font-semibold hover:underline">Read the latest from our blog &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

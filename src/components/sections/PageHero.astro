@@ -20,6 +20,8 @@ const {
   ctaLink = 'https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
   dark = true,
 } = Astro.props;
+
+const isExternalCta = ctaLink?.startsWith('http');
 ---
 
 <section class:list={[
@@ -37,7 +39,7 @@ const {
       dark ? "text-white" : "text-gray-500"
     ]}>{subtitle}</p>}
     {ctaLink && (
-      <a href={ctaLink} target="_blank" rel="noopener noreferrer"
+      <a href={ctaLink} target={isExternalCta ? '_blank' : undefined} rel={isExternalCta ? 'noopener noreferrer' : undefined}
         class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 pl-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
         <Image src={avatarGerrit} alt="Gerrit" class="size-8 mr-2" width={32} height={32} loading="eager" />
         {ctaText}
