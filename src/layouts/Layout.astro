@@ -40,7 +40,7 @@ const enPath = locale === 'en' ? currentPath : getAlternateUrl(currentPath, 'de'
 const dePath = locale === 'de' ? currentPath : getAlternateUrl(currentPath, 'en');
 const enUrl = enPath ? `https://ironum.com${enPath}` : null;
 const deUrl = dePath ? `https://ironum.com${dePath}` : null;
-const xDefaultUrl = enUrl ?? canonicalUrl;
+const alternateUrl = locale === 'de' ? enUrl : deUrl;
 const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
 const ogLocaleAlt = locale === 'de' ? 'en_US' : 'de_DE';
 
@@ -145,7 +145,7 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    {alternateUrl && <meta property="og:locale:alternate" content={ogLocaleAlt} />}
     <meta property="og:site_name" content="Ironum" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -161,7 +161,7 @@ const breadcrumbSchema = breadcrumbs ? {
     <link rel="canonical" href={canonicalUrl} />
     {enUrl && <link rel="alternate" hreflang="en" href={enUrl} />}
     {deUrl && <link rel="alternate" hreflang="de" href={deUrl} />}
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    {enUrl && <link rel="alternate" hreflang="x-default" href={enUrl} />}
 
     <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": allStructuredData })} />
     {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
