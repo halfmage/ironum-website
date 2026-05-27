@@ -23,7 +23,7 @@ export function useTranslations(locale: Locale) {
   return translations[locale];
 }
 
-export function getAlternatePath(currentPath: string, targetLocale: Locale): string {
+export function getAlternatePath(currentPath: string, targetLocale: Locale): string | null {
   const currentLocale: Locale = targetLocale === 'de' ? 'en' : 'de';
   return getAlternateUrl(currentPath, currentLocale);
 }
