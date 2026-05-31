@@ -3,6 +3,7 @@ title: "BRAO-konforme KI für Kanzleien 2026"
 description: "Darf eine Kanzlei ChatGPT einsetzen? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden konkret fordern, und welche KI-Architektur 2026 wirklich BRAO-konform ist."
 publishDate: 2026-04-15
 author: "Ironum Team"
+legalDisclaimer: true
 category: "compliance"
 tags: ["Kanzlei", "BRAO", "DSGVO", "Verschwiegenheit", "KI", "Anwalt"]
 heroImage: "/blog/legal-library-reading-room.jpg"
@@ -16,7 +17,7 @@ Nach der BRAK-Mitgliederstatistik waren zum 1. Januar 2025 in Deutschland **166.
 
 Dieser Beitrag erklärt, was § 43a BRAO, § 2 BORA und § 203 StGB für den KI-Einsatz in der Kanzlei bedeuten, was die BRAK Ende 2024 in ihrem Leitfaden dazu gesagt hat und welche Setups tatsächlich BRAO-konform sind.
 
-## Warum § 43a BRAO ChatGPT in der Standardkonfiguration ausschließt
+## § 43a BRAO und Standard-ChatGPT: Warum die BRAK zur Vorsicht rät
 
 ### Der Wortlaut
 
@@ -73,11 +74,11 @@ Lange Vertragsentwürfe, Datenräume, technische Unterlagen: KI kann strukturier
 
 ## On-Premise, EU-Cloud oder US-SaaS: eine Entscheidungsmatrix
 
-Dies ist die Frage, die am häufigsten zu hitzigen Partner-Diskussionen führt. Unsere Einschätzung, bewusst zugespitzt:
+Dies ist die Frage, die am häufigsten zu hitzigen Partner-Diskussionen führt. Die folgende Übersicht ist eine technische Orientierungshilfe, keine Rechtsberatung, und bewusst zugespitzt:
 
 | Kriterium | On-Premise / privates Hosting (DE/EU) | EU-Cloud mit europäischer Rechtshoheit | US-SaaS mit EU-Rechenzentrum | Öffentliches ChatGPT/Copilot |
 |---|---|---|---|---|
-| **§ 43a BRAO / § 203 StGB** | Konform bei sauberem Setup | Grundsätzlich konform, Anbieter prüfen | Kritisch: Zugriffsmöglichkeit durch US-Mutter bleibt (CLOUD Act) | Nicht konform in Standardkonfiguration |
+| **§ 43a BRAO / § 203 StGB** | Bei sauberem Setup gut beherrschbar | Meist beherrschbar, Anbieter im Einzelfall prüfen | Kritisch: Zugriffsmöglichkeit durch US-Mutter bleibt (CLOUD Act) | In Standardkonfiguration hohes Risiko |
 | **DSGVO** | Art. 28, 32 erfüllbar; keine Drittlandübermittlung | Erfüllbar; keine Drittlandsproblematik | Drittlandübermittlung; DPF aktuell gültig, aber Rechtsstreit anhängig | Erfüllbar nur mit erheblichem Restrisiko |
 | **EU AI Act** | Volle Kontrolle über Dokumentationspflichten | Gut umsetzbar | Abhängigkeit vom Anbieter-Compliance-Stand | Deployer-Pflichten bleiben bei der Kanzlei |
 | **Zeit bis produktiv** | 4 bis 8 Wochen (mit Partner) | 2 bis 4 Wochen | Tage | Stunden |
@@ -111,7 +112,7 @@ Ein Fahrplan, der sich in der Praxis bewährt hat, bewusst knapp, weil Kanzleien
 ## FAQ
 
 **Darf ich ChatGPT in der Kanzlei nutzen?**
-In der Standardkonfiguration, mit echten Mandatsdaten als Prompt-Input: nein. Die BRAK weist in ihrem Leitfaden vom Dezember 2024 darauf hin, dass die Übertragung von Mandatsgeheimnissen an öffentliche KI-Dienste regelmäßig nicht erforderlich ist und dass für § 203 StGB bereits die Möglichkeit der Kenntnisnahme durch den Anbieter ausreicht. Mit Anonymisierung und klaren Prozessen sind Teilanwendungen möglich, aber sie brauchen ein durchdachtes Setup, keine ad-hoc-Nutzung.
+Bei der Standardkonfiguration mit echten Mandatsdaten als Prompt-Input rät die BRAK in ihrem Leitfaden vom Dezember 2024 zur Zurückhaltung: Sie weist darauf hin, dass die Übertragung von Mandatsgeheimnissen an öffentliche KI-Dienste regelmäßig nicht erforderlich ist und dass für § 203 StGB bereits die Möglichkeit der Kenntnisnahme durch den Anbieter ausreicht. Mit Anonymisierung und klaren Prozessen sind Teilanwendungen denkbar, aber sie brauchen ein durchdachtes Setup. Wie Sie das im Einzelfall berufsrechtlich einordnen, klären Sie am besten mit Ihrer Kammer oder Ihren eigenen Beratern.
 
 **Ist Microsoft Copilot für Anwälte BRAO-konform?**
 Es kommt auf die Variante an. Microsoft 365 Copilot in einer europäisch betriebenen Enterprise-Konfiguration mit EU Data Boundary und vertraglichen Zusagen zur Datennichtverwendung kann in Grenzen genutzt werden. Die Prüfung muss aber konkret erfolgen, inklusive CLOUD-Act-Exposition, Protokollierungsverhalten und Auftragsverarbeitung nach Art. 28 DSGVO. Für hochsensible Mandate (Strafverteidigung, Schiedsverfahren, M&A-Due-Diligence) bleibt on-premise oder privates EU-Hosting der belastbarere Weg.
