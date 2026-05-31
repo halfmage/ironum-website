@@ -29,8 +29,8 @@ Status legend: ✅ done · ⏳ to do
 |---|---|---|---|
 | "65% admit to using unauthorized AI tools" | "roughly half" (EN) / "rund ein Drittel in Deutschland" (DE) | [CIO/UpGuard 2025](https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html) (DE/FR ~30%) | ✅ |
 | "€19.97B" EdTech market | "$19.97B" (source is USD) | Market Data Forecast | ✅ |
-| "30% of productive time to repetitive tasks" | "around a quarter" | [Smartsheet](https://www.smartsheet.com/content-center/product-news/automation/workers-waste-quarter-work-week-manual-repetitive-tasks) | ⏳ |
-| Manufacturing "25% lack of data / 24% talent / 24% IT" | Could not verify the 25/24/24 split — re-source or soften to attributed barriers (expertise/integration lead in 2025 surveys) | — | ⏳ |
+| "30% of productive time to repetitive tasks" | "around a quarter" | [Smartsheet](https://www.smartsheet.com/content-center/product-news/automation/workers-waste-quarter-work-week-manual-repetitive-tasks) | ✅ |
+| Manufacturing "25% lack of data / 24% talent / 24% IT" | Unverifiable — softened to qualitative claims (no number) in cards + FAQ/schema | — | ✅ |
 
 ## Ironum own-outcome claims (not third-party — soften, do not cite)
 70% faster review, 80% of NDAs same-day, 90% utilization, 30-40% adoption,
