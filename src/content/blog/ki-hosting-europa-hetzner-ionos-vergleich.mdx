@@ -7,7 +7,22 @@ category: "implementation"
 tags: ["KI-Hosting", "Hetzner", "IONOS", "OVHcloud", "Datensouveränität", "GPU-Server"]
 draft: false
 locale: "de"
+faq:
+  - question: "Was ist KI-Hosting?"
+    answer: "KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern — on-premise oder bei einem europäischen Cloud-Anbieter — statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle."
+  - question: "Hetzner oder IONOS für KI?"
+    answer: "Hetzner bietet das beste Preis-Leistungs-Verhältnis (GEX44 mit 20 GB VRAM ab ca. 212 €/Monat) und eignet sich für technische Teams ohne Enterprise-Support-Bedarf. IONOS kostet mehr (ab ca. 490 €/Monat), liefert dafür Enterprise-SLAs, deutschen Support und BSI-C5-/ISO-27001-Zertifizierung. Faustregel: Hetzner für Kostenoptimierung, IONOS für Compliance- und Support-Anforderungen."
+  - question: "Welche GPU brauche ich für KI?"
+    answer: "Der GPU-Speicher (VRAM) ist der Engpass: 7B-Parameter-Modelle brauchen mindestens 14 GB, 13B-Modelle 24-32 GB, 70B-Modelle mehrere GPUs. Für RAG und Chatbots reicht meist eine GPU mit 20-24 GB VRAM; für das Training großer Modelle ist eine NVIDIA H100 (bei OVHcloud verfügbar) sinnvoll."
+  - question: "Was kostet KI-Hosting in Europa?"
+    answer: "Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr — ohne Datensouveränität."
 ---
+
+## Was ist KI-Hosting?
+
+KI-Hosting bezeichnet den Betrieb von KI-Modellen auf dedizierten GPU-Servern — entweder im eigenen Rechenzentrum (On-Premise) oder bei einem europäischen Cloud-Anbieter — statt über öffentliche KI-APIs wie OpenAI. Entscheidend sind drei Faktoren: der GPU-Speicher (VRAM) für die Modellgröße, der Datenstandort und die laufenden Kosten. Wer eigene Daten verarbeitet, behält so die volle Kontrolle darüber, wo und wie sie gespeichert werden.
+
+Für den DACH-Markt sind drei Anbieter relevant: **Hetzner** (Preisführer), **IONOS** (Enterprise-Support) und **OVHcloud** (High-End-GPUs). Dieser Beitrag vergleicht sie nach Preis, GPU-Modellen, Datenstandort und Eignung für typische KI-Workloads.
 
 ## Warum europäisches KI-Hosting wichtig ist
 
@@ -131,6 +146,20 @@ Vermeiden Sie proprietäre Cloud-Dienste, die den Anbieterwechsel erschweren. Se
 
 ### 4. Latenz testen
 Für Echtzeit-Anwendungen (Chatbots, Qualitätskontrolle) zählt die Latenz. Testen Sie die Round-Trip-Zeiten vom Unternehmensstandort zum Rechenzentrum.
+
+## FAQ
+
+**Was ist KI-Hosting?**
+KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern — on-premise oder bei einem europäischen Cloud-Anbieter — statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle.
+
+**Hetzner oder IONOS für KI?**
+Hetzner bietet das beste Preis-Leistungs-Verhältnis (GEX44 mit 20 GB VRAM ab ca. 212 €/Monat) und eignet sich für technische Teams ohne Enterprise-Support-Bedarf. IONOS kostet mehr (ab ca. 490 €/Monat), liefert dafür Enterprise-SLAs, deutschen Support und BSI-C5-/ISO-27001-Zertifizierung. Faustregel: Hetzner für Kostenoptimierung, IONOS für Compliance- und Support-Anforderungen.
+
+**Welche GPU brauche ich für KI?**
+Der GPU-Speicher (VRAM) ist der Engpass: 7B-Parameter-Modelle brauchen mindestens 14 GB, 13B-Modelle 24-32 GB, 70B-Modelle mehrere GPUs. Für RAG und Chatbots reicht meist eine GPU mit 20-24 GB VRAM; für das Training großer Modelle ist eine NVIDIA H100 (bei OVHcloud verfügbar) sinnvoll.
+
+**Was kostet KI-Hosting in Europa?**
+Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr — ohne Datensouveränität.
 
 ---
 
