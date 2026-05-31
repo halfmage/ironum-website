@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "indexnow:full": "node scripts/indexnow-full.mjs"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.9",
