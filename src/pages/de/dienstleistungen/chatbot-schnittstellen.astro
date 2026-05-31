@@ -4,6 +4,7 @@ import Navigation from '../../../components/Navigation.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import FAQSection from '../../../components/sections/FAQSection.astro';
 import FinalCTA from '../../../components/FinalCTA.astro';
+import RelatedReading from '../../../components/sections/RelatedReading.astro';
 import Footer from '../../../components/Footer.astro';
 
 const features = [
@@ -267,6 +268,27 @@ const breadcrumbs = [
   </section>
 
   <FAQSection items={faqItems} />
+  <RelatedReading
+    heading="Weiterführende Artikel"
+    cta="Artikel lesen"
+    links={[
+      {
+        href: '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/',
+        title: 'Chatbot mit eigenen Daten',
+        description: 'Wie der Mittelstand einen DSGVO-konformen Chatbot auf eigenen Daten einsetzt — in 4 Wochen produktiv, mit Kostenrahmen.',
+      },
+      {
+        href: '/de/ressourcen/blog/dokumenten-ki-automatisierung-unternehmen/',
+        title: 'Dokumenten-KI automatisieren',
+        description: 'Verträge, Rechnungen und Korrespondenz automatisiert auslesen und verarbeiten — ohne Daten an Drittanbieter zu geben.',
+      },
+      {
+        href: '/de/ressourcen/blog/ki-in-der-kanzlei-dsgvo-verschwiegenheit-brao/',
+        title: 'BRAO-konforme KI für Kanzleien',
+        description: 'Welche KI-Architektur § 43a BRAO, § 203 StGB und den BRAK-Leitfaden für vertrauliche Mandantendaten erfüllt.',
+      },
+    ]}
+  />
   <FinalCTA />
   <Footer />
 </Layout>

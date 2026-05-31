@@ -4,6 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import FAQSection from '../../components/sections/FAQSection.astro';
 import FinalCTA from '../../components/FinalCTA.astro';
+import RelatedReading from '../../components/sections/RelatedReading.astro';
 import Footer from '../../components/Footer.astro';
 
 const features = [
@@ -265,6 +266,28 @@ const breadcrumbs = [
   </section>
 
   <FAQSection items={faqItems} />
+  <RelatedReading
+    eyebrow="FURTHER READING"
+    heading="Further Reading"
+    cta="Read article"
+    links={[
+      {
+        href: '/resources/blog/chatbot-own-data-gdpr-sme/',
+        title: 'Chatbot on Your Own Data',
+        description: 'How European SMEs deploy a GDPR-compliant chatbot on their own data — in production within four weeks, with architecture and costs.',
+      },
+      {
+        href: '/resources/blog/enterprise-rag-explained/',
+        title: 'Enterprise RAG Explained',
+        description: 'A non-technical guide to Retrieval-Augmented Generation: what it is, why it matters, and how to evaluate RAG solutions.',
+      },
+      {
+        href: '/resources/blog/gdpr-compliant-ai-guide/',
+        title: 'GDPR-Compliant AI: A Guide',
+        description: 'How to deploy AI that meets GDPR and EU AI Act requirements without sending data to third-party providers.',
+      },
+    ]}
+  />
   <FinalCTA />
   <Footer />
 </Layout>

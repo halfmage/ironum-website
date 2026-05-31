@@ -1,0 +1,32 @@
+---
+export interface RelatedLink {
+  href: string;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  eyebrow?: string;
+  heading: string;
+  cta?: string;
+  links: RelatedLink[];
+}
+
+const { eyebrow = 'RATGEBER', heading, cta = 'Mehr erfahren', links } = Astro.props;
+---
+
+<section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+  <div class="max-w-7xl mx-auto space-y-8">
+    <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{eyebrow}</span>
+    <h2 class="text-3xl md:text-5xl font-bold">{heading}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {links.map((link) => (
+        <a href={link.href} class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+          <h3 class="text-xl font-bold mb-3">{link.title}</h3>
+          <p class="text-gray-500 font-semibold mb-4">{link.description}</p>
+          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">{cta} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

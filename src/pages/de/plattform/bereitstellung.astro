@@ -4,6 +4,7 @@ import Navigation from '../../../components/Navigation.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import FAQSection from '../../../components/sections/FAQSection.astro';
 import FinalCTA from '../../../components/FinalCTA.astro';
+import RelatedReading from '../../../components/sections/RelatedReading.astro';
 import Footer from '../../../components/Footer.astro';
 ---
 
@@ -220,6 +221,27 @@ import Footer from '../../../components/Footer.astro';
     { question: "Was ist mit Latenz und Performance?", answer: "Cloud-APIs haben typischerweise 200-500ms Antwortzeiten. Azure DSGVO ist vergleichbar. On-Premise-Deployments können Sub-100ms-Latenz für lokale Modelle erreichen und sind damit ideal für Echtzeit-Anwendungen." }
   ]} />
 
+  <RelatedReading
+    heading="Weiterführende Artikel zu KI-Infrastruktur"
+    cta="Artikel lesen"
+    links={[
+      {
+        href: '/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/',
+        title: 'Hetzner vs. IONOS vs. OVHcloud',
+        description: 'GPU-Server für KI-Workloads in Europa im Direktvergleich 2026: Preise, GPU-Modelle, Datenstandort und DSGVO.',
+      },
+      {
+        href: '/de/ressourcen/blog/ki-dsgvo-datenschutzkonform-2026/',
+        title: 'DSGVO-konforme KI 2026',
+        description: 'Rechtsgrundlagen, AVV und technische Maßnahmen für den datenschutzkonformen KI-Einsatz im Unternehmen.',
+      },
+      {
+        href: '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/',
+        title: 'Chatbot mit eigenen Daten',
+        description: 'DSGVO-konform und on-premise in 4 Wochen produktiv — mit Architektur, Kostenrahmen und 90-Tage-Plan.',
+      },
+    ]}
+  />
   <FinalCTA />
   <Footer />
 </Layout>
