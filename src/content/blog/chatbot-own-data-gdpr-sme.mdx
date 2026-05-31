@@ -22,6 +22,8 @@ faq:
     answer: "Clean setups escalate to a human agent, with full context, so the user does not have to repeat themselves. You define the escalation rules: low confidence, sensitive topics (legal, medical, financial), explicit user requests, or specific customer segments."
   - question: "How many documents do I need for RAG to work?"
     answer: "Quality of sources matters more than raw volume. Even a small, well-maintained corpus is enough for a meaningful pilot. Larger document sets improve thematic depth — well-maintained, reasonably current sources beat an unstructured data graveyard at any size."
+  - question: "Can I build a GDPR-compliant HR chatbot?"
+    answer: "Yes — an internal HR chatbot (employee self-service assistant) is one of the most common deployments. It answers questions on leave, onboarding, and company policies by reading only your own HR handbook and intranet, on EU-hosted infrastructure, so no employee data leaves European jurisdiction. Keep it sound the same way as any internal bot: an open-source model on European servers, a defined retention period for chat logs, and SSO so only employees can reach it. Because employees use it, involve your works council and data protection officer early."
   - question: "Does the works council have a say in our chatbot project?"
     answer: "If employees use the bot and the system logs conversations or enables performance-related analysis, German § 87(1)(6) BetrVG (and equivalent provisions in other EU jurisdictions) typically applies, meaning a works agreement is the right path. Plan for this in week 1, not after rollout."
   - question: "What are typical maintenance costs after go-live?"
@@ -90,11 +92,11 @@ A chatbot is only useful where your users already are. The five channels below c
 
 The classic. An embedded chat bottom-right on the website handles product, shipping, and FAQ questions around the clock. The GDPR-relevant piece here is cookie and consent logic: if the bot stores conversations or runs analytics, you need an appropriate consent path. Solvable with standard consent management. Technically the integration is a single JavaScript snippet plus a server component in your EU hosting.
 
-### 2. Microsoft Teams or Slack as an internal helpdesk
+### 2. Microsoft Teams or Slack as an internal HR and IT helpdesk
 
-Employees ask "how do I book special leave" or "where is the latest onboarding plan" directly in Teams. The bot reads from the HR handbook, IT documentation, and Confluence. Integration goes via the Teams Bot Framework or a Slack app; authentication runs through your existing SSO or Entra ID. No additional login, no shadow IT.
+This is the classic **HR chatbot** — an employee self-service assistant. Employees ask "how do I book special leave", "what is our parental-leave policy", or "where is the latest onboarding plan" directly in Teams, and the bot answers from the HR handbook, IT documentation, and Confluence. Integration goes via the Teams Bot Framework or a Slack app; authentication runs through your existing SSO or Entra ID. No additional login, no shadow IT.
 
-The practical value is that standard questions get answered around the clock instead of next business day, which reduces the load on HR and IT helpdesks for recurring queries.
+The practical value is that standard questions get answered around the clock instead of next business day, which reduces the load on HR and IT helpdesks for recurring queries. Because the answers come only from your own internal documents on European infrastructure, no employee data leaves your jurisdiction. As with any internal bot, set a retention period for chat logs and involve your works council and data protection officer early (see the FAQ below).
 
 ### 3. WhatsApp Business API for service-heavy customers
 
@@ -173,6 +175,9 @@ Clean setups escalate to a human agent — with full context, so the user does n
 
 **How many documents do I need for RAG to work?**
 Quality of sources matters more than raw volume. Even a small, well-maintained corpus is enough for a meaningful pilot. Larger document sets improve thematic depth — well-maintained, reasonably current sources beat an unstructured data graveyard at any size.
+
+**Can I build a GDPR-compliant HR chatbot?**
+Yes — an internal HR chatbot (employee self-service assistant) is one of the most common deployments. It answers questions on leave, onboarding, and company policies by reading only your own HR handbook and intranet, on EU-hosted infrastructure, so no employee data leaves European jurisdiction. Keep it sound the same way as any internal bot: an open-source model on European servers, a defined retention period for chat logs, and SSO so only employees can reach it. Because employees use it, involve your works council and data protection officer early (see the next question).
 
 **Does the works council have a say in our chatbot project?**
 If employees use the bot and the system logs conversations or enables performance-related analysis, German § 87(1)(6) BetrVG (and equivalent provisions in other EU jurisdictions) typically applies — meaning a works agreement is the right path. Plan for this in week 1, not after rollout. We covered the German specifics in [KI und Betriebsrat](/de/ressourcen/blog/ki-betriebsrat-mitbestimmung/) (German source piece, principles are similar across EU labour law).
