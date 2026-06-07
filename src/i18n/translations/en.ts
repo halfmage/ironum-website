@@ -1,8 +1,8 @@
 export const en = {
   locale: 'en' as const,
   meta: {
-    defaultTitle: 'Ironum | GDPR-Compliant AI for Companies Serving the EU',
-    defaultDescription: 'Custom AI built on EU-sovereign infrastructure for US and European companies serving EU customers. GDPR and EU AI Act compliant. Book a free 30-min call.',
+    defaultTitle: 'Ironum | Custom AI Development & Private RAG for US & EU',
+    defaultDescription: 'Trustworthy custom AI development: private RAG, assistants, and models on infrastructure you control. German + Polish engineering, competitive rates. Book a free call.',
   },
   nav: {
     services: 'Services',
@@ -14,6 +14,7 @@ export const en = {
     allIndustries: 'All Industries',
     ctaButton: 'Free AI Strategy Call',
     serviceItems: [
+      { name: 'Custom AI Development', href: '/services/custom-ai-development/' },
       { name: 'AI Consulting & Audits', href: '/services/ai-consulting/' },
       { name: 'Workflow Automation', href: '/services/workflow-automation/' },
       { name: 'Enterprise RAG', href: '/services/enterprise-rag/' },
@@ -37,12 +38,12 @@ export const en = {
     contactHref: '/contact/',
   },
   hero: {
-    eyebrow: 'EU-NATIVE AI ENGINEERING FOR REGULATED MARKETS',
-    title: 'Custom AI, Built for<br>the EU Regulatory Reality',
-    subtitle: 'We build production AI systems on EU-sovereign infrastructure, so US and European companies serving EU customers ship faster without GDPR or AI Act exposure.',
-    trustLine: 'Trusted by FH Dortmund, Smella, LearnSlice, and European companies in finance, education, and travel',
+    eyebrow: 'PRIVATE, CUSTOM AI DEVELOPMENT · GERMANY & POLAND',
+    title: 'Custom AI & Private RAG:<br>Powerful, Private, Yours',
+    subtitle: 'We design, build, and ship AI assistants, RAG systems, and custom models on infrastructure you control. In production in weeks, not quarters. For companies across the US and EU.',
+    trustLine: 'Trusted by FH Dortmund, Smella, LearnSlice, and companies in finance, education, and travel',
     ctaButton: 'Book a Free AI Strategy Call',
-    ctaSubtext: '30 minutes with Gerrit · Bring your EU compliance questions · No commitment',
+    ctaSubtext: '30 minutes with Gerrit · A concrete plan for your AI project · No commitment',
     ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',
   },
   footer: {
@@ -51,6 +52,7 @@ export const en = {
     resourcesTitle: 'Resources',
     companyTitle: 'Company',
     serviceLinks: [
+      { name: 'Custom AI Development', href: '/services/custom-ai-development/' },
       { name: 'AI Consulting', href: '/services/ai-consulting/' },
       { name: 'Workflow Automation', href: '/services/workflow-automation/' },
       { name: 'Enterprise RAG', href: '/services/enterprise-rag/' },

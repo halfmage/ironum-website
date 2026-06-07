@@ -7,6 +7,12 @@ import Footer from '../../components/Footer.astro';
 
 const services = [
   {
+    title: 'Custom AI Development',
+    description: 'A team with 20+ years in custom software engineering builds private RAG, assistants, custom models, and automation on infrastructure you control.',
+    href: '/services/custom-ai-development',
+    icon: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
+  },
+  {
     title: 'Enterprise RAG Solutions',
     description: 'Turn scattered documents into a searchable, private knowledge base. Deploy retrieval-augmented generation on your own infrastructure with GDPR compliance built in.',
     href: '/services/enterprise-rag',
@@ -67,9 +73,12 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/#service",
     "name": "Ironum AI Services",
-    "description": "Full-service AI partner for European businesses. Enterprise RAG, workflow automation, AI consulting, chatbots, LLM fine-tuning, and GEO.",
+    "description": "Full-service AI development partner for companies in the US and EU. Custom AI development, Enterprise RAG, workflow automation, AI consulting, chatbots, LLM fine-tuning, and GEO.",
     "provider": { "@id": "https://ironum.com/#organization" },
-    "areaServed": { "@type": "Place", "name": "Europe" },
+    "areaServed": [
+      { "@type": "Place", "name": "Europe" },
+      { "@type": "Place", "name": "United States" }
+    ],
     "serviceType": "AI Solutions"
   }
 ];
@@ -81,8 +90,8 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="AI Services for European Businesses | Ironum AI Core"
-  description="Full-service AI partner: Enterprise RAG, workflow automation, AI consulting, chatbots, LLM fine-tuning, and Generative Engine Optimization. GDPR compliant, European-hosted."
+  title="AI Development Services for US & EU Companies | Ironum"
+  description="Full-service AI development: custom AI, private RAG, automation, chatbots, and fine-tuned models on infrastructure you control. German + Polish engineering, competitive rates."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -90,8 +99,8 @@ const breadcrumbs = [
 
   <PageHero
     eyebrow="OUR SERVICES"
-    title="AI Solutions for European Businesses"
-    subtitle="Your full-service AI partner, from strategy to production. Every solution GDPR compliant, every deployment on infrastructure you control."
+    title="Private AI, Custom-Built for Your Business"
+    subtitle="Your full-service AI development partner, from strategy to production. Private RAG, automation, and custom models, every deployment on infrastructure you control. For companies in the US and EU."
   />
 
   <!-- Services Grid -->
@@ -99,7 +108,7 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What We Build</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Six Pillars of Enterprise AI</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">The Building Blocks of Enterprise AI</h2>
         <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Each service is designed to work standalone or as part of an integrated AI stack. All solutions deploy on your infrastructure with full data sovereignty.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
