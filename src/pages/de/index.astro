@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Hero from '../../components/Hero.astro';
 import ServiceCard from '../../components/cards/ServiceCard.astro';
+import IndustryCard from '../../components/cards/IndustryCard.astro';
 import Infrastructure from '../../components/Infrastructure.astro';
 import Impacts from '../../components/Impacts.astro';
 import Testimonials from '../../components/Testimonials.astro';
@@ -69,6 +70,18 @@ const blogBasePath = dePosts.length > 0 ? '/de/ressourcen/blog/' : '/resources/b
     </div>
   </section>
 
+  <!-- Branchen -->
+  <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto space-y-8">
+    <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.homepage.industriesEyebrow}</span>
+    <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">{t.homepage.industriesTitle}</h2>
+    <p class="text-gray-500 text-lg font-semibold max-w-2xl">{t.homepage.industriesSubtitle}</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+      {t.homepage.industryCards.map(card => (
+        <IndustryCard title={card.name} description={card.description} href={card.href} cta={t.homepage.industriesCta} />
+      ))}
+    </div>
+  </section>
+
   <div class="text-center py-8">
     <a href={t.bookingUrl}
       target="_blank" rel="noopener noreferrer"
@@ -77,18 +90,16 @@ const blogBasePath = dePosts.length > 0 ? '/de/ressourcen/blog/' : '/resources/b
     </a>
   </div>
 
+  <Impacts />
   <Testimonials />
 
   <div class="text-center py-8">
     <a href={t.bookingUrl}
       target="_blank" rel="noopener noreferrer"
       class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">
-      {t.hero.ctaButton}
+      {t.hero.ctaButton} →
     </a>
   </div>
-
-  <Impacts />
-  <Infrastructure />
 
   <ProcessSteps
     eyebrow={t.processSteps.eyebrow}
@@ -96,8 +107,29 @@ const blogBasePath = dePosts.length > 0 ? '/de/ressourcen/blog/' : '/resources/b
     steps={t.processSteps.steps}
   />
 
-  <!-- Neueste Blogbeiträge -->
+  <Infrastructure />
+
+  <!-- Vertrauen & Datenhoheit -->
   <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-2xl mb-12 space-y-4">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.homepage.complianceEyebrow}</span>
+        <h2 class="text-3xl md:text-5xl font-bold">{t.homepage.complianceTitle}</h2>
+        <p class="text-gray-500 text-lg font-semibold">{t.homepage.complianceSubtitle}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {t.homepage.complianceCards.map(card => (
+          <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl font-bold mb-3">{card.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neueste Blogbeiträge -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto space-y-8">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{t.homepage.insightsEyebrow}</span>
       <h2 class="text-3xl md:text-5xl font-bold">{t.homepage.insightsTitle}</h2>
