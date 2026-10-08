@@ -2,6 +2,8 @@
 // download page by design. The content hash in the filename is for cache-busting: rebuild →
 // new hash → browsers and CDNs never serve a stale PDF. /guides/* is noindex via netlify.toml.
 // Page counts, titles and notes are read from here everywhere; keep them in sync with the PDF.
+// learnslice.com/public/_redirects sends the old LearnSlice PDF links to these exact files:
+// after a rebuild (new hash), update those two redirect lines too, or old shared links break.
 export interface Guide {
   id: 'pm' | 'po';
   title: string;
