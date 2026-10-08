@@ -108,7 +108,7 @@ by itself. Every other tier sees only what you hand it.
 
 **Your backlog probably is not in Microsoft 365.** If it lives in Jira or Azure DevOps,
 no tier of Copilot reads it automatically. Microsoft does publish connectors for Jira
-and Confluence, but an administrator has to deploy them and choose whether they respect Jira's own permissions. The Jira connector also works only with Jira Cloud, not Jira Server or Data Center. A connected source is not the same as a readable project.
+and Confluence, but an administrator has to deploy them and choose whether they respect Jira's own permissions. There are separate connectors for Jira Cloud and Jira Data Center, and none for Jira Server. A connected source is not the same as a readable project.
 
 > **Field note.** Some Copilot licences offer the Jira integration, and you can check
 > yours under Copilot Chat, then Settings, then Sources. The catch is that even where
@@ -517,8 +517,8 @@ met four of them already:
 
 - If your backlog lives in Jira or Azure DevOps, no tier of Copilot reads it
   automatically (Part 0, item 2).
-- The Jira connector works only with Jira Cloud, not Jira Server or Data Center, and even
-  a connected source is often not a readable project.
+- Microsoft's Jira connectors cover Jira Cloud and, separately, Jira Data Center, not Jira
+  Server, and even a connected source is often not a readable project.
 - So in practice, product owners copy tickets in by hand. Every prompt in this guide
   starts from what you paste.
 - Web search queries and Anthropic models sit outside the EU Data Boundary (Part 0,
@@ -565,9 +565,9 @@ Every source below was checked on 17 September 2026.
   oecd.org/en/publications/bridging-the-ai-skills-gap_66d0702e-en.html
 - **Microsoft**, product documentation, for Copilot licence tiers, grounding, data
   protection, file referencing and prompt structure, and for the Jira and Confluence
-  connectors: an administrator must deploy them and set their permissions, and the Jira connector supports Jira Cloud only.
-  learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-overview and
-  /copilot/connectors/jira-cloud-overview
+  connectors: an administrator must deploy them and set their permissions, and Jira Cloud and Jira Data Center have separate connectors (checked 8 October 2026).
+  learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-overview,
+  /copilot/connectors/jira-cloud-overview and /copilot/connectors/jira-data-center-overview
 - **European Commission**, for the AI Act and the Article 4 AI literacy duty applicable
   since 2 February 2025.
   digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers

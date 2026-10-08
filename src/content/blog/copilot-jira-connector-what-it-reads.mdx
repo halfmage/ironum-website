@@ -1,0 +1,156 @@
+---
+title: "What the Copilot Jira Connector Can and Cannot Read"
+description: "Microsoft has two Jira connectors, one for Cloud and one for Data Center. What each indexes, what it skips, and the license Copilot needs to answer from it."
+publishDate: 2026-10-08
+author: "Alesia Kunz"
+category: "implementation"
+tags: ["Microsoft Copilot", "Jira", "Copilot connectors", "Product Owner", "Enterprise RAG"]
+locale: "en"
+draft: true
+ogImage: "/images/og/og-ai-product-owners.jpg"
+faq:
+  - question: "Can Microsoft 365 Copilot read Jira?"
+    answer: "Only through a connector an administrator deploys, and only if you have the Microsoft 365 Copilot add-on license. Microsoft publishes one connector for Jira Cloud and a separate one for Jira Data Center. With a standard Microsoft 365 license, connector content appears in Microsoft Search, but Copilot does not use it to answer questions."
+  - question: "Does the Copilot Jira connector work with Jira Data Center or Jira Server?"
+    answer: "The Jira Cloud connector supports Jira Cloud only. Jira Data Center has its own connector, which needs the Microsoft Graph connector agent on a Windows machine in the same network and a Microsoft plugin from the Atlassian Marketplace. Microsoft does not list a connector for Jira Server."
+  - question: "Does the Copilot Jira connector index comments and attachments?"
+    answer: "The Jira Cloud connector's documentation lists issue fields such as title, description, status, project, dates, assignee and priority, plus custom fields you select. It does not list comments. For Jira Data Center, comments and attachments can be indexed only after you request the capability from Microsoft Support."
+  - question: "Does the Jira connector respect Jira permissions?"
+    answer: "It can. Both connectors offer an 'Everyone' mode and an 'Only people with access to this data source' mode. The second maps Jira users to Microsoft Entra ID by email address. Some Jira permission types cannot be evaluated, such as 'Any logged-in user'; the Data Center connector then denies access rather than risk oversharing."
+  - question: "How fresh is the Jira data in Copilot?"
+    answer: "For Jira Data Center, Microsoft's default is an incremental crawl every 15 minutes and a full crawl once a day. An issue edited a minute ago may not be in Copilot's answer yet."
+---
+
+You set up the Jira connector, or someone in IT did, and Copilot still answers as if your
+backlog does not exist. Before you blame the connector, check three things: which Jira you
+run, which license you hold, and what the connector actually copies across. Each one can
+quietly rule the answer out.
+
+This is the technical picture as Microsoft documents it, checked against Microsoft Learn on
+8 October 2026. Connectors change often, so the dates matter.
+
+## Key Takeaways
+
+- Microsoft publishes **two** Jira connectors: one for Jira Cloud and a separate one for Jira Data Center. There is no connector for Jira Server.
+- Indexing is free, but **Copilot only answers from connector content if you hold the Microsoft 365 Copilot add-on** (or Microsoft 365 E7). On a standard Microsoft 365 license, Jira results show up in Microsoft Search, not in Copilot's answers.
+- The Jira Cloud connector indexes issue fields such as title, description, status, assignee and priority. **Comments are not on the list.** On Data Center, comments and attachments need a request to Microsoft Support.
+- Permission mirroring works through email mapping to Microsoft Entra ID. Permission types the connector cannot evaluate end in **no access**, not wrong access.
+- Data arrives on a schedule, by default every 15 minutes incrementally and once a day in full (Data Center), so the newest edits can be missing.
+
+## Two Connectors, Not One
+
+Most articles talk about "the Jira connector". Microsoft has two, and they are set up very
+differently.
+
+| | Jira Cloud connector | Jira Data Center connector |
+|---|---|---|
+| Supported Jira | Jira Cloud only | Jira Data Center (Microsoft's plugin supports 8.10.0 to 10.5.1) |
+| Jira Server | Not supported | Not supported |
+| Extra infrastructure | None | Microsoft Graph connector agent on a Windows machine in the same network, version 3.1.15.0 or later |
+| Extra software in Jira | None | Microsoft's plugin from the Atlassian Marketplace |
+| Comments and attachments | Not listed as indexed | Only on request via Microsoft Support |
+
+One inconsistency is worth knowing before you plan an upgrade. Microsoft's overview page for
+the Data Center connector says it supports version 8.14 and later, while the deployment page
+says the plugin supports 8.10.0 to 10.5.1. Read together, the safe range is 8.14 to 10.5.1.
+If you run Jira Data Center 11, check the Marketplace listing before you start.
+
+## The License Question Decides Everything Else
+
+This is the part most teams discover last. Indexing Jira with a Microsoft-built connector
+costs nothing extra on a Microsoft 365 tenant. Using that index in Copilot does.
+
+| License | Jira in Microsoft Search | Jira in Copilot answers and agents |
+|---|---|---|
+| Microsoft 365, any plan | Yes | No |
+| Microsoft 365 + Microsoft 365 Copilot add-on | Yes | Yes |
+| Microsoft 365 E7 | Yes | Yes |
+| Microsoft 365 + Copilot Studio license | Yes | Agents only, no Copilot grounding |
+| Microsoft 365 Copilot pay-as-you-go | Yes | Agents only, no Copilot grounding |
+
+So an organization can deploy the connector, see Jira issues in Microsoft Search, and still
+get nothing about them from Copilot Chat. Nothing is broken. The license simply does not
+include grounding on connector data.
+
+Setting it up also takes two kinds of admin rights: the AI administrator role in the
+Microsoft 365 admin center, and admin access on the Jira side.
+
+## What the Connector Actually Reads
+
+Microsoft lists what the Jira Cloud connector indexes: title, issue description, status,
+project name, created and updated dates, assignee and priority. Custom fields can be added;
+where an issue type lacks a selected field, it is stored as empty.
+
+What is missing matters as much as what is there. **Comments are not on the list.** In
+most teams the comments are where the actual decision lives: the clarification from the
+developer, the edge case someone raised, the reason the scope changed. A Copilot that has
+read the description but not the thread will summarize the ticket as it was written, not as
+it was agreed.
+
+The Data Center connector indexes issues (summary, description, priority, status, assignee,
+project, timestamps) and project metadata. Comments and attachments can be crawled, but
+according to Microsoft only after you request the capability from Microsoft Support.
+
+## Permissions: Safe, Sometimes Too Safe
+
+Both connectors offer two modes. **Everyone** makes indexed issues visible to every user in
+the tenant. **Only people with access to this data source** mirrors Jira's permissions,
+which is what you want for anything confidential.
+
+Mirroring works by matching Jira users to Microsoft Entra ID accounts by email address. If
+the addresses differ, an administrator has to set up a mapping rule. Without it, people may
+not see issues they are allowed to see in Jira.
+
+Some Jira permission types cannot be evaluated at all. The Jira Cloud connector does not
+support the "Any user logged in" application role for granting issue access. The Data
+Center connector cannot evaluate "Any logged-in user", "Application access" or some
+custom-field-based permission types, and in those cases it denies access to prevent
+oversharing. That is the right default, and it is also a common reason why a configured
+connector "returns nothing" for a project.
+
+## Freshness
+
+For Jira Data Center, Microsoft's defaults are an incremental crawl every 15 minutes and a
+full crawl once a day. Both can be changed. In practice it means the issue you edited in
+refinement a few minutes ago may not be in the next answer yet. For Confluence Cloud,
+Microsoft notes that permission changes are only picked up in the daily full crawl, not in
+the 15-minute incremental syncs, and the same pattern is worth assuming for any synced
+source until you have tested it.
+
+## What This Means for a Product Team
+
+If you are a product owner or product manager, the checklist is short:
+
+1. **Find out which Jira you run.** Cloud, Data Center, or Server. Server has no connector.
+2. **Find out which license you hold.** Without the Microsoft 365 Copilot add-on (or E7), Copilot will not answer from Jira, connector or not.
+3. **Ask what is indexed.** If comments are not, expect summaries of the ticket as written, not as discussed.
+4. **Test with one project you know well.** Ask Copilot something only the comments or the latest edit would answer. That shows you the gaps faster than any documentation.
+
+Until all four line up, the workable method is the one most teams already use: paste the
+item in and give the model the context yourself. Our free
+[guide for product owners](/resources/guides/ai-for-product-owners/) has prompts written for
+exactly that.
+
+## When the Connector Is Not Enough
+
+The connector is a good fit when you run Jira Cloud or a supported Data Center version, hold
+Copilot add-on licenses, and mainly need to find and summarize issues. It is a weaker fit
+when the answer lives in comments, when you run Jira Server or an older Data Center, when
+the knowledge spans Jira, Confluence and other systems at once, or when the index should not
+live in Microsoft 365 at all.
+
+In those cases the alternative is a retrieval system you control: it reads Jira and
+Confluence through their APIs, keeps the permissions people already have, cites every
+answer back to the issue or page it came from, and runs on infrastructure you choose. That
+is what we build at Ironum as [enterprise RAG](/services/enterprise-rag/). If you are not
+sure which side of the line you are on, [tell us what your setup looks like](/contact/?source=blog-jira-connector).
+
+## Where This Came From
+
+Every statement above comes from Microsoft's own documentation, checked on 8 October 2026:
+
+- [Jira Cloud connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-cloud-overview): supported deployments, indexed fields, permission modes and the "Any user logged in" limitation.
+- [Jira Data Center connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-overview): indexed content, permission hierarchy, the version 8.14 statement and the comments and attachments note.
+- [Deploy the Jira Data Center connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-deployment): connector agent and plugin requirements, the 8.10.0 to 10.5.1 range, and default crawl schedule.
+- [Prerequisites for deploying connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/prerequisites): admin roles, free indexing, and the licensing table.
+- [Confluence Cloud connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/confluence-cloud-overview): permission-update latency.

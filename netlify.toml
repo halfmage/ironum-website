@@ -25,3 +25,10 @@
   for = "/de/*"
   [headers.values]
     Content-Language = "de"
+
+# Superseded guide PDFs: links already shared keep working after a rebuild (new content hash).
+[[redirects]]
+  from = "/guides/ai-for-product-owners-61db895d9cc31da3.pdf"
+  to = "/guides/ai-for-product-owners-9c209c60c5ee9337.pdf"
+  status = 301
+  force = true

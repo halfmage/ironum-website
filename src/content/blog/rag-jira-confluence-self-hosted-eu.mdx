@@ -1,0 +1,126 @@
+---
+title: "RAG Over Jira and Confluence, Self-Hosted in the EU"
+description: "How a private retrieval system reads Jira and Confluence, keeps their permissions, cites its sources and runs on EU infrastructure you control. Architecture, trade-offs, timeline."
+publishDate: 2026-10-08
+author: "Ironum Team"
+category: "implementation"
+tags: ["Enterprise RAG", "Jira", "Confluence", "Self-hosted AI", "EU data residency", "Microsoft Copilot"]
+locale: "en"
+draft: true
+legalDisclaimer: true
+faq:
+  - question: "What is RAG over Jira and Confluence?"
+    answer: "Retrieval-augmented generation (RAG) means a language model answers from passages retrieved from your own systems at question time, instead of from what it learned in training. Over Jira and Confluence, that means issues, comments and wiki pages are indexed, the most relevant ones are retrieved for each question, and the answer cites the issue or page it came from."
+  - question: "Why not just use the Microsoft 365 Copilot connectors for Jira and Confluence?"
+    answer: "For many teams on Jira Cloud or a supported Jira Data Center version, with Microsoft 365 Copilot add-on licenses, the connectors are the simplest route. A self-hosted system fits better when answers depend on content the connectors do not index by default, such as Jira Cloud comments, when you run Jira Server, when the index should not live in Microsoft 365, or when you want to choose the model and the hosting location yourself."
+  - question: "Does a self-hosted RAG system respect Jira and Confluence permissions?"
+    answer: "It has to be built to. The usual approach is to store each item's access rules alongside it in the index and filter every search by the asking user's identity before anything reaches the model. Permission changes then need their own sync schedule, separate from content changes."
+  - question: "How long does it take to build?"
+    answer: "At Ironum, a working proof of concept on a customer's real Jira and Confluence data typically takes around two weeks, and a production system four to eight weeks, depending on data volume, permission complexity and integration requirements."
+---
+
+{/* DRAFT, internal notes (not rendered):
+    - Confirm the timeline numbers with Gerrit before publishing (taken from /services/enterprise-rag FAQ).
+    - Add one anonymized project example if a customer agrees; otherwise keep it generic.
+    - Publish after copilot-jira-connector-what-it-reads.mdx and link both ways. */}
+
+Your team's knowledge is split between two places. Jira holds what was decided, issue by
+issue, mostly in the comments. Confluence holds why: the specs, the architecture notes, the
+retrospectives. Asking a question that needs both, such as "why did we drop offline mode
+for the mobile app, and is anything still open on it?", means an hour of searching.
+
+A retrieval system can answer it in seconds, with links to the issues and pages it used.
+This article explains how such a system works when it runs on infrastructure you control in
+the EU, where it beats an off-the-shelf connector, and where it does not.
+
+## Key Takeaways
+
+- **RAG** means the model answers from passages retrieved from your own Jira and Confluence at question time, and cites them. Nothing is trained on your data.
+- Microsoft's Copilot connectors are the simplest option if you run supported Atlassian versions and hold Microsoft 365 Copilot add-on licenses. A self-hosted system fits when you need comments, Jira Server, a non-Microsoft index, or your own choice of model and hosting.
+- The hard parts are not the model. They are **permissions**, **freshness** and **citations**.
+- Hosting can be your own servers or an EU cloud provider, with an open-source model, so the content does not leave infrastructure you choose.
+
+## Connector or Own System?
+
+Start with the honest comparison. If the connector covers your case, use it.
+
+| Question | Microsoft 365 Copilot connectors | Self-hosted RAG |
+|---|---|---|
+| Jira Cloud | Supported | Supported |
+| Jira Data Center | Separate connector, on-premises agent and plugin | Supported via API |
+| Jira Server | Not supported | Supported via API |
+| Jira comments | Not listed for Jira Cloud; on request for Data Center | Indexed if you choose |
+| License to use it in answers | Microsoft 365 Copilot add-on or E7 | Your own infrastructure cost |
+| Where the index lives | Microsoft 365 | Where you deploy it |
+| Choice of model | Microsoft's | Yours, including open-source |
+
+The connector facts come from Microsoft's documentation and are explained in detail in
+[what the Copilot Jira connector can and cannot read](/resources/blog/copilot-jira-connector-what-it-reads/).
+
+## How It Works, Step by Step
+
+**1. Ingestion.** A sync service reads issues, comments, attachments and pages through the
+Jira and Confluence REST APIs, with a service account that has read access to the projects
+and spaces in scope. You decide the scope: all projects, or only the ones a pilot team uses.
+
+**2. Chunking.** Long pages and long comment threads are split into passages small enough
+to retrieve precisely. Each passage keeps its source: issue key or page ID, title, author,
+date, and a link back.
+
+**3. Embedding and indexing.** Each passage is turned into a vector by an embedding model
+and stored in a vector database next to its text and metadata. Both the embedding model and
+the database can run on your own servers.
+
+**4. Permission filtering.** Every passage carries the access rules of the item it came
+from: Jira project permissions and issue security levels, Confluence space permissions and
+page restrictions. When someone asks a question, the search is filtered by that person's
+identity before any passage reaches the model. Someone who cannot open an issue in Jira
+cannot get an answer built from it.
+
+**5. Retrieval and answer.** The question is embedded, the closest permitted passages are
+retrieved, and the language model writes an answer from those passages only, with a
+citation for each claim.
+
+**6. Sync.** Content changes are picked up incrementally, typically every few minutes.
+Permission changes get their own schedule, because a person removed from a project should
+lose access to its content quickly.
+
+## The Three Things That Decide Quality
+
+**Permissions.** This is where most first versions fail. Jira and Confluence permissions
+are layered: groups, project roles, issue security levels, space permissions, page
+restrictions. Map them carefully and decide what happens when a rule cannot be resolved.
+The safe answer, and the one Microsoft's own Data Center connector uses, is to deny access.
+
+**Freshness.** An assistant that answers from yesterday's backlog is worse than none,
+because it sounds confident. Measure how long a change takes to appear in answers, and
+show the "last updated" date of every cited source.
+
+**Citations.** Every answer should link to the issues and pages it used. It is how users
+learn to trust the system, and how they catch it when the retrieval picked the wrong
+passage.
+
+## Hosting in the EU
+
+A self-hosted system can run in three ways:
+
+- **On your own servers**, with an open-source model. The content never leaves your network.
+- **On dedicated servers at an EU provider**, such as Hetzner or IONOS in Germany, again with an open-source model.
+- **In an EU cloud region of a hyperscaler**, if your organization already runs there.
+
+In all three, you choose where the index and the model run and which models are used. That
+is a technical choice about where data is processed. Whether a given setup meets your
+organization's obligations is a question for your data protection officer.
+
+## What It Takes
+
+At Ironum, a working proof of concept on a customer's real Jira and Confluence data
+typically takes around two weeks: one pilot project, one Confluence space, permission
+filtering switched on from day one. A production system typically takes four to eight
+weeks, depending on data volume, how complex the permissions are, and where it has to be
+integrated, for example as a chat in Teams or a panel inside Jira.
+
+If your team has hit the limits of the connector, or cannot use it at all,
+[tell us what your setup looks like](/contact/?source=blog-rag-jira-confluence). If you
+first want to get more out of the tools you already have, our free
+[AI guides for product managers and product owners](/resources/guides/) start there.

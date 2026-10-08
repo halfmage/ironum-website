@@ -4,6 +4,7 @@
 // Page counts, titles and notes are read from here everywhere; keep them in sync with the PDF.
 // learnslice.com/public/_redirects sends the old LearnSlice PDF links to these exact files:
 // after a rebuild (new hash), update those two redirect lines too, or old shared links break.
+// Also add a [[redirects]] entry in netlify.toml from the superseded Ironum filename.
 export interface Guide {
   id: 'pm' | 'po';
   title: string;
@@ -31,7 +32,7 @@ export const GUIDES: Record<Guide['id'], Guide> = {
     title: 'AI for product owners',
     audience: 'product owners',
     pages: '21 pages',
-    file: '/guides/ai-for-product-owners-61db895d9cc31da3.pdf',
+    file: '/guides/ai-for-product-owners-9c209c60c5ee9337.pdf',
     startNote: 'Part 0, six things nobody told you, starts on page four. The prompt pack is on page fifteen.',
     landing: '/resources/guides/ai-for-product-owners/',
   },
