@@ -59,12 +59,15 @@ import Footer from '../../components/Footer.astro';
             if (source) form.querySelector('input[name="source"]').value = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
             // ?prefill=<key> starts the message with a fixed template (keys only, never free text from the URL).
             const templates = {
-              jira: "Unsere Jira-Version (Cloud / Data Center / Server):\n\nWas Copilot oder KI beantworten soll:\n\n",
-              limit: "Die Grenze, auf die wir gestoßen sind:\n\nWo unser Backlog bzw. unsere Daten liegen (z. B. Jira, Azure DevOps, Confluence):\n\n",
+              jira: "Welches Jira nutzen Sie? (Jira Cloud, Jira Data Center oder Jira Server)\n\n\nWelche Fragen soll KI aus Ihrem Jira beantworten? (zum Beispiel: „Welche offenen Bugs blockieren das nächste Release?“)\n\n\nWas sollten wir noch wissen? (zum Beispiel: Copilot-Lizenzen, Confluence, Daten müssen in der EU bleiben)\n\n",
+              limit: "An welche Grenze sind Sie gestoßen? (zum Beispiel: Copilot sieht unsere Jira-Tickets nicht)\n\n\nWo liegen Ihre Daten? (zum Beispiel: Jira, Confluence, Azure DevOps, SharePoint)\n\n\nWas soll KI damit tun?\n\n",
             };
             const message = form.querySelector('textarea[name="message"]');
             const template = templates[params.get('prefill')];
-            if (template && message && !message.value) message.value = template;
+            if (template && message && !message.value) {
+              message.value = template;
+              message.rows = 11;
+            }
           })();
         </script>
       </div>
