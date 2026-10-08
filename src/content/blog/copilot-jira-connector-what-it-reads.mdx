@@ -14,7 +14,7 @@ faq:
   - question: "Does the Copilot Jira connector work with Jira Data Center or Jira Server?"
     answer: "Microsoft has a Jira Cloud connector, which supports Jira Cloud only, and a separate Jira Data Center connector. The Data Center connector needs the Microsoft Graph connector agent on a Windows machine in the same network and Microsoft's plugin from the Atlassian Marketplace. Microsoft offers no connector for Jira Server."
   - question: "Does the Copilot Jira connector index comments and attachments?"
-    answer: "Not by default. Microsoft's documentation for the Jira Cloud connector lists issue fields such as title, description, status, project, dates, assignee and priority, plus custom fields you select, but not comments. On Jira Data Center, comments and attachments are indexed only after you request the capability from Microsoft Support."
+    answer: "On Jira Cloud, no: Microsoft's documentation for the Jira Cloud connector lists issue fields such as title, description, status, project, dates, assignee and priority, plus custom fields you select, but not comments, and documents no option to add them. On Jira Data Center, comments and attachments are indexed only after you request the capability from Microsoft Support."
   - question: "Does the Jira connector respect Jira permissions?"
     answer: "Yes, in its restricted mode ('Only people with access to this data source'), which maps Jira users to Microsoft Entra ID by email address. Some Jira permission types, such as 'Any logged-in user', cannot be evaluated; the Data Center connector then denies access instead of risking oversharing."
   - question: "How up to date is Jira data in Copilot?"
@@ -24,19 +24,21 @@ faq:
 **Short answer:** Microsoft 365 Copilot can read Jira through a connector, but only if an
 administrator deploys it and you hold the Microsoft 365 Copilot add-on license. On a
 standard Microsoft 365 license, Jira issues show up in Microsoft Search and never in
-Copilot's answers.
+Copilot's answers. (A Copilot Studio license or pay-as-you-go billing lets agents use them,
+but still not Copilot Chat; details in the license table below.)
 
 So if your connector is set up and Copilot still answers as if your backlog does not exist,
 nothing may be broken. Three things decide whether it works: which Jira you run, which
 license you hold, and what the connector copies across. This article goes through each one,
-based on Microsoft's documentation as of 8 October 2026.
+based on Microsoft's documentation as of 8 October 2026. Microsoft updates these pages
+often, so check the linked sources before you act on a detail.
 
 ## Key Takeaways
 
 - Microsoft has **two** Jira connectors: one for Jira Cloud and one for Jira Data Center. Jira Server has none.
 - Indexing is free. **Answering from the index needs the Microsoft 365 Copilot add-on** (or Microsoft 365 E7).
-- **Comments are not indexed by default.** The Jira Cloud connector does not list them; on Data Center you have to request them from Microsoft Support.
-- With permission mirroring on, anything the connector cannot evaluate ends in **no access**, not in wrong access.
+- **Comments:** the Jira Cloud connector does not index them, and Microsoft documents no option to add them. On Data Center, comments and attachments come only on request via Microsoft Support.
+- With permission mirroring on, the Data Center connector **denies access** to anything it cannot evaluate. For Jira Cloud, Microsoft documents one unsupported permission type, not a general rule.
 - Data arrives on a schedule (Data Center default: every 15 minutes, full crawl daily), so the latest edits can be missing.
 
 Microsoft calls these integrations Microsoft 365 Copilot connectors. In older documentation
@@ -89,10 +91,10 @@ admin center, and admin access on the Jira side.
 
 ## Does the Copilot Jira Connector Index Comments?
 
-Not by default. For the Jira Cloud connector, Microsoft lists these indexed fields: title,
+On Jira Cloud, no. On Jira Data Center, only on request. For the Jira Cloud connector, Microsoft lists these indexed fields: title,
 issue description, status, project name, created and updated dates, assignee and priority.
 You can add custom fields; if an issue type lacks a selected field, it is stored as empty.
-Comments are not on the list.
+Comments are not on the list, and Microsoft documents no setting to add them.
 
 That gap matters more than it looks. In most teams the comments hold the actual decision:
 the developer's clarification, the edge case someone raised, the reason the scope changed.
@@ -117,16 +119,18 @@ issues they are allowed to see in Jira.
 Some permission types cannot be evaluated at all. The Jira Cloud connector does not support
 the "Any user logged in" application role for granting issue access. The Data Center
 connector cannot evaluate "Any logged-in user", "Application access" or some
-custom-field-based permission types, and denies access in those cases. That is the safe
-default, and a frequent reason why one project returns nothing while others work. If that
-happens, check that project's permission scheme first.
+custom-field-based permission types, and denies access in those cases. For the Cloud
+connector, Microsoft does not document what happens with other permission types it cannot
+resolve, so test a confidential project before relying on it. On Data Center, the deny rule
+is the safe default and a frequent reason why one project returns nothing while others
+work. If that happens, check that project's permission scheme first.
 
 ## How Up to Date Is Jira Data in Copilot?
 
 It lags behind Jira by design. For Jira Data Center, Microsoft's default is an incremental
 crawl every 15 minutes and a full crawl once a day; both intervals can be changed. For the
-Jira Cloud connector, Microsoft documents incremental and full crawls but no default
-interval on its overview page.
+Jira Cloud connector, Microsoft's overview page (as of 8 October 2026) documents incremental
+and full crawls but no default interval.
 
 Permissions can lag further than content. For the Confluence Cloud connector, Microsoft
 states that permission changes are picked up only in the daily full crawl, not in the

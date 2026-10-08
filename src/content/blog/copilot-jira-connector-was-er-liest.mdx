@@ -10,37 +10,40 @@ draft: false
 ogImage: "/images/og/og-copilot-jira-connector-de.jpg"
 faq:
   - question: "Kann Microsoft 365 Copilot Jira lesen?"
-    answer: "Ja, über einen Microsoft 365 Copilot-Connector, unter zwei Bedingungen: Die IT-Administration muss den Connector einrichten, und Sie brauchen die Add-on-Lizenz Microsoft 365 Copilot (oder Microsoft 365 E7). Mit einer normalen Microsoft-365-Lizenz erscheinen Jira-Vorgänge in Microsoft Search, Copilot nutzt sie aber nicht für Antworten."
+    answer: "Ja, über einen Microsoft-365-Copilot-Connector, unter zwei Bedingungen: Die IT-Administration muss den Connector einrichten, und Sie brauchen die Add-on-Lizenz Microsoft 365 Copilot (oder Microsoft 365 E7). Mit einer normalen Microsoft-365-Lizenz erscheinen Jira-Vorgänge in Microsoft Search, Copilot nutzt sie aber nicht für Antworten."
   - question: "Funktioniert der Copilot-Jira-Connector mit Jira Data Center oder Jira Server?"
     answer: "Microsoft bietet einen Jira-Cloud-Connector an, der nur Jira Cloud unterstützt, und einen separaten Jira-Data-Center-Connector. Dieser braucht den Microsoft Graph Connector Agent auf einem Windows-Rechner im selben Netzwerk und Microsofts Plugin aus dem Atlassian Marketplace. Für Jira Server gibt es keinen Connector."
   - question: "Indexiert der Copilot-Jira-Connector Kommentare und Anhänge?"
-    answer: "Standardmäßig nicht. Microsofts Dokumentation zum Jira-Cloud-Connector nennt Vorgangsfelder wie Titel, Beschreibung, Status, Projekt, Datumsangaben, Bearbeiter und Priorität sowie ausgewählte benutzerdefinierte Felder, aber keine Kommentare. Bei Jira Data Center werden Kommentare und Anhänge erst indexiert, nachdem Sie die Funktion beim Microsoft-Support angefragt haben."
+    answer: "Bei Jira Cloud nicht: Microsofts Dokumentation zum Jira-Cloud-Connector nennt Vorgangsfelder wie Titel, Beschreibung, Status, Projekt, Datumsangaben, Bearbeiter und Priorität sowie ausgewählte benutzerdefinierte Felder, aber keine Kommentare, und beschreibt keine Option, sie hinzuzufügen. Bei Jira Data Center werden Kommentare und Anhänge erst indexiert, nachdem Sie die Funktion beim Microsoft-Support angefragt haben."
   - question: "Berücksichtigt der Jira-Connector die Berechtigungen aus Jira?"
     answer: "Ja, im eingeschränkten Modus („Only people with access to this data source“). Dabei werden Jira-Konten per E-Mail-Adresse Konten in Microsoft Entra ID zugeordnet. Manche Berechtigungsarten, etwa „Any logged-in user“, kann der Connector nicht auswerten. Der Data-Center-Connector verweigert dann den Zugriff, statt zu viel freizugeben."
   - question: "Wie aktuell sind die Jira-Daten in Copilot?"
-    answer: "Sie hinken hinterher. Für Jira Data Center sieht Microsoft standardmäßig alle 15 Minuten einen inkrementellen und einmal täglich einen vollständigen Crawl vor. Ein Vorgang, der vor wenigen Minuten geändert wurde, fehlt in Copilots Antwort möglicherweise noch."
+    answer: "Die Daten hinken hinterher. Für Jira Data Center sieht Microsoft standardmäßig alle 15 Minuten einen inkrementellen und einmal täglich einen vollständigen Crawl vor. Ein Vorgang, der vor wenigen Minuten geändert wurde, fehlt in Copilots Antwort möglicherweise noch."
 ---
 
 **Kurz gesagt:** Microsoft 365 Copilot kann Jira über einen Connector lesen, aber nur, wenn
 die IT-Administration ihn einrichtet und Sie die Add-on-Lizenz Microsoft 365 Copilot haben.
 Mit einer normalen Microsoft-365-Lizenz erscheinen Jira-Vorgänge in Microsoft Search, in
-Copilots Antworten dagegen nie.
+Copilots Antworten dagegen nie. (Mit einer Copilot-Studio-Lizenz oder Pay-as-you-go-Abrechnung
+können Agents sie nutzen, Copilot Chat aber weiterhin nicht; Details in der Lizenztabelle
+unten.)
 
 Wenn der Connector also eingerichtet ist und Copilot trotzdem antwortet, als gäbe es Ihr
 Backlog nicht, ist womöglich nichts kaputt. Ob es funktioniert, hängt an drei Dingen:
 welches Jira Sie betreiben, welche Lizenz Sie haben und was der Connector tatsächlich
 übernimmt. Dieser Beitrag geht alle drei durch, auf Basis der Microsoft-Dokumentation mit
-Stand 8. Oktober 2026.
+Stand 8. Oktober 2026. Microsoft aktualisiert diese Seiten häufig; prüfen Sie vor einer
+Entscheidung die verlinkten Quellen.
 
 ## Auf einen Blick
 
 - Microsoft hat **zwei** Jira-Connectors: einen für Jira Cloud und einen für Jira Data Center. Für Jira Server gibt es keinen.
 - Das Indexieren ist kostenlos. **Antworten aus dem Index setzen das Add-on Microsoft 365 Copilot voraus** (oder Microsoft 365 E7).
-- **Kommentare werden standardmäßig nicht indexiert.** Der Jira-Cloud-Connector führt sie nicht auf, bei Data Center müssen Sie sie beim Microsoft-Support anfragen.
-- Ist die Berechtigungsspiegelung aktiv, führt alles, was der Connector nicht auswerten kann, zu **keinem Zugriff**, nicht zu falschem.
+- **Kommentare:** Der Jira-Cloud-Connector indexiert sie nicht, und Microsoft beschreibt keine Option dafür. Bei Data Center gibt es Kommentare und Anhänge nur auf Anfrage beim Microsoft-Support.
+- Ist die Berechtigungsspiegelung aktiv, **verweigert der Data-Center-Connector den Zugriff** auf alles, was er nicht auswerten kann. Für Jira Cloud dokumentiert Microsoft eine nicht unterstützte Berechtigungsart, aber keine allgemeine Regel.
 - Die Daten kommen zeitversetzt an (Data Center: standardmäßig alle 15 Minuten, einmal täglich vollständig). Die neuesten Änderungen können also fehlen.
 
-Microsoft nennt diese Integrationen Microsoft 365 Copilot-Connectors. In älterer
+Microsoft nennt diese Integrationen Microsoft-365-Copilot-Connectors. In älterer
 Dokumentation und in Teilen der Einrichtung, etwa beim Connector Agent und beim Plugin im
 Atlassian Marketplace, heißt dieselbe Technik Microsoft Graph Connectors.
 
@@ -90,11 +93,11 @@ KI-Administrator im Microsoft 365 Admin Center und Administratorzugriff auf der 
 
 ## Indexiert der Copilot-Jira-Connector Kommentare?
 
-Standardmäßig nicht. Für den Jira-Cloud-Connector nennt Microsoft diese indexierten Felder:
+Bei Jira Cloud nicht, bei Jira Data Center nur auf Anfrage. Für den Jira-Cloud-Connector nennt Microsoft diese indexierten Felder:
 Titel, Vorgangsbeschreibung, Status, Projektname, Erstellungs- und Änderungsdatum,
 Bearbeiter und Priorität. Benutzerdefinierte Felder lassen sich ergänzen; fehlt ein
 ausgewähltes Feld bei einem Vorgangstyp, bleibt es leer. Kommentare stehen nicht auf der
-Liste.
+Liste, und eine Einstellung, um sie hinzuzufügen, beschreibt Microsoft nicht.
 
 Diese Lücke wiegt schwerer, als sie aussieht. In den meisten Teams steht die eigentliche
 Entscheidung in den Kommentaren: die Klarstellung aus der Entwicklung, der Sonderfall, den
@@ -121,16 +124,18 @@ Manche Berechtigungsarten lassen sich gar nicht auswerten. Der Jira-Cloud-Connec
 unterstützt die Anwendungsrolle „Any user logged in“ für den Zugriff auf Vorgänge nicht. Der
 Data-Center-Connector kann „Any logged-in user“, „Application access“ und manche
 feldbasierte Berechtigungsarten nicht auswerten und verweigert in diesen Fällen den Zugriff.
-Das ist die sichere Voreinstellung und zugleich ein häufiger Grund, warum ein Projekt leer
-bleibt, während andere funktionieren. Dann lohnt zuerst ein Blick auf das Berechtigungsschema
-dieses Projekts.
+Was der Cloud-Connector mit anderen Berechtigungsarten macht, die er nicht auflösen kann,
+dokumentiert Microsoft nicht. Testen Sie deshalb ein vertrauliches Projekt, bevor Sie sich
+darauf verlassen. Bei Data Center ist die Verweigerung die sichere Voreinstellung und
+zugleich ein häufiger Grund, warum ein Projekt leer bleibt, während andere funktionieren.
+Dann lohnt zuerst ein Blick auf das Berechtigungsschema dieses Projekts.
 
 ## Wie aktuell sind die Jira-Daten in Copilot?
 
-Sie hinken Jira systembedingt hinterher. Für Jira Data Center sieht Microsoft standardmäßig
+Die Daten hinken Jira systembedingt hinterher. Für Jira Data Center sieht Microsoft standardmäßig
 alle 15 Minuten einen inkrementellen und einmal täglich einen vollständigen Crawl vor;
-beide Intervalle lassen sich ändern. Für den Jira-Cloud-Connector dokumentiert Microsoft
-inkrementelle und vollständige Crawls, auf der Übersichtsseite aber kein Standardintervall.
+beide Intervalle lassen sich ändern. Für den Jira-Cloud-Connector nennt Microsofts Übersichtsseite
+(Stand 8. Oktober 2026) inkrementelle und vollständige Crawls, aber kein Standardintervall.
 
 Berechtigungen können noch länger brauchen als Inhalte. Für den Confluence-Cloud-Connector
 schreibt Microsoft, dass Berechtigungsänderungen erst beim täglichen vollständigen Crawl
@@ -171,10 +176,14 @@ Die Alternative ist ein Retrieval-System unter Ihrer Kontrolle. Es liest Jira un
 über deren Schnittstellen, behält die bestehenden Berechtigungen bei, belegt jede Antwort mit
 dem Vorgang oder der Seite, aus der sie stammt, und läuft auf einer Infrastruktur Ihrer Wahl.
 Genau das bauen wir bei Ironum als [Enterprise RAG](/de/dienstleistungen/enterprise-rag/).
+{/* Bei Veröffentlichung von rag-jira-confluence-self-hosted-eu (geplant ~2026-10-22) hier
+    ergänzen: Wie ein solches System aufgebaut ist und was es braucht, steht in
+    [RAG über Jira und Confluence, selbst gehostet in der EU](/resources/blog/rag-jira-confluence-self-hosted-eu/)
+    (auf Englisch), bzw. auf die deutsche Fassung verlinken, falls es eine gibt. */}
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">An eine dieser Grenzen gestoßen?</p>
-  <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, welche Jira-Version Sie nutzen und was Copilot beantworten soll. Alesia antwortet selbst, innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Vertriebs-E-Mails folgen keine.</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, welche Jira-Version Sie nutzen und was Copilot beantworten soll. Alesia antwortet selbst, innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Es folgt keine Vertriebs-Mailserie.</p>
   <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-jira-connector-de" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Fragen, ob es lösbar ist</a></p>
 </div>
 
