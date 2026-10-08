@@ -10,6 +10,17 @@ import mdx from '@astrojs/mdx';
 
 const SITE = 'https://ironum.com';
 
+// Markdown/MDX images are below the fold in practice; lazy-load them unless set explicitly.
+function rehypeLazyImages() {
+  const visit = (node) => {
+    if (node.type === 'element' && node.tagName === 'img') {
+      node.properties = { loading: 'lazy', decoding: 'async', ...node.properties };
+    }
+    (node.children || []).forEach(visit);
+  };
+  return (tree) => visit(tree);
+}
+
 // Build URL → lastmod map from blog frontmatter (sync, at config-load time).
 const BLOG_DIR = path.resolve('./src/content/blog');
 const BLOG_LASTMODS = new Map();
@@ -78,6 +89,9 @@ for (const pair of PAIRS) {
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  markdown: {
+    rehypePlugins: [rehypeLazyImages],
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de'],

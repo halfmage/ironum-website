@@ -20,15 +20,5 @@ const blog = defineCollection({
   }),
 });
 
-const guides = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishDate: z.coerce.date(),
-    category: z.string(),
-    downloadUrl: z.string().optional(),
-  }),
-});
-
-export const collections = { blog, guides };
+// Guide metadata lives in src/data/guides.ts (PDF lead magnets, not content entries).
+export const collections = { blog };

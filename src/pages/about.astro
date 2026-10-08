@@ -4,9 +4,11 @@ import Navigation from '../components/Navigation.astro';
 import PageHero from '../components/sections/PageHero.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
+import { PERSON_ALESIA } from '../data/people';
 ---
 
 <Layout
+  structuredData={[PERSON_ALESIA]}
   title="About Ironum | Private AI Development from Germany & Poland"
   description="Ironum builds private, custom AI for companies in the US and EU. German engineering and Polish delivery, privacy-first and open-source, on infrastructure you control."
 >

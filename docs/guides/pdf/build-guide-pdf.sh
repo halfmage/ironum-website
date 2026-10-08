@@ -4,18 +4,20 @@
 # under a new content-hash filename and update src/data/guides.ts (file + startNote pages).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
-GUIDE="${1:-pm}"
-if [ "$GUIDE" = "po" ]; then
-  SRC="$ROOT/docs/guides/guide-ai-for-product-owners.md"
-  NAME="AI-for-Product-Owners"
-else
-  SRC="$ROOT/docs/guides/guide-ai-for-product-managers.md"
-  NAME="AI-for-Product-Managers"
-fi
+case "${1:-}" in
+  pm) SRC="$ROOT/docs/guides/guide-ai-for-product-managers.md"; NAME="AI-for-Product-Managers" ;;
+  po) SRC="$ROOT/docs/guides/guide-ai-for-product-owners.md"; NAME="AI-for-Product-Owners" ;;
+  *) echo "usage: $0 pm|po" >&2; exit 2 ;;
+esac
 PDFDIR="$ROOT/docs/guides/pdf"
 OUT="$PDFDIR/out"
 mkdir -p "$OUT"
-CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
+[ -x "$CHROME" ] || { echo "Chrome not found at $CHROME (set CHROME=...)" >&2; exit 1; }
+command -v pandoc >/dev/null || { echo "pandoc not installed" >&2; exit 1; }
+
+# Intermediates are removed even if a step fails.
+trap 'rm -f "$PDFDIR/body.md" "$PDFDIR/body.html" "$PDFDIR/guide.html"' EXIT
 
 # Strip internal-only HTML comments, then make image paths absolute for Chrome.
 python3 - "$SRC" "$PDFDIR/body.md" "$ROOT" <<'PY'
@@ -30,8 +32,9 @@ PY
 
 pandoc -f gfm -t html5 "$PDFDIR/body.md" -o "$PDFDIR/body.html"
 python3 "$PDFDIR/wrap.py" "$PDFDIR/body.html" "$PDFDIR/guide.html"
+rm -f "$OUT/$NAME.pdf"
 "$CHROME" --headless --disable-gpu --no-pdf-header-footer \
   --print-to-pdf="$OUT/$NAME.pdf" \
-  "file://$PDFDIR/guide.html" 2>/dev/null
-rm -f "$PDFDIR/body.md" "$PDFDIR/body.html" "$PDFDIR/guide.html"
+  "file://$PDFDIR/guide.html" 2>"$OUT/chrome.log" || true
+[ -s "$OUT/$NAME.pdf" ] || { echo "Chrome produced no PDF; see $OUT/chrome.log" >&2; exit 1; }
 echo "built: $OUT/$NAME.pdf"

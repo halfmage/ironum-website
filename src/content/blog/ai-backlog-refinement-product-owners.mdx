@@ -1,11 +1,12 @@
 ---
-title: "AI Backlog Refinement When Copilot Cannot Read Your Jira"
+title: "AI Backlog Refinement When Copilot Can't Read Jira"
 description: "Most product owners cannot point Copilot at their backlog. What to paste, what must never go in, and the refinement work AI genuinely does."
 publishDate: 2026-09-17
 updatedDate: 2026-10-08
 author: "Alesia Kunz"
 category: "implementation"
 tags: ["Product Owner", "Backlog Refinement", "Microsoft Copilot", "Scrum", "AI at Work", "GDPR"]
+ogImage: "/images/og/og-ai-product-owners.jpg"
 locale: "en"
 legalDisclaimer: true
 faq:
@@ -17,8 +18,8 @@ faq:
     answer: "It depends on your account and your company policy, and policy overrides everything else. Three questions settle most cases in a second. Which account am I signed into, work or personal, since a personal account is a different product with different terms. Would I put this in an email to a supplier. Is it someone else's personal data, such as user research recordings or support tickets with names in them. When you are signed in with a work account, Microsoft states that prompts and responses are covered by enterprise data protection and are not used to train the foundation models."
   - question: "Why does Copilot give a different answer to the same prompt?"
     answer: "Microsoft states in its own guidance that using the same prompt several times can return different responses. That is how the technology works rather than a fault. The practical consequence is that one good answer does not prove the prompt was good. Keep a prompt only once it has produced a usable answer more than once, on different inputs."
-  - question: "Can AI prioritise or order a product backlog?"
-    answer: "No, and it should not be asked to. A model that has never met your users, does not know how much change your organisation can absorb and has not sat in the conversation is guessing, however fluently it writes. The Scrum Guide places ordering with the product owner, who may delegate the work but remains accountable and is one person rather than a committee. Use AI to argue against an order you already hold, never to produce one."
+  - question: "Can AI prioritize or order a product backlog?"
+    answer: "No, and it should not be asked to. A model that has never met your users, does not know how much change your organization can absorb and has not sat in the conversation is guessing, however fluently it writes. The Scrum Guide places ordering with the product owner, who may delegate the work but remains accountable and is one person rather than a committee. Use AI to argue against an order you already hold, never to produce one."
   - question: "How much time does AI actually save in backlog refinement?"
     answer: "The honest answer is that it moves time rather than removing it. It clears the avoidable questions, the ones you could have answered before the session, so refinement reaches the questions worth having. Good questions still come up about the aspect nobody considered, and that is the session working as intended rather than a failure of preparation."
 ---
@@ -28,7 +29,7 @@ faq:
 ## Key Takeaways
 
 - If your backlog lives in Jira or Azure DevOps, no tier of Microsoft Copilot reads it automatically. Microsoft publishes connectors for Jira and Confluence, but an administrator has to deploy them, and a connected source is not the same as a readable project.
-- Most people who conclude Copilot is useless are on a licence that cannot reach their own files. Copilot Chat on the basic tier answers from web data and from whatever you hand it. Only the paid Microsoft 365 Copilot add-on reaches your files and mail by itself, and only those you already have permission to open.
+- Most people who conclude Copilot is useless are on a license that cannot reach their own files. Copilot Chat on the basic tier answers from web data and from whatever you hand it. Only the paid Microsoft 365 Copilot add-on reaches your files and mail by itself, and only those you already have permission to open.
 - The work AI genuinely does in refinement is the part you should have settled before the session: listing the questions a developer would ask, proposing splits, and drafting acceptance criteria that are testable rather than a restatement of the title.
 - Three questions decide what is safe to paste. Which account am I signed into, work or personal. Would I put this in an email to a supplier. Is it someone else's personal data. Your company policy overrides all three, and among workplaces already using generative AI only 21% have written any rule down.
 - AI cannot order your backlog and cannot decide what is valuable. Those are the accountabilities the Scrum Guide names as the product owner's, and a draft from a model does not move them.
@@ -37,16 +38,21 @@ You asked Copilot what the team agreed about an epic, and it told you nothing us
 asked it to refine an item, and it answered about a product that is not yours. The
 conclusion most people draw at that point is that the tool is overrated.
 
-It is more likely that you are on a licence that cannot read your work.
+It is more likely that you are on a license that cannot read your work.
 
 That distinction decides everything else, so it is worth two minutes before any prompt
-advice. This is for product owners in organisations running Microsoft 365, which is most
+advice. This is for product owners in organizations running Microsoft 365, which is most
 of them.
 
 ## Why Copilot Cannot Read Your Backlog
 
-Two sources feed any answer a Copilot gives you: the public web, and your organisation's
-own content. Which of the two it can reach depends entirely on your licence.
+**Short answer: it can't, on its own.** If your backlog lives in Jira or Azure DevOps, no
+tier of Microsoft Copilot reads it automatically. The Jira connector has to be deployed by
+an administrator, works only with Jira Cloud, and often still cannot pull data from a
+particular project, so most product owners paste items in by hand.
+
+Two sources feed any answer a Copilot gives you: the public web, and your organization's
+own content. Which of the two it can reach depends entirely on your license.
 
 | Tier | Can it see your files and mail |
 |---|---|
@@ -64,7 +70,7 @@ Microsoft does publish connectors for Jira Cloud and Confluence, but an administ
 to deploy them, and they enforce the source system's own permissions. A connected source
 is not the same as a readable project.
 
-You can check what your own licence exposes under Copilot Chat, then Settings, then
+You can check what your own license exposes under Copilot Chat, then Settings, then
 Sources. The catch worth knowing in advance is that even where Jira or Confluence shows up
 there as an available source, Copilot often still cannot pull data from your particular
 project. In practice that means product owners and business analysts copy the ticket in by
@@ -74,7 +80,7 @@ Which turns out to be fine. Everything below works on any tier, because you supp
 content.
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 border-l-4 border-l-blue-600 bg-blue-50 px-6 py-6">
-  <p class="m-0 text-lg font-bold text-black">Not sure which Copilot licence you are on?</p>
+  <p class="m-0 text-lg font-bold text-black">Not sure which Copilot license you are on?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">The free guide for product owners settles it in one table, then gives you the prompt pack and works through all five accountabilities one at a time. The download opens straight away and we do not email you the file.</p>
   <p class="m-0 mt-5"><a href="/resources/guides/ai-for-product-owners/" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Get the guide, free</a></p>
 </div>
@@ -121,14 +127,14 @@ Three questions settle almost every case, and you can answer them in a second.
 2. **Would I put this in an email to a supplier?** If not, it does not go into a chat
    window either.
 3. **Is it someone else's personal data?** User research recordings, support tickets with
-   names in them, anything out of a customer system. Anonymise it or do not paste it.
+   names in them, anything out of a customer system. Anonymize it or do not paste it.
 
 Your company's own policy overrides all three. If it has one, read it once, properly. If it
 does not, ask whoever would own it, because the absence of a rule is not permission.
 
 This is practical guidance rather than legal advice.
 
-## The Four Part Prompt Microsoft Wrote
+## The Four-Part Prompt Microsoft Wrote
 
 Microsoft publishes a prompt structure in its own guidance and almost nobody uses it. It
 has four parts: goal, context, expectations, and source.
@@ -183,7 +189,7 @@ most people miss.
 
 A prompt is only worth keeping once it has produced a usable answer more than once, on
 different inputs. Save the ones that pass, with the parts that change marked in square
-brackets, wherever your team already looks. Nine in ten organisations using generative AI
+brackets, wherever your team already looks. Nine in ten organizations using generative AI
 are running on freely accessible tools, which means nobody is saving your prompts for you.
 
 ## What AI Cannot Do In Refinement
@@ -192,7 +198,7 @@ Every section above describes preparation. AI backlog refinement stops there, be
 accountabilities themselves do not move.
 
 **It cannot order your backlog.** A model that has never met your users, does not know how
-much change your organisation can absorb, and has not sat in the conversation is guessing,
+much change your organization can absorb, and has not sat in the conversation is guessing,
 fluently. The Scrum Guide places ordering with the product owner, who may delegate the work
 but remains accountable, and who is one person rather than a committee. Use AI to test an
 order you already hold. Never to produce one.
@@ -259,7 +265,7 @@ the permissions people already have and hosted on infrastructure you control, is
 Every source was read at source rather than taken from a summary of it, and every link
 below was checked on 17 September 2026.
 
-- **Microsoft product documentation**, for the licence tiers, grounding, enterprise data
+- **Microsoft product documentation**, for the license tiers, grounding, enterprise data
   protection and prompt structure:
   [Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview).
   For the connectors, and for the fact that an administrator must deploy them and they

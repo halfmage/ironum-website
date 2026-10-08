@@ -1,0 +1,13 @@
+---
+// Shared author + sources line for the guide pages, so the credit reads the same everywhere.
+export interface Props {
+  /** Sources specific to this guide, already in reading order. */
+  sources: string;
+}
+const { sources } = Astro.props;
+---
+
+<p class="text-base">
+  Written by <a href="/about/" class="text-black font-bold underline hover:text-blue-600">Alesia Kunz</a>, who has spent 17+ years doing this job as a product manager and product owner. She is Product Manager at Ironum and CEO of LearnSlice, the company behind it.
+  Every figure is traced to whoever published it: {sources}. Nothing is estimated.
+</p>

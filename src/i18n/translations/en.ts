@@ -41,7 +41,7 @@ export const en = {
     eyebrow: 'CUSTOM AI DEVELOPMENT · BUILT FOR THE US & EU',
     title: 'Custom AI that actually ships —<br>and pays for itself',
     subtitle: 'We design, build, and deploy AI assistants, private RAG, and automation for your industry — on infrastructure you own, in weeks not quarters. Most AI pilots never reach production. Ours do.',
-    trustLine: 'Trusted by FH Dortmund, Smella, LearnSlice, and companies in finance, education, and travel',
+    trustLine: 'Trusted by FH Dortmund, Smella, and companies in finance, education, and travel',
     ctaButton: 'Book a Free AI Strategy Call',
     ctaSubtext: '30 minutes with Gerrit · A concrete plan for your AI project · No commitment',
     ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',

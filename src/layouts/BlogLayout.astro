@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
 import { getLangFromUrl } from '../i18n/utils';
+import { PERSON_ALESIA, AUTHOR_PAGES } from '../data/people';
 
 export interface Props {
   frontmatter: {
@@ -40,6 +41,7 @@ const AUTHOR_SCHEMA: Record<string, object> = {
   'Ironum Team': { "@id": "https://ironum.com/#organization" },
 };
 const authorSchema = AUTHOR_SCHEMA[frontmatter.author] ?? { "@type": "Person", "name": frontmatter.author };
+const authorPage = AUTHOR_PAGES[frontmatter.author];
 
 const articleSection = SECTION_DISPLAY_NAMES[frontmatter.category] ?? frontmatter.category;
 
@@ -81,6 +83,8 @@ const articleSchema: object[] = [{
   }
 }];
 
+if (frontmatter.author === 'Alesia Kunz') articleSchema.push(PERSON_ALESIA);
+
 if (frontmatter.faq && frontmatter.faq.length > 0) {
   articleSchema.push({
     "@type": "FAQPage",
@@ -96,7 +100,7 @@ if (frontmatter.faq && frontmatter.faq.length > 0) {
 }
 ---
 
-<Layout title={`${frontmatter.title} | Ironum Blog`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage} ogType="article">
+<Layout title={`${frontmatter.title} | Ironum`} description={frontmatter.description} breadcrumbs={breadcrumbs} structuredData={articleSchema} ogImage={frontmatter.ogImage ?? frontmatter.heroImage} ogType="article">
   <Navigation />
   <article class="px-4 md:px-20 py-20 md:py-32 max-w-4xl mx-auto">
     {frontmatter.heroImage && (
@@ -114,7 +118,7 @@ if (frontmatter.faq && frontmatter.faq.length > 0) {
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{frontmatter.category}</span>
       <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">{frontmatter.title}</h1>
       <div class="flex items-center gap-4 text-gray-500">
-        <span>{frontmatter.author}</span>
+        {authorPage ? <a href={authorPage} class="hover:text-blue-600 underline">{frontmatter.author}</a> : <span>{frontmatter.author}</span>}
         <span>·</span>
         <time datetime={frontmatter.publishDate}>{new Date(frontmatter.publishDate).toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' })}</time>
       </div>

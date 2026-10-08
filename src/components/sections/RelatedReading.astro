@@ -19,7 +19,7 @@ const { eyebrow = 'RATGEBER', heading, cta = 'Mehr erfahren', links } = Astro.pr
   <div class="max-w-7xl mx-auto space-y-8">
     <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{eyebrow}</span>
     <h2 class="text-3xl md:text-5xl font-bold">{heading}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class:list={["grid grid-cols-1 gap-6", links.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"]}>
       {links.map((link) => (
         <a href={link.href} class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">{link.title}</h3>

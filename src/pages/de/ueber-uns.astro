@@ -4,9 +4,11 @@ import Navigation from '../../components/Navigation.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import FinalCTA from '../../components/FinalCTA.astro';
 import Footer from '../../components/Footer.astro';
+import { PERSON_ALESIA } from '../../data/people';
 ---
 
 <Layout
+  structuredData={[PERSON_ALESIA]}
   locale="de"
   title="Über Ironum | Europäische KI-Souveränität aus Düsseldorf"
   description="Ironum wird von LearnSlice UG in Düsseldorf entwickelt. Gegründet 2024, liefern wir DSGVO-konforme, datenschutzorientierte KI-Lösungen für den europäischen Mittelstand."

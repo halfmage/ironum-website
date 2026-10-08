@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const guide = GUIDES[Astro.props.guideId];
-const { id: guideId, title: guideTitle, pages, file, startNote } = guide;
+const { id: guideId, title: guideTitle, audience, pages, file, startNote } = guide;
 const input = 'w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors bg-white';
 const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4 py-3 text-gray-600 font-semibold cursor-pointer hover:border-blue-200 transition-colors bg-white';
 ---
@@ -18,7 +18,7 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
   <div class="max-w-2xl mx-auto">
     <div id="g-gate">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">FREE GUIDE</span>
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">Get the guide</h2>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Download the free AI guide for {audience}</h2>
       <p class="text-gray-500 text-lg font-semibold mb-8">{guideTitle}, {pages}. The download opens straight away. We do not email you the file.</p>
 
       <form name="guide-download" method="POST" action={downloadPath(guideId)} data-netlify="true" netlify-honeypot="bot-field" id="g-form" class="space-y-6">
@@ -49,7 +49,7 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
 
         <fieldset>
           <legend class="block text-sm font-bold mb-1">Which of these would actually help you? <span class="text-red-500">*</span></legend>
-          <p class="text-sm text-gray-500 mb-3">This is the only thing we ask in return. It decides nothing about your download.</p>
+          <p class="text-sm text-gray-500 mb-3">Your answer decides nothing about your download.</p>
           <div class="flex flex-col gap-3">
             <label class={choice}><input type="radio" name="interest" value="A question about my own work" required class="mt-1 accent-blue-600" /> <span>I have a question about applying this to my own work</span></label>
             <label class={choice}><input type="radio" name="interest" value="AI that reads our Jira and Confluence" class="mt-1 accent-blue-600" /> <span>We need AI that can read our own Jira, Confluence or documents, because our tools cannot</span></label>
@@ -66,7 +66,7 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
 
         <p id="g-error" class="hidden text-red-600 font-semibold" role="alert"></p>
 
-        <button type="submit" id="g-submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation disabled:opacity-40 disabled:cursor-not-allowed">Get my guide, free</button>
+        <button type="submit" id="g-submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation disabled:opacity-60 disabled:cursor-wait">Get my guide, free</button>
       </form>
     </div>
 
@@ -87,7 +87,6 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
     const result = document.getElementById('g-result');
     const link = document.getElementById('g-download');
     const submitBtn = document.getElementById('g-submit');
-    const consent = document.getElementById('g-consent');
     const error = document.getElementById('g-error');
 
     // Simple Analytics events. Metadata carries the guide id only, never a form value.
@@ -97,13 +96,10 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
     form.addEventListener('input', () => { if (!started) { started = true; sa('guide_form_start', { guide: guideId }); } });
     link.addEventListener('click', () => sa('guide_download_click', { guide: guideId }));
 
-    const sync = () => { submitBtn.disabled = !consent.checked; };
-    consent.addEventListener('change', sync);
-    sync();
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (submitBtn.disabled || !form.reportValidity()) return;
+      // The browser has already enforced `required` (consent included) before this fires.
+      if (submitBtn.disabled) return;
       submitBtn.disabled = true;
       submitBtn.textContent = 'One moment…';
       error.classList.add('hidden');
@@ -128,7 +124,7 @@ const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4
         result.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch (err) {
         sa('guide_form_error', { guide: guideId });
-        submitBtn.disabled = !consent.checked;
+        submitBtn.disabled = false;
         submitBtn.textContent = 'Get my guide, free';
         error.textContent = 'Something went wrong. Please try again, or write to info@ironum.com.';
         error.classList.remove('hidden');

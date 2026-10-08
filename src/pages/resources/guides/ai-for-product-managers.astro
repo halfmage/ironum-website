@@ -6,6 +6,11 @@ import GuideDownload from '../../../components/sections/GuideDownload.astro';
 import FAQSection from '../../../components/sections/FAQSection.astro';
 import RelatedReading from '../../../components/sections/RelatedReading.astro';
 import Footer from '../../../components/Footer.astro';
+import GuideByline from '../../../components/sections/GuideByline.astro';
+import { GUIDES } from '../../../data/guides';
+import { PERSON_ALESIA } from '../../../data/people';
+
+const guide = GUIDES.pm;
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -17,8 +22,8 @@ const breadcrumbs = [
 // Every figure here repeats one already sourced inside the guide.
 const faqItems = [
   {
-    question: 'Can Microsoft Copilot see my Jira tickets?',
-    answer: 'If your backlog lives in Jira or Azure DevOps, no tier of Copilot reads it automatically. Microsoft publishes connectors for Jira and Confluence, but an administrator has to deploy them, and the Jira connector works only with Jira Cloud, not Jira Server or Data Center. A connected source is not the same as a readable project.',
+    question: 'Which Copilot license do I have, and what can it see?',
+    answer: 'Check what your license exposes in Copilot Chat under Settings, then Sources. As a rule: Copilot Chat on the basic tier answers from web data and from whatever you paste, upload, or have open in Teams or Outlook. Only the paid Microsoft 365 Copilot Premium add-on reaches your own files and mail by itself, through Microsoft Graph, and only files you already have permission to open.',
   },
   {
     question: 'What is the difference between Copilot Chat and Microsoft 365 Copilot?',
@@ -34,50 +39,68 @@ const faqItems = [
   },
   {
     question: 'Is the guide free, and do you email the file?',
-    answer: 'It is free and the download opens straight away. We do not email the file to you, and downloading starts no sales sequence. The form asks one question about which kind of help would be useful, and your answer decides nothing about the download.',
+    answer: 'It is free and the download opens straight away. We do not email the file to you, and downloading starts no sales sequence. Besides your email and role, the form asks which kind of help would be useful, and your answer decides nothing about the download.',
   },
 ];
 ---
 
 <Layout
   title="AI for Product Managers: Free Practical Guide | Ironum"
-  description="97% of product managers say AI made them faster. Only 64% say it made their product better. A free 26-page guide on closing that gap, every figure sourced."
+  description={`97% of product managers say AI made them faster. Only 64% say it made their product better. A free ${guide.pages.replace(' pages', '-page')} guide on closing that gap.`}
   breadcrumbs={breadcrumbs}
+  ogImage="/images/og/og-ai-product-managers.jpg"
   structuredData={[{
     "@type": "DigitalDocument",
-    "name": "AI for product managers",
+    "name": guide.title,
+    "numberOfPages": parseInt(guide.pages),
     "author": { "@id": "https://ironum.com/#person-alesia" },
     "publisher": { "@id": "https://ironum.com/#organization" },
     "encodingFormat": "application/pdf",
     "isAccessibleForFree": true,
     "inLanguage": "en",
-  }]}
+  }, PERSON_ALESIA]}
 >
-  <Navigation />
+  <Navigation cta={{ text: 'Get the free guide', href: '#get-the-guide' }} />
   <PageHero
     eyebrow="FREE GUIDE"
     title="AI for Product Managers"
-    subtitle="Where it changes the product, not just the pace."
-    ctaLink=""
+    subtitle="97% of product managers say AI made them faster. Only 64% say it made the product better. Here is how to close that gap."
+    ctaText="Get the free guide"
+    ctaLink="#get-the-guide"
+    showAvatar={false}
   />
 
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-3xl mx-auto space-y-8 text-gray-600 text-lg leading-relaxed">
-      <p class="text-2xl font-bold text-black leading-snug">97% of product managers say AI made them faster. Only 64% say it made their product better.</p>
+      <p class="text-2xl font-bold text-black leading-snug">Where AI changes the product, not just the pace.</p>
       <p>AI does two things in a product week. It changes how fast you produce work, and it changes what you decide. Only the second moves the product. This guide covers five places the week goes wrong, and names what the tool cannot do in each.</p>
-      <p class="text-base">Written by <strong class="text-black">Alesia Kunz</strong>, Product Manager at Ironum and CEO of LearnSlice, the company behind Ironum, after 17+ years in software engineering as a product manager and product owner. Figures come from Product Focus, the IAB, Eurostat, the OECD and Microsoft's own documentation.</p>
-      <a href="#get-the-guide" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px]">Get the guide, free</a>
+      <GuideByline sources="Product Focus, Germany's federal employment research institute (IAB), Eurostat, the OECD and Microsoft's own documentation" />
+      <a href="#get-the-guide" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px]">Get the free guide</a>
 
       <img src="/images/guides/pm-outcome-gap.svg" width="520" height="286" loading="lazy" decoding="async" class="w-full max-w-[520px] h-auto mx-auto rounded-2xl"
         alt="Faster but not better: 97% of product managers report improved personal productivity from AI, while 64% report improved product outcomes such as more revenue or faster time to market, a gap of 33 percentage points. Source: Product Focus 2026 Survey of the Product Management Profession." />
 
-      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">AI for discovery, prioritisation and stakeholder updates</h2>
-      <p>Sharpening the questions before a customer interview beats drafting faster. The guide works through five places in a product week where AI is worth the time: the plan that never survives Wednesday, knowing your users better than the people using the product, prioritisation when everything is important, the writing that fills most of the week, and the metric that moved the day before the meeting.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">AI for discovery, prioritization and stakeholder updates</h2>
+      <p>Sharpening the questions before a customer interview beats drafting faster. The guide works through five places in a product week where AI is worth the time: the plan that never survives Wednesday, knowing your users better than the people using the product, prioritization when everything is important, the writing that fills most of the week, and the metric that moved the day before the meeting.</p>
 
-      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">Why Copilot cannot see your work</h2>
-      <p>Two sources feed any answer: the public web, and your organisation's own content. Only the premium tier reaches the second by itself. If your backlog lives in Jira or Azure DevOps, no tier reads it automatically. Many people who find Copilot useless are on a licence that cannot read their work. The guide gives the tier table and shows how to check yours.</p>
-      <img src="/images/guides/pm-copilot-tiers.svg" width="520" height="348" loading="lazy" decoding="async" class="w-full max-w-[520px] h-auto mx-auto rounded-2xl"
-        alt="What each Microsoft Copilot tier can reach: Copilot Chat Basic reaches web data only; Microsoft 365 Copilot Basic reaches web data and works inside Word, Excel, PowerPoint and OneNote; Microsoft 365 Copilot Premium, the paid add-on, additionally reaches your own files and mail automatically through Microsoft Graph, limited to files you already have permission to open." />
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">What each Copilot license can see</h2>
+      <p>Two sources feed any answer: the public web, and your organization's own content. Which of the two Copilot can reach depends entirely on your license, and many people who find Copilot useless are on one that cannot read their work.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-base border-collapse">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="py-3 pr-4 font-bold text-black">Tier</th>
+              <th class="py-3 font-bold text-black">Can it see your files and mail?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-100"><td class="py-3 pr-4 font-semibold text-black align-top">Copilot Chat (Basic)</td><td class="py-3">No. Web data only. It sees your work if you paste it, upload it, or have it open in Teams or Outlook.</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 pr-4 font-semibold text-black align-top">Microsoft 365 Copilot (Basic)</td><td class="py-3">Not in chat, but Copilot works inside Word, Excel, PowerPoint and OneNote.</td></tr>
+            <tr><td class="py-3 pr-4 font-semibold text-black align-top">Microsoft 365 Copilot (Premium), the paid add-on</td><td class="py-3">Yes, automatically, through Microsoft Graph, and only for files you already have permission to open.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Two products share the word Basic, which is where most of the confusion starts. The guide shows how to check which one you are on.</p>
 
       <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">AI prompts for product managers</h2>
       <p>Microsoft's own prompt framework has four parts: goal, context, expectations and source. The prompt pack is written that way and is copyable as it stands, with the parts you change marked. Most prompts return something you still have to decide on, which is the point.</p>
@@ -89,15 +112,17 @@ const faqItems = [
 
       <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">When the limit is the tool, not you</h2>
       <p>Most of the guide is method, and method is yours to fix. Some limits are not: a tool that cannot read your tickets, documents or research cannot ground its answers in them. Connecting a model to those systems, with the same permissions people already have, is a solvable engineering problem, and it does not have to mean sending your data abroad.</p>
-      <p>This is the work Ironum does: <a href="/services/enterprise-rag/" class="text-blue-600 underline">private RAG</a> and <a href="/services/custom-ai-development/" class="text-blue-600 underline">custom AI</a> on your own data, hosted in the EU or on your own infrastructure. If you have hit one of these limits, <a href="/contact/?source=guide-pm" class="text-blue-600 underline">tell us which one</a>.</p>
+      <p>This is the work Ironum does: <a href="/services/enterprise-rag/" class="text-blue-600 underline">private RAG</a> and <a href="/services/custom-ai-development/" class="text-blue-600 underline">custom AI</a> on your own data, hosted in the EU or on your own infrastructure. When a model can read your research notes, tickets and metrics directly, it can answer "what did customers actually say about onboarding this quarter" across all of them, not just the three interviews you pasted, and cite where each answer came from.</p>
+      <p>If you have hit one of these limits, write to Alesia with the limit and the system your data lives in. She replies herself, within two working days, with whether it is solvable and roughly what it would take. No sales sequence follows.</p>
+      <a href="/contact/?source=guide-pm" class="inline-block border-2 border-blue-600 text-blue-600 rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-50 transition-all duration-200 min-h-[48px]">Ask whether your limit is solvable</a>
     </div>
   </section>
 
   <GuideDownload guideId="pm" />
-  <FAQSection items={faqItems} title="Common Questions" />
+  <FAQSection items={faqItems} title="AI for product managers: common questions" />
   <RelatedReading
     eyebrow="KEEP READING"
-    heading="Related"
+    heading="More on AI in product work"
     cta="Read more"
     links={[
       {
@@ -107,7 +132,7 @@ const faqItems = [
       },
       {
         href: '/resources/blog/ai-backlog-refinement-product-owners/',
-        title: 'AI Backlog Refinement When Copilot Cannot Read Your Jira',
+        title: 'AI Backlog Refinement When Copilot Can\'t Read Jira',
         description: 'What to paste, what must never go in, and the refinement work AI genuinely does.',
       },
       {

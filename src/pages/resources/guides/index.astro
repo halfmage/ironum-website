@@ -3,6 +3,9 @@ import Layout from '../../../layouts/Layout.astro';
 import Navigation from '../../../components/Navigation.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import Footer from '../../../components/Footer.astro';
+import GuideByline from '../../../components/sections/GuideByline.astro';
+import { GUIDES } from '../../../data/guides';
+import { PERSON_ALESIA } from '../../../data/people';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -15,29 +18,44 @@ const guides = [
     title: 'AI for Product Managers',
     tagline: 'Where it changes the product, not just the pace.',
     description: '97% of product managers say AI made them faster. Only 64% say it made their product better. Five places in a product week where AI is worth the time, a prompt pack, and a thirty minute weekly routine.',
-    meta: '26 pages · free PDF',
-    href: '/resources/guides/ai-for-product-managers/',
+    meta: `${GUIDES.pm.pages} · free PDF`,
+    href: GUIDES.pm.landing,
   },
   {
     title: 'AI for Product Owners',
     tagline: 'Where it fits your sprint, and where it stops.',
     description: 'Refinement, acceptance criteria, ordering and sprint goals, following the Scrum Guide. Why Copilot cannot read your Jira backlog, and the prompts worth keeping.',
-    meta: '21 pages · free PDF',
-    href: '/resources/guides/ai-for-product-owners/',
+    meta: `${GUIDES.po.pages} · free PDF`,
+    href: GUIDES.po.landing,
   },
 ];
 ---
 
 <Layout
-  title="Free AI Guides for Product Managers & Product Owners | Ironum"
+  title="AI Guides for Product Managers & Product Owners | Ironum"
   description="Two free, fully sourced guides on using AI in product work: what Copilot can actually see, where AI helps and where it stops, and prompts to use today."
   breadcrumbs={breadcrumbs}
+  ogImage="/images/og/og-ai-guides.jpg"
+  structuredData={[{
+    "@type": "CollectionPage",
+    "name": "AI guides for product managers and product owners",
+    "url": "https://ironum.com/resources/guides/",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": guides.map((g, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://ironum.com${g.href}`,
+        "name": g.title,
+      })),
+    },
+  }, PERSON_ALESIA]}
 >
   <Navigation />
   <PageHero
     eyebrow="GUIDES"
-    title="Practical AI Guides for Product Teams"
-    subtitle="Free, complete, and every figure traced to the organisation that published it."
+    title="AI Guides for Product People, Written by One"
+    subtitle="Two free guides on using the AI you already have, properly. Every figure traced to whoever published it."
     ctaLink=""
   />
 
@@ -52,7 +70,11 @@ const guides = [
         </a>
       ))}
     </div>
-    <p class="max-w-3xl mx-auto text-center text-gray-500 font-semibold mt-12">Written by Alesia Kunz, Product Manager at Ironum and CEO of LearnSlice, the company behind Ironum, after 17+ years as a product manager and product owner.</p>
+    <div class="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed mt-12 space-y-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-black">Which one is for me?</h2>
+      <p>Product owners get the guide built around refinement, ordering and sprint goals. Everyone else, including heads of product, gets the product manager guide, which has a section on leading a team. Both cover which Copilot license can see your work, and both end with a thirty minute weekly routine.</p>
+      <GuideByline sources="Product Focus, Germany's federal employment research institute (IAB), Eurostat, the OECD, the Scrum Guide and Microsoft's own documentation" />
+    </div>
   </section>
 
   <Footer />
