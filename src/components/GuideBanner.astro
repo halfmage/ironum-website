@@ -2,42 +2,21 @@
 // Announcement bar for the AI guides, ported from the LearnSlice header bar.
 // Sits in the page flow above the sticky nav, so it scrolls away and the nav takes the top.
 // Orange accent rather than the blue CTA color, so it never competes with the nav button.
+// Clicks are measured by the ?ref= in the link (see translations), not by a script.
 // TO REMOVE: delete this component and its <GuideBanner /> on src/pages/index.astro.
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url)).guideBanner;
 ---
 
-<a href="/resources/guides/" id="guide-bar" class="group block bg-orange-500 text-black hover:bg-orange-400 transition-colors duration-200">
+<a href={t.href} class="group block bg-orange-500 text-black hover:bg-orange-400 transition-colors duration-200 motion-reduce:transition-none">
   <span class="max-w-7xl mx-auto px-4 md:px-8 py-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs sm:text-sm">
-    <span class="bg-black text-orange-500 text-[10px] font-bold tracking-[0.1em] uppercase px-2 py-0.5 rounded-full">New</span>
-    <span class="font-semibold sm:hidden">Free AI guides for product teams</span>
-    <span class="font-semibold hidden sm:inline">Free AI guides for product managers and product owners</span>
+    <span class="bg-black text-orange-500 text-[10px] font-bold tracking-[0.1em] uppercase px-2 py-0.5 rounded-full">{t.badge}</span>
+    <span class="font-semibold sm:hidden">{t.textShort}</span>
+    <span class="font-semibold hidden sm:inline">{t.text}</span>
     <span class="hidden sm:inline-flex items-center gap-1 font-bold">
-      Read them
-      <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+      {t.cta}
+      <span class="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden="true">&rarr;</span>
     </span>
   </span>
 </a>
-
-<script is:inline>
-  (function () {
-    var bar = document.getElementById('guide-bar');
-    if (!bar) return;
-    bar.addEventListener('click', function (e) {
-      try {
-        if (typeof window.sa_event !== 'function') return;
-        // The click starts a full page load, which can cancel the event request. A plain
-        // left click waits for the request, 300 ms at most. A click that opens a new tab
-        // keeps this page alive, so it needs no wait. Neither does a blocked analytics
-        // script, which never calls back.
-        var plain = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
-        if (!plain || !window.sa_loaded) { window.sa_event('guide_banner_click'); return; }
-        e.preventDefault();
-        var done = false;
-        var go = function () { if (done) return; done = true; location.href = bar.href; };
-        window.sa_event('guide_banner_click', go);
-        setTimeout(go, 300);
-      } catch (err) {
-        if (e.defaultPrevented) location.href = bar.href;
-      }
-    });
-  })();
-</script>

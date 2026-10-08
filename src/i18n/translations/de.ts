@@ -36,6 +36,13 @@ export const de = {
     aboutHref: '/de/ueber-uns/',
     contactHref: '/de/kontakt/',
   },
+  guideBanner: {
+    badge: 'Neu',
+    text: 'Kostenlose KI-Leitfäden für Product Manager und Product Owner (Englisch)',
+    textShort: 'Kostenlose KI-Leitfäden (Englisch)',
+    cta: 'Ansehen',
+    href: '/resources/guides/?ref=home-banner-de',
+  },
   hero: {
     eyebrow: 'KI-PARTNER FÜR DEN EUROPÄISCHEN MITTELSTAND',
     title: 'KI für den Mittelstand.<br>Ohne Compliance-Risiko',

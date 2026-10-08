@@ -37,6 +37,15 @@ export const en = {
     aboutHref: '/about/',
     contactHref: '/contact/',
   },
+  guideBanner: {
+    badge: 'New',
+    text: 'Free AI guides for product managers and product owners',
+    textShort: 'Free AI guides for product teams',
+    cta: 'Read them',
+    // ?ref= is recorded by Simple Analytics with the page view: banner clicks are counted
+    // on the guides page itself, with no click-tracking script and no navigation delay.
+    href: '/resources/guides/?ref=home-banner',
+  },
   hero: {
     eyebrow: 'CUSTOM AI DEVELOPMENT · BUILT FOR THE US & EU',
     title: 'Custom AI that actually ships —<br>and pays for itself',
