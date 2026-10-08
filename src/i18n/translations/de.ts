@@ -66,6 +66,7 @@ export const de = {
       { name: 'Gesundheitswesen', href: '/de/branchen/gesundheitswesen/' },
       { name: 'Öffentlicher Sektor', href: '/de/branchen/oeffentlicher-sektor/' },
     ],
+    // No 'AI Guides' entry: the guides are English-only. Add one once a German version exists.
     resourceLinks: [
       { name: 'Blog', href: '/de/ressourcen/blog/' },
       { name: 'Plattform', href: '/de/plattform/' },
@@ -157,9 +158,9 @@ export const de = {
       },
       {
         badge: 'Chatbot-Schnittstellen',
-        quote: '„Unsere Kunden vertrauen uns ihre Daten an. Als wir KI-gestützte Personalisierung brauchten, konnten wir Studierendenprofile nicht in eine US-Cloud senden. Ironum gab uns eine souveräne KI-Schicht, die komplett auf europäischer Infrastruktur läuft. Unsere Lernenden erhalten eine moderne, personalisierte Lernerfahrung. Und ihre Daten verlassen nie unsere Kontrolle."',
+        quote: '„Wir haben Ironums souveräne KI-Schicht zuerst für unsere eigene Lernplattform gebaut, weil wir Studierendenprofile nicht in eine US-Cloud senden konnten. Sie läuft komplett auf europäischer Infrastruktur. Unsere Lernenden erhalten eine moderne, personalisierte Lernerfahrung. Und ihre Daten verlassen nie unsere Kontrolle."',
         name: 'Alesia Kunz',
-        role: 'CEO @ LearnSlice',
+        role: 'CEO @ LearnSlice, das Unternehmen hinter Ironum',
         avatar: '/avatars/alesia-kunz.jpg',
         screenshot: '/screenshots/learnslice.webp',
         screenshotAlt: 'LearnSlice KI-Lernplattform mit personalisierten Lernmodi und souveräner Datenverarbeitung',

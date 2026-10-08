@@ -1,0 +1,28 @@
+---
+// No-JS fallback for the guide form: Netlify redirects the native POST here.
+// noindex and excluded from the sitemap, since it carries the PDF link.
+import Layout from '../../../../layouts/Layout.astro';
+import Navigation from '../../../../components/Navigation.astro';
+import Footer from '../../../../components/Footer.astro';
+import { GUIDES, type Guide } from '../../../../data/guides';
+
+export function getStaticPaths() {
+  return Object.values(GUIDES).map((guide) => ({ params: { guide: guide.id }, props: { guide } }));
+}
+
+const { guide } = Astro.props as { guide: Guide };
+---
+
+<Layout title={`${guide.title} | Ironum`} description={`Download ${guide.title}.`} noindex>
+  <Navigation />
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-2xl mx-auto border-2 border-gray-100 rounded-2xl p-8">
+      <h1 class="text-3xl font-bold mb-2">Here it is</h1>
+      <p class="text-gray-500 text-lg font-semibold mb-6">{guide.title}, {guide.pages}. {guide.startNote}</p>
+      <a href={guide.file} download class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200">Download the PDF</a>
+      <p class="text-sm text-gray-500 mt-6">Keep the link. It does not expire, and forwarding it to a colleague is fine by us.</p>
+      <p class="mt-6"><a href={guide.landing} class="text-blue-600 underline">Back to the guide page</a></p>
+    </div>
+  </section>
+  <Footer />
+</Layout>

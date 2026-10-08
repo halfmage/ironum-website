@@ -13,6 +13,14 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://scripts.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://queue.simpleanalyticscdn.com https://*.simpleanalyticscdn.com; frame-ancestors 'none'; base-uri 'self'"
 
+# Gated guide PDFs. Keep /guides/ crawlable (no robots.txt Disallow): a crawler has to fetch
+# the file to see this header, and a blocked URL can still be indexed from links alone.
+# The landing pages under /resources/guides/ are the indexable surface.
+[[headers]]
+  for = "/guides/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
 [[headers]]
   for = "/de/*"
   [headers.values]

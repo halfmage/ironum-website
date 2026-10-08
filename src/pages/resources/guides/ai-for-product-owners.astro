@@ -1,0 +1,119 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import GuideDownload from '../../../components/sections/GuideDownload.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import RelatedReading from '../../../components/sections/RelatedReading.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Resources', href: '/resources/' },
+  { label: 'Guides', href: '/resources/guides/' },
+  { label: 'AI for Product Owners', href: '/resources/guides/ai-for-product-owners/' },
+];
+
+// Every figure here repeats one already sourced inside the guide.
+const faqItems = [
+  {
+    question: 'Can Microsoft Copilot read my Jira backlog?',
+    answer: 'Not on its own. If your backlog lives in Jira or Azure DevOps, no tier of Copilot reads it automatically. Microsoft publishes connectors for Jira Cloud and Confluence, but an administrator has to deploy them, and the Jira connector does not work with Jira Server or Data Center. Even where Jira appears as an available source, Copilot often still cannot pull data from a particular project, so in practice most product owners copy the item in by hand.',
+  },
+  {
+    question: 'What does AI actually do in backlog refinement?',
+    answer: 'It does the part you should have settled before the session. It will list the questions a developer would ask before picking an item up, propose splits, and draft acceptance criteria that are testable rather than a restatement of the title. It moves time rather than removing it: refinement reaches the questions worth having sooner.',
+  },
+  {
+    question: 'Can AI prioritise or order a product backlog?',
+    answer: 'No, and it should not be asked to. The Scrum Guide places ordering with the product owner, who stays accountable for it. A model that has never met your users is guessing, however fluently it writes. Use AI to argue against an order you already hold, never to produce one.',
+  },
+  {
+    question: 'Why does Copilot give a different answer to the same prompt?',
+    answer: 'Microsoft states in its own guidance that the same prompt used several times can return different responses. One good answer therefore does not prove the prompt was good. Keep a prompt only once it has produced a usable answer more than once, on different inputs.',
+  },
+  {
+    question: 'Is the guide free, and do you email the file?',
+    answer: 'It is free and the download opens straight away. We do not email the file to you, and downloading starts no sales sequence. The form asks one question about which kind of help would be useful, and your answer decides nothing about the download.',
+  },
+];
+---
+
+<Layout
+  title="AI for Product Owners: Free Backlog Refinement Guide | Ironum"
+  description="Where AI fits your sprint and where it stops: refinement, acceptance criteria, ordering, and why Copilot cannot read your Jira. Free 21-page guide."
+  breadcrumbs={breadcrumbs}
+  structuredData={[{
+    "@type": "DigitalDocument",
+    "name": "AI for product owners",
+    "author": { "@id": "https://ironum.com/#person-alesia" },
+    "publisher": { "@id": "https://ironum.com/#organization" },
+    "encodingFormat": "application/pdf",
+    "isAccessibleForFree": true,
+    "inLanguage": "en",
+  }]}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="FREE GUIDE"
+    title="AI for Product Owners"
+    subtitle="Where it fits your sprint, and where it stops."
+    ctaLink=""
+  />
+
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-3xl mx-auto space-y-8 text-gray-600 text-lg leading-relaxed">
+      <p class="text-2xl font-bold text-black leading-snug">Of German workplaces already using generative AI, 27% give their people any training in it. Only 21% have written down any rules for using it.</p>
+      <p>So in most of them the tool is in the building, nobody was taught it, and nobody agreed what may be typed into it. This guide follows the product owner's work as the Scrum Guide describes it, names what AI does well in each part, and says plainly where it stops.</p>
+      <p class="text-base">Written by <strong class="text-black">Alesia Kunz</strong>, Product Manager at Ironum and CEO of LearnSlice, the company behind Ironum, after 17+ years in software engineering as a product manager and product owner. Figures come from the IAB establishment panel, Eurostat, the OECD, the Scrum Guide and Microsoft's own documentation.</p>
+      <a href="#get-the-guide" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px]">Get the guide, free</a>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">What AI backlog refinement can and cannot do</h2>
+      <p>AI backlog refinement works on the parts you should have settled before the session. It will list the questions a developer would ask before picking an item up, and draft acceptance criteria that are testable rather than a restatement of the title. It cannot order your backlog and it cannot decide what is valuable. That judgement is the job, and writing a good user story stays teamwork.</p>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">Why Copilot cannot read your Jira backlog</h2>
+      <p>Two sources feed any answer: the public web, and your organisation's own content. Only the premium tier reaches the second by itself. If your backlog lives in Jira or Azure DevOps, no tier reads it automatically. Many people who find Copilot useless are on a licence that cannot read their work.</p>
+      <img src="/images/guides/pm-copilot-tiers.svg" width="520" height="348" loading="lazy" decoding="async" class="w-full max-w-[520px] h-auto mx-auto rounded-2xl"
+        alt="What each Microsoft Copilot tier can reach: Copilot Chat Basic reaches web data only; Microsoft 365 Copilot Basic reaches web data and works inside Word, Excel, PowerPoint and OneNote; Microsoft 365 Copilot Premium, the paid add-on, additionally reaches your own files and mail automatically through Microsoft Graph, limited to files you already have permission to open." />
+
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">What is inside</h2>
+      <ul class="space-y-3 list-none p-0">
+        <li class="flex gap-3"><span class="text-orange-500 font-bold">01</span> Six things nobody told you, from the licence nobody checks to where your prompts actually go</li>
+        <li class="flex gap-3"><span class="text-orange-500 font-bold">02</span> Four habits that separate method from luck</li>
+        <li class="flex gap-3"><span class="text-orange-500 font-bold">03</span> The five things that are actually yours: writing items, refinement, ordering, sprint planning and review</li>
+        <li class="flex gap-3"><span class="text-orange-500 font-bold">04</span> A prompt pack in Microsoft's four-part structure: goal, context, expectations, source</li>
+        <li class="flex gap-3"><span class="text-orange-500 font-bold">05</span> A thirty minute weekly routine that needs no budget and nobody's approval</li>
+      </ul>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-black pt-8">When the limit is the tool, not you</h2>
+      <p>Most of the guide is method, and method is yours to fix. Some limits are not. When a model can read your backlog directly, it can check every item against the Product Goal, find duplicates across the whole backlog rather than the twenty items you pasted, and refine a story against its real history, while respecting who may see which project. That is called grounding, and it does not have to mean sending your data abroad.</p>
+      <p>This is the work Ironum does: <a href="/services/enterprise-rag/" class="text-blue-600 underline">private RAG</a> and <a href="/services/custom-ai-development/" class="text-blue-600 underline">custom AI</a> connected to the systems a product team already uses, Jira and Confluence included, hosted in the EU or on your own infrastructure. If you have hit one of these limits, <a href="/contact/?source=guide-po" class="text-blue-600 underline">tell us which one</a>.</p>
+    </div>
+  </section>
+
+  <GuideDownload guideId="po" />
+  <FAQSection items={faqItems} title="Common Questions" />
+  <RelatedReading
+    eyebrow="KEEP READING"
+    heading="Related"
+    cta="Read more"
+    links={[
+      {
+        href: '/resources/blog/ai-backlog-refinement-product-owners/',
+        title: 'AI Backlog Refinement When Copilot Cannot Read Your Jira',
+        description: 'What to paste, what must never go in, and the refinement work AI genuinely does.',
+      },
+      {
+        href: '/resources/guides/ai-for-product-managers/',
+        title: 'AI for Product Managers',
+        description: 'The companion guide: where AI changes the product, not just the pace.',
+      },
+      {
+        href: '/services/enterprise-rag/',
+        title: 'Enterprise RAG',
+        description: 'AI that answers from your own Jira, Confluence and documents, deployed on infrastructure you control.',
+      },
+    ]}
+  />
+  <Footer />
+</Layout>

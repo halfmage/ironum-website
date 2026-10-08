@@ -1,0 +1,138 @@
+---
+// Soft-gated guide download. This is a light gate by design: the PDF path is in the page
+// script and the no-JS download page, and forwarding is welcome. /guides/* carries
+// X-Robots-Tag: noindex (netlify.toml), so this landing page is what ranks.
+import { GUIDES, downloadPath, type Guide } from '../../data/guides';
+
+export interface Props {
+  guideId: Guide['id'];
+}
+
+const guide = GUIDES[Astro.props.guideId];
+const { id: guideId, title: guideTitle, pages, file, startNote } = guide;
+const input = 'w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors bg-white';
+const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4 py-3 text-gray-600 font-semibold cursor-pointer hover:border-blue-200 transition-colors bg-white';
+---
+
+<section id="get-the-guide" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+  <div class="max-w-2xl mx-auto">
+    <div id="g-gate">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">FREE GUIDE</span>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Get the guide</h2>
+      <p class="text-gray-500 text-lg font-semibold mb-8">{guideTitle}, {pages}. The download opens straight away. We do not email you the file.</p>
+
+      <form name="guide-download" method="POST" action={downloadPath(guideId)} data-netlify="true" netlify-honeypot="bot-field" id="g-form" class="space-y-6">
+        <input type="hidden" name="form-name" value="guide-download" />
+        <input type="hidden" name="guide" value={guideTitle} />
+        <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="g-email" class="block text-sm font-bold mb-2">Work email <span class="text-red-500">*</span></label>
+            <input type="email" id="g-email" name="email" required autocomplete="email" class={input} />
+          </div>
+          <div>
+            <label for="g-company" class="block text-sm font-bold mb-2">Company</label>
+            <input type="text" id="g-company" name="company" autocomplete="organization" class={input} />
+          </div>
+        </div>
+
+        <fieldset>
+          <legend class="block text-sm font-bold mb-2">Your role <span class="text-red-500">*</span></legend>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class={choice}><input type="radio" name="role" value="Product manager" required class="mt-1 accent-blue-600" /> Product manager</label>
+            <label class={choice}><input type="radio" name="role" value="Product owner" class="mt-1 accent-blue-600" /> Product owner</label>
+            <label class={choice}><input type="radio" name="role" value="Head of product" class="mt-1 accent-blue-600" /> Head of product, director or VP</label>
+            <label class={choice}><input type="radio" name="role" value="Other" class="mt-1 accent-blue-600" /> Something else</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="block text-sm font-bold mb-1">Which of these would actually help you? <span class="text-red-500">*</span></legend>
+          <p class="text-sm text-gray-500 mb-3">This is the only thing we ask in return. It decides nothing about your download.</p>
+          <div class="flex flex-col gap-3">
+            <label class={choice}><input type="radio" name="interest" value="A question about my own work" required class="mt-1 accent-blue-600" /> <span>I have a question about applying this to my own work</span></label>
+            <label class={choice}><input type="radio" name="interest" value="AI that reads our Jira and Confluence" class="mt-1 accent-blue-600" /> <span>We need AI that can read our own Jira, Confluence or documents, because our tools cannot</span></label>
+            <label class={choice}><input type="radio" name="interest" value="Just the guide" class="mt-1 accent-blue-600" /> <span>None of these for now, I just want the guide</span></label>
+          </div>
+        </fieldset>
+
+        <label class="flex items-start gap-3 text-gray-600 font-semibold cursor-pointer">
+          <input type="checkbox" id="g-consent" name="privacy-notice-read" value="yes" required class="mt-1 accent-blue-600" />
+          <span>I have read the <a href="/privacy/" class="text-blue-600 underline">privacy policy</a> and understand how Ironum uses the details above.</span>
+        </label>
+
+        <p class="text-sm text-gray-500">We use these details to give you the guide and to learn which help is useful. We will not contact you about it unless you write to us.</p>
+
+        <p id="g-error" class="hidden text-red-600 font-semibold" role="alert"></p>
+
+        <button type="submit" id="g-submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation disabled:opacity-40 disabled:cursor-not-allowed">Get my guide, free</button>
+      </form>
+    </div>
+
+    <div id="g-result" tabindex="-1" class="hidden border-2 border-gray-100 rounded-2xl p-8 bg-white">
+      <div class="text-2xl font-bold mb-2">Here it is</div>
+      <p class="text-gray-500 text-lg font-semibold mb-6">{guideTitle}, {pages}. {startNote}</p>
+      <a id="g-download" href="#" download class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200">Download the PDF</a>
+      <p class="text-sm text-gray-500 mt-6">Keep the link. It does not expire, and forwarding it to a colleague is fine by us.</p>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ guideId, file }}>
+  (function () {
+    const form = document.getElementById('g-form');
+    if (!form) return;
+    const gate = document.getElementById('g-gate');
+    const result = document.getElementById('g-result');
+    const link = document.getElementById('g-download');
+    const submitBtn = document.getElementById('g-submit');
+    const consent = document.getElementById('g-consent');
+    const error = document.getElementById('g-error');
+
+    // Simple Analytics events. Metadata carries the guide id only, never a form value.
+    function sa(name, meta) { try { if (typeof window.sa_event === 'function') window.sa_event(name, meta); } catch (e) {} }
+
+    let started = false;
+    form.addEventListener('input', () => { if (!started) { started = true; sa('guide_form_start', { guide: guideId }); } });
+    link.addEventListener('click', () => sa('guide_download_click', { guide: guideId }));
+
+    const sync = () => { submitBtn.disabled = !consent.checked; };
+    consent.addEventListener('change', sync);
+    sync();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled || !form.reportValidity()) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'One moment…';
+      error.classList.add('hidden');
+
+      // Netlify only captures on the deployed site; skip the call locally so the flow stays previewable.
+      const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+      try {
+        if (!isLocal) {
+          const res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(form)).toString(),
+          });
+          if (!res.ok) throw new Error('submission failed');
+        }
+        sa('guide_form_submit', { guide: guideId });
+        // Set after submit so the visible link only appears once the form is sent.
+        link.href = file;
+        gate.classList.add('hidden');
+        result.classList.remove('hidden');
+        result.focus({ preventScroll: true });
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        sa('guide_form_error', { guide: guideId });
+        submitBtn.disabled = !consent.checked;
+        submitBtn.textContent = 'Get my guide, free';
+        error.textContent = 'Something went wrong. Please try again, or write to info@ironum.com.';
+        error.classList.remove('hidden');
+      }
+    });
+  })();
+</script>

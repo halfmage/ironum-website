@@ -70,6 +70,7 @@ export const en = {
     ],
     resourceLinks: [
       { name: 'Blog', href: '/resources/blog/' },
+      { name: 'AI Guides', href: '/resources/guides/' },
       { name: 'Platform', href: '/platform/' },
       { name: 'Deployment Options', href: '/platform/deployment/' },
       { name: 'Compliance', href: '/platform/compliance/' },
@@ -159,9 +160,9 @@ export const en = {
       },
       {
         badge: 'Chatbot Interfaces',
-        quote: '"Our customers trust us with their data. When we needed AI-powered personalisation, we couldn\'t send student profiles to a US cloud. Ironum gave us a sovereign AI layer that runs entirely on European infrastructure. Our learners get a modern, personalised learning journey, and their data never leaves our control."',
+        quote: '"We built Ironum\'s sovereign AI layer for our own learning platform first, because we couldn\'t send student profiles to a US cloud. It runs entirely on European infrastructure. Our learners get a modern, personalised learning journey, and their data never leaves our control."',
         name: 'Alesia Kunz',
-        role: 'CEO @ LearnSlice',
+        role: 'CEO @ LearnSlice, the company behind Ironum',
         avatar: '/avatars/alesia-kunz.jpg',
         screenshot: '/screenshots/learnslice.webp',
         screenshotAlt: 'LearnSlice AI learning platform with personalised learning modes and sovereign data processing',

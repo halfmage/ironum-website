@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Resources', href: '/resources/' },
+  { label: 'Guides', href: '/resources/guides/' },
+];
+
+const guides = [
+  {
+    title: 'AI for Product Managers',
+    tagline: 'Where it changes the product, not just the pace.',
+    description: '97% of product managers say AI made them faster. Only 64% say it made their product better. Five places in a product week where AI is worth the time, a prompt pack, and a thirty minute weekly routine.',
+    meta: '26 pages · free PDF',
+    href: '/resources/guides/ai-for-product-managers/',
+  },
+  {
+    title: 'AI for Product Owners',
+    tagline: 'Where it fits your sprint, and where it stops.',
+    description: 'Refinement, acceptance criteria, ordering and sprint goals, following the Scrum Guide. Why Copilot cannot read your Jira backlog, and the prompts worth keeping.',
+    meta: '21 pages · free PDF',
+    href: '/resources/guides/ai-for-product-owners/',
+  },
+];
+---
+
+<Layout
+  title="Free AI Guides for Product Managers & Product Owners | Ironum"
+  description="Two free, fully sourced guides on using AI in product work: what Copilot can actually see, where AI helps and where it stops, and prompts to use today."
+  breadcrumbs={breadcrumbs}
+>
+  <Navigation />
+  <PageHero
+    eyebrow="GUIDES"
+    title="Practical AI Guides for Product Teams"
+    subtitle="Free, complete, and every figure traced to the organisation that published it."
+    ctaLink=""
+  />
+
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      {guides.map(guide => (
+        <a href={guide.href} class="group border-2 border-gray-100 rounded-2xl p-8 md:p-12 hover:border-blue-600 transition-colors block">
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">{guide.meta}</span>
+          <h2 class="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{guide.title}</h2>
+          <p class="text-lg font-bold text-gray-700 mb-4">{guide.tagline}</p>
+          <p class="text-gray-500 text-lg font-semibold">{guide.description}</p>
+        </a>
+      ))}
+    </div>
+    <p class="max-w-3xl mx-auto text-center text-gray-500 font-semibold mt-12">Written by Alesia Kunz, Product Manager at Ironum and CEO of LearnSlice, the company behind Ironum, after 17+ years as a product manager and product owner.</p>
+  </section>
+
+  <Footer />
+</Layout>
