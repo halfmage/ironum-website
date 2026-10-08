@@ -60,17 +60,18 @@ const guides = [
   />
 
   <section class="px-4 md:px-20 py-20 md:py-32">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
       {guides.map(guide => (
-        <a href={guide.href} class="group border-2 border-gray-100 rounded-2xl p-8 md:p-12 hover:border-blue-600 transition-colors block">
+        <a href={guide.href} class="group border-2 border-gray-100 rounded-2xl p-8 md:p-10 hover:border-blue-600 transition-colors flex flex-col">
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">{guide.meta}</span>
           <h2 class="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{guide.title}</h2>
           <p class="text-lg font-bold text-gray-700 mb-4">{guide.tagline}</p>
-          <p class="text-gray-500 text-lg font-semibold">{guide.description}</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">{guide.description}</p>
+          <span class="mt-auto text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Get the free guide <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       ))}
     </div>
-    <div class="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed mt-12 space-y-6">
+    <div class="max-w-5xl mx-auto text-gray-600 text-lg leading-relaxed mt-16 space-y-6 [&>*]:max-w-3xl">
       <h2 class="text-2xl md:text-3xl font-bold text-black">Which one is for me?</h2>
       <p>Product owners get the guide built around refinement, ordering and sprint goals. Everyone else, including heads of product, gets the product manager guide, which has a section on leading a team. Both cover which Copilot license can see your work, and both end with a thirty minute weekly routine.</p>
       <GuideByline sources="Product Focus, Germany's federal employment research institute (IAB), Eurostat, the OECD, the Scrum Guide and Microsoft's own documentation" />

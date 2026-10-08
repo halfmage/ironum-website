@@ -21,10 +21,10 @@ const { eyebrow = 'RATGEBER', heading, cta = 'Mehr erfahren', links } = Astro.pr
     <h2 class="text-3xl md:text-5xl font-bold">{heading}</h2>
     <div class:list={["grid grid-cols-1 gap-6", links.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"]}>
       {links.map((link) => (
-        <a href={link.href} class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
+        <a href={link.href} class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group flex flex-col">
           <h3 class="text-xl font-bold mb-3">{link.title}</h3>
           <p class="text-gray-500 font-semibold mb-4">{link.description}</p>
-          <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">{cta} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+          <span class="mt-auto text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">{cta} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       ))}
     </div>

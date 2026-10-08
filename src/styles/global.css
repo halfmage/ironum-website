@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Article figures (SVG charts): same left-aligned 640px width as on the guide pages. */
+.prose img[src$=".svg"] {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+}
+
+/* Prompts in plaintext code blocks are prose: wrap instead of scrolling sideways on phones. */
+.prose pre[data-language="plaintext"] {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
