@@ -20,7 +20,7 @@ import Footer from '../../components/Footer.astro';
   />
 
   <!-- Kontaktformular -->
-  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+  <section id="message-form" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50 scroll-mt-20">
     <div class="max-w-7xl mx-auto">
       <div class="max-w-2xl mx-auto">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">NACHRICHT SENDEN</span>
@@ -52,11 +52,19 @@ import Footer from '../../components/Footer.astro';
         </form>
         <script is:inline>
           (() => {
-            const source = new URLSearchParams(window.location.search).get('source');
-            if (!source) return;
-            const safe = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
-            const field = document.querySelector('form[name="contact-de"] input[name="source"]');
-            if (field) field.value = safe;
+            const params = new URLSearchParams(window.location.search);
+            const form = document.querySelector('form[name="contact-de"]');
+            if (!form) return;
+            const source = params.get('source');
+            if (source) form.querySelector('input[name="source"]').value = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
+            // ?prefill=<key> starts the message with a fixed template (keys only, never free text from the URL).
+            const templates = {
+              jira: "Unsere Jira-Version (Cloud / Data Center / Server):\n\nWas Copilot oder KI beantworten soll:\n\n",
+              limit: "Die Grenze, auf die wir gestoßen sind:\n\nWo unser Backlog bzw. unsere Daten liegen (z. B. Jira, Azure DevOps, Confluence):\n\n",
+            };
+            const message = form.querySelector('textarea[name="message"]');
+            const template = templates[params.get('prefill')];
+            if (template && message && !message.value) message.value = template;
           })();
         </script>
       </div>
