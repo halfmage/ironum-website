@@ -1,12 +1,13 @@
 ---
 title: "RAG Over Jira and Confluence, Self-Hosted in the EU"
-description: "How a private retrieval system reads Jira and Confluence, keeps their permissions, cites its sources and runs on EU infrastructure you control. Architecture, trade-offs, timeline."
+description: "How a private RAG system reads Jira and Confluence, keeps their permissions, cites sources and runs on EU servers you control. Architecture and timeline."
 publishDate: 2026-10-08
 author: "Ironum Team"
 category: "implementation"
 tags: ["Enterprise RAG", "Jira", "Confluence", "Self-hosted AI", "EU data residency", "Microsoft Copilot"]
 locale: "en"
 draft: true
+ogImage: "/images/og/og-rag-jira-confluence.jpg"
 legalDisclaimer: true
 faq:
   - question: "What is RAG over Jira and Confluence?"
@@ -20,8 +21,8 @@ faq:
 ---
 
 {/* DRAFT, internal notes (not rendered):
-    - Confirm the timeline numbers with Gerrit before publishing (taken from /services/enterprise-rag FAQ).
-    - Add one anonymized project example if a customer agrees; otherwise keep it generic.
+    - Timeline (about 2 weeks PoC, 4-8 weeks production) confirmed 2026-10-08.
+    - Author stays "Ironum Team" (decided 2026-10-08). No project example for now.
     - Publish after copilot-jira-connector-what-it-reads.mdx and link both ways. */}
 
 Your team's knowledge is split between two places. Jira holds what was decided, issue by
@@ -29,9 +30,10 @@ issue, mostly in the comments. Confluence holds why: the specs, the architecture
 retrospectives. Asking a question that needs both, such as "why did we drop offline mode
 for the mobile app, and is anything still open on it?", means an hour of searching.
 
-A retrieval system can answer it in seconds, with links to the issues and pages it used.
-This article explains how such a system works when it runs on infrastructure you control in
-the EU, where it beats an off-the-shelf connector, and where it does not.
+A retrieval system can answer it in seconds, with a link to every issue and page it used,
+and without showing anyone content they could not open in Jira or Confluence. This article
+explains how RAG over Jira and Confluence works when it runs on infrastructure you control
+in the EU, where it beats an off-the-shelf connector, and where it does not.
 
 ## Key Takeaways
 
@@ -40,7 +42,7 @@ the EU, where it beats an off-the-shelf connector, and where it does not.
 - The hard parts are not the model. They are **permissions**, **freshness** and **citations**.
 - Hosting can be your own servers or an EU cloud provider, with an open-source model, so the content does not leave infrastructure you choose.
 
-## Connector or Own System?
+## Copilot Connector or Self-Hosted RAG?
 
 Start with the honest comparison. If the connector covers your case, use it.
 
@@ -56,8 +58,13 @@ Start with the honest comparison. If the connector covers your case, use it.
 
 The connector facts come from Microsoft's documentation and are explained in detail in
 [what the Copilot Jira connector can and cannot read](/resources/blog/copilot-jira-connector-what-it-reads/).
+If you mainly want to get more out of the tools you already have, start with our free
+[AI guides for product managers and product owners](/resources/guides/).
 
-## How It Works, Step by Step
+## How RAG Over Jira and Confluence Works
+
+If RAG is new to you, [enterprise RAG explained](/resources/blog/enterprise-rag-explained/)
+covers the idea without the technical detail. Here is how it applies to Jira and Confluence.
 
 **1. Ingestion.** A sync service reads issues, comments, attachments and pages through the
 Jira and Confluence REST APIs, with a service account that has read access to the projects
@@ -68,7 +75,8 @@ to retrieve precisely. Each passage keeps its source: issue key or page ID, titl
 date, and a link back.
 
 **3. Embedding and indexing.** Each passage is turned into a vector by an embedding model
-and stored in a vector database next to its text and metadata. Both the embedding model and
+(it turns text into numbers that capture meaning, so similar passages end up close
+together) and stored in a vector database next to its text and metadata. Both the embedding model and
 the database can run on your own servers.
 
 **4. Permission filtering.** Every passage carries the access rules of the item it came
@@ -112,7 +120,7 @@ In all three, you choose where the index and the model run and which models are 
 is a technical choice about where data is processed. Whether a given setup meets your
 organization's obligations is a question for your data protection officer.
 
-## What It Takes
+## How Long a Jira and Confluence RAG Takes to Build
 
 At Ironum, a working proof of concept on a customer's real Jira and Confluence data
 typically takes around two weeks: one pilot project, one Confluence space, permission
@@ -120,7 +128,15 @@ filtering switched on from day one. A production system typically takes four to 
 weeks, depending on data volume, how complex the permissions are, and where it has to be
 integrated, for example as a chat in Teams or a panel inside Jira.
 
-If your team has hit the limits of the connector, or cannot use it at all,
-[tell us what your setup looks like](/contact/?source=blog-rag-jira-confluence). If you
-first want to get more out of the tools you already have, our free
-[AI guides for product managers and product owners](/resources/guides/) start there.
+**What we need from you:** read access for a service account, one pilot Jira project and
+one Confluence space, and a handful of real questions your team asks every week.
+
+**What you have after about two weeks:** a working assistant on that pilot data,
+permission filtering on from day one, cited answers your team can test against what it
+already knows, and a plan for production.
+
+<div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
+  <p class="m-0 text-lg font-bold text-black">Has your team hit the limits of the connector?</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">Write to us with your Jira and Confluence setup and the questions you want answered. We reply within two working days with whether it is solvable and roughly what it would take. No sales sequence follows.</p>
+  <p class="m-0 mt-5"><a href="/contact/?source=blog-rag-jira-confluence" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Ask whether it is solvable</a></p>
+</div>

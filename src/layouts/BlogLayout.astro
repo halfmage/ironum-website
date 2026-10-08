@@ -48,9 +48,19 @@ const articleSection = SECTION_DISPLAY_NAMES[frontmatter.category] ?? frontmatte
 const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop();
 const currentLocale = locale === 'de' ? 'de' : 'en';
 const allPosts = (await getCollection('blog')).filter(p => !p.data.draft && (p.data.locale || 'en') === currentLocale);
+// Related posts: shared tags first (topical), same category as a tiebreaker, newest first.
+const currentTags = new Set((frontmatter.tags ?? []).map(tag => tag.toLowerCase()));
 const relatedPosts = allPosts
-  .filter(p => p.data.category === frontmatter.category && p.slug !== currentSlug)
-  .slice(0, 3);
+  .filter(p => p.slug !== currentSlug)
+  .map(p => ({
+    post: p,
+    score: p.data.tags.filter(tag => currentTags.has(tag.toLowerCase())).length * 10
+      + (p.data.category === frontmatter.category ? 1 : 0),
+  }))
+  .filter(r => r.score > 0)
+  .sort((a, b) => b.score - a.score || b.post.data.publishDate.getTime() - a.post.data.publishDate.getTime())
+  .slice(0, 3)
+  .map(r => r.post);
 
 const breadcrumbs = locale === 'de' ? [
   { label: 'Startseite', href: '/de/' },
