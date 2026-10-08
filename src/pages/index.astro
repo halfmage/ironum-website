@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
+import GuideBanner from '../components/GuideBanner.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/cards/ServiceCard.astro';
 import IndustryCard from '../components/cards/IndustryCard.astro';
@@ -23,6 +24,7 @@ const latestPosts = (await getCollection('blog'))
 ---
 
 <Layout preloadImage="/hero-background.png">
+  <GuideBanner />
   <Navigation />
   <Hero />
 
