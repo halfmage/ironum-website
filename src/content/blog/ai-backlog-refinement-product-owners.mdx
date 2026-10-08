@@ -11,7 +11,7 @@ locale: "en"
 legalDisclaimer: true
 faq:
   - question: "Can Microsoft Copilot read my Jira backlog?"
-    answer: "Not on its own. If your backlog lives in Jira or Azure DevOps, no tier of Copilot reads it automatically. Microsoft publishes connectors for Jira Cloud and Confluence, but an administrator has to deploy them and they enforce the source system's own permissions. Even where Jira appears as an available source under Copilot Chat settings, it often still cannot pull data from a particular project. In practice most product owners copy the item in by hand."
+    answer: "Not on its own. Microsoft has separate Jira connectors for Jira Cloud and Jira Data Center; an administrator has to deploy one, and Copilot only answers from it with the Microsoft 365 Copilot add-on license. In practice most product owners copy the item in by hand. The details are in our article on what the Copilot Jira connector can and cannot read."
   - question: "What is the difference between Copilot Chat and Microsoft 365 Copilot?"
     answer: "Copilot Chat on the basic tier answers from web data. It sees your work only if you paste it, upload it, or have it open in Teams or Outlook. Microsoft 365 Copilot additionally works inside Word, Excel, PowerPoint and OneNote. Only the paid Microsoft 365 Copilot Premium add-on reaches your own files and mail automatically through Microsoft Graph, and only for files you already have permission to open."
   - question: "Is it safe to paste a backlog item into Copilot at work?"
@@ -50,7 +50,7 @@ of them.
 tier of Microsoft Copilot reads it automatically. Microsoft's Jira connectors (one for
 Jira Cloud, a separate one for Jira Data Center) have to be deployed by an administrator,
 and answering from them needs the paid Copilot add-on, so most product owners paste items
-in by hand.
+in by hand. More in [what the Copilot Jira connector can and cannot read](/resources/blog/copilot-jira-connector-what-it-reads/).
 
 Two sources feed any answer a Copilot gives you: the public web, and your organization's
 own content. Which of the two it can reach depends entirely on your license.

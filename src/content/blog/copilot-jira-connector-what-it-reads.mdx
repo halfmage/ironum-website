@@ -6,7 +6,7 @@ author: "Alesia Kunz"
 category: "implementation"
 tags: ["Microsoft Copilot", "Jira", "Copilot connectors", "Product Owner", "Enterprise RAG"]
 locale: "en"
-draft: true
+draft: false
 ogImage: "/images/og/og-copilot-jira-connector.jpg"
 faq:
   - question: "Can Microsoft 365 Copilot read Jira?"
@@ -85,7 +85,7 @@ Microsoft 365 admin center, and admin access on the Jira side.
   <p class="m-0 mt-5"><a href="/resources/guides/ai-for-product-owners/" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Get the guide, free</a></p>
 </div>
 
-## What the Connector Actually Reads
+## Does the Copilot Jira Connector Index Comments?
 
 Microsoft lists what the Jira Cloud connector indexes: title, issue description, status,
 project name, created and updated dates, assignee and priority. Custom fields can be added;
@@ -122,8 +122,7 @@ work, check its permission scheme first.
 ## How Fresh Is Jira Data in Copilot?
 
 For Jira Data Center, Microsoft's defaults are an incremental crawl every 15 minutes and a
-full crawl once a day. Both can be changed. In practice it means the issue you edited in
-refinement a few minutes ago may not be in the next answer yet. For Confluence Cloud,
+full crawl once a day. Both can be changed. For Confluence Cloud,
 Microsoft notes that permission changes are only picked up in the daily full crawl, not in
 the 15-minute incremental syncs, and the same pattern is worth assuming for any synced
 source until you have tested it. In practice: don't ask Copilot about the refinement you
@@ -154,9 +153,10 @@ live in Microsoft 365 at all.
 In those cases the alternative is a retrieval system you control: it reads Jira and
 Confluence through their APIs, keeps the permissions people already have, cites every
 answer back to the issue or page it came from, and runs on infrastructure you choose. That
-is what we build at Ironum as [enterprise RAG](/services/enterprise-rag/). How such a system
-is put together, and what it takes, is in
-[RAG over Jira and Confluence, self-hosted in the EU](/resources/blog/rag-jira-confluence-self-hosted-eu/).
+is what we build at Ironum as [enterprise RAG](/services/enterprise-rag/).
+{/* On publishing rag-jira-confluence-self-hosted-eu (planned ~2026-10-22), add here:
+    How such a system is put together, and what it takes, is in
+    [RAG over Jira and Confluence, self-hosted in the EU](/resources/blog/rag-jira-confluence-self-hosted-eu/). */}
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">Hit one of these limits?</p>
