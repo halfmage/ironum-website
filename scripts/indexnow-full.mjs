@@ -22,7 +22,7 @@ const log = (msg) => console.log(`[indexnow:full] ${msg}`);
 
 const res = await fetch(SITEMAP_URL);
 if (!res.ok) {
-  log(`could not fetch ${SITEMAP_URL} (HTTP ${res.status}) — aborting`);
+  log(`could not fetch ${SITEMAP_URL} (HTTP ${res.status}), aborting`);
   process.exit(1);
 }
 
@@ -30,7 +30,7 @@ const xml = await res.text();
 const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
 if (urlList.length === 0) {
-  log('no URLs found in sitemap — aborting');
+  log('no URLs found in sitemap, aborting');
   process.exit(1);
 }
 

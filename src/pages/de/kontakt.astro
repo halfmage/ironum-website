@@ -9,7 +9,7 @@ import Footer from '../../components/Footer.astro';
 <Layout
   locale="de"
   title="Kontakt | Kostenloses KI-Strategiegespräch buchen | Ironum"
-  description="Nehmen Sie Kontakt mit Ironum auf für eine kostenlose KI-Strategieberatung. Buchen Sie ein Gespräch mit Gerrit, schreiben Sie uns oder besuchen Sie unser Büro in Düsseldorf."
+  description="Nehmen Sie Kontakt mit Ironum auf für eine kostenlose KI-Strategieberatung. Senden Sie uns eine Nachricht, schreiben Sie uns eine E-Mail oder besuchen Sie unser Büro in Düsseldorf."
 >
   <Navigation />
 
@@ -23,30 +23,30 @@ import Footer from '../../components/Footer.astro';
   <section id="message-form" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50 scroll-mt-20">
     <div class="max-w-7xl mx-auto">
       <div class="max-w-2xl mx-auto">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">NACHRICHT SENDEN</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Lieber schreiben?</h2>
-        <p class="text-gray-500 text-lg font-semibold mb-8">Senden Sie uns eine Nachricht und wir antworten innerhalb von zwei Werktagen.</p>
-        <form name="contact-de" method="POST" action="/danke/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">KOSTENLOSES GESPRÄCH</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Lassen Sie uns sprechen</h2>
+        <p class="text-gray-500 text-lg font-semibold mb-8">Schreiben Sie uns, woran Sie arbeiten und wann Ihnen ein 30-minütiges Gespräch passt. Gerrit antwortet innerhalb von zwei Werktagen mit einer Kalendereinladung.</p>
+        <form name="contact-de" method="POST" action="/de/danke/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact-de">
           <input type="hidden" name="source" value="">
           <p class="hidden"><label>Dieses Feld nicht ausfüllen: <input name="bot-field" /></label></p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-bold mb-2">Name <span class="text-red-500">*</span></label>
-              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
             </div>
             <div>
               <label for="email" class="block text-sm font-bold mb-2">E-Mail-Adresse <span class="text-red-500">*</span></label>
-              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
             </div>
           </div>
           <div>
             <label for="company" class="block text-sm font-bold mb-2">Unternehmen</label>
-            <input type="text" name="company" id="company" class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            <input type="text" name="company" id="company" class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
           </div>
           <div>
             <label for="message" class="block text-sm font-bold mb-2">Nachricht <span class="text-red-500">*</span></label>
-            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
+            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
           </div>
           <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Nachricht senden</button>
         </form>
@@ -57,17 +57,6 @@ import Footer from '../../components/Footer.astro';
             if (!form) return;
             const source = params.get('source');
             if (source) form.querySelector('input[name="source"]').value = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
-            // ?prefill=<key> starts the message with a fixed template (keys only, never free text from the URL).
-            const templates = {
-              jira: "Welches Jira nutzen Sie? (Jira Cloud, Jira Data Center oder Jira Server)\n\n\nWelche Fragen soll KI aus Ihrem Jira beantworten? (zum Beispiel: „Welche offenen Bugs blockieren das nächste Release?“)\n\n\nWas sollten wir noch wissen? (zum Beispiel: Copilot-Lizenzen, Confluence, Daten müssen in der EU bleiben)\n\n",
-              limit: "An welche Grenze sind Sie gestoßen? (zum Beispiel: Copilot sieht unsere Jira-Tickets nicht)\n\n\nWo liegen Ihre Daten? (zum Beispiel: Jira, Confluence, Azure DevOps, SharePoint)\n\n\nWas soll KI damit tun?\n\n",
-            };
-            const message = form.querySelector('textarea[name="message"]');
-            const template = templates[params.get('prefill')];
-            if (template && message && !message.value) {
-              message.value = template;
-              message.rows = 11;
-            }
           })();
         </script>
       </div>
@@ -83,9 +72,9 @@ import Footer from '../../components/Footer.astro';
           <div>
             <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">TERMIN BUCHEN</span>
             <h2 class="text-3xl md:text-5xl font-bold mb-4">Kostenloses Erstgespräch</h2>
-            <p class="text-gray-500 text-lg font-semibold">Vereinbaren Sie ein 30-minütiges Gespräch mit Gerrit, um Ihre KI-Strategie, Infrastrukturanforderungen und Compliance-Bedürfnisse zu besprechen. Keine Verpflichtung, kein Verkaufsgespräch, nur eine ehrliche Einschätzung, wie KI Ihrem Unternehmen helfen kann.</p>
+            <p class="text-gray-500 text-lg font-semibold">Nennen Sie uns passende Termine, und Gerrit schickt Ihnen eine Kalendereinladung für ein 30-minütiges Gespräch, um Ihre KI-Strategie, Infrastrukturanforderungen und Compliance-Bedürfnisse zu besprechen. Keine Verpflichtung, kein Verkaufsgespräch, nur eine ehrliche Einschätzung, wie KI Ihrem Unternehmen helfen kann.</p>
           </div>
-          <a href="https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Gespräch mit Gerrit buchen</a>
+          <a href="/de/kontakt/#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Kontakt aufnehmen</a>
           <div class="space-y-4 pt-4">
             <h3 class="text-xl font-bold">Was Sie erwartet</h3>
             <ul class="space-y-3 text-gray-500 text-lg font-semibold">

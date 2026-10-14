@@ -25,19 +25,19 @@
 
 ### Score interpretation
 
-- 0–20 Critical — virtually invisible to AI search
-- 21–40 Poor — minimal AI discoverability
-- 41–60 Fair — present, but with significant structural gaps ← **you are here**
-- 61–80 Good — solid AI presence
-- 81–100 Excellent — strong AI search visibility
+- 0–20 Critical: virtually invisible to AI search
+- 21–40 Poor: minimal AI discoverability
+- 41–60 Fair: present, but with significant structural gaps ← **you are here**
+- 61–80 Good: solid AI presence
+- 81–100 Excellent: strong AI search visibility
 
 ### Headline read
 
-Ironum's **on-site fundamentals are now in the "Good" range** (crawler access 92, citability 72, localization done right). The composite is held down by two factors outside the markup layer: **entity recognition** (1 sameAs, no Wikipedia, no Crunchbase, no Person schema) and **per-platform spread** (no Bing/Google ecosystem presence). Both are addressable, but only one — Bing Webmaster Tools + Person schema — is a code/config fix. The other is a brand-building investment that compounds over months.
+Ironum's **on-site fundamentals are now in the "Good" range** (crawler access 92, citability 72, localization done right). The composite is held down by two factors outside the markup layer: **entity recognition** (1 sameAs, no Wikipedia, no Crunchbase, no Person schema) and **per-platform spread** (no Bing/Google ecosystem presence). Both are addressable, but only one (Bing Webmaster Tools + Person schema) is a code/config fix. The other is a brand-building investment that compounds over months.
 
 ### Top 5 critical issues
 
-1. **`HowTo` schema still emitted on every page that uses `ProcessSteps`** (`src/components/sections/ProcessSteps.astro:16-26`). Google [deprecated `HowTo` for rich results in September 2023](https://developers.google.com/search/blog/2023/08/howto-faq-changes). It is no longer ignored cleanly — it adds noise that AI extractors may parse and surface oddly. Remove the JSON-LD block; keep the visual component.
+1. **`HowTo` schema still emitted on every page that uses `ProcessSteps`** (`src/components/sections/ProcessSteps.astro:16-26`). Google [deprecated `HowTo` for rich results in September 2023](https://developers.google.com/search/blog/2023/08/howto-faq-changes). It is no longer ignored cleanly: it adds noise that AI extractors may parse and surface oddly. Remove the JSON-LD block; keep the visual component.
 2. **`FAQPage` schema is missing from service pages that already render FAQ sections.** `src/pages/services/enterprise-rag.astro:63-84` defines five rich Q&A pairs and passes them to `FAQSection`, but `src/components/sections/FAQSection.astro` does not emit `FAQPage` schema. Every service page with a FAQ block is leaving direct-answer citability on the table.
 3. **Single `sameAs` entry in Organization schema** (`src/layouts/Layout.astro:71-73`). Just `linkedin.com/company/ironum`. No GitHub, X, YouTube, Crunchbase, G2, Wikipedia. AI knowledge graphs cannot do entity resolution from a single LinkedIn URL; Ironum is functionally invisible to the entity layer.
 4. **No `Person` schema for Gerrit Halfmann anywhere on the site**, despite a detailed founder block at `src/pages/about.astro:60-71`. Blog posts also attribute author as `Organization` (`src/layouts/BlogLayout.astro:49`). With no Person entity, every E-E-A-T signal gets attributed to an unknown legal entity instead of a verifiable human expert.
@@ -45,7 +45,7 @@ Ironum's **on-site fundamentals are now in the "Good" range** (crawler access 92
 
 ### Top 5 quick wins (<1 hour each)
 
-1. Delete the `<script type="application/ld+json">` block in `ProcessSteps.astro:29` — removes deprecated `HowTo`.
+1. Delete the `<script type="application/ld+json">` block in `ProcessSteps.astro:29`: removes deprecated `HowTo`.
 2. Add a `structuredData` prop pass-through from `FAQSection.astro` so each service page emits `FAQPage` schema for its Q&A items.
 3. Expand the `sameAs` array in `Layout.astro:71-73` to include LinkedIn, the founder's personal LinkedIn, the company GitHub if any, and AskMention (Gerrit's GEO product) as a related entity.
 4. Add a `Person` schema for Gerrit Halfmann as part of the default `@graph` in `Layout.astro`, then reference it as `author` in `BlogLayout.astro:49`.
@@ -58,7 +58,7 @@ Ironum's **on-site fundamentals are now in the "Good" range** (crawler access 92
 | Platform | Score | Status | Biggest gap |
 |---|---|---|---|
 | Google AI Overviews | 65/100 | Fair | Service page H2s are marketing taglines ("Your Knowledge Is Trapped"), not query-matching headers Google's extractor can lift |
-| ChatGPT Web Search | 50/100 | Fair | Zero entity resolution — Ironum cannot be linked to a knowledge graph node from current `sameAs` set |
+| ChatGPT Web Search | 50/100 | Fair | Zero entity resolution: Ironum cannot be linked to a knowledge graph node from current `sameAs` set |
 | Perplexity AI | 55/100 | Fair | External citations now present in blog posts (good), but no Reddit, Hacker News, or forum footprint for cross-validation |
 | Google Gemini | 45/100 | Poor | No Google ecosystem signal: no Google Business Profile, no YouTube channel, no Wikipedia/Wikidata entity |
 | Bing Copilot | 40/100 | Poor | Bing Webmaster Tools not registered, no IndexNow ping, Bing has no view into the site |
@@ -71,38 +71,38 @@ Ironum's **on-site fundamentals are now in the "Good" range** (crawler access 92
 ### Citability: 72/100 (Good)
 
 **Best-citable content (May 2026):**
-- `chatbot-own-data-gdpr-sme.mdx` — 3,500+ words, embedded comparison table (on-premise vs EU cloud vs US SaaS), 8 FAQ items in frontmatter (which become FAQPage schema), three external citations to Bitkom and datensicherheit.de. **This is the flagship citation piece.**
-- `enterprise-rag-explained` and `eu-ai-act-compliance-checklist` — extractable definitions, numbered steps.
-- DE blog corpus (`ki-hosting-europa-hetzner-ionos-vergleich`, `ki-im-mittelstand-strategie-2026`, etc.) — 12 posts with concrete numbers, German-keyword density, citations.
+- `chatbot-own-data-gdpr-sme.mdx`: 3,500+ words, embedded comparison table (on-premise vs EU cloud vs US SaaS), 8 FAQ items in frontmatter (which become FAQPage schema), three external citations to Bitkom and datensicherheit.de. **This is the flagship citation piece.**
+- `enterprise-rag-explained` and `eu-ai-act-compliance-checklist`: extractable definitions, numbered steps.
+- DE blog corpus (`ki-hosting-europa-hetzner-ionos-vergleich`, `ki-im-mittelstand-strategie-2026`, etc.): 12 posts with concrete numbers, German-keyword density, citations.
 - Enterprise RAG service page features a 5-item FAQ and use-case stat blocks (80% faster review, 60% ticket reduction, 10x compliance checks).
 
 **Weakest content for citation:**
-- Homepage hero + problem cards — marketing copy, no extractable facts (`src/pages/index.astro:42-55`).
-- Testimonial section — not quotable by AI (no schema, conversational tone).
-- About page (`src/pages/about.astro`) — ~600 words, mostly mission/values; no founder credentials beyond a single paragraph.
+- Homepage hero + problem cards: marketing copy, no extractable facts (`src/pages/index.astro:42-55`).
+- Testimonial section: not quotable by AI (no schema, conversational tone).
+- About page (`src/pages/about.astro`): ~600 words, mostly mission/values; no founder credentials beyond a single paragraph.
 
 ### AI Crawler Access: 92/100 (Excellent)
 
-- `public/robots.txt:5-23` — named allow rules for GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended.
-- `public/robots.txt:26` — correct sitemap path (`https://ironum.com/sitemap-index.xml`).
-- `astro.config.mjs:54` — site URL set to `https://ironum.com` (non-www), matching canonicals in `Layout.astro:31`.
-- SSG output (Astro default, no `output: 'hybrid'` / `'server'`). All 67 routes pre-rendered as static HTML — bots see full markup.
+- `public/robots.txt:5-23`: named allow rules for GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended.
+- `public/robots.txt:26`: correct sitemap path (`https://ironum.com/sitemap-index.xml`).
+- `astro.config.mjs:54`: site URL set to `https://ironum.com` (non-www), matching canonicals in `Layout.astro:31`.
+- SSG output (Astro default, no `output: 'hybrid'` / `'server'`). All 67 routes pre-rendered as static HTML, so bots see full markup.
 - `public/llms.txt` exists. Quality is high for what it lists, but it only covers ~26% of the blog corpus (5 of 19 posts) and lists no DE-language resources.
 
 Deductions: -5 for partial `llms.txt` coverage; -3 for legal entity typo ("haftungsbeschrankt") in `llms.txt:33`.
 
-### Brand Mentions: 22/100 (Poor — unchanged)
+### Brand Mentions: 22/100 (Poor, unchanged)
 
 | Platform | Status |
 |---|---|
-| Wikipedia / Wikidata | Absent — no entity node |
+| Wikipedia / Wikidata | Absent: no entity node |
 | Reddit (r/artificial, r/MachineLearning, r/de, r/Mittelstand) | Absent |
-| YouTube | Absent — no channel |
+| YouTube | Absent: no channel |
 | LinkedIn (company page) | Present (small follower base) |
 | LinkedIn (founder page) | Present, but not cross-linked from site as a `sameAs` |
 | G2 / Capterra / Trustpilot | Absent |
 | Crunchbase | Absent |
-| GitHub | Absent — no public repos as Ironum |
+| GitHub | Absent: no public repos as Ironum |
 | Industry press (t3n, Gründerszene, Heise) | Absent |
 | Aggregators (sortlist, clutch) | Absent |
 
@@ -122,13 +122,13 @@ Present at `public/llms.txt`. Strengths: tight value-prop paragraph, six service
 
 ### Entity recognition: 25/100
 
-The Organization schema in `Layout.astro:41-74` is structurally complete (legalName, address, contactPoint, foundingDate, areaServed, logo) but the **entity-graph reach is one link** — `linkedin.com/company/ironum`. For an AI knowledge graph to confidently cite "Ironum" as a distinct entity, it needs convergent signals from multiple authoritative sources. Today, an AI system asked "who is Ironum" has only one URL to verify against, against ~thirteen for a comparably sized competitor like dida.do (LinkedIn + GitHub + cross-references from research papers) and dozens for Aleph Alpha (press, customer co-mentions).
+The Organization schema in `Layout.astro:41-74` is structurally complete (legalName, address, contactPoint, foundingDate, areaServed, logo) but the **entity-graph reach is one link**: `linkedin.com/company/ironum`. For an AI knowledge graph to confidently cite "Ironum" as a distinct entity, it needs convergent signals from multiple authoritative sources. Today, an AI system asked "who is Ironum" has only one URL to verify against, against ~thirteen for a comparably sized competitor like dida.do (LinkedIn + GitHub + cross-references from research papers) and dozens for Aleph Alpha (press, customer co-mentions).
 
 ### E-E-A-T: 55/100
 
 | Dimension | Score | Evidence |
 |---|---|---|
-| Experience | 13/25 | Service pages still use hypothetical scenario framing ("A mid-size German law firm processes thousands of contracts monthly" — `enterprise-rag.astro:45`). No named-customer case studies. Three real testimonials exist on the homepage (`Testimonials.astro`) — strong signal, but not packaged as case studies with metrics. |
+| Experience | 13/25 | Service pages still use hypothetical scenario framing ("A mid-size German law firm processes thousands of contracts monthly", `enterprise-rag.astro:45`). No named-customer case studies. Three real testimonials exist on the homepage (`Testimonials.astro`): strong signal, but not packaged as case studies with metrics. |
 | Expertise | 16/25 | Substantial improvement from the spring: 19 blog posts vs. 5, with embedded external citations (Bitkom, datensicherheit.de, BetrVG references). Technical depth on RAG, EU AI Act, GDPR is genuine. Author attribution is the bottleneck. |
 | Authoritativeness | 9/25 | Founder bio exists (`about.astro:60-71`) but is not surfaced as a `Person` entity. No press mentions, no academic citations, no conference appearances surfaced on-site. University partnership (FH Dortmund) is shown as a logo but not explained as a credential. |
 | Trustworthiness | 17/25 | Strong on the legal/compliance side: HTTPS, imprint with legal entity, privacy policy, physical Düsseldorf address, named phone number, real DPA reference. No trust seals (TÜV, ISO badges) and no AggregateRating schema on testimonials. |
@@ -147,7 +147,7 @@ The Organization schema in `Layout.astro:41-74` is structurally complete (legalN
 | WebSite | `Layout.astro:75-83` | Present, with `inLanguage` per locale |
 | BreadcrumbList | `Layout.astro:88-97` | Dynamic, on every inner page |
 | BlogPosting | `BlogLayout.astro:45-59` | Present; `author` is Organization, `dateModified` mirrors `datePublished` |
-| FAQPage | `BlogLayout.astro:61-73` | Conditional on `frontmatter.faq` — currently active on **only 2 blog posts** (the two chatbot-on-own-data posts in EN+DE). Service pages with FAQ sections do **not** emit this schema. |
+| FAQPage | `BlogLayout.astro:61-73` | Conditional on `frontmatter.faq`: currently active on **only 2 blog posts** (the two chatbot-on-own-data posts in EN+DE). Service pages with FAQ sections do **not** emit this schema. |
 | Service | per-service-page (e.g., `enterprise-rag.astro:86-96`) | Present, with `@id`, provider, areaServed, serviceType |
 | HowTo | `ProcessSteps.astro:16-26` | **Deprecated by Google Sept 2023.** Should be removed. |
 
@@ -160,12 +160,12 @@ The Organization schema in `Layout.astro:41-74` is structurally complete (legalN
 | **FAQPage on service pages** | At least 6 service pages have FAQ sections. None emit schema. |
 | **speakable** | Mark hero summary paragraphs in BlogPosting so voice-AI / podcast-style assistants can quote cleanly. |
 | **AggregateRating** | Three named testimonials exist (`Testimonials.astro`). Wrap them in `Review` + Organization `aggregateRating`. |
-| **Article `articleSection`** | BlogPosting omits `articleSection` — minor, but it's how category-level rich snippets get attached. |
+| **Article `articleSection`** | BlogPosting omits `articleSection`. Minor, but it's how category-level rich snippets get attached. |
 
 ### What's incorrect
 
-- `BlogLayout.astro:52` — `"dateModified": frontmatter.publishDate`. Hardcoded equality. Every post claims it has not been updated since publish. Add an optional `updatedDate` frontmatter field.
-- All blog posts share the generic `/social.png` `ogImage` unless overridden. Several posts now ship hero images (`/blog/chatbot-mittelstand-modes-ui.png` etc.), but they are passed to `Layout.astro` as `ogImage` only when frontmatter sets it. Good — but post-specific images should be the default, not the exception.
+- `BlogLayout.astro:52`: `"dateModified": frontmatter.publishDate`. Hardcoded equality. Every post claims it has not been updated since publish. Add an optional `updatedDate` frontmatter field.
+- All blog posts share the generic `/social.png` `ogImage` unless overridden. Several posts now ship hero images (`/blog/chatbot-mittelstand-modes-ui.png` etc.), but they are passed to `Layout.astro` as `ogImage` only when frontmatter sets it. Good, but post-specific images should be the default, not the exception.
 
 ---
 
@@ -175,11 +175,11 @@ The Organization schema in `Layout.astro:41-74` is structurally complete (legalN
 
 Three German competitors that match different points on Ironum's positioning axis:
 
-1. **dida.do** (Berlin) — closest direct peer: ML/AI services agency, GDPR positioning, custom delivery model.
-2. **deepset.ai** (Berlin) — adjacent: B2B AI platform built on open-source Haystack framework. Less of an agency, more of a platform-plus-services play.
-3. **aleph-alpha.com** (Heidelberg) — the brand DACH buyers compare Ironum to in the "sovereign EU AI" conversation. Different category (sovereign LLM provider), but shares the GDPR/EU-sovereignty story.
+1. **dida.do** (Berlin): closest direct peer: ML/AI services agency, GDPR positioning, custom delivery model.
+2. **deepset.ai** (Berlin): adjacent: B2B AI platform built on open-source Haystack framework. Less of an agency, more of a platform-plus-services play.
+3. **aleph-alpha.com** (Heidelberg): the brand DACH buyers compare Ironum to in the "sovereign EU AI" conversation. Different category (sovereign LLM provider), but shares the GDPR/EU-sovereignty story.
 
-(Note: kern.ai was the original fourth candidate; that domain now 301-redirects to accompio.com — Kern AI was acquired and is no longer a standalone brand.)
+(Note: kern.ai was the original fourth candidate; that domain now 301-redirects to accompio.com; Kern AI was acquired and is no longer a standalone brand.)
 
 ### Side-by-side: GEO signals
 
@@ -211,15 +211,15 @@ Three German competitors that match different points on Ironum's positioning axi
 
 **What Ironum does uniquely well vs this set:**
 - **Most complete bilingual mirror** with proper German slugs (`/de/branchen/finanzdienstleistungen/` vs. peers' partial translations). This is durable structural SEO/GEO value.
-- **Industry-vertical landing pages (6)** — legal, healthcare, manufacturing, financial-services, public-sector, education. None of the three competitors match this depth. This is a real moat for vertical-keyword AI queries ("AI for German law firms", "KI in der Fertigung").
+- **Industry-vertical landing pages (6)**: legal, healthcare, manufacturing, financial-services, public-sector, education. None of the three competitors match this depth. This is a real moat for vertical-keyword AI queries ("AI for German law firms", "KI in der Fertigung").
 - **Mittelstand-specific tone** in the DE corpus (BetrVG references, IHK-anchored framing, Hetzner/IONOS comparisons). Aleph Alpha is positioned for DAX-30 + government; deepset is global enterprise; dida is mid-market generic. Ironum has a clearer ICP signal in its content than any of them.
-- **Engineer-led services positioning** — explicit contrast with management consulting. Differentiated copy.
-- **FAQ schema deployed** (only on 2 posts, but it's deployed) — none of the three competitors emit FAQ schema on the pages spot-checked.
+- **Engineer-led services positioning**: explicit contrast with management consulting. Differentiated copy.
+- **FAQ schema deployed** (only on 2 posts, but it's deployed): none of the three competitors emit FAQ schema on the pages spot-checked.
 
 **What competitors have that Ironum needs to close:**
-- **Aleph Alpha's customer-logo strategy** is the cheapest entity-authority lift Ironum can copy: every named blue-chip co-mention (e.g., "Ironum partners with [Mittelstand client name]") creates a brand co-occurrence in AI training data. Today the trusted-by row shows LearnSlice, FH Dortmund, Smella, Ute Becker — useful as proof-of-life, but none of these carry knowledge-graph weight on their own. Either *land* a recognizable Mittelstand brand and surface it loudly, or partner publicly with one (joint webinar, co-authored white paper).
+- **Aleph Alpha's customer-logo strategy** is the cheapest entity-authority lift Ironum can copy: every named blue-chip co-mention (e.g., "Ironum partners with [Mittelstand client name]") creates a brand co-occurrence in AI training data. Today the trusted-by row shows LearnSlice, FH Dortmund, Smella, Ute Becker. Useful as proof-of-life, but none of these carry knowledge-graph weight on their own. Either *land* a recognizable Mittelstand brand and surface it loudly, or partner publicly with one (joint webinar, co-authored white paper).
 - **deepset's open-source angle** = community presence on GitHub, Hacker News, research papers. Ironum has no public OSS surface area. Even shipping one small useful tool (e.g., an open-source DPA template generator, or a GDPR-compliant RAG starter kit) under an `ironum-labs` GitHub org would create cross-platform entity signals.
-- **dida's cleaner schema** is a 30-minute fix — add `Corporation` alongside `Organization`, expand sameAs.
+- **dida's cleaner schema** is a 30-minute fix: add `Corporation` alongside `Organization`, expand sameAs.
 
 ---
 
@@ -230,10 +230,10 @@ Three German competitors that match different points on Ironum's positioning axi
 | Page mirror coverage | 25 routes | 25 routes | ✓ complete parity |
 | Hreflang on paired routes | ✓ | ✓ | none |
 | Blog post count | 7 EN-only + 12 bilingual = 19 surfaced | 12 DE | DE has fewer total (12 vs 19); EN-only posts (e.g., `enterprise-rag-explained`, `eu-ai-act-us-companies-guide`, `european-ai-sovereignty`) have no DE counterparts |
-| FAQ schema deployment | 1 post (`chatbot-own-data-gdpr-sme`) | 1 post (`chatbot-eigene-daten-dsgvo-mittelstand`) | even — but should be on more |
+| FAQ schema deployment | 1 post (`chatbot-own-data-gdpr-sme`) | 1 post (`chatbot-eigene-daten-dsgvo-mittelstand`) | even, but should be on more |
 | Localized slugs | n/a | ✓ proper (gesundheitswesen, finanzdienstleistungen, etc.) | none |
 | Sitemap hreflang alternates | ✓ on paired routes | ✓ on paired routes | EN-only and DE-only blog posts correctly omit alternates |
-| llms.txt DE section | n/a | ✗ — no DE-language resources surfaced | **Add a `## Ressourcen (Deutsch)` section** |
+| llms.txt DE section | n/a | ✗: no DE-language resources surfaced | **Add a `## Ressourcen (Deutsch)` section** |
 | German keyword density | "European" 4x, "GDPR" 6x | "DSGVO", "Mittelstand", "BetrVG", "Hetzner", "Kanzlei" prominent in DE blog | EN side under-uses "EU sovereign AI" / "sovereign LLM" terms |
 | og:locale + Content-Language | `en_US` | `de_DE` | both correct; Content-Language set in `netlify.toml` |
 
@@ -243,7 +243,7 @@ Three German competitors that match different points on Ironum's positioning axi
 
 ## Prioritized Action Plan
 
-### Critical — this week
+### Critical: this week
 
 | # | Action | File / line | Effort | Why |
 |---|---|---|---|---|
@@ -253,7 +253,7 @@ Three German competitors that match different points on Ironum's positioning axi
 | 4 | Change blog `author` from Organization to Person | `src/layouts/BlogLayout.astro:49` | 5 min | Google explicitly penalizes org-author for editorial content |
 | 5 | Expand `sameAs` to 5+ entries | `src/layouts/Layout.astro:71-73` | 15 min | Add: founder LinkedIn, AskMention, GitHub if created, Crunchbase profile once registered |
 
-### High — this month
+### High: this month
 
 | # | Action | File / line | Effort |
 |---|---|---|---|
@@ -263,10 +263,10 @@ Three German competitors that match different points on Ironum's positioning axi
 | 9 | Create Google Business Profile for Düsseldorf office | external | 30 min |
 | 10 | Add `dateModified` support: optional `updatedDate` frontmatter, fall back to `publishDate` | `src/content/config.ts` + `BlogLayout.astro:52` | 20 min |
 | 11 | Add `speakable` property to BlogPosting | `BlogLayout.astro:45-59` | 15 min |
-| 12 | Convert default `ogImage` per blog post: use `heroImage` automatically when no `ogImage` set | already partially done at `BlogLayout.astro:76` — extend to fall back |  10 min |
+| 12 | Convert default `ogImage` per blog post: use `heroImage` automatically when no `ogImage` set | already partially done at `BlogLayout.astro:76`; extend to fall back |  10 min |
 | 13 | Register on Crunchbase + AI service aggregators (Sortlist, Clutch DE) | external | 1 hr |
 
-### Medium — this quarter
+### Medium: this quarter
 
 | # | Action | Effort |
 |---|---|---|
@@ -278,12 +278,12 @@ Three German competitors that match different points on Ironum's positioning axi
 | 19 | Two EN-native posts targeting US-audience sovereign-AI keywords ("EU sovereign AI for US-headquartered companies", "GDPR for US SaaS expanding into Europe") | 2 weeks |
 | 20 | Expand About page from ~600 to 1,200+ words; add a press/media section even if it starts as "Speaking & writing" with conference appearances | 3 hrs |
 
-### Strategic — 1–3 months
+### Strategic: 1–3 months
 
 | # | Action | Effort |
 |---|---|---|
-| 21 | Original research: "State of AI in the German Mittelstand 2026" — survey 50+ companies, publish numbers. Makes Ironum a primary citable source. | 4–6 weeks |
-| 22 | Wikipedia + Wikidata entity creation for Ironum or for Gerrit Halfmann (notability bar applies — start with Wikidata) | 2 weeks of prep |
+| 21 | Original research: "State of AI in the German Mittelstand 2026": survey 50+ companies, publish numbers. Makes Ironum a primary citable source. | 4–6 weeks |
+| 22 | Wikipedia + Wikidata entity creation for Ironum or for Gerrit Halfmann (notability bar applies; start with Wikidata) | 2 weeks of prep |
 | 23 | YouTube channel: 3–5 short technical videos (5–10 min each) explaining RAG, EU AI Act, GDPR-compliant chatbot architecture. Feeds Gemini, surfaces in AI Overviews. | 3–4 weeks |
 | 24 | Reddit seeding: substantive comments (not promotion) in r/MachineLearning, r/de, r/Mittelstand, r/sysadmin EU threads. Perplexity weights Reddit heavily. | ongoing, 2 hrs/week |
 | 25 | Guest posts on t3n, Gründerszene, or Heise on a DACH AI compliance topic. Adds external authority citation. | 4 weeks per post |
@@ -302,8 +302,8 @@ Three German competitors that match different points on Ironum's positioning axi
 | `public/llms.txt` | Expand to all 19 blog posts; add `## Ressourcen (Deutsch)` section; fix "haftungsbeschrankt" → "haftungsbeschränkt" on line 33 |
 | `src/pages/about.astro` | Add inline `Person` structured data via a per-page `structuredData` prop; expand body copy to 1,200+ words |
 | `src/components/Testimonials.astro` | Add `Review` + `AggregateRating` schema for the three real testimonials |
-| `src/pages/services/*.astro` | Pass FAQ items into FAQSection (once the component emits schema) — already passed on `enterprise-rag.astro:299`; audit other service pages for parity |
-| `netlify.toml` | Add security headers (CSP, X-Content-Type-Options, Referrer-Policy) — trust signal that compounds with E-E-A-T |
+| `src/pages/services/*.astro` | Pass FAQ items into FAQSection (once the component emits schema); already passed on `enterprise-rag.astro:299`; audit other service pages for parity |
+| `netlify.toml` | Add security headers (CSP, X-Content-Type-Options, Referrer-Policy): trust signal that compounds with E-E-A-T |
 
 ---
 

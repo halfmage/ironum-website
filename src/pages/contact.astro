@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
 
 <Layout
   title="Contact Ironum | Book a Free AI Strategy Call | Ironum"
-  description="Get in touch with Ironum for a free AI strategy consultation. Book a call with Gerrit, email us, or visit our office in Düsseldorf, Germany."
+  description="Get in touch with Ironum for a free AI strategy consultation. Send us a message, email us, or visit our office in Düsseldorf, Germany."
 >
   <Navigation />
 
@@ -22,9 +22,9 @@ import Footer from '../components/Footer.astro';
   <section id="message-form" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50 scroll-mt-20">
     <div class="max-w-7xl mx-auto">
       <div class="max-w-2xl mx-auto">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">SEND A MESSAGE</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Prefer to Write?</h2>
-        <p class="text-gray-500 text-lg font-semibold mb-8">Send us a message and we'll respond within two working days.</p>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">BOOK A FREE CALL</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Let's Talk</h2>
+        <p class="text-gray-500 text-lg font-semibold mb-8">Tell us what you're working on and when a 30-minute call suits you. Gerrit replies within two working days with a calendar invite.</p>
         <form name="contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact">
           <input type="hidden" name="source" value="">
@@ -32,20 +32,20 @@ import Footer from '../components/Footer.astro';
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-bold mb-2">Name <span class="text-red-500">*</span></label>
-              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+              <input type="text" name="name" id="name" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
             </div>
             <div>
               <label for="email" class="block text-sm font-bold mb-2">Email <span class="text-red-500">*</span></label>
-              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+              <input type="email" name="email" id="email" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
             </div>
           </div>
           <div>
             <label for="company" class="block text-sm font-bold mb-2">Company</label>
-            <input type="text" name="company" id="company" class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
+            <input type="text" name="company" id="company" class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
           </div>
           <div>
             <label for="message" class="block text-sm font-bold mb-2">Message <span class="text-red-500">*</span></label>
-            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
+            <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
           </div>
           <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Send Message</button>
         </form>
@@ -56,17 +56,6 @@ import Footer from '../components/Footer.astro';
             if (!form) return;
             const source = params.get('source');
             if (source) form.querySelector('input[name="source"]').value = source.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64);
-            // ?prefill=<key> starts the message with a fixed template (keys only, never free text from the URL).
-            const templates = {
-              jira: "Which Jira do you use? (Jira Cloud, Jira Data Center or Jira Server)\n\n\nWhat should AI answer from your Jira? (for example: \"Which open bugs block the next release?\")\n\n\nAnything else we should know? (for example: Copilot licenses, Confluence, data must stay in the EU)\n\n",
-              limit: "Which limit did you hit? (for example: Copilot can't see our Jira tickets)\n\n\nWhere does your data live? (for example: Jira, Confluence, Azure DevOps, SharePoint)\n\n\nWhat would you like AI to do with it?\n\n",
-            };
-            const message = form.querySelector('textarea[name="message"]');
-            const template = templates[params.get('prefill')];
-            if (template && message && !message.value) {
-              message.value = template;
-              message.rows = 11;
-            }
           })();
         </script>
       </div>
@@ -82,9 +71,9 @@ import Footer from '../components/Footer.astro';
           <div>
             <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">BOOK A CALL</span>
             <h2 class="text-3xl md:text-5xl font-bold mb-4">Free Discovery Call</h2>
-            <p class="text-gray-500 text-lg font-semibold">Schedule a 30-minute call with Gerrit to discuss your AI strategy, infrastructure requirements, and compliance needs. No commitment, no sales pitch, just an honest assessment of how AI can help your organization.</p>
+            <p class="text-gray-500 text-lg font-semibold">Tell us when it suits you, and Gerrit sends you a calendar invite for a 30-minute call to discuss your AI strategy, infrastructure requirements, and compliance needs. No commitment, no sales pitch, just an honest assessment of how AI can help your organization.</p>
           </div>
-          <a href="https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Book Call With Gerrit</a>
+          <a href="/contact/#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Get in Touch</a>
           <div class="space-y-4 pt-4">
             <h3 class="text-xl font-bold">What to Expect</h3>
             <ul class="space-y-3 text-gray-500 text-lg font-semibold">

@@ -10,8 +10,8 @@ export interface Props {
 
 const guide = GUIDES[Astro.props.guideId];
 const { id: guideId, title: guideTitle, audience, pages, file, startNote } = guide;
-const input = 'w-full border-2 border-gray-100 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors bg-white';
-const choice = 'flex items-start gap-3 border-2 border-gray-100 rounded-2xl px-4 py-3 text-gray-600 font-semibold cursor-pointer hover:border-blue-200 transition-colors bg-white';
+const input = 'w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors bg-white';
+const choice = 'flex items-start gap-3 border-2 border-gray-300 rounded-2xl px-4 py-3 text-gray-600 font-semibold cursor-pointer hover:border-blue-400 transition-colors bg-white';
 ---
 
 <section id="get-the-guide" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">

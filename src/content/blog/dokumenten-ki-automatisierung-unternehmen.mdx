@@ -41,14 +41,14 @@ Und seit Januar 2025 gilt die E-Rechnungspflicht: Alle Unternehmen müssen elekt
 
 ### 2. Vertragsanalyse und -management
 
-**Der Alltag ohne KI:** Die Rechtsabteilung prüft Verträge manuell. Klauseln werden per Volltextsuche gesucht — wenn sie überhaupt digital vorliegen. Fristen werden in Excel-Listen gepflegt. Und wenn jemand wissen will, welche Verträge eine bestimmte Klausel enthalten, dauert die Antwort Tage.
+**Der Alltag ohne KI:** Die Rechtsabteilung prüft Verträge manuell. Klauseln werden per Volltextsuche gesucht, wenn sie überhaupt digital vorliegen. Fristen werden in Excel-Listen gepflegt. Und wenn jemand wissen will, welche Verträge eine bestimmte Klausel enthalten, dauert die Antwort Tage.
 
 **Mit Dokumenten-KI:**
 
 1. **Indexierung:** Alle Verträge werden eingelesen und semantisch indexiert
 2. **Klauselanalyse:** KI identifiziert und kategorisiert Schlüsselklauseln (Haftung, Kündigung, Geheimhaltung, Preisanpassung)
 3. **Fristmanagement:** Automatische Erkennung und Überwachung von Fristen und Verlängerungsoptionen
-4. **Suche:** Natürlichsprachliche Suche — "Welche Lieferantenverträge enthalten eine Preisanpassungsklausel?"
+4. **Suche:** Natürlichsprachliche Suche: "Welche Lieferantenverträge enthalten eine Preisanpassungsklausel?"
 5. **Vergleich:** Neue Verträge automatisch gegen Standardvorlagen prüfen
 
 **Ergebnis:**
@@ -75,15 +75,15 @@ Und seit Januar 2025 gilt die E-Rechnungspflicht: Alle Unternehmen müssen elekt
 
 ## Die technische Grundlage: RAG für Dokumente
 
-Dokumenten-KI basiert auf [Retrieval-Augmented Generation (RAG)](/de/dienstleistungen/enterprise-rag/) — einem Ansatz, der große Sprachmodelle mit Ihrer Dokumentenbasis verbindet:
+Dokumenten-KI basiert auf [Retrieval-Augmented Generation (RAG)](/de/dienstleistungen/enterprise-rag/), einem Ansatz, der große Sprachmodelle mit Ihrer Dokumentenbasis verbindet:
 
 1. **Dokumente indexieren:** PDFs, Word-Dateien, E-Mails, Scans werden in eine durchsuchbare Wissensbasis überführt
 2. **Semantische Suche:** Statt Stichwortsuche versteht das System die Bedeutung Ihrer Fragen
-3. **Quellenbasierte Antworten:** Jede Antwort referenziert die Originaldokumente — nachvollziehbar und überprüfbar
+3. **Quellenbasierte Antworten:** Jede Antwort referenziert die Originaldokumente, nachvollziehbar und überprüfbar
 
 Der entscheidende Vorteil gegenüber klassischer OCR: Dokumenten-KI versteht Kontext. Sie erkennt, dass "Nettobetrag" und "Summe exkl. MwSt." dasselbe bedeuten. Sie versteht, dass eine Rechnung über 50.000 € eine andere Freigabestufe erfordert als eine über 500 €.
 
-Dieselbe RAG-Architektur trägt auch konversationelle Anwendungen — siehe unseren [Leitfaden zum DSGVO-konformen Chatbot auf eigenen Daten](/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/), wenn Sie das gleiche Fundament für Kundensupport oder einen internen Helpdesk nutzen wollen.
+Dieselbe RAG-Architektur trägt auch konversationelle Anwendungen. Siehe unseren [Leitfaden zum DSGVO-konformen Chatbot auf eigenen Daten](/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/), wenn Sie das gleiche Fundament für Kundensupport oder einen internen Helpdesk nutzen wollen.
 
 ## Datenschutz: Warum Self-Hosting hier Pflicht ist
 
@@ -91,8 +91,8 @@ Rechnungen, Verträge und Geschäftspost enthalten sensible Daten: Kundennamen, 
 
 Unsere Dokumenten-KI läuft [auf Ihrer Infrastruktur](/de/plattform/bereitstellung/):
 - **Keine Daten verlassen Ihr Netzwerk**
-- **Open-Source-Modelle** — kein Vendor Lock-in
-- **DSGVO-konform by Design** — Verarbeitungsverzeichnis und Löschkonzept inklusive
+- **Open-Source-Modelle:** kein Vendor Lock-in
+- **DSGVO-konform by Design:** Verarbeitungsverzeichnis und Löschkonzept inklusive
 
 ## ROI-Rechnung: Ein Beispiel
 
@@ -102,9 +102,9 @@ Unsere Dokumenten-KI läuft [auf Ihrer Infrastruktur](/de/plattform/bereitstellu
 |---|---|---|
 | Verarbeitungskosten pro Rechnung | 12 € | 2,50 € |
 | Monatliche Verarbeitungskosten | 6.000 € | 1.250 € |
-| **Jährliche Einsparung** | — | **57.000 €** |
+| **Jährliche Einsparung** | - | **57.000 €** |
 | Fehlerbedingte Nacharbeit (geschätzt) | 1.500 €/Monat | 150 €/Monat |
-| **Gesamte jährliche Einsparung** | — | **73.200 €** |
+| **Gesamte jährliche Einsparung** | - | **73.200 €** |
 
 **Implementierungskosten:** 15.000-30.000 € (einmalig)
 **Amortisation:** 3-5 Monate
@@ -113,14 +113,14 @@ Bei höherem Volumen skaliert der ROI proportional. Unternehmen mit 2.000+ Rechn
 
 ## So starten Sie
 
-1. **Einen Dokumenttyp wählen** — Eingangsrechnungen sind der ideale Start (hohes Volumen, klare Struktur, messbarer ROI)
-2. **Bestandsdaten sammeln** — 100-200 historische Dokumente als Trainingsbasis
-3. **Proof of Concept** — In 2 Wochen steht ein funktionierender Prototyp auf Ihren echten Daten
-4. **Parallelbetrieb** — 4-6 Wochen parallel zum manuellen Prozess, um Genauigkeit zu validieren
-5. **Rollout** — Schrittweise Erweiterung auf weitere Dokumenttypen
+1. **Einen Dokumenttyp wählen:** Eingangsrechnungen sind der ideale Start (hohes Volumen, klare Struktur, messbarer ROI)
+2. **Bestandsdaten sammeln:** 100-200 historische Dokumente als Trainingsbasis
+3. **Proof of Concept:** In 2 Wochen steht ein funktionierender Prototyp auf Ihren echten Daten
+4. **Parallelbetrieb:** 4-6 Wochen parallel zum manuellen Prozess, um Genauigkeit zu validieren
+5. **Rollout:** Schrittweise Erweiterung auf weitere Dokumenttypen
 
 ---
 
-**Sie wollen Ihre Dokumentenverarbeitung automatisieren?** Wir bauen [KI-basierte Dokumentensysteme](/de/dienstleistungen/enterprise-rag/) auf Ihrer Infrastruktur — DSGVO-konform und produktionsreif in Wochen.
+**Sie wollen Ihre Dokumentenverarbeitung automatisieren?** Wir bauen [KI-basierte Dokumentensysteme](/de/dienstleistungen/enterprise-rag/) auf Ihrer Infrastruktur, DSGVO-konform und produktionsreif in Wochen.
 
-[Kostenloses Beratungsgespräch buchen →](https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled)
+[Kostenloses Beratungsgespräch buchen →](/de/kontakt/#message-form)

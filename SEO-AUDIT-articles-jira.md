@@ -55,7 +55,7 @@ work well for snippets, so a chart is optional. A dedicated OG card for each is 
 | → PO guide / guides hub | ✓ | ✓ |
 | → each other | **Missing** (1 → 2) | ✓ (2 → 1) |
 | → `enterprise-rag-explained` | Missing | **Missing** (natural fit for "What RAG is") |
-| ← from the backlog refinement post | **Missing**: its connector sentence should link to article 1 on publish | — |
+| ← from the backlog refinement post | **Missing**: its connector sentence should link to article 1 on publish | - |
 | ← from `/services/enterprise-rag/` | Missing | **Missing**: this is the money page for article 2 |
 
 **"Related Articles" block is off-topic.** `BlogLayout` picks the first three posts in the

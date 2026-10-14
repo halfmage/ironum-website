@@ -1,4 +1,4 @@
-# SEO Audit — ironum.com
+# SEO Audit: ironum.com
 
 **Date:** 2026-05-17
 **Branch:** `main` (post-EU rebuild merge; hreflang sitemap support shipped 2026-05-11)
@@ -24,7 +24,7 @@
 
 The site is structurally strong: SSG output, complete bilingual mirror with proper German slugs, hreflang done correctly in both HTML and sitemap, canonical aligned to non-www, robots.txt cooperating with the @astrojs/sitemap output, 19 blog posts (up from 5 in the spring) with real external citations. The drag on the score is **operational hygiene** (sitemap has no `<lastmod>` at all, hero background is still CSS-loaded, four screenshots ship as both PNG and WebP) plus **schema completeness** (deprecated `HowTo` still emitted, `FAQPage` not on service pages, `dateModified` mirrors `datePublished`).
 
-The localization side is the standout — 88/100 — and is the strongest competitive moat versus the German peer set (deepset, dida, Aleph Alpha all have weaker bilingual structure).
+The localization side is the standout (88/100) and is the strongest competitive moat versus the German peer set (deepset, dida, Aleph Alpha all have weaker bilingual structure).
 
 ---
 
@@ -33,24 +33,24 @@ The localization side is the standout — 88/100 — and is the strongest compet
 ### Title tags
 
 **Homepage** (`src/i18n/messages/en.ts` via `t.meta.defaultTitle`):
-- EN: `Ironum | Enterprise AI Without the Compliance Risk` — 56 chars, pass.
-- DE: `Ironum | KI-Lösungen für europäische Unternehmen` — 50 chars, pass.
+- EN: `Ironum | Enterprise AI Without the Compliance Risk`: 56 chars, pass.
+- DE: `Ironum | KI-Lösungen für europäische Unternehmen`: 50 chars, pass.
 
 **Service pages** (per-page override, e.g., `src/pages/services/enterprise-rag.astro:106`):
-- `Enterprise RAG Solutions | Private Document AI | Ironum` — 56 chars, pass. Primary keyword first, brand last.
+- `Enterprise RAG Solutions | Private Document AI | Ironum`: 56 chars, pass. Primary keyword first, brand last.
 
 **About** (`src/pages/about.astro:10`):
-- `About Ironum | European AI Sovereignty from Düsseldorf | Ironum` — 63 chars, slightly long; "Ironum" duplicated. Trim to `About Ironum | European AI Sovereignty from Düsseldorf` (54 chars).
+- `About Ironum | European AI Sovereignty from Düsseldorf | Ironum`: 63 chars, slightly long; "Ironum" duplicated. Trim to `About Ironum | European AI Sovereignty from Düsseldorf` (54 chars).
 
 ### Meta descriptions
 
-- Homepage (EN): `European AI engineering partner. Private AI systems deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.` — 148 chars, optimal.
-- Enterprise RAG: `Turn your documents into actionable intelligence with Retrieval-Augmented Generation. Private deployment, GDPR compliant, open-source LLMs. Deployed on your infrastructure.` — 173 chars; will truncate in SERP. Trim to ~155.
+- Homepage (EN): `European AI engineering partner. Private AI systems deployed on your infrastructure. GDPR compliant. No vendor lock-in. Book a free strategy call.`: 148 chars, optimal.
+- Enterprise RAG: `Turn your documents into actionable intelligence with Retrieval-Augmented Generation. Private deployment, GDPR compliant, open-source LLMs. Deployed on your infrastructure.`: 173 chars; will truncate in SERP. Trim to ~155.
 
 ### Heading hierarchy
 
 Verified on the EN homepage:
-- `H1` (`src/components/Hero.astro:16`) — translated `t.hero.title`. Single H1 per page. Pass.
+- `H1` (`src/components/Hero.astro:16`): translated `t.hero.title`. Single H1 per page. Pass.
 - `H2` (9 distinct, spans problem, services, testimonials, infrastructure, impacts, process, blog, CTA, newsletter).
 - `H3`–`H4` properly nested.
 - No level skips on the routes spot-checked (`/`, `/services/enterprise-rag/`, `/resources/blog/chatbot-own-data-gdpr-sme/`).
@@ -60,8 +60,8 @@ Verified on the EN homepage:
 ### Internal linking
 
 - Homepage → all 6 service pages (`index.astro:65-72`), latest 3 blog posts (`:107-126`), `/resources/blog/` index.
-- Footer (`src/components/Footer.astro`) — comprehensive sitemap-like coverage.
-- Blog posts cross-link to services and other posts (verified in `chatbot-own-data-gdpr-sme.mdx` lines 38, 52, 63 — links to enterprise-rag-explained, eu-ai-act-us-companies-guide, ki-hosting-europa-hetzner-ionos-vergleich).
+- Footer (`src/components/Footer.astro`): comprehensive sitemap-like coverage.
+- Blog posts cross-link to services and other posts (verified in `chatbot-own-data-gdpr-sme.mdx` lines 38, 52, 63: links to enterprise-rag-explained, eu-ai-act-us-companies-guide, ki-hosting-europa-hetzner-ionos-vergleich).
 - DE homepage routes correctly to DE blog when `dePosts.length >= 3` (`src/pages/de/index.astro:23`).
 - Anchor text is descriptive throughout.
 
@@ -80,7 +80,7 @@ Verified on the EN homepage:
 
 | Dimension | Score | Evidence |
 |---|---|---|
-| Experience | 13/25 | Three real homepage testimonials (Helena Vossen, Prof. Dr. Carsten Wolff at FH Dortmund, Alesia Kunz) with names and photos. **But service pages still frame use cases hypothetically** ("A mid-size German law firm processes thousands of contracts monthly" — `enterprise-rag.astro:45`). No named-customer case studies as separate pages. |
+| Experience | 13/25 | Three real homepage testimonials (Helena Vossen, Prof. Dr. Carsten Wolff at FH Dortmund, Alesia Kunz) with names and photos. **But service pages still frame use cases hypothetically** ("A mid-size German law firm processes thousands of contracts monthly", `enterprise-rag.astro:45`). No named-customer case studies as separate pages. |
 | Expertise | 18/25 | 19 blog posts averaging 1,500–3,500 words. Real external citations (Bitkom 2026 AI study, datensicherheit.de GDPR survey, BetrVG references). Technical depth on RAG, EU AI Act, GDPR is substantive. |
 | Authoritativeness | 12/25 | Founder bio with photo on About page (`about.astro:60-71`). University partnership (FH Dortmund) shown as a logo. **Still missing:** press section, awards, conference appearances surfaced on-site, named author bylines on blog. |
 | Trustworthiness | 19/25 | Strong: HTTPS, complete imprint with legal entity (LearnSlice UG), GDPR-compliant privacy policy, physical Düsseldorf address, phone number, real testimonials with photos. |
@@ -123,7 +123,7 @@ The blog corpus is now substantial. The about page is the thinnest high-stakes p
 | EU AI Act | ✗ | ✗ | ✗ | partial | n/a |
 
 Consider one of these as the homepage H1:
-- `Enterprise AI for Europe — Without the Compliance Risk` (adds "Europe")
+- `Enterprise AI for Europe: Without the Compliance Risk` (adds "Europe")
 - `Sovereign Enterprise AI Without the Compliance Risk` (adds "sovereign", a rising AI-search term)
 
 ### Secondary keywords (EN)
@@ -161,8 +161,8 @@ Consider one of these as the homepage H1:
 
 | Intent | Pages targeting | Match |
 |---|---|---|
-| Commercial investigation | Homepage, service pages, industry pages | Strong — problem/solution/proof structure matches buyer-journey |
-| Comparison | `n8n-vs-zapier-vs-make`, flagship chatbot post (architecture table) | Present — could expand: "Ironum vs deepset", "Ironum vs Aleph Alpha for Mittelstand", "on-premise vs EU cloud AI" |
+| Commercial investigation | Homepage, service pages, industry pages | Strong: problem/solution/proof structure matches buyer-journey |
+| Comparison | `n8n-vs-zapier-vs-make`, flagship chatbot post (architecture table) | Present. Could expand: "Ironum vs deepset", "Ironum vs Aleph Alpha for Mittelstand", "on-premise vs EU cloud AI" |
 | How-to / educational | Blog posts | Strong |
 | Transactional | CTA to discovery call | Present |
 | Branded / navigational | Footer + brand mentions | Adequate |
@@ -171,27 +171,27 @@ Consider one of these as the homepage H1:
 
 ## Technical SEO
 
-### Robots.txt — Pass
+### Robots.txt: Pass
 
 `public/robots.txt`:
 - `Allow: /` for all bots.
 - Explicit allow rules for GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended (lines 5–23).
-- Sitemap reference: `https://ironum.com/sitemap-index.xml` (line 26) — matches the actual generated path.
+- Sitemap reference: `https://ironum.com/sitemap-index.xml` (line 26): matches the actual generated path.
 
-### XML Sitemap — Needs Work
+### XML Sitemap: Needs Work
 
 - Index at `/sitemap-index.xml`, child at `/sitemap-0.xml`.
-- **67 URLs** in `sitemap-0.xml` — full bilingual coverage including 19 blog posts, all services, all industries, platform pages, about/contact/imprint/privacy.
+- **67 URLs** in `sitemap-0.xml`: full bilingual coverage including 19 blog posts, all services, all industries, platform pages, about/contact/imprint/privacy.
 - Hreflang alternates in sitemap on every paired route (verified across `/services/*`, `/industries/*`, `/platform/*`).
-- EN-only blog posts (`enterprise-rag-explained`, etc.) and DE-only blog posts (`ki-im-mittelstand-strategie-2026`, etc.) correctly omit alternates — they have no counterpart.
+- EN-only blog posts (`enterprise-rag-explained`, etc.) and DE-only blog posts (`ki-im-mittelstand-strategie-2026`, etc.) correctly omit alternates; they have no counterpart.
 - **Critical:** **no `<lastmod>` tags at all.** The earlier dynamic timestamp issue was fixed by removing the line, but the replacement is to emit no `lastmod`. Crawlers lose a useful prioritization signal. Recommended: emit `lastmod` per page from the source modification time (or from blog `publishDate`/`updatedDate` for posts, and `git log -1 --format=%cI` for static routes).
 - `priority`/`changefreq` are set correctly per `astro.config.mjs:73-82`: homepage 1.0/weekly, blog 0.7/monthly, other 0.8/monthly.
 
-### Canonical tags — Pass
+### Canonical tags: Pass
 
-`Layout.astro:31` — `https://ironum.com${pathname}`. Non-www, matches sitemap and `astro.config.mjs:9`.
+`Layout.astro:31`: `https://ironum.com${pathname}`. Non-www, matches sitemap and `astro.config.mjs:9`.
 
-### Hreflang — Pass
+### Hreflang: Pass
 
 `Layout.astro:129-131`:
 - `hreflang="en"` on every page.
@@ -200,17 +200,17 @@ Consider one of these as the homepage H1:
 
 Sitemap-level hreflang also present on paired routes via `astro.config.mjs:84-90` and the `URL_TO_PAIR` lookup.
 
-### Meta robots — Pass
+### Meta robots: Pass
 
-`Layout.astro:123` — `<meta name="robots" content="index, follow">`.
+`Layout.astro:123`: `<meta name="robots" content="index, follow">`.
 
-### Twitter/X Cards — Pass
+### Twitter/X Cards: Pass
 
-`Layout.astro:118-121` — `summary_large_image`, title, description, image. Image defaults to `/social.png` and accepts per-page override via `ogImage` prop.
+`Layout.astro:118-121`: `summary_large_image`, title, description, image. Image defaults to `/social.png` and accepts per-page override via `ogImage` prop.
 
-### Open Graph — Pass
+### Open Graph: Pass
 
-`Layout.astro:109-116` — `og:title`, `og:description`, `og:image`, `og:url`, `og:type` ("website" for all pages, including blog — should be `"article"` for blog posts), `og:locale` (locale-aware), `og:locale:alternate`, `og:site_name`.
+`Layout.astro:109-116`: `og:title`, `og:description`, `og:image`, `og:url`, `og:type` ("website" for all pages, including blog; should be `"article"` for blog posts), `og:locale` (locale-aware), `og:locale:alternate`, `og:site_name`.
 
 **Gap:** `og:type` is hardcoded to `"website"` even on blog posts. Should be `"article"` when rendered via `BlogLayout.astro`. Add an `ogType` prop to `Layout.astro:14` defaulting to `"website"` and override to `"article"` in `BlogLayout.astro:76`.
 
@@ -218,16 +218,16 @@ Sitemap-level hreflang also present on paired routes via `astro.config.mjs:84-90
 
 | Metric | Estimate | Status | Notes |
 |---|---|---|---|
-| LCP | ~2.5–3.0s | At risk | Hero background loaded via CSS `background-image: url('/hero-background.png')` (`Hero.astro:13`) — not preloadable; PNG, not WebP/AVIF |
+| LCP | ~2.5–3.0s | At risk | Hero background loaded via CSS `background-image: url('/hero-background.png')` (`Hero.astro:13`): not preloadable; PNG, not WebP/AVIF |
 | FID/INP | <100ms | Good | Minimal JS (Alpine.js for accordion + dropdowns; Simple Analytics) |
 | CLS | Low risk overall | At risk | Trusted-by logos lack `width`/`height` (`index.astro:30-33`) and so does the founder image (`about.astro:63`) |
 | TTFB | <200ms | Good | Static on Netlify CDN |
 
-### Security headers — Poor (40/100)
+### Security headers: Poor (40/100)
 
-`netlify.toml` only sets `Content-Language`. Missing: CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options, Strict-Transport-Security (HSTS preload not declared). These are SEO-adjacent trust signals — Google's site-quality models penalize their absence, and Mozilla Observatory / SecurityHeaders.com scores feed third-party assessments.
+`netlify.toml` only sets `Content-Language`. Missing: CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options, Strict-Transport-Security (HSTS preload not declared). These are SEO-adjacent trust signals: Google's site-quality models penalize their absence, and Mozilla Observatory / SecurityHeaders.com scores feed third-party assessments.
 
-### Mobile-friendliness — Pass
+### Mobile-friendliness: Pass
 
 Viewport meta present, touch targets sized appropriately (`min-h-[48px]` + `touch-manipulation`), responsive grid layouts, mobile accordion menu via Alpine.
 
@@ -242,7 +242,7 @@ Viewport meta present, touch targets sized appropriately (`min-h-[48px]` + `touc
 | BreadcrumbList | ✓ dynamic | `Layout.astro:88-97` |
 | BlogPosting | ✓ (`author` is Organization, `dateModified` hardcoded) | `BlogLayout.astro:45-59` |
 | Service | ✓ per service page | e.g. `enterprise-rag.astro:86-96` |
-| FAQPage | partial — only on blog posts with `frontmatter.faq` (2 posts: EN+DE chatbot flagship) | `BlogLayout.astro:61-73` |
+| FAQPage | partial: only on blog posts with `frontmatter.faq` (2 posts: EN+DE chatbot flagship) | `BlogLayout.astro:61-73` |
 | HowTo | **deprecated by Google Sept 2023, still emitted** | `ProcessSteps.astro:16-29` |
 | LocalBusiness | missing | n/a |
 | Person | missing | n/a |
@@ -254,7 +254,7 @@ Viewport meta present, touch targets sized appropriately (`min-h-[48px]` + `touc
 2. **Add `Person` schema for Gerrit Halfmann.** Then change `BlogPosting.author` (`BlogLayout.astro:49`) to reference the Person `@id`.
 3. **Promote Organization to also be a `LocalBusiness`** (or use dual-type `["Organization", "ProfessionalService"]`). Physical Düsseldorf address is already in the Organization block.
 4. **Add `AggregateRating` to homepage** using the three real testimonials wrapped in `Review` items.
-5. **Remove HowTo from ProcessSteps** — it's not just neutral, it actively risks SERP weirdness from extractors that still parse it.
+5. **Remove HowTo from ProcessSteps**: it's not just neutral, it actively risks SERP weirdness from extractors that still parse it.
 6. **Fix BlogPosting `dateModified`** (`BlogLayout.astro:52`). Add optional `updatedDate` to the schema in `src/content/config.ts`, fall back to `publishDate`.
 7. **Add `og:type: "article"` for blog posts** (currently hardcoded `"website"` in `Layout.astro:113`).
 
@@ -266,15 +266,15 @@ Viewport meta present, touch targets sized appropriately (`min-h-[48px]` + `touc
 
 - Astro `<Image>` used for avatar (`Hero.astro:22`) and logo overlay (`Hero.astro:29`) with explicit `width`/`height`.
 - Alt text coverage is 100% on visible spot-checks.
-- Hero CTA avatar alt: `"Gerrit Halfmann, Ironum AI Core founder and GDPR AI compliance expert"` — good, descriptive, keyword-relevant.
+- Hero CTA avatar alt: `"Gerrit Halfmann, Ironum AI Core founder and GDPR AI compliance expert"`: good, descriptive, keyword-relevant.
 - WebP versions exist for screenshot files (`public/screenshots/*.webp`).
 
 ### Gaps
 
-1. **PNG duplicates still alongside WebP** in `public/screenshots/`: askmention, fh-dortmund, financial-companion, learnslice — every one has both `.png` and `.webp`. PNGs are unreferenced bloat (and waste cache/CDN). Delete the PNG variants once references are confirmed to use WebP.
+1. **PNG duplicates still alongside WebP** in `public/screenshots/`: askmention, fh-dortmund, financial-companion, learnslice. Every one has both `.png` and `.webp`. PNGs are unreferenced bloat (and waste cache/CDN). Delete the PNG variants once references are confirmed to use WebP.
 2. **Hero background image (`/hero-background.png`)** is loaded via inline CSS `style="background-image: url(...)"` (`Hero.astro:13`). Not preloadable, not served as WebP/AVIF, not responsive. LCP risk on first paint. Either convert to an `<img fetchpriority="high">` element behind a black overlay, or add `<link rel="preload" href="/hero-background.png" as="image">` in `Layout.astro` head.
-3. **Trusted-by logos lack `width`/`height`** (`index.astro:30-33` and `de/index.astro:36-39`) — CLS risk. Use `<Image>` from `astro:assets` or add explicit dimensions to the `<img>` tags.
-4. **Founder image lacks dimensions** (`about.astro:63`) — same fix.
+3. **Trusted-by logos lack `width`/`height`** (`index.astro:30-33` and `de/index.astro:36-39`): CLS risk. Use `<Image>` from `astro:assets` or add explicit dimensions to the `<img>` tags.
+4. **Founder image lacks dimensions** (`about.astro:63`): same fix.
 5. **Mixed image formats across the asset set**: avatars are PNG, JPGs and WebP coexist, logos are SVG+PNG. Standardize on WebP for raster, SVG for logos.
 
 ---
@@ -284,25 +284,25 @@ Viewport meta present, touch targets sized appropriately (`min-h-[48px]` + `touc
 | Missing topic | Search intent | Audience | Type | Priority |
 |---|---|---|---|---|
 | "EU sovereign AI for US-headquartered companies" | Commercial | US enterprises expanding into EU | Blog/landing | 1 |
-| "On-premise AI vs EU cloud AI — decision guide" | Comparison | All EU buyers | Blog | 2 |
-| "RAG vs fine-tuning — when to choose which" | Educational | Engineering leaders | Blog | 3 |
+| "On-premise AI vs EU cloud AI: decision guide" | Comparison | All EU buyers | Blog | 2 |
+| "RAG vs fine-tuning: when to choose which" | Educational | Engineering leaders | Blog | 3 |
 | "Ironum vs deepset vs Aleph Alpha (positioning)" | Commercial / branded | Mid-market buyers comparing | Landing page | 4 |
 | "GDPR-compliant AI vendor evaluation checklist" | Decision-stage | Procurement / DPO | Downloadable / lead gen | 5 |
 | "Kosten KI-Projekt Mittelstand (Realistische Budgets)" | Decision-stage DE | German SME buyers | Blog | 6 |
 | "KI-Datenschutzfolgenabschätzung (DPIA) Vorlage" | How-to DE | German DPOs | Downloadable | 7 |
 | "Sovereign LLM provider comparison: Aleph Alpha, Mistral, Llama-3 on Hetzner" | Comparison | Technical buyers | Blog | 8 |
 
-Several spring-2026 gaps have been filled (`eu-ai-act-compliance-checklist`, `enterprise-rag-explained`, `gdpr-compliant-ai-guide`). Remaining gaps cluster around **comparison content** (vendor-vs-vendor, deployment-vs-deployment) and **decision-stage tools** (checklists, calculators) — both formats AI search engines extract from heavily.
+Several spring-2026 gaps have been filled (`eu-ai-act-compliance-checklist`, `enterprise-rag-explained`, `gdpr-compliant-ai-guide`). Remaining gaps cluster around **comparison content** (vendor-vs-vendor, deployment-vs-deployment) and **decision-stage tools** (checklists, calculators). Both formats AI search engines extract from heavily.
 
 ---
 
 ## Featured Snippet Opportunities
 
-1. **"What is Generative Engine Optimization?"** — the `/services/geo-optimization/` page should open with a tight 40–60-word answer paragraph immediately after the H1.
-2. **"How to deploy AI on-premise (4 steps)"** — `ProcessSteps` content already structured as numbered steps; reformat as a true ordered list with concise step labels.
-3. **"EU AI Act risk classifications"** — already in `eu-ai-act-compliance-checklist`; add a compact table near the top of the post for snippet extraction.
-4. **"RAG vs traditional search"** — `enterprise-rag-explained` could add a 5-row comparison table.
-5. **"On-premise vs EU cloud vs US SaaS chatbot — comparison"** — already exists in `chatbot-own-data-gdpr-sme.mdx` (the 8-row table at line ~70). This is snippet-ready as-is — make sure it's the first table in the post so extractors find it.
+1. **"What is Generative Engine Optimization?"**: the `/services/geo-optimization/` page should open with a tight 40–60-word answer paragraph immediately after the H1.
+2. **"How to deploy AI on-premise (4 steps)"**: `ProcessSteps` content already structured as numbered steps; reformat as a true ordered list with concise step labels.
+3. **"EU AI Act risk classifications"**: already in `eu-ai-act-compliance-checklist`; add a compact table near the top of the post for snippet extraction.
+4. **"RAG vs traditional search"**: `enterprise-rag-explained` could add a 5-row comparison table.
+5. **"On-premise vs EU cloud vs US SaaS chatbot: comparison"**: already exists in `chatbot-own-data-gdpr-sme.mdx` (the 8-row table at line ~70). This is snippet-ready as-is. Make sure it's the first table in the post so extractors find it.
 
 ---
 
@@ -324,9 +324,9 @@ Three German peers benchmarked: **deepset.ai**, **aleph-alpha.com**, **dida.do**
 | HTTPS / cleanliness | ✓ | ✓ | ✓ | ✓ |
 
 **Ironum's structural SEO is competitive with or ahead of all three on the bilingual / hreflang / schema-breadth dimensions.** It trails on three things only:
-- **Content corpus depth** (deepset's 243-URL sitemap vs. Ironum's 67) — purely a function of time and publishing cadence.
-- **Real customer case studies** — every competitor has them. Ironum has testimonials but not packaged case studies.
-- **Sitemap `<lastmod>` data** — deepset emits it; Ironum doesn't.
+- **Content corpus depth** (deepset's 243-URL sitemap vs. Ironum's 67): purely a function of time and publishing cadence.
+- **Real customer case studies**: every competitor has them. Ironum has testimonials but not packaged case studies.
+- **Sitemap `<lastmod>` data**: deepset emits it; Ironum doesn't.
 
 ---
 
@@ -358,7 +358,7 @@ Three German peers benchmarked: **deepset.ai**, **aleph-alpha.com**, **dida.do**
 |---|---|---|---|
 | 1 | Remove deprecated `HowTo` schema from `ProcessSteps.astro:16-29` | `src/components/sections/ProcessSteps.astro` | 5 min |
 | 2 | Emit `FAQPage` JSON-LD from `FAQSection.astro`; pass items into it from each service page | `src/components/sections/FAQSection.astro` + service pages | 30–45 min |
-| 3 | Add real `lastmod` per page in sitemap — use blog `publishDate`/optional `updatedDate` for posts, file modification time for static routes | `astro.config.mjs:67-95` `serialize()` callback | 30 min |
+| 3 | Add real `lastmod` per page in sitemap: use blog `publishDate`/optional `updatedDate` for posts, file modification time for static routes | `astro.config.mjs:67-95` `serialize()` callback | 30 min |
 | 4 | Add `og:type` prop to `Layout.astro:14`; override to `"article"` in `BlogLayout.astro:76` | both files | 10 min |
 | 5 | Trim `enterprise-rag.astro:107` meta description from 173 to ~155 chars | one file | 5 min |
 | 6 | Delete PNG duplicates from `public/screenshots/` once references are confirmed WebP | `public/screenshots/` | 10 min |
@@ -389,7 +389,7 @@ Three German peers benchmarked: **deepset.ai**, **aleph-alpha.com**, **dida.do**
 | 21 | Two German Mittelstand decision-stage posts ("Kosten KI-Projekt Mittelstand", "KI-DPIA-Vorlage") | 2 weeks |
 | 22 | Rewrite top 3 service-page H2s from marketing-tagline to query-matching format | 2 hrs |
 | 23 | Add `speakable` property to BlogPosting | 15 min |
-| 24 | Use post-specific `ogImage` consistently — fall back to `heroImage` automatically when no explicit `ogImage` set | 10 min (extension to existing logic in `BlogLayout.astro:76`) |
+| 24 | Use post-specific `ogImage` consistently; fall back to `heroImage` automatically when no explicit `ogImage` set | 10 min (extension to existing logic in `BlogLayout.astro:76`) |
 
 ### Low (when resources allow)
 
@@ -399,7 +399,7 @@ Three German peers benchmarked: **deepset.ai**, **aleph-alpha.com**, **dida.do**
 | 26 | Add `articleSection` to BlogPosting schema | 10 min |
 | 27 | Set up Bing Webmaster Tools + IndexNow | 30 min |
 | 28 | Create Google Business Profile for Düsseldorf office | 30 min |
-| 29 | Investigate publishing a downloadable lead-gen asset (DPA template, EU AI Act risk classifier) — both surface in AI search and feed lead capture | 1 week |
+| 29 | Investigate publishing a downloadable lead-gen asset (DPA template, EU AI Act risk classifier): both surface in AI search and feed lead capture | 1 week |
 | 30 | Run a Lighthouse audit and tackle whichever CWV metric most impacts your live data; Simple Analytics doesn't surface CWV, so pair with PageSpeed Insights | 30 min |
 
 ---

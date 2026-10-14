@@ -224,7 +224,7 @@ Each one should link to its guide page and to `/services/enterprise-rag/`.
 | Person (#person-alesia) | ✓ | ✓ | ✓ | ✓ |
 | BreadcrumbList | ✓ | ✓ | ✓ | ✓ |
 | FAQPage | n/a | ✓ (5) | ✓ (5) | ✓ (6) |
-| DigitalDocument (author → Alesia) | — | ✓ | ✓ | n/a |
+| DigitalDocument (author → Alesia) | - | ✓ | ✓ | n/a |
 | BlogPosting (author → #person-alesia) | n/a | n/a | n/a | ✓ |
 | ItemList of the two guides | **Missing** | n/a | n/a | n/a |
 

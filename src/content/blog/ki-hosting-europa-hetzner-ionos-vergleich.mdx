@@ -9,28 +9,28 @@ draft: false
 locale: "de"
 faq:
   - question: "Was ist KI-Hosting?"
-    answer: "KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern — on-premise oder bei einem europäischen Cloud-Anbieter — statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle."
+    answer: "KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern (on-premise oder bei einem europäischen Cloud-Anbieter) statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle."
   - question: "Hetzner oder IONOS für KI?"
     answer: "Hetzner bietet das beste Preis-Leistungs-Verhältnis (GEX44 mit 20 GB VRAM ab ca. 212 €/Monat) und eignet sich für technische Teams ohne Enterprise-Support-Bedarf. IONOS kostet mehr (ab ca. 490 €/Monat), liefert dafür Enterprise-SLAs, deutschen Support und BSI-C5-/ISO-27001-Zertifizierung. Faustregel: Hetzner für Kostenoptimierung, IONOS für Compliance- und Support-Anforderungen."
   - question: "Welche GPU brauche ich für KI?"
     answer: "Der GPU-Speicher (VRAM) ist der Engpass: 7B-Parameter-Modelle brauchen mindestens 14 GB, 13B-Modelle 24-32 GB, 70B-Modelle mehrere GPUs. Für RAG und Chatbots reicht meist eine GPU mit 20-24 GB VRAM; für das Training großer Modelle ist eine NVIDIA H100 (bei OVHcloud verfügbar) sinnvoll."
   - question: "Was kostet KI-Hosting in Europa?"
-    answer: "Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr — ohne Datensouveränität."
+    answer: "Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr, ohne Datensouveränität."
 ---
 
 ## Was ist KI-Hosting?
 
-KI-Hosting bezeichnet den Betrieb von KI-Modellen auf dedizierten GPU-Servern — entweder im eigenen Rechenzentrum (On-Premise) oder bei einem europäischen Cloud-Anbieter — statt über öffentliche KI-APIs wie OpenAI. Entscheidend sind drei Faktoren: der GPU-Speicher (VRAM) für die Modellgröße, der Datenstandort und die laufenden Kosten. Wer eigene Daten verarbeitet, behält so die volle Kontrolle darüber, wo und wie sie gespeichert werden.
+KI-Hosting bezeichnet den Betrieb von KI-Modellen auf dedizierten GPU-Servern, entweder im eigenen Rechenzentrum (On-Premise) oder bei einem europäischen Cloud-Anbieter, statt über öffentliche KI-APIs wie OpenAI. Entscheidend sind drei Faktoren: der GPU-Speicher (VRAM) für die Modellgröße, der Datenstandort und die laufenden Kosten. Wer eigene Daten verarbeitet, behält so die volle Kontrolle darüber, wo und wie sie gespeichert werden.
 
 Für den DACH-Markt sind drei Anbieter relevant: **Hetzner** (Preisführer), **IONOS** (Enterprise-Support) und **OVHcloud** (High-End-GPUs). Dieser Beitrag vergleicht sie nach Preis, GPU-Modellen, Datenstandort und Eignung für typische KI-Workloads.
 
 ## Warum europäisches KI-Hosting wichtig ist
 
-**93 % der deutschen Unternehmen** würden einen deutschen KI-Anbieter bevorzugen. **88 %** halten das Herkunftsland des Anbieters für wichtig ([Bitkom KI-Studie 2026](https://www.bitkom.org/Presse/Presseinformation/Durchbruch-Kuenstliche-Intelligenz)). Das ist kein Patriotismus — es ist Pragmatismus.
+**93 % der deutschen Unternehmen** würden einen deutschen KI-Anbieter bevorzugen. **88 %** halten das Herkunftsland des Anbieters für wichtig ([Bitkom KI-Studie 2026](https://www.bitkom.org/Presse/Presseinformation/Durchbruch-Kuenstliche-Intelligenz)). Das ist kein Patriotismus. Es ist Pragmatismus.
 
 Wer KI-Modelle auf US-Cloud-Infrastruktur betreibt, hat ein dreifaches Problem:
 1. **DSGVO-Risiko:** Datenübermittlung in Drittländer erfordert zusätzliche Rechtsgrundlagen
-2. **CLOUD Act:** US-Behörden können auf Daten zugreifen, die von US-Unternehmen gespeichert werden — unabhängig vom Serverstandort
+2. **CLOUD Act:** US-Behörden können auf Daten zugreifen, die von US-Unternehmen gespeichert werden, unabhängig vom Serverstandort
 3. **Abhängigkeit:** Preise, APIs und Nutzungsbedingungen ändern sich nach dem Willen des Anbieters
 
 Die Alternative: europäische GPU-Server für Self-Hosted KI. Drei Anbieter dominieren den DACH-Markt.
@@ -42,7 +42,7 @@ Die Alternative: europäische GPU-Server für Self-Hosted KI. Drei Anbieter domi
 **Profil:** Preisführer aus Gunzenhausen (Bayern). Besonders beliebt bei Entwicklern und technischen Teams.
 
 **GPU-Server:**
-- **GEX44:** NVIDIA RTX 4000 SFF Ada (20 GB VRAM), Intel Core i5-13500, 64 GB RAM, 2x 1,92 TB NVMe — **ab ca. 212 €/Monat** (nach Preiserhöhung April 2026) ([Hetzner GEX44](https://www.hetzner.com/dedicated-rootserver/gex44/))
+- **GEX44:** NVIDIA RTX 4000 SFF Ada (20 GB VRAM), Intel Core i5-13500, 64 GB RAM, 2x 1,92 TB NVMe, **ab ca. 212 €/Monat** (nach Preiserhöhung April 2026) ([Hetzner GEX44](https://www.hetzner.com/dedicated-rootserver/gex44/))
 - Höhere GPU-Klassen verfügbar (GEX130 mit RTX 6000)
 
 **Standorte:** Falkenstein (Sachsen), Nürnberg (Bayern), Helsinki (Finnland)
@@ -65,7 +65,7 @@ Die Alternative: europäische GPU-Server für Self-Hosted KI. Drei Anbieter domi
 **Profil:** Enterprise-orientierter Anbieter aus Montabaur (Rheinland-Pfalz). Teil der United Internet AG.
 
 **GPU-Server:**
-- **GPU-Server:** NVIDIA Tesla T4 (16 GB VRAM), AMD EPYC 7302P, 128 GB RAM, 1 TB NVMe — **ab 490 €/Monat** ([hosttest.de](https://www.hosttest.de/vergleich/gpu-server.html))
+- **GPU-Server:** NVIDIA Tesla T4 (16 GB VRAM), AMD EPYC 7302P, 128 GB RAM, 1 TB NVMe, **ab 490 €/Monat** ([hosttest.de](https://www.hosttest.de/vergleich/gpu-server.html))
 - Stundengenaue Abrechnung: 0,68 €/Stunde
 
 **Standorte:** Frankfurt, Berlin, Karlsruhe und weitere europäische Standorte
@@ -96,7 +96,7 @@ Die Alternative: europäische GPU-Server für Self-Hosted KI. Drei Anbieter domi
 **Standorte:** Frankfurt, Straßburg, Gravelines, Roubaix und weitere
 
 **Stärken:**
-- Einziger der drei mit NVIDIA H100 verfügbar — die leistungsstärkste GPU für LLM-Training und große Modelle
+- Einziger der drei mit NVIDIA H100 verfügbar (die leistungsstärkste GPU für LLM-Training und große Modelle)
 - Wettbewerbsfähige Preise im High-End-Segment
 - Europäisches Unternehmen unter französischem Recht (kein CLOUD Act)
 - Gaia-X-Gründungsmitglied
@@ -131,7 +131,7 @@ Die Alternative: europäische GPU-Server für Self-Hosted KI. Drei Anbieter domi
 | Support | Community | Enterprise | Standard |
 | **Jahreskosten (Server)** | **~2.544 €** | **~5.880 €** | **~4.800 €** |
 
-Zum Vergleich: Eine vergleichbare Lösung über OpenAI-APIs (GPT-4) kostet bei 50.000 Dokumenten und regelmäßiger Nutzung leicht **10.000-30.000 € pro Jahr** — ohne Datensouveränität.
+Zum Vergleich: Eine vergleichbare Lösung über OpenAI-APIs (GPT-4) kostet bei 50.000 Dokumenten und regelmäßiger Nutzung leicht **10.000-30.000 € pro Jahr**, ohne Datensouveränität.
 
 ## Worauf Sie bei der Auswahl achten sollten
 
@@ -139,7 +139,7 @@ Zum Vergleich: Eine vergleichbare Lösung über OpenAI-APIs (GPT-4) kostet bei 5
 Die wichtigste Spezifikation für KI-Workloads ist der GPU-Speicher (VRAM). Ein 7B-Parameter-Modell benötigt mindestens 14 GB VRAM. Für 13B-Modelle brauchen Sie 24-32 GB. Für 70B-Modelle mehrere GPUs.
 
 ### 2. Datenstandort vertraglich fixieren
-"Rechenzentrum in Deutschland" reicht nicht. Lassen Sie sich vertraglich zusichern, dass Ihre Daten den Standort nicht verlassen — auch nicht für Backups oder Monitoring.
+"Rechenzentrum in Deutschland" reicht nicht. Lassen Sie sich vertraglich zusichern, dass Ihre Daten den Standort nicht verlassen, auch nicht für Backups oder Monitoring.
 
 ### 3. Exit-Strategie planen
 Vermeiden Sie proprietäre Cloud-Dienste, die den Anbieterwechsel erschweren. Setzen Sie auf Standard-Container (Docker, Kubernetes), die auf jedem Anbieter laufen.
@@ -150,7 +150,7 @@ Für Echtzeit-Anwendungen (Chatbots, Qualitätskontrolle) zählt die Latenz. Tes
 ## FAQ
 
 **Was ist KI-Hosting?**
-KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern — on-premise oder bei einem europäischen Cloud-Anbieter — statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle.
+KI-Hosting ist der Betrieb von KI-Modellen auf dedizierten GPU-Servern (on-premise oder bei einem europäischen Cloud-Anbieter) statt über öffentliche APIs wie OpenAI. So bleiben Daten und Modell unter eigener Kontrolle.
 
 **Hetzner oder IONOS für KI?**
 Hetzner bietet das beste Preis-Leistungs-Verhältnis (GEX44 mit 20 GB VRAM ab ca. 212 €/Monat) und eignet sich für technische Teams ohne Enterprise-Support-Bedarf. IONOS kostet mehr (ab ca. 490 €/Monat), liefert dafür Enterprise-SLAs, deutschen Support und BSI-C5-/ISO-27001-Zertifizierung. Faustregel: Hetzner für Kostenoptimierung, IONOS für Compliance- und Support-Anforderungen.
@@ -159,10 +159,10 @@ Hetzner bietet das beste Preis-Leistungs-Verhältnis (GEX44 mit 20 GB VRAM ab ca
 Der GPU-Speicher (VRAM) ist der Engpass: 7B-Parameter-Modelle brauchen mindestens 14 GB, 13B-Modelle 24-32 GB, 70B-Modelle mehrere GPUs. Für RAG und Chatbots reicht meist eine GPU mit 20-24 GB VRAM; für das Training großer Modelle ist eine NVIDIA H100 (bei OVHcloud verfügbar) sinnvoll.
 
 **Was kostet KI-Hosting in Europa?**
-Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr — ohne Datensouveränität.
+Ein typisches RAG-Projekt liegt bei Hetzner bei ca. 2.500 €/Jahr, bei OVHcloud bei ca. 4.800 €/Jahr und bei IONOS bei ca. 5.900 €/Jahr (reine Serverkosten). Eine vergleichbare Lösung über OpenAI-APIs kostet je nach Nutzung 10.000-30.000 €/Jahr, ohne Datensouveränität.
 
 ---
 
-**Sie brauchen KI-Infrastruktur, aber nicht die Komplexität?** Wir kümmern uns um [Deployment und Betrieb](/de/plattform/bereitstellung/) auf europäischer Infrastruktur — Sie konzentrieren sich auf Ihr Kerngeschäft.
+**Sie brauchen KI-Infrastruktur, aber nicht die Komplexität?** Wir kümmern uns um [Deployment und Betrieb](/de/plattform/bereitstellung/) auf europäischer Infrastruktur. Sie konzentrieren sich auf Ihr Kerngeschäft.
 
-[Kostenloses Infrastruktur-Gespräch buchen →](https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled)
+[Kostenloses Infrastruktur-Gespräch buchen →](/de/kontakt/#message-form)

@@ -156,8 +156,6 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
     {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
-    <link rel="dns-prefetch" href="//outlook.office.com" />
-
     <link rel="canonical" href={canonicalUrl} />
     {enUrl && <link rel="alternate" hreflang="en" href={enUrl} />}
     {deUrl && <link rel="alternate" hreflang="de" href={deUrl} />}

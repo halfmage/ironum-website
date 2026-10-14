@@ -20,13 +20,13 @@
 - Headline "We Build AI Solutions. You Own the Results." is benefit-driven, clear, and under 10 words
 - Eyebrow "AI DEVELOPMENT PARTNER FOR EUROPE" establishes geographic and service positioning
 - Subheadline lists specific services (consulting, RAG, chatbots, fine-tuning) with compliance hook
-- CTA "Book Call With Gerrit" is above the fold with founder avatar — personalized and trust-building
+- CTA "Book Call With Gerrit" is above the fold with founder avatar, personalized and trust-building
 - Blue CTA button (#2563eb) contrasts well against black background
 - Background image with spinning logo overlay creates visual interest
-- Hero uses `md:min-h-[60vh]` — good viewport coverage
+- Hero uses `md:min-h-[60vh]`: good viewport coverage
 
 **What's Working:**
-- Headline passes the 5-second test — visitor knows exactly what Ironum does
+- Headline passes the 5-second test: visitor knows exactly what Ironum does
 - Founder avatar on CTA is unusual for B2B and creates personal connection
 - Service list in subheadline pre-qualifies visitors
 
@@ -35,7 +35,7 @@
 - No secondary CTA for visitors not ready to book a call
 - No urgency signal (EU AI Act deadline, limited slots)
 - No microcopy under CTA (e.g., "Free 30-minute consultation · No commitment")
-- Navigation menu competes with CTA (full nav visible — this is a multi-page site, not a dedicated landing page, so acceptable but not optimal for conversion)
+- Navigation menu competes with CTA (full nav visible: this is a multi-page site, not a dedicated landing page, so acceptable but not optimal for conversion)
 
 **Fixes (Priority: HIGH):**
 1. Add microcopy below CTA: `<span class="text-white/50 text-sm mt-2">Free 30-min consultation · No commitment required</span>`
@@ -73,7 +73,7 @@
 - Metrics now have attribution line
 
 **Missing (CRITICAL):**
-- No customer testimonials — zero quotes from real clients
+- No customer testimonials: zero quotes from real clients
 - No client logos or "trusted by" section
 - No case studies with named companies
 - No review scores or third-party ratings
@@ -85,7 +85,7 @@
 **Impact:** For B2B enterprise, social proof is the #1 conversion factor after value proposition. Its near-total absence is the single biggest conversion killer on this page.
 
 **Fixes (Priority: CRITICAL):**
-1. Add testimonial section between Impacts and ProcessSteps — even 2-3 quotes with name, title, company
+1. Add testimonial section between Impacts and ProcessSteps, even 2-3 quotes with name, title, company
 2. Add "Serving X European enterprises" or "X AI deployments completed" to hero area
 3. Place a testimonial quote directly above the FinalCTA section
 4. Add client industry logos or "trusted by companies in legal, manufacturing, finance" text
@@ -94,19 +94,19 @@
 
 **Findings:**
 - Services section: 6 cards in clean 3-column grid, each with title + benefit description + "Learn more" arrow
-- Infrastructure section: 5 feature blocks (Secure, Relevant, Auditable, Customizable, Simple) — benefit-led
+- Infrastructure section: 5 feature blocks (Secure, Relevant, Auditable, Customizable, Simple), benefit-led
 - Industry section: 6 cards with market statistics as social proof proxies
 - Architecture diagram image provides visual evidence
 
 **What's Working:**
 - Feature-to-benefit translation is excellent:
-  - Bad example avoided: Not "n8n integration" but "Open-source automation — no vendor lock-in"
+  - Bad example avoided: Not "n8n integration" but "Open-source automation, no vendor lock-in"
   - Good: "Private knowledge systems powered by your documents. Zero public cloud exposure."
 - Scannable format with clear mini-headlines
 - Visual hierarchy guides eye: Eyebrow → H2 → Description → Cards
 
 **Fixes (Priority: LOW):**
-1. Add icons to service cards (currently text-only) — visual scanning aid
+1. Add icons to service cards (currently text-only): visual scanning aid
 2. Consider highlighting 1-2 "most popular" services
 
 ### 5. Objection Handling [Score: 5/10] (Weight: 10%)
@@ -142,16 +142,16 @@
 **CTA Inventory:**
 | Location | CTA Text | Type |
 |----------|----------|------|
-| Hero | "Book Call With Gerrit" | Primary — booking |
-| Nav bar | "Book a Call" | Primary — booking |
-| Compliance banner | "Learn About Our Compliance" | Secondary — navigation |
-| FinalCTA | "Book Call With Gerrit" | Primary — booking |
-| Footer | "Subscribe" (newsletter) | Tertiary — email capture |
+| Hero | "Book Call With Gerrit" | Primary (booking) |
+| Nav bar | "Book a Call" | Primary (booking) |
+| Compliance banner | "Learn About Our Compliance" | Secondary (navigation) |
+| FinalCTA | "Book Call With Gerrit" | Primary (booking) |
+| Footer | "Subscribe" (newsletter) | Tertiary (email capture) |
 
 **CTA Scoring:**
 - Button text "Book Call With Gerrit" = Medium strength (describes action, personalized, but not value-focused)
 - Better alternative: "Get Your Free AI Assessment" or "Start With a Free Consultation"
-- CTA appears 2x on long page (hero + bottom) — adequate but could add mid-page
+- CTA appears 2x on long page (hero + bottom), adequate but could add mid-page
 - Blue button on black background = good contrast
 - Newsletter signup in footer = good secondary capture
 
@@ -160,7 +160,7 @@
 2. No secondary CTA in hero (visitors not ready to call have no option except scroll)
 3. CTA button text focuses on ACTION ("Book Call") not VALUE ("Get Your AI Strategy")
 4. External Outlook booking link takes visitors off-site and may require Office 365 auth
-5. Same CTA copy repeated — no variation by section context
+5. Same CTA copy repeated: no variation by section context
 
 **Fixes (Priority: HIGH):**
 1. Add microcopy under every primary CTA: "Free 30-minute consultation · No commitment"
@@ -217,10 +217,10 @@
 |---------|--------------|----------------|
 | Field count | Newsletter: 1 field (email) | Optimal for email capture |
 | Button text | "Subscribe" | Acceptable but "Get AI Insights" would be stronger |
-| Contact form | 4 fields (name, email, company, message) | Good — under 5 fields |
+| Contact form | 4 fields (name, email, company, message) | Good: under 5 fields |
 | Contact form button | Likely "Send Message" | Should be "Get Your Free Consultation" |
 | Error handling | Browser default (HTML5 required) | Adequate for static site |
-| Booking path | External Outlook link | HIGH FRICTION — requires leaving site, possible Office auth |
+| Booking path | External Outlook link | HIGH FRICTION: requires leaving site, possible Office auth |
 
 **Critical Recommendation:** The Outlook booking link is the highest-friction conversion path possible for a B2B site. At minimum, add a Calendly or Cal.com embed, or provide the contact form as a prominent alternative on the homepage itself, not just on /contact/.
 
@@ -247,13 +247,13 @@
 
 | Factor | Status | Impact |
 |--------|--------|--------|
-| SSG (Static Site Generation) | Astro builds static HTML | Optimal — no server rendering |
-| Image optimization | astro:assets with WebP conversion | Good — lazy loading on below-fold |
-| JavaScript | Alpine.js only (~14KB) | Minimal — no React/Vue overhead |
+| SSG (Static Site Generation) | Astro builds static HTML | Optimal: no server rendering |
+| Image optimization | astro:assets with WebP conversion | Good: lazy loading on below-fold |
+| JavaScript | Alpine.js only (~14KB) | Minimal: no React/Vue overhead |
 | CSS | Tailwind with Vite purging | Optimized |
-| Third-party scripts | SimpleAnalytics only | Minimal — privacy-first, lightweight |
+| Third-party scripts | SimpleAnalytics only | Minimal: privacy-first, lightweight |
 | CDN | Unknown (deployment-dependent) | Recommend Cloudflare or Vercel |
-| Hero image preload | Yes — `<link rel="preload">` for hero-background.png | Good |
+| Hero image preload | Yes: `<link rel="preload">` for hero-background.png | Good |
 
 **Estimated load time: 1-2 seconds** (static HTML + optimized images). Page speed is NOT a conversion issue.
 
@@ -280,33 +280,33 @@
 **Expected Attention Pattern:** F-pattern due to content density
 
 - **High attention zones:** Hero headline, CTA button, first 2 service cards, impact metrics (40%, 70%, 100%), compliance badge area
-- **Medium attention zones:** Industry cards (especially Legal and Manufacturing — first in grid), ProcessSteps
+- **Medium attention zones:** Industry cards (especially Legal and Manufacturing, first in grid), ProcessSteps
 - **Low attention zones:** Service cards 4-6 (below fold on mobile), Infrastructure feature text, TrustBar (text-only, no logos)
 - **Scroll depth prediction:** 40-50% reach Impacts, 25-35% reach ProcessSteps, 15-25% reach FinalCTA
 - **Rage click risk:** TrustBar items look like they could be links but aren't clickable
-- **Dead zones:** Infrastructure section text blocks — too much text, no visual anchors
+- **Dead zones:** Infrastructure section text blocks: too much text, no visual anchors
 
 ---
 
 ## Prioritized Fix List
 
 ### Quick Wins (implement this week)
-1. **Add CTA microcopy** — "Free 30-min consultation · No commitment" under hero and FinalCTA buttons. Expected impact: +15-25% CTA clicks. Effort: 10 minutes.
-2. **Add secondary hero CTA** — "or [send us a message](/contact/)" text link below primary CTA. Expected impact: +10-15% total conversions. Effort: 5 minutes.
-3. **Add urgency to hero** — "EU AI Act deadline: August 2026" near the CTA. Expected impact: +5-10% urgency-driven clicks. Effort: 5 minutes.
-4. **Fix FinalCTA eyebrow** — "Whats next?" is missing an apostrophe → "What's Next?" Effort: 1 minute.
+1. **Add CTA microcopy**: "Free 30-min consultation · No commitment" under hero and FinalCTA buttons. Expected impact: +15-25% CTA clicks. Effort: 10 minutes.
+2. **Add secondary hero CTA**: "or [send us a message](/contact/)" text link below primary CTA. Expected impact: +10-15% total conversions. Effort: 5 minutes.
+3. **Add urgency to hero**: "EU AI Act deadline: August 2026" near the CTA. Expected impact: +5-10% urgency-driven clicks. Effort: 5 minutes.
+4. **Fix FinalCTA eyebrow**: "Whats next?" is missing an apostrophe → "What's Next?" Effort: 1 minute.
 
 ### Medium-Term (implement this month)
-5. **Add testimonials section** to homepage between Impacts and ProcessSteps — even 3 placeholder quotes from real engagements. Expected impact: +20-30% conversion improvement. Effort: 2-4 hours.
+5. **Add testimonials section** to homepage between Impacts and ProcessSteps, even 3 placeholder quotes from real engagements. Expected impact: +20-30% conversion improvement. Effort: 2-4 hours.
 6. **Replace Outlook booking with embedded booking** (Calendly/Cal.com) or add contact form directly to homepage. Expected impact: +25-40% booking completion. Effort: 2-3 hours.
 7. **Add FAQ section to homepage** addressing "How much does it cost?", "How long does deployment take?", "What if we already use other AI tools?" Expected impact: +10-15% visitor retention. Effort: 1-2 hours.
 8. **Add "Serving X European enterprises" proof point** to hero area. Effort: 5 minutes.
 
 ### Strategic (implement this quarter)
-9. **Create downloadable lead magnet** (EU AI Act Checklist PDF) with email gate — captures visitors not ready to call. Expected impact: +30-50% total lead volume.
-10. **Add pricing transparency** — even "projects typically start from EUR X" or a "How Pricing Works" page. Expected impact: +15-20% qualified leads.
+9. **Create downloadable lead magnet** (EU AI Act Checklist PDF) with email gate. It captures visitors not ready to call. Expected impact: +30-50% total lead volume.
+10. **Add pricing transparency**: even "projects typically start from EUR X" or a "How Pricing Works" page. Expected impact: +15-20% qualified leads.
 11. **Develop 3-5 case studies** with named clients and measurable results. Expected impact: +25-40% conversion for enterprise decision-makers.
-12. **Build ROI calculator** — "estimate your savings from AI automation" interactive tool. Expected impact: +10-20% engagement and lead quality.
+12. **Build ROI calculator**: "estimate your savings from AI automation" interactive tool. Expected impact: +10-20% engagement and lead quality.
 
 ---
 
@@ -325,11 +325,11 @@ Nav → Hero (CTA + microcopy + secondary CTA + urgency) →
 TrustBar (with "serving X enterprises") →
 Services (6 cards) → Industries (6 cards) →
 Impacts (3 stats + attribution) →
-★ TESTIMONIALS (NEW — 2-3 quotes with photos) →
+★ TESTIMONIALS (NEW: 2-3 quotes with photos) →
 ProcessSteps (3 steps) → Infrastructure (5 features + image) →
-★ FAQ (NEW — 5 questions addressing objections) →
+★ FAQ (NEW: 5 questions addressing objections) →
 Compliance Banner →
-★ TESTIMONIAL QUOTE (NEW — single quote above FinalCTA) →
+★ TESTIMONIAL QUOTE (NEW: single quote above FinalCTA) →
 FinalCTA (+ microcopy + secondary CTA) →
 Footer (newsletter)
 ```

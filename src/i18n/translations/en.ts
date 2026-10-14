@@ -48,12 +48,10 @@ export const en = {
   },
   hero: {
     eyebrow: 'CUSTOM AI DEVELOPMENT · BUILT FOR THE US & EU',
-    title: 'Custom AI that actually ships —<br>and pays for itself',
-    subtitle: 'We design, build, and deploy AI assistants, private RAG, and automation for your industry — on infrastructure you own, in weeks not quarters. Most AI pilots never reach production. Ours do.',
+    title: 'Custom AI that actually ships, and pays for itself',
+    subtitle: 'We design, build, and deploy AI assistants, private RAG, and automation for your industry, on infrastructure you own, in weeks not quarters. Most AI pilots never reach production. Ours do.',
     trustLine: 'Trusted by FH Dortmund, Smella, and companies in finance, education, and travel',
     ctaButton: 'Book a Free AI Strategy Call',
-    ctaSubtext: '30 minutes with Gerrit · A concrete plan for your AI project · No commitment',
-    ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',
   },
   footer: {
     servicesTitle: 'Services',
@@ -98,7 +96,6 @@ export const en = {
     title: 'Ready to Put AI to Work?',
     description: 'Free 30-minute strategy call with Gerrit: no sales pitch, just a concrete roadmap for your business.',
     ctaButton: 'Book My Free Strategy Call',
-    ctaAlt: 'or <a href="/contact/" class="text-blue-400 hover:text-blue-300 underline">send us a message</a>',
   },
   challenges: {
     title: 'Enterprise AI Compliance Challenges',
@@ -137,7 +134,7 @@ export const en = {
       { title: 'Connected to Your Systems', description: 'Integrates directly with your internal documents, APIs, and databases. No data migration, no rip-and-replace.' },
       { title: 'Built for Your Workflows', description: 'Every solution is tailored to your processes, your data, and your team, not a generic template.' },
       { title: 'Production in Weeks', description: 'From first call to working system in 4-8 weeks. No 18-month enterprise rollouts, no pilots that never ship.' },
-      { title: 'Encrypted & Isolated', description: 'Deployed in a data center in your region — US or EU — with enterprise encryption. No public internet exposure.' },
+      { title: 'Encrypted & Isolated', description: 'Deployed in a data center in your region (US or EU) with enterprise encryption. No public internet exposure.' },
       { title: 'Audit-Ready by Default', description: 'Role-based access logs and compliance documentation included with every deployment, EU and US alike.' },
       { title: 'No Lock-In. Ever.', description: 'Open-source foundations mean you own your models, your data, and your infrastructure. Walk away anytime.' },
     ],
@@ -198,7 +195,7 @@ export const en = {
       { title: 'Cost, lock-in, and exposure', description: "Public AI APIs bill per query, tie you to one vendor, and send your data to someone else's cloud. You scale costs you don't control and expose data you can't afford to leak." },
     ],
     servicesEyebrow: 'WHAT WE BUILD FOR YOU',
-    servicesTitle: 'Seven Ways We Put AI to Work — and Into Production',
+    servicesTitle: 'Seven Ways We Put AI to Work, and Into Production',
     servicesSubtitle: 'Built by a team with 20+ years in custom software engineering. Each solution is tailored to your data and workflows, runs on infrastructure you own, and is in production in weeks, not months.',
     serviceCards: [
       { title: 'Custom AI Development', description: 'A team with 20+ years in software engineering builds your private RAG, assistants, and custom models on infrastructure you control.', href: '/services/custom-ai-development/' },
@@ -226,7 +223,7 @@ export const en = {
     complianceTitle: 'Your Data Stays Yours',
     complianceSubtitle: 'The reason to build private AI instead of piping your business into a public ChatGPT API: you keep control of your data, your costs, and your compliance posture.',
     complianceCards: [
-      { title: 'Runs in your environment', description: 'Deploy on-premise, in your private cloud, or in a region you choose — US or EU. Your documents and prompts never leave infrastructure you control.' },
+      { title: 'Runs in your environment', description: 'Deploy on-premise, in your private cloud, or in a region you choose: US or EU. Your documents and prompts never leave infrastructure you control.' },
       { title: 'Compliance-ready by design', description: 'GDPR data-processing agreements and audit logging for EU operations; SOC 2-aligned controls and data isolation for US teams. Documentation included, not billed as an add-on.' },
       { title: 'No lock-in, no per-query bill', description: 'Built on open-source models you own. No surprise API metering, no vendor dependency. You can take the system fully in-house anytime.' },
     ],
@@ -235,5 +232,5 @@ export const en = {
     insightsLink: 'View all articles →',
     insightsLinkHref: '/resources/blog/',
   },
-  bookingUrl: 'https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
+  bookingUrl: '/contact/#message-form',
 } as const;

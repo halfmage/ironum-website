@@ -44,13 +44,13 @@ let liveMap = new Map();
 try {
   const res = await fetch(LIVE_SITEMAP_URL);
   if (!res.ok) {
-    log(`live sitemap fetch returned ${res.status} — skipping submission this run`);
+    log(`live sitemap fetch returned ${res.status}, skipping submission this run`);
     process.exit(0);
   }
   liveMap = parseSitemap(await res.text());
   log(`live sitemap has ${liveMap.size} URLs`);
 } catch (err) {
-  log(`live sitemap fetch failed (${err.message}) — skipping submission this run`);
+  log(`live sitemap fetch failed (${err.message}), skipping submission this run`);
   process.exit(0);
 }
 
@@ -79,5 +79,5 @@ try {
   });
   log(`response: HTTP ${res.status} ${res.statusText}`);
 } catch (err) {
-  log(`POST failed (${err.message}) — not failing the deploy`);
+  log(`POST failed (${err.message}), not failing the deploy`);
 }

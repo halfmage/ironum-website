@@ -10,10 +10,10 @@
 Ironum is launching its AI engineering services to the European mid-market, leading with the **Legal vertical** as the beachhead. The strategy leverages LinkedIn organic content (Gerrit's personal brand) and Apollo.io cold email sequences targeting legal firms and mid-size European companies with clear AI pain points around GDPR compliance, document automation, and workflow efficiency.
 
 **Why Legal First:**
-- 61% of EU lawyers already use AI — the market is educated and buying
-- Law firms are obsessed with data privacy — Ironum's EU sovereignty positioning is a natural fit
+- 61% of EU lawyers already use AI: the market is educated and buying
+- Law firms are obsessed with data privacy. Ironum's EU sovereignty positioning is a natural fit
 - Contract review, compliance automation, and document search have measurable ROI (80% faster review, 10x compliance checks)
-- EU AI Act enforcement (August 2026) creates urgency — firms need compliant solutions NOW
+- EU AI Act enforcement (August 2026) creates urgency: firms need compliant solutions NOW
 - High average contract values for B2B AI services in legal
 
 **Second Vertical (Week 5+):** Manufacturing / German Mittelstand (Industry 4.0, predictive maintenance, quality inspection)
@@ -22,13 +22,13 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 
 ## Positioning Statement
 
-**For European law firms and mid-size enterprises** who need AI solutions but can't risk GDPR violations or US data transfers, **Ironum** is a full-service AI engineering partner that builds private, sovereign AI systems on European infrastructure. Unlike US-based AI vendors, **Ironum deploys on your infrastructure with zero data leaving the EU** — so you get enterprise AI without compliance risk.
+**For European law firms and mid-size enterprises** who need AI solutions but can't risk GDPR violations or US data transfers, **Ironum** is a full-service AI engineering partner that builds private, sovereign AI systems on European infrastructure. Unlike US-based AI vendors, **Ironum deploys on your infrastructure with zero data leaving the EU**, so you get enterprise AI without compliance risk.
 
 ---
 
-## PHASE 1: THIS WEEK (March 24-28) — Launch Sprint
+## PHASE 1 (THIS WEEK, March 24-28): Launch Sprint
 
-### Day 1 — Monday, March 24: Foundation
+### Day 1 (Monday, March 24): Foundation
 
 **LinkedIn (Gerrit's personal profile):**
 - [ ] Optimize LinkedIn headline: "Building Sovereign AI for European Enterprises | Founder @Ironum | GDPR-Compliant RAG, Automation & LLM Solutions"
@@ -50,7 +50,7 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 - [ ] Prepare a 1-page PDF "AI for Law Firms" overview (use content from `/industries/legal/` page)
 - [ ] Draft 3 LinkedIn connection request messages (see Templates below)
 
-### Day 2 — Tuesday, March 25: Outbound Activation
+### Day 2 (Tuesday, March 25): Outbound Activation
 
 **LinkedIn:**
 - [ ] Post **Problem-Awareness Post** (see Post #2 below)
@@ -61,10 +61,10 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 - [ ] Launch Sequence 1: Legal Vertical (50 contacts)
 - [ ] A/B test two subject lines (see Cold Email templates)
 
-### Day 3 — Wednesday, March 26: Content + Social Proof
+### Day 3 (Wednesday, March 26): Content + Social Proof
 
 **LinkedIn:**
-- [ ] Post **Case Study / Social Proof Post** (see Post #3 below) — use anonymized results from existing clients
+- [ ] Post **Case Study / Social Proof Post** (see Post #3 below). Use anonymized results from existing clients
 - [ ] Send 20-30 more connection requests
 - [ ] Reply to every comment on your posts within 2 hours
 - [ ] Engage in 2-3 LinkedIn groups related to Legal Tech / AI in Europe
@@ -73,19 +73,19 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 - [ ] Share your existing blog post "GDPR-Compliant AI: What European Companies Need to Know in 2026" on LinkedIn with a legal-specific angle
 - [ ] Cross-post key insights to relevant LinkedIn groups
 
-### Day 4 — Thursday, March 27: Objection Handling + Thought Leadership
+### Day 4 (Thursday, March 27): Objection Handling + Thought Leadership
 
 **LinkedIn:**
 - [ ] Post **EU AI Act Urgency Post** (see Post #4 below)
 - [ ] Send 20-30 connection requests
-- [ ] DM anyone who engaged with your posts this week with a personalized message (NOT a pitch — start a conversation)
+- [ ] DM anyone who engaged with your posts this week with a personalized message (NOT a pitch, start a conversation)
 
 **Apollo.io:**
 - [ ] Review email analytics (opens, replies)
 - [ ] Adjust sequence based on early data
 - [ ] Add 50 more contacts to sequence (expand to Financial Services if legal list is exhausted)
 
-### Day 5 — Friday, March 28: Week 1 Wrap + Pipeline Building
+### Day 5 (Friday, March 28): Week 1 Wrap + Pipeline Building
 
 **LinkedIn:**
 - [ ] Post **Behind-the-Scenes / Founder Story Post** (see Post #5 below)
@@ -93,13 +93,13 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 - [ ] Accept all pending connection requests from target personas
 
 **Pipeline:**
-- [ ] Review all Apollo.io replies — respond to every positive/neutral reply within 4 hours
+- [ ] Review all Apollo.io replies: respond to every positive/neutral reply within 4 hours
 - [ ] Book any warm leads for discovery calls next week
 - [ ] Compile Week 1 metrics (see Metrics section)
 
 ---
 
-## PHASE 2: WEEKS 2-4 — Build Momentum
+## PHASE 2 (WEEKS 2-4): Build Momentum
 
 ### Week 2 (March 30 - April 3): Scale What Works
 
@@ -143,7 +143,7 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 ### Week 4 (April 13-17): Optimize + Expand
 
 **Analyze and Adjust:**
-- [ ] Review which LinkedIn post types got the most engagement — double down
+- [ ] Review which LinkedIn post types got the most engagement. Double down
 - [ ] Review Apollo.io: which subject lines, which verticals, which job titles convert best
 - [ ] Kill underperforming sequences, scale what works
 
@@ -156,7 +156,7 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 
 ---
 
-## PHASE 3: WEEKS 5-8 — Convert + Systematize
+## PHASE 3 (WEEKS 5-8): Convert + Systematize
 
 ### Weeks 5-6: Close First Deals
 
@@ -168,7 +168,7 @@ Ironum is launching its AI engineering services to the European mid-market, lead
 
 ### Weeks 7-8: Systematize the Engine
 
-- [ ] Document what worked — which messages, which verticals, which channels
+- [ ] Document what worked: which messages, which verticals, which channels
 - [ ] Build repeatable outbound playbook for ongoing use
 - [ ] Set up ongoing content calendar (monthly themes)
 - [ ] Start collecting testimonials and case studies from new clients
@@ -190,7 +190,7 @@ But one pattern kept showing up in every conversation with European companies:
 
 "We want to use AI, but we can't send our data to US servers."
 
-So I built Ironum — a full-service AI engineering partner for European businesses.
+So I built Ironum, a full-service AI engineering partner for European businesses.
 
 We build:
 → Enterprise RAG systems (private knowledge search)
@@ -224,7 +224,7 @@ The problem is that most AI tools weren't built for European compliance.
 Here's what a GDPR-compliant AI setup looks like for law firms:
 
 1. Documents stay on YOUR servers (on-prem or German cloud)
-2. No data transfer outside the EU — ever
+2. No data transfer outside the EU, ever
 3. Role-based access tied to your existing Active Directory
 4. Full audit trail for every AI-generated answer
 5. Source citations so lawyers can verify every response
@@ -259,7 +259,7 @@ After:
 The technical setup:
 → Private deployment on German infrastructure (Hetzner)
 → Multi-format document ingestion (PDFs, Word, emails, SharePoint)
-→ Open-source LLM — no per-token costs in production
+→ Open-source LLM: no per-token costs in production
 → Source-cited answers for full traceability
 
 Total deployment time: 6 weeks from kickoff to production.
@@ -284,7 +284,7 @@ That's ~4 months away.
 
 Here's what most European companies don't realize:
 
-If you use AI in hiring, credit scoring, legal decisions, or public services — you're likely classified as "high-risk" under the Act.
+If you use AI in hiring, credit scoring, legal decisions, or public services, you're likely classified as "high-risk" under the Act.
 
 High-risk means:
 → Mandatory risk management systems
@@ -299,7 +299,7 @@ The good news: if you start now, 4 months is enough to get compliant.
 
 We published a free EU AI Act compliance checklist for European SMEs on our blog (link in comments).
 
-And if you want a proper AI audit of your current setup, we do that too — typically takes 1-2 weeks.
+And if you want a proper AI audit of your current setup, we do that too. It typically takes 1-2 weeks.
 
 What's your company's EU AI Act readiness looking like?
 
@@ -309,12 +309,12 @@ What's your company's EU AI Act readiness looking like?
 ### Post #5: Founder Story (Friday, March 28)
 
 ```
-In 2024, I was building LearnSlice — an AI-powered education platform.
+In 2024, I was building LearnSlice, an AI-powered education platform.
 
 Every enterprise prospect asked the same question:
 "Where does our data go?"
 
-When I said "European servers, GDPR-compliant, you own everything" — their faces changed.
+When I said "European servers, GDPR-compliant, you own everything", their faces changed.
 
 Not because it was revolutionary technology.
 Because nobody else was saying it.
@@ -343,8 +343,8 @@ If that resonates, I'd love to connect.
 
 ### Sequence 1: Legal Vertical
 
-**Email 1 — Day 1:**
-Subject A: "AI for [Company Name] — without the GDPR risk"
+**Email 1 (Day 1):**
+Subject A: "AI for [Company Name], without the GDPR risk"
 Subject B: "[First Name], quick question about AI at [Company Name]"
 
 ```
@@ -354,7 +354,7 @@ I noticed [Company Name] is a [size]-person firm in [City].
 
 Quick question: has your team explored using AI for contract review or compliance work, but hit a wall with data privacy concerns?
 
-We work with European law firms to deploy private AI systems that run entirely on German/EU infrastructure — no data leaves your servers.
+We work with European law firms to deploy private AI systems that run entirely on German/EU infrastructure: no data leaves your servers.
 
 One firm we work with cut document review time by 80% while staying fully GDPR-compliant.
 
@@ -366,7 +366,7 @@ Founder, Ironum
 AI Development Partner for Europe
 ```
 
-**Email 2 — Day 3 (if no reply):**
+**Email 2 (Day 3, if no reply):**
 Subject: "Re: AI for [Company Name]"
 
 ```
@@ -374,7 +374,7 @@ Hi [First Name],
 
 Just following up. I know AI + compliance can feel like a minefield for legal teams.
 
-The short version: we deploy Enterprise RAG systems that let your team search across all firm documents using natural language — contracts, case files, compliance docs — with source citations for every answer.
+The short version: we deploy Enterprise RAG systems that let your team search across all firm documents using natural language (contracts, case files, compliance docs) with source citations for every answer.
 
 Everything runs on your infrastructure or German-hosted servers. No US cloud. No data transfer.
 
@@ -385,13 +385,13 @@ Worth a quick chat?
 Gerrit
 ```
 
-**Email 3 — Day 7 (if no reply):**
+**Email 3 (Day 7, if no reply):**
 Subject: "EU AI Act + [Company Name]"
 
 ```
 Hi [First Name],
 
-Last note — the EU AI Act enforcement starts August 2026. If [Company Name] uses any AI tools for legal decisions or client work, you'll need to meet new compliance requirements.
+Last note: the EU AI Act enforcement starts August 2026. If [Company Name] uses any AI tools for legal decisions or client work, you'll need to meet new compliance requirements.
 
 We published a free checklist: [link to EU AI Act blog post]
 
@@ -405,14 +405,14 @@ Gerrit
 
 ### Sequence 2: General European Mid-Market
 
-**Email 1 — Day 1:**
-Subject A: "AI infrastructure for [Company Name] — built in Europe"
+**Email 1 (Day 1):**
+Subject A: "AI infrastructure for [Company Name], built in Europe"
 Subject B: "[First Name], European AI alternative?"
 
 ```
 Hi [First Name],
 
-I'm reaching out because [Company Name] fits the profile of European companies we work with — mid-size, growing, and likely exploring how AI can improve operations.
+I'm reaching out because [Company Name] fits the profile of European companies we work with: mid-size, growing, and likely exploring how AI can improve operations.
 
 We're Ironum, an AI engineering partner based in Düsseldorf. We help European companies deploy:
 
@@ -430,7 +430,7 @@ Gerrit Halfmann
 Founder, Ironum
 ```
 
-**Email 2 — Day 4:**
+**Email 2 (Day 4):**
 Subject: "Re: AI infrastructure for [Company Name]"
 
 ```
@@ -453,7 +453,7 @@ Happy to show you how it works: [booking link]
 Gerrit
 ```
 
-**Email 3 — Day 8:**
+**Email 3 (Day 8):**
 Subject: "One last thing, [First Name]"
 
 ```
@@ -461,7 +461,7 @@ Hi [First Name],
 
 I won't keep following up, but wanted to share one thing:
 
-The EU AI Act takes effect August 2026. If your company uses AI in any capacity, new compliance requirements apply — and penalties go up to €35M.
+The EU AI Act takes effect August 2026. If your company uses AI in any capacity, new compliance requirements apply, and penalties go up to €35M.
 
 We offer a free 30-minute discovery call to assess your AI readiness and compliance posture.
 
@@ -479,12 +479,12 @@ Gerrit
 
 ### Template 1 (Legal):
 ```
-Hi [Name], I saw you're leading [role] at [Firm]. We're helping European law firms deploy GDPR-compliant AI for contract review and compliance — curious if that's on your radar? Would love to connect.
+Hi [Name], I saw you're leading [role] at [Firm]. We're helping European law firms deploy GDPR-compliant AI for contract review and compliance. Curious if that's on your radar? Would love to connect.
 ```
 
 ### Template 2 (General):
 ```
-Hi [Name], I'm building Ironum — sovereign AI solutions for European companies. Your work at [Company] caught my eye. Would love to connect and exchange ideas on AI in [industry].
+Hi [Name], I'm building Ironum: sovereign AI solutions for European companies. Your work at [Company] caught my eye. Would love to connect and exchange ideas on AI in [industry].
 ```
 
 ### Template 3 (After Engagement):
@@ -516,7 +516,7 @@ Hi [Name], appreciated your comment on [topic/post]. We're working on similar ch
 ### Address Concerns (5 min)
 - Common objections: cost, timeline, internal buy-in, "we're not ready"
 - For cost: "Our POC is designed to prove value in 2 weeks before any larger commitment"
-- For readiness: "That's exactly what our AI audit is for — we assess where you are and what makes sense"
+- For readiness: "That's exactly what our AI audit is for: we assess where you are and what makes sense"
 - For buy-in: "We can provide a business case document for your leadership team"
 
 ### Next Steps (5 min)
@@ -529,7 +529,7 @@ Hi [Name], appreciated your comment on [topic/post]. We're working on similar ch
 ## Post-Call Follow-Up Email Template
 
 ```
-Subject: Next steps — [Company Name] + Ironum
+Subject: Next steps: [Company Name] + Ironum
 
 Hi [First Name],
 
@@ -540,7 +540,7 @@ Great speaking with you today. Here's a quick recap:
 - [The solution you proposed]
 
 **Suggested next step:**
-- [Specific next action — POC proposal, case study review, internal discussion]
+- [Specific next action: POC proposal, case study review, internal discussion]
 
 **Resources:**
 - [Link to relevant service page]
@@ -625,7 +625,7 @@ Gerrit
 
 ---
 
-## Budget Allocation (Bootstrapped — <€500)
+## Budget Allocation (Bootstrapped, <€500)
 
 | Item | Cost | Priority |
 |---|---|---|
@@ -648,9 +648,9 @@ Gerrit
 
 If you can only do 3 things this week:
 
-1. **Post the launch announcement on LinkedIn** (Post #1 above) — takes 15 minutes
-2. **Send 25 cold emails via Apollo.io** to legal firm decision-makers (Email Sequence 1) — takes 2 hours to set up
-3. **Send 20 LinkedIn connection requests** to ICP contacts with personalized messages — takes 30 minutes
+1. **Post the launch announcement on LinkedIn** (Post #1 above). Takes 15 minutes
+2. **Send 25 cold emails via Apollo.io** to legal firm decision-makers (Email Sequence 1). Takes 2 hours to set up
+3. **Send 20 LinkedIn connection requests** to ICP contacts with personalized messages. Takes 30 minutes
 
 These three actions alone can generate 3-5 discovery calls within 2 weeks.
 
@@ -658,14 +658,14 @@ These three actions alone can generate 3-5 discovery calls within 2 weeks.
 
 ## Common Mistakes to Avoid
 
-1. **Don't pitch in connection requests** — Connect first, provide value, then pitch
-2. **Don't send generic cold emails** — Personalize the first line for every email
-3. **Don't post and ghost** — Reply to every comment within 2 hours; engagement drives reach
-4. **Don't skip follow-ups** — 80% of deals close after the 3rd-5th touch
-5. **Don't talk features** — Talk outcomes: "80% faster document review" beats "semantic search with vector embeddings"
-6. **Don't ignore warm signals** — If someone views your profile, likes a post, or opens an email 3+ times, reach out immediately
-7. **Don't wait for perfection** — Ship the first email sequence today, optimize based on data
-8. **Don't spread too thin** — Legal first, Manufacturing second. One vertical at a time.
+1. **Don't pitch in connection requests**: Connect first, provide value, then pitch
+2. **Don't send generic cold emails**: Personalize the first line for every email
+3. **Don't post and ghost**: Reply to every comment within 2 hours; engagement drives reach
+4. **Don't skip follow-ups**: 80% of deals close after the 3rd-5th touch
+5. **Don't talk features**: Talk outcomes: "80% faster document review" beats "semantic search with vector embeddings"
+6. **Don't ignore warm signals**: If someone views your profile, likes a post, or opens an email 3+ times, reach out immediately
+7. **Don't wait for perfection**: Ship the first email sequence today, optimize based on data
+8. **Don't spread too thin**: Legal first, Manufacturing second. One vertical at a time.
 
 ---
 
@@ -701,12 +701,12 @@ Once the initial launch sprint is done, transition to a sustainable cadence:
 - Expand contact lists in Apollo.io
 
 **Quarterly:**
-- Launch retrospective — what worked, what didn't
+- Launch retrospective: what worked, what didn't
 - Evaluate new vertical expansion
 - Update service pages with new case studies
 - Consider paid LinkedIn ads if organic is working (reinvest revenue)
 
 ---
 
-*Generated for Ironum — AI Development Partner for Europe*
+*Generated for Ironum, AI Development Partner for Europe*
 *Düsseldorf, Germany | ironum.com | info@ironum.com*

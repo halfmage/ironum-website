@@ -45,12 +45,10 @@ export const de = {
   },
   hero: {
     eyebrow: 'KI-PARTNER FÜR DEN EUROPÄISCHEN MITTELSTAND',
-    title: 'KI für den Mittelstand.<br>Ohne Compliance-Risiko',
+    title: 'KI für den Mittelstand. Ohne Compliance-Risiko',
     subtitle: 'Wir entwickeln und betreiben souveräne KI-Systeme auf europäischer Infrastruktur. Damit Ihr Team schneller arbeitet, ohne DSGVO-Risiken oder Herstellerabhängigkeit.',
     trustLine: 'Vertraut von FH Dortmund, Smella und europäischen Unternehmen der Finanz-, Bildungs- und Reisebranche',
     ctaButton: 'Kostenloses KI-Strategiegespräch',
-    ctaSubtext: '30 Minuten mit Gerrit · Konkreter Fahrplan · Unverbindlich',
-    ctaAlt: 'oder <a href="/de/kontakt/" class="text-blue-400 hover:text-blue-300 underline">schreiben Sie uns</a>',
   },
   footer: {
     servicesTitle: 'Dienstleistungen',
@@ -94,7 +92,6 @@ export const de = {
     title: 'Bereit für den nächsten Schritt?',
     description: 'Kostenloses 30-minütiges Strategiegespräch mit Gerrit: kein Verkaufsgespräch, sondern ein konkreter Fahrplan für Ihr Unternehmen.',
     ctaButton: 'Kostenloses Strategiegespräch buchen',
-    ctaAlt: 'oder <a href="/de/kontakt/" class="text-blue-400 hover:text-blue-300 underline">schreiben Sie uns</a>',
   },
   challenges: {
     title: 'KI-Herausforderungen im Mittelstand',
@@ -230,5 +227,5 @@ export const de = {
     insightsLink: 'Alle Artikel ansehen →',
     insightsLinkHref: '/de/ressourcen/blog/',
   },
-  bookingUrl: 'https://outlook.office.com/book/IronumDiscoveryCall1@ironum1.onmicrosoft.com/?ismsaljsauthenabled',
+  bookingUrl: '/de/kontakt/#message-form',
 } as const;
