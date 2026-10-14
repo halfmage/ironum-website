@@ -12,7 +12,7 @@ Astro site for Ironum, in English (`src/pages/`) and German (`src/pages/de/`). T
 - Forms use **Netlify Forms**: `contact` (EN), `contact-de` (DE) and `guide-download`. When you add or rename a form field, also add it to `public/__forms.html`, or Netlify drops the field.
 - The contact forms have Name, Email, Message and a required consent checkbox (`consent`) that links to the privacy page. No company or time field.
 - Form `action` must point to a page that exists: `/thank-you/` (EN), `/de/danke/` (DE). Until October 2026 the DE form posted to `/danke/`, which does not exist.
-- The privacy pages (`src/pages/privacy.astro`, `src/pages/de/datenschutz.astro`) name Netlify as host and form processor, and say that the US transfer runs under the EU-US Data Privacy Framework and a DPA with the EU Standard Contractual Clauses. Keep them in sync with any new third-party service.
+- The privacy pages (`src/pages/privacy.astro`, `src/pages/de/datenschutz.astro`) name Netlify as host and form processor, and say that the US transfer runs under the EU-US Data Privacy Framework. They make no DPA or SCC claim (the user decided not to sign a DPA with Netlify). Keep them in sync with any new third-party service.
 
 ## Calls to action
 
