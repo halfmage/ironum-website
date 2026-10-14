@@ -15,7 +15,7 @@ import Footer from '../../components/Footer.astro';
   <PageHero
     eyebrow="RECHTLICHES"
     title="Datenschutzerklärung"
-    subtitle="Zuletzt aktualisiert: März 2026"
+    subtitle="Zuletzt aktualisiert: Oktober 2026"
     dark={false}
     ctaLink=""
   />
@@ -36,6 +36,7 @@ import Footer from '../../components/Footer.astro';
             <p class="mt-2">E-Mail: <a href="mailto:info@ironum.com" class="text-blue-600 hover:underline">info@ironum.com</a></p>
             <p>Telefon: <a href="tel:+4915758539892" class="text-blue-600 hover:underline">+49 157 585 39892</a></p>
             <p>Geschäftsführung: Alesia Kunz</p>
+            <p class="mt-2">Ironum ist ein Produkt der LearnSlice UG (haftungsbeschränkt).</p>
           </div>
         </div>
 
@@ -56,18 +57,23 @@ import Footer from '../../components/Footer.astro';
           <p class="text-gray-500 text-lg font-semibold mt-3">Simple Analytics erfasst ausschließlich aggregierte, nicht-personenbezogene Daten wie Seitenaufrufe, Referrer und Browsertypen. Es werden keine personenbezogenen Daten verarbeitet und kein Einwilligungsbanner ist erforderlich.</p>
 
           <h3 class="text-xl font-bold mb-2 mt-6">2.2 Kontaktdaten</h3>
-          <p class="text-gray-500 text-lg font-semibold">Wenn Sie uns per E-Mail oder über unser Kontaktformular kontaktieren, verarbeiten wir folgende Daten:</p>
+          <p class="text-gray-500 text-lg font-semibold">Wenn Sie uns per E-Mail, über unser Kontaktformular oder über ein Formular für einen Leitfaden-Download kontaktieren, verarbeiten wir folgende Daten:</p>
           <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
             <li>Name</li>
             <li>E-Mail-Adresse</li>
             <li>Telefonnummer (falls angegeben)</li>
-            <li>Firmenname (falls angegeben)</li>
+            <li>Firmenname (bei Leitfaden-Downloads, falls angegeben)</li>
             <li>Inhalt Ihrer Nachricht</li>
+            <li>Bei Leitfaden-Downloads: Ihre Rolle und Ihr Interessengebiet</li>
           </ul>
-          <p class="text-gray-500 text-lg font-semibold mt-3">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Erfüllung eines Vertrags oder vorvertragliche Maßnahmen) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
+          <p class="text-gray-500 text-lg font-semibold mt-3">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Ihre Einwilligung, die Sie über das Kontrollkästchen im Kontaktformular erteilen und jederzeit widerrufen können), Art. 6 Abs. 1 lit. b DSGVO (Erfüllung eines Vertrags oder vorvertragliche Maßnahmen) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
+          <p class="text-gray-500 text-lg font-semibold mt-3">Unsere Formulare laufen über Netlify Forms. Netlify speichert die gesendeten Daten und leitet sie per E-Mail an uns weiter. Wir löschen sie bei Netlify, sobald wir sie nicht mehr benötigen (siehe Abschnitt 4).</p>
 
           <h3 class="text-xl font-bold mb-2 mt-6">2.3 Server-Logfiles</h3>
-          <p class="text-gray-500 text-lg font-semibold">Unser Hosting-Anbieter (Hetzner, Deutschland) erhebt automatisch Server-Logfiles, darunter IP-Adresse, Datum und Uhrzeit des Zugriffs, angeforderte Seiten und HTTP-Statuscodes. Diese Protokolle sind für den Betrieb und die Sicherheit der Website erforderlich. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Sicherheit und Verfügbarkeit). Server-Logfiles werden nach 7 Tagen automatisch gelöscht.</p>
+          <p class="text-gray-500 text-lg font-semibold">Unser Hosting-Anbieter, die Netlify, Inc. (San Francisco, USA), erhebt automatisch Server-Logfiles, darunter IP-Adresse, Datum und Uhrzeit des Zugriffs, angeforderte Seiten und HTTP-Statuscodes. Diese Protokolle sind für den Betrieb und die Sicherheit der Website erforderlich. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Sicherheit und Verfügbarkeit). Netlify speichert diese Logfiles nur so lange, wie es für Betrieb und Sicherheit erforderlich ist.</p>
+
+          <h3 class="text-xl font-bold mb-2 mt-6">2.4 Datenübermittlung in die USA</h3>
+          <p class="text-gray-500 text-lg font-semibold">Netlify hat seinen Sitz in den USA. Daten aus Website-Besuchen und Formularen können daher dort verarbeitet werden. Netlify nimmt am EU-US Data Privacy Framework teil, für das die Europäische Kommission einen Angemessenheitsbeschluss erlassen hat (Art. 45 DSGVO). Zusätzlich nutzen wir Netlify auf Grundlage eines Auftragsverarbeitungsvertrags (Art. 28 DSGVO), der die EU-Standardvertragsklauseln enthält (Art. 46 Abs. 2 lit. c DSGVO).</p>
         </div>
 
         <!-- Wie wir Ihre Daten verwenden -->
@@ -90,7 +96,7 @@ import Footer from '../../components/Footer.astro';
           <ul class="text-gray-500 text-lg font-semibold mt-3 space-y-2 list-disc pl-6">
             <li><strong>Kontaktanfragen:</strong> Löschung nach 6 Monaten, sofern keine Geschäftsbeziehung zustande kommt</li>
             <li><strong>Kundendaten:</strong> Aufbewahrung für die Dauer der Geschäftsbeziehung zuzüglich gesetzlicher Aufbewahrungsfristen (in der Regel 6-10 Jahre nach deutschem Handels- und Steuerrecht)</li>
-            <li><strong>Server-Logfiles:</strong> Automatische Löschung nach 7 Tagen</li>
+            <li><strong>Server-Logfiles:</strong> Speicherung durch Netlify nur so lange, wie für Betrieb und Sicherheit erforderlich</li>
           </ul>
         </div>
 
@@ -115,8 +121,7 @@ import Footer from '../../components/Footer.astro';
           <h2 class="text-2xl md:text-3xl font-bold mb-4">6. Drittanbieter-Dienste</h2>
           <ul class="text-gray-500 text-lg font-semibold space-y-3 list-disc pl-6">
             <li><strong>Simple Analytics:</strong> Datenschutzfreundliche Website-Analyse. Keine Cookies, keine personenbezogenen Daten. Datenspeicherung in der EU. <a href="https://www.simpleanalytics.com/privacy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</li>
-            <li><strong>Netlify Forms:</strong> Verarbeitet die Daten, die Sie über unser Kontaktformular senden. Anbieter ist Netlify, Inc., USA. <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</li>
-            <li><strong>Hetzner:</strong> Website-Hosting-Anbieter mit Sitz in Deutschland. ISO 27001 zertifiziert. Rechenzentren in Nürnberg und Falkenstein, Deutschland. <a href="https://www.hetzner.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</li>
+            <li><strong>Netlify:</strong> Website-Hosting und Formularverarbeitung (Netlify Forms). Netlify, Inc., San Francisco, USA. Datenübermittlung auf Grundlage des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln (siehe Abschnitt 2.4). <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</li>
           </ul>
         </div>
 

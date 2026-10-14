@@ -2,7 +2,7 @@ export const de = {
   locale: 'de' as const,
   meta: {
     defaultTitle: 'Ironum | KI-Lösungen für den Mittelstand. DSGVO-konform',
-    defaultDescription: 'Wir entwickeln souveräne KI-Systeme auf Ihrer Infrastruktur. DSGVO-konform und ohne Herstellerabhängigkeit. Kostenloses Strategiegespräch mit unserem Team in Düsseldorf buchen.',
+    defaultDescription: 'Wir entwickeln souveräne KI-Systeme auf Ihrer Infrastruktur. DSGVO-konform und ohne Herstellerabhängigkeit. Kostenloses Strategiegespräch mit unserem Team in Düsseldorf anfragen.',
   },
   nav: {
     services: 'Dienstleistungen',
@@ -91,7 +91,7 @@ export const de = {
     badge: 'Führende Mittelständler setzen bereits auf KI-Lösungen. Starten auch Sie jetzt',
     title: 'Bereit für den nächsten Schritt?',
     description: 'Kostenloses 30-minütiges Strategiegespräch mit Gerrit: kein Verkaufsgespräch, sondern ein konkreter Fahrplan für Ihr Unternehmen.',
-    ctaButton: 'Kostenloses Strategiegespräch buchen',
+    ctaButton: 'Kostenloses Strategiegespräch anfragen',
   },
   challenges: {
     title: 'KI-Herausforderungen im Mittelstand',
@@ -201,7 +201,7 @@ export const de = {
       { title: 'Individuelle KI-Modelle', description: 'KI, die speziell mit Ihren Branchendaten trainiert wurde. Ihr Modell. Ihre Server. Keine Per-Abfrage-API-Kosten.', href: '/de/dienstleistungen/llm-feinabstimmung/' },
       { title: 'KI-Suchsichtbarkeit', description: 'Werden Sie von ChatGPT, Perplexity und KI-gestützten Suchmaschinen empfohlen.', href: '/de/dienstleistungen/geo-optimierung/' },
     ],
-    midCta: 'Nicht sicher, welches Angebot passt? Kostenloses Strategiegespräch buchen →',
+    midCta: 'Nicht sicher, welches Angebot passt? Kostenloses Strategiegespräch anfragen →',
     industriesEyebrow: 'BRANCHEN, DIE WIR KENNEN',
     industriesTitle: 'KI rund um die echten Anwendungsfälle Ihrer Branche',
     industriesSubtitle: 'Wir starten bei Problemen, die wir mit Kunden in Ihrer Branche bereits gelöst haben, nicht bei einer Standardvorlage. Bereitgestellt auf Ihrer Infrastruktur, in Ihrer Region.',

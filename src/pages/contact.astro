@@ -1,30 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
-import PageHero from '../components/sections/PageHero.astro';
-import FinalCTA from '../components/FinalCTA.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Contact Ironum | Book a Free AI Strategy Call | Ironum"
+  title="Contact Ironum | Request a Free AI Strategy Call | Ironum"
   description="Get in touch with Ironum for a free AI strategy consultation. Send us a message, email us, or visit our office in Düsseldorf, Germany."
 >
   <Navigation />
 
-  <PageHero
-    eyebrow="CONTACT"
-    title="Let's Talk About Your AI Strategy"
-    subtitle="Book a free consultation to discuss your AI readiness, compliance requirements, and how we can help you deploy AI on your terms."
-  />
-
-  <!-- Contact Form -->
-  <section id="message-form" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50 scroll-mt-20">
-    <div class="max-w-7xl mx-auto">
-      <div class="max-w-2xl mx-auto">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">BOOK A FREE CALL</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Let's Talk</h2>
-        <p class="text-gray-500 text-lg font-semibold mb-8">Tell us what you're working on and when a 30-minute call suits you. Gerrit replies within two working days with a calendar invite.</p>
+  <!-- Contact form & details -->
+  <section id="message-form" class="px-4 md:px-20 py-16 md:py-24 bg-gray-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+      <!-- Contact form -->
+      <div class="lg:col-span-3">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">GET IN TOUCH</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Let's Talk</h1>
+        <p class="text-gray-500 text-lg font-semibold mb-8">Tell us what you're working on. Gerrit replies within two working days with a calendar invite for a 30-minute call.</p>
         <form name="contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact">
           <input type="hidden" name="source" value="">
@@ -40,13 +33,16 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
           <div>
-            <label for="company" class="block text-sm font-bold mb-2">Company</label>
-            <input type="text" name="company" id="company" class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors">
-          </div>
-          <div>
             <label for="message" class="block text-sm font-bold mb-2">Message <span class="text-red-500">*</span></label>
             <textarea name="message" id="message" rows="5" required class="w-full border-2 border-gray-300 rounded-2xl px-4 py-3 text-lg focus:outline-none focus:border-blue-600 transition-colors resize-vertical"></textarea>
           </div>
+          <label class="flex items-start gap-3 text-gray-600 text-lg font-semibold cursor-pointer">
+            <span class="relative mt-0.5 shrink-0 size-6">
+              <input type="checkbox" name="consent" value="yes" required class="peer appearance-none size-6 rounded-md border-2 border-gray-300 bg-white cursor-pointer transition-colors hover:border-blue-600 checked:bg-blue-600 checked:border-blue-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-600/30">
+              <svg class="pointer-events-none absolute inset-0 m-auto size-4 text-white opacity-0 transition-opacity peer-checked:opacity-100" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <span>I agree that Ironum uses my details to get back to me about my request. More in our <a href="/privacy/" class="text-blue-600 underline">privacy policy</a>. <span class="text-red-500">*</span></span>
+          </label>
           <button type="submit" class="bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Send Message</button>
         </form>
         <script is:inline>
@@ -59,74 +55,63 @@ import Footer from '../components/Footer.astro';
           })();
         </script>
       </div>
-    </div>
-  </section>
 
-  <!-- Booking & Contact -->
-  <section class="px-4 md:px-20 py-20 md:py-32">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Booking -->
-        <div class="space-y-8">
-          <div>
-            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">BOOK A CALL</span>
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">Free Discovery Call</h2>
-            <p class="text-gray-500 text-lg font-semibold">Tell us when it suits you, and Gerrit sends you a calendar invite for a 30-minute call to discuss your AI strategy, infrastructure requirements, and compliance needs. No commitment, no sales pitch, just an honest assessment of how AI can help your organization.</p>
-          </div>
-          <a href="/contact/#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Get in Touch</a>
-          <div class="space-y-4 pt-4">
-            <h3 class="text-xl font-bold">What to Expect</h3>
-            <ul class="space-y-3 text-gray-500 text-lg font-semibold">
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Assessment of your current AI readiness
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Identification of quick-win automation opportunities
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                GDPR and EU AI Act compliance review
-              </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Concrete next steps and timeline estimate
-              </li>
-            </ul>
-          </div>
+      <!-- Contact details -->
+      <div class="lg:col-span-2 space-y-8">
+        <div>
+          <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">CONTACT DETAILS</span>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Reach Out Directly</h2>
         </div>
 
-        <!-- Contact Details -->
-        <div class="space-y-8">
-          <div>
-            <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">CONTACT DETAILS</span>
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">Reach Out Directly</h2>
+        <div class="space-y-6">
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+            <h3 class="text-xl font-bold mb-2">Email</h3>
+            <a href="mailto:info@ironum.com" class="text-blue-600 text-lg font-semibold hover:underline">info@ironum.com</a>
+            <p class="text-gray-500 font-semibold mt-1">We respond within two working days.</p>
           </div>
 
-          <div class="space-y-6">
-            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-              <h3 class="text-xl font-bold mb-2">Email</h3>
-              <a href="mailto:info@ironum.com" class="text-blue-600 text-lg font-semibold hover:underline">info@ironum.com</a>
-              <p class="text-gray-500 font-semibold mt-1">We respond within two working days.</p>
-            </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+            <h3 class="text-xl font-bold mb-2">Phone</h3>
+            <a href="tel:+4915758539892" class="text-blue-600 text-lg font-semibold hover:underline">+49 157 585 39892</a>
+            <p class="text-gray-500 font-semibold mt-1">Available Monday to Friday, 9:00 - 18:00 CET.</p>
+          </div>
 
-            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-              <h3 class="text-xl font-bold mb-2">Phone</h3>
-              <a href="tel:+4915758539892" class="text-blue-600 text-lg font-semibold hover:underline">+49 157 585 39892</a>
-              <p class="text-gray-500 font-semibold mt-1">Available Monday to Friday, 9:00 - 18:00 CET.</p>
-            </div>
-
-            <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-              <h3 class="text-xl font-bold mb-2">Office</h3>
-              <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschränkt)<br>Luisenstraße 66<br>40215 Düsseldorf<br>Germany</p>
-            </div>
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
+            <h3 class="text-xl font-bold mb-2">Office</h3>
+            <p class="text-gray-500 text-lg font-semibold">LearnSlice UG (haftungsbeschränkt)<br>Luisenstraße 66<br>40215 Düsseldorf<br>Germany</p>
+            <p class="text-gray-500 font-semibold mt-1">Ironum is a product of LearnSlice UG (haftungsbeschränkt).</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <FinalCTA />
+  <!-- What to expect -->
+  <section class="px-4 md:px-20 py-16 md:py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block mb-4">FREE CALL</span>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">What to Expect</h2>
+      <p class="text-gray-500 text-lg font-semibold">A 30-minute call with Gerrit about your AI strategy, infrastructure requirements, and compliance needs. No commitment, no sales pitch, just an honest assessment of how AI can help your organization.</p>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-50"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></span>
+        <p class="text-lg font-bold break-words hyphens-auto">Assessment of your current AI readiness</p>
+      </div>
+      <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-50"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></span>
+        <p class="text-lg font-bold break-words hyphens-auto">Identification of quick-win automation opportunities</p>
+      </div>
+      <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-50"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></span>
+        <p class="text-lg font-bold break-words hyphens-auto">GDPR and EU AI Act compliance review</p>
+      </div>
+      <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-50"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></span>
+        <p class="text-lg font-bold break-words hyphens-auto">Concrete next steps and timeline estimate</p>
+      </div>
+    </div>
+  </section>
+
   <Footer />
 </Layout>

@@ -2,7 +2,7 @@ export const en = {
   locale: 'en' as const,
   meta: {
     defaultTitle: 'Ironum | Custom AI Development & Private RAG for US & EU',
-    defaultDescription: 'Trustworthy custom AI development: private RAG, assistants, and models on infrastructure you control. German + Polish engineering, competitive rates. Book a free call.',
+    defaultDescription: 'Trustworthy custom AI development: private RAG, assistants, and models on infrastructure you control. German + Polish engineering, competitive rates. Request a free call.',
   },
   nav: {
     services: 'Services',
@@ -51,7 +51,7 @@ export const en = {
     title: 'Custom AI that actually ships, and pays for itself',
     subtitle: 'We design, build, and deploy AI assistants, private RAG, and automation for your industry, on infrastructure you own, in weeks not quarters. Most AI pilots never reach production. Ours do.',
     trustLine: 'Trusted by FH Dortmund, Smella, and companies in finance, education, and travel',
-    ctaButton: 'Book a Free AI Strategy Call',
+    ctaButton: 'Request a Free AI Strategy Call',
   },
   footer: {
     servicesTitle: 'Services',
@@ -95,7 +95,7 @@ export const en = {
     badge: 'Leading European businesses are already deploying private AI. See how they started',
     title: 'Ready to Put AI to Work?',
     description: 'Free 30-minute strategy call with Gerrit: no sales pitch, just a concrete roadmap for your business.',
-    ctaButton: 'Book My Free Strategy Call',
+    ctaButton: 'Request My Free Strategy Call',
   },
   challenges: {
     title: 'Enterprise AI Compliance Challenges',
@@ -206,7 +206,7 @@ export const en = {
       { title: 'Custom AI Models', description: 'AI trained specifically on your industry data. Your model. Your servers. No per-query API costs.', href: '/services/llm-fine-tuning/' },
       { title: 'AI Search Visibility', description: 'Get your brand recommended by ChatGPT, Perplexity, and AI-powered search engines.', href: '/services/geo-optimization/' },
     ],
-    midCta: 'Not sure which service fits? Book a free strategy call →',
+    midCta: 'Not sure which service fits? Request a free strategy call →',
     industriesEyebrow: 'INDUSTRIES WE KNOW',
     industriesTitle: "AI Built Around Your Industry's Real Use Cases",
     industriesSubtitle: "We start from problems we've already solved with customers in your sector, not a generic template. Deployed on your infrastructure, in your region.",
