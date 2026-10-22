@@ -4,7 +4,7 @@ description: "Wie ein privates RAG-System Jira und Confluence liest, Berechtigun
 publishDate: 2026-10-22
 author: "Ironum Team"
 category: "implementation"
-tags: ["Enterprise RAG", "Jira", "Confluence", "Selbst gehostete KI", "EU-Datenresidenz", "Microsoft Copilot"]
+tags: ["Enterprise RAG", "RAG", "Jira", "Confluence", "Selbst gehostete KI", "KI-Hosting", "EU-Datenresidenz", "Microsoft Copilot"]
 locale: "de"
 draft: false
 ogImage: "/images/og/og-rag-jira-confluence-de.jpg"
@@ -37,7 +37,7 @@ Connector überlegen ist und wo nicht.
 - **RAG** bedeutet: Das Modell antwortet aus Textstellen, die im Moment der Frage aus Ihrem eigenen Jira und Confluence abgerufen werden, und belegt sie. Mit Ihren Daten wird nichts trainiert.
 - Die Copilot-Connectors von Microsoft sind die einfachste Option, wenn Sie unterstützte Atlassian-Versionen betreiben und Add-on-Lizenzen für Microsoft 365 Copilot haben. Ein selbst gehostetes System passt, wenn Sie Kommentare, Jira Server, einen Index außerhalb von Microsoft oder Ihre eigene Wahl bei Modell und Hosting brauchen.
 - Schwierig ist nicht das Modell, sondern **Berechtigungen**, **Aktualität** und **Quellenangaben**.
-- Gehostet wird auf Ihren eigenen Servern oder bei einem EU-Cloud-Anbieter, mit einem Open-Source-Modell, sodass die Inhalte die Infrastruktur Ihrer Wahl nicht verlassen.
+- Es kann auf Ihren eigenen Servern oder bei einem EU-Anbieter laufen, mit einem Open-Source-Modell, sodass Ihre Inhalte auf einer Infrastruktur Ihrer Wahl bleiben.
 
 ## Copilot-Connector oder selbst gehostetes RAG?
 
@@ -115,7 +115,7 @@ den falschen Abschnitt erwischt hat.
 
 Ein selbst gehostetes System kann auf drei Arten laufen:
 
-- **Auf Ihren eigenen Servern**, mit einem Open-Source-Modell. Die Inhalte verlassen Ihr Netzwerk nie.
+- **Auf Ihren eigenen Servern (On-Premise)**, mit einem Open-Source-Modell. Die Inhalte verlassen Ihr Netzwerk nie.
 - **Auf dedizierten Servern bei einem EU-Anbieter**, etwa Hetzner oder IONOS in Deutschland, ebenfalls mit einem Open-Source-Modell. Einen Vergleich der Anbieter finden Sie in [Hetzner vs. IONOS vs. OVHcloud: KI-Hosting 2026](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
 - **In einer EU-Region eines Hyperscalers**, wenn Ihr Unternehmen dort ohnehin arbeitet.
 
@@ -137,10 +137,11 @@ einen Confluence-Bereich sowie eine Handvoll echter Fragen, die Ihr Team jede Wo
 
 **Was Sie nach etwa zwei Wochen haben:** einen funktionierenden Assistenten auf diesen
 Pilotdaten, Berechtigungsfilter vom ersten Tag an, belegte Antworten, die Ihr Team mit dem
-eigenen Wissen abgleichen kann, und einen Plan für den Produktivbetrieb.
+eigenen Wissen abgleichen kann, und einen Plan für den Produktivbetrieb. Wie wir solche
+Systeme bauen, steht auf unserer [Seite zu Enterprise RAG](/de/dienstleistungen/enterprise-rag/).
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
-  <p class="m-0 text-lg font-bold text-black">Stößt Ihr Team an die Grenzen des Connectors?</p>
+  <p class="m-0 text-lg font-bold text-black">Möchten Sie es mit Ihrem eigenen Jira und Confluence sehen?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, wie Ihr Jira und Confluence aufgesetzt sind und welche Fragen beantwortet werden sollen. Wir antworten innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Es folgt keine Vertriebs-Mailserie.</p>
-  <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Fragen, ob es lösbar ist</a></p>
+  <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Zweiwöchigen Pilot anfragen</a></p>
 </div>

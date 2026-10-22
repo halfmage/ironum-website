@@ -4,7 +4,7 @@ description: "How a private RAG system reads Jira and Confluence, keeps their pe
 publishDate: 2026-10-22
 author: "Ironum Team"
 category: "implementation"
-tags: ["Enterprise RAG", "Jira", "Confluence", "Self-hosted AI", "EU data residency", "Microsoft Copilot"]
+tags: ["Enterprise RAG", "RAG", "Jira", "Confluence", "Self-hosted AI", "EU data residency", "Microsoft Copilot"]
 locale: "en"
 draft: false
 ogImage: "/images/og/og-rag-jira-confluence.jpg"
@@ -35,7 +35,7 @@ in the EU, where it beats an off-the-shelf connector, and where it does not.
 - **RAG** means the model answers from passages retrieved from your own Jira and Confluence at question time, and cites them. Nothing is trained on your data.
 - Microsoft's Copilot connectors are the simplest option if you run supported Atlassian versions and hold Microsoft 365 Copilot add-on licenses. A self-hosted system fits when you need comments, Jira Server, a non-Microsoft index, or your own choice of model and hosting.
 - The hard parts are not the model. They are **permissions**, **freshness** and **citations**.
-- Hosting can be your own servers or an EU cloud provider, with an open-source model, so the content does not leave infrastructure you choose.
+- It can run on your own servers or at an EU provider, with an open-source model, so your content stays on infrastructure you choose.
 
 ## Copilot Connector or Self-Hosted RAG?
 
@@ -107,7 +107,7 @@ passage.
 
 A self-hosted system can run in three ways:
 
-- **On your own servers**, with an open-source model. The content never leaves your network.
+- **On your own servers (on-premise)**, with an open-source model. The content never leaves your network.
 - **On dedicated servers at an EU provider**, such as Hetzner or IONOS in Germany, again with an open-source model.
 - **In an EU cloud region of a hyperscaler**, if your organization already runs there.
 
@@ -128,10 +128,11 @@ one Confluence space, and a handful of real questions your team asks every week.
 
 **What you have after about two weeks:** a working assistant on that pilot data,
 permission filtering on from day one, cited answers your team can test against what it
-already knows, and a plan for production.
+already knows, and a plan for production. How we build these systems is on the
+[enterprise RAG service page](/services/enterprise-rag/).
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
-  <p class="m-0 text-lg font-bold text-black">Has your team hit the limits of the connector?</p>
+  <p class="m-0 text-lg font-bold text-black">Want to see it on your own Jira and Confluence?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Write to us with your Jira and Confluence setup and the questions you want answered. We reply within two working days with whether it is solvable and roughly what it would take. No sales sequence follows.</p>
-  <p class="m-0 mt-5"><a href="/contact/?source=blog-rag-jira-confluence#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Ask whether it is solvable</a></p>
+  <p class="m-0 mt-5"><a href="/contact/?source=blog-rag-jira-confluence#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Ask about a two-week pilot</a></p>
 </div>
