@@ -60,6 +60,13 @@ If you mainly want to get more out of the tools you already have, start with our
 If RAG is new to you, [enterprise RAG explained](/resources/blog/enterprise-rag-explained/)
 covers the idea without the technical detail. Here is how it applies to Jira and Confluence.
 
+<figure class="my-10">
+  <picture>
+    <source media="(min-width: 640px)" srcset="/images/blog/rag-jira-confluence-flow-en.svg" />
+    <img src="/images/blog/rag-jira-confluence-flow-en-mobile.svg" alt="How RAG over Jira and Confluence works, in two flows. Indexing: a sync service reads content and access rules from Jira and Confluence, each on its own schedule (steps 1 and 6), and stores passages and vectors with their access rules in an index (steps 2 and 3). Answering: a person asks a question; the permission filter searches the index and keeps only passages this person may open (step 4); the language model answers from those passages only (step 5); the answer links to every issue and page used. Everything except the person runs on infrastructure you choose in the EU." width="360" height="714" loading="lazy" decoding="async" />
+  </picture>
+</figure>
+
 **1. Reading the data.** A sync service reads issues, comments, attachments and pages through the
 Jira and Confluence REST APIs, with a service account that has read access to the projects
 and spaces in scope. You decide the scope: all projects, or only the ones a pilot team uses.

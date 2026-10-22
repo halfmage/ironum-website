@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="560" viewBox="0 0 520 560" role="img" aria-label="How RAG over Jira and Confluence works, in two flows. Indexing: a sync service reads content and access rules from Jira and Confluence, each on its own schedule (steps 1 and 6), and stores passages and vectors with their access rules in an index (steps 2 and 3). Answering: a person asks a question; the permission filter searches the index and keeps only passages this person may open (step 4); the language model answers from those passages only (step 5); the answer links to every issue and page used. Everything except the person runs on infrastructure you choose in the EU.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="0" y="0" width="520" height="560" rx="16" fill="#f9fafb" stroke="#f3f4f6" stroke-width="2"/>
+<text x="24" y="36" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="21" fill="#000000" font-weight="600">Two flows, one permission check</text>
+<text x="24" y="60" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14.5" fill="#6b7280">The numbers match the steps in the text</text>
+<text x="24" y="100" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280" font-weight="600" letter-spacing="0.06em">INDEXING</text>
+<text x="284" y="100" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280" font-weight="600" letter-spacing="0.06em">ANSWERING</text>
+<rect x="24.0" y="112" width="100.0" height="40" rx="10" fill="#e5e7eb"/>
+<text x="74.0" y="137" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14.5" fill="#000000" font-weight="600" text-anchor="middle">Jira</text>
+<rect x="136.0" y="112" width="100.0" height="40" rx="10" fill="#e5e7eb"/>
+<text x="186.0" y="137" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="14.5" fill="#000000" font-weight="600" text-anchor="middle">Confluence</text>
+<rect x="12" y="176" width="496" height="372" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="260.0" y="534" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="middle" letter-spacing="0.06em">YOUR INFRASTRUCTURE IN THE EU</text>
+<rect x="24" y="208" width="212" height="80" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="38" y="234" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15.5" fill="#000000" font-weight="600">Sync</text>
+<text x="38" y="254" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">Content and access rules,</text>
+<text x="38" y="271" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">each on its own schedule</text>
+<rect x="185" y="218" width="41" height="22" rx="11" fill="#2563eb"/>
+<text x="205.5" y="233.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1 · 6</text>
+<rect x="24" y="316" width="212" height="80" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="38" y="342" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15.5" fill="#000000" font-weight="600">Index</text>
+<text x="38" y="362" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">Passages and vectors,</text>
+<text x="38" y="379" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">each with its access rules</text>
+<rect x="185" y="326" width="41" height="22" rx="11" fill="#2563eb"/>
+<text x="205.5" y="341.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2 · 3</text>
+<rect x="284" y="106" width="212" height="52" rx="26" fill="#e5e7eb"/>
+<text x="390.0" y="128" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15" fill="#000000" font-weight="600" text-anchor="middle">Person asking</text>
+<text x="390.0" y="146" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563" text-anchor="middle">Question + identity</text>
+<rect x="284" y="316" width="212" height="80" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="298" y="342" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15.5" fill="#000000" font-weight="600">Permission filter</text>
+<text x="298" y="362" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">Only passages this person</text>
+<text x="298" y="379" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">may open</text>
+<rect x="465" y="326" width="21" height="22" rx="11" fill="#2563eb"/>
+<text x="475.5" y="341.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+<rect x="284" y="424" width="212" height="80" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="298" y="450" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15.5" fill="#000000" font-weight="600">Language model</text>
+<text x="298" y="470" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">Answers from those</text>
+<text x="298" y="487" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">passages only</text>
+<rect x="465" y="434" width="21" height="22" rx="11" fill="#2563eb"/>
+<text x="475.5" y="449.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+<rect x="24" y="424" width="212" height="80" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="38" y="450" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="15.5" fill="#000000" font-weight="600">Answer with citations</text>
+<text x="38" y="470" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">Links to every issue</text>
+<text x="38" y="487" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12.5" fill="#4b5563">and page used</text>
+<path d="M74.0,152 L74.0,206" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M186.0,152 L186.0,206" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M130.0,288 L130.0,314" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M390.0,158 L390.0,314" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M236,356.0 L282,356.0" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<text x="260.0" y="348.0" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">search</text>
+<path d="M390.0,396 L390.0,422" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M284,464.0 L238,464.0" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+</svg>

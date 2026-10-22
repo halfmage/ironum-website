@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="738" viewBox="0 0 360 738" role="img" aria-label="Wie RAG über Jira und Confluence funktioniert, in zwei Abläufen. Indexieren: Ein Synchronisationsdienst liest Inhalte und Zugriffsregeln aus Jira und Confluence, jeweils im eigenen Takt (Schritte 1 und 6), und speichert Abschnitte und Vektoren mit ihren Zugriffsregeln in einem Index (Schritte 2 und 3). Antworten: Eine Person stellt eine Frage; der Berechtigungsfilter durchsucht den Index und behält nur Abschnitte, die diese Person öffnen darf (Schritt 4); das Sprachmodell antwortet nur aus diesen Abschnitten (Schritt 5); die Antwort verlinkt jeden genutzten Vorgang und jede Seite. Alles außer der Person läuft auf einer Infrastruktur Ihrer Wahl in der EU.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="0" y="0" width="360" height="738" rx="16" fill="#f9fafb" stroke="#f3f4f6" stroke-width="2"/>
+<text x="16" y="32" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" fill="#000000" font-weight="600">Zwei Abläufe,</text>
+<text x="16" y="56" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="18" fill="#000000" font-weight="600">eine Berechtigungsprüfung</text>
+<text x="16" y="78" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">Die Nummern entsprechen den Schritten im Text</text>
+<rect x="16" y="98" width="104" height="46" rx="10" fill="#e5e7eb"/>
+<text x="68.0" y="126" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#000000" font-weight="600" text-anchor="middle">Jira</text>
+<rect x="128" y="98" width="104" height="46" rx="10" fill="#e5e7eb"/>
+<text x="180.0" y="126" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#000000" font-weight="600" text-anchor="middle">Confluence</text>
+<rect x="240" y="98" width="104" height="46" rx="10" fill="#e5e7eb"/>
+<text x="292.0" y="117" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#000000" font-weight="600" text-anchor="middle">Fragende</text>
+<text x="292.0" y="134" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#000000" font-weight="600" text-anchor="middle">Person</text>
+<rect x="8" y="170" width="344" height="560" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="180.0" y="716" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#2563eb" font-weight="600" text-anchor="middle" letter-spacing="0.06em">IHRE INFRASTRUKTUR IN DER EU</text>
+<rect x="24" y="190" width="292" height="76" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="38" y="217" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="16" fill="#000000" font-weight="600">Synchronisation</text>
+<text x="38" y="238" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Inhalte und Zugriffsregeln,</text>
+<text x="38" y="255" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">jeweils im eigenen Takt</text>
+<rect x="265" y="200" width="41" height="22" rx="11" fill="#2563eb"/>
+<text x="285.5" y="215.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1 · 6</text>
+<rect x="24" y="296" width="292" height="76" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="38" y="323" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="16" fill="#000000" font-weight="600">Index</text>
+<text x="38" y="344" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Abschnitte und Vektoren,</text>
+<text x="38" y="361" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">jeweils mit Zugriffsregeln</text>
+<rect x="265" y="306" width="41" height="22" rx="11" fill="#2563eb"/>
+<text x="285.5" y="321.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2 · 3</text>
+<rect x="24" y="402" width="292" height="76" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="38" y="429" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="16" fill="#000000" font-weight="600">Berechtigungsfilter</text>
+<text x="38" y="450" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Nur Abschnitte, die diese</text>
+<text x="38" y="467" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Person öffnen darf</text>
+<rect x="285" y="412" width="21" height="22" rx="11" fill="#2563eb"/>
+<text x="295.5" y="427.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+<rect x="24" y="508" width="292" height="76" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+<text x="38" y="535" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="16" fill="#000000" font-weight="600">Sprachmodell</text>
+<text x="38" y="556" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Antwortet nur aus</text>
+<text x="38" y="573" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">diesen Abschnitten</text>
+<rect x="285" y="518" width="21" height="22" rx="11" fill="#2563eb"/>
+<text x="295.5" y="533.5" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+<rect x="24" y="614" width="292" height="76" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="38" y="641" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="16" fill="#000000" font-weight="600">Antwort mit Quellen</text>
+<text x="38" y="662" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Links zu jedem genutzten</text>
+<text x="38" y="679" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13.5" fill="#4b5563">Vorgang und jeder Seite</text>
+<path d="M68,144 L68,188" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M180,144 L180,188" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M150,266 L150,294" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M150,372 L150,400" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M150,478 L150,506" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M150,584 L150,612" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+<text x="160" y="392" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" fill="#6b7280">Suche</text>
+<path d="M336,144 L336,440.0 L318,440.0" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#ah)"/>
+</svg>

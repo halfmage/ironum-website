@@ -63,6 +63,13 @@ beginnen Sie mit unseren kostenlosen
 Wenn RAG neu für Sie ist, erklärt [Enterprise RAG Explained](/resources/blog/enterprise-rag-explained/)
 (auf Englisch) die Idee ohne technische Details. So sieht es für Jira und Confluence aus.
 
+<figure class="my-10">
+  <picture>
+    <source media="(min-width: 640px)" srcset="/images/blog/rag-jira-confluence-flow-de.svg" />
+    <img src="/images/blog/rag-jira-confluence-flow-de-mobile.svg" alt="Wie RAG über Jira und Confluence funktioniert, in zwei Abläufen. Indexieren: Ein Synchronisationsdienst liest Inhalte und Zugriffsregeln aus Jira und Confluence, jeweils im eigenen Takt (Schritte 1 und 6), und speichert Abschnitte und Vektoren mit ihren Zugriffsregeln in einem Index (Schritte 2 und 3). Antworten: Eine Person stellt eine Frage; der Berechtigungsfilter durchsucht den Index und behält nur Abschnitte, die diese Person öffnen darf (Schritt 4); das Sprachmodell antwortet nur aus diesen Abschnitten (Schritt 5); die Antwort verlinkt jeden genutzten Vorgang und jede Seite. Alles außer der Person läuft auf einer Infrastruktur Ihrer Wahl in der EU." width="360" height="738" loading="lazy" decoding="async" />
+  </picture>
+</figure>
+
 **1. Daten einlesen.** Ein Synchronisationsdienst liest Vorgänge, Kommentare, Anhänge und Seiten
 über die REST-APIs von Jira und Confluence, mit einem Dienstkonto, das Lesezugriff auf die
 betroffenen Projekte und Bereiche hat. Den Umfang legen Sie fest: alle Projekte oder nur die
