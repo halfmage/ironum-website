@@ -1,12 +1,12 @@
 ---
 title: "RAG Over Jira and Confluence, Self-Hosted in the EU"
 description: "How a private RAG system reads Jira and Confluence, keeps their permissions, cites sources and runs on EU servers you control. Architecture and timeline."
-publishDate: 2026-10-08
+publishDate: 2026-10-22
 author: "Ironum Team"
 category: "implementation"
 tags: ["Enterprise RAG", "Jira", "Confluence", "Self-hosted AI", "EU data residency", "Microsoft Copilot"]
 locale: "en"
-draft: true
+draft: false
 ogImage: "/images/og/og-rag-jira-confluence.jpg"
 legalDisclaimer: true
 faq:
@@ -19,14 +19,6 @@ faq:
   - question: "How long does it take to build?"
     answer: "At Ironum, a working proof of concept on a customer's real Jira and Confluence data typically takes around two weeks, and a production system four to eight weeks, depending on data volume, permission complexity and integration requirements."
 ---
-
-{/* DRAFT, internal notes (not rendered):
-    - Timeline (about 2 weeks PoC, 4-8 weeks production) confirmed 2026-10-08.
-    - Author stays "Ironum Team" (decided 2026-10-08). No project example for now.
-    - Publish ~2026-10-22 (two weeks after the connector article). On publish: restore the
-      commented link in copilot-jira-connector-what-it-reads.mdx (EN; and the DE twin
-      copilot-jira-connector-was-er-liest.mdx), link /services/enterprise-rag/ to this post,
-      and rename "The Three Things That Decide Quality" to include "Jira and Confluence". */}
 
 Your team's knowledge is split between two places. Jira holds what was decided, issue by
 issue, mostly in the comments. Confluence holds why: the specs, the architecture notes, the
@@ -96,7 +88,7 @@ citation for each claim.
 Permission changes get their own schedule, because a person removed from a project should
 lose access to its content quickly.
 
-## The Three Things That Decide Quality
+## Three Things That Decide the Quality of a Jira and Confluence RAG
 
 **Permissions.** This is where most first versions fail. Jira and Confluence permissions
 are layered: groups, project roles, issue security levels, space permissions, page
