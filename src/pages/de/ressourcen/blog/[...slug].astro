@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
+// Posts that already answer their FAQ in the body don't get the FAQ block a second time.
+const hasBodyFaq = headings.some(h => h.depth === 2 && /^(faq|frequently asked|häufige fragen)/i.test(h.text));
 ---
 
 <BlogLayout frontmatter={{
@@ -28,6 +30,7 @@ const { Content } = await post.render();
   heroImageAlt: post.data.heroImageAlt,
   legalDisclaimer: post.data.legalDisclaimer,
   faq: post.data.faq,
+  hasBodyFaq,
 }}>
   <Content />
 </BlogLayout>

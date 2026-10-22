@@ -1,4 +1,6 @@
 ---
+import { categoryLabel } from '../../i18n/categories';
+
 export interface Props {
   title: string;
   description: string;
@@ -8,12 +10,13 @@ export interface Props {
 }
 
 const { title, description, href, date, category } = Astro.props;
-const dateLocale = href.startsWith('/de/') ? 'de-DE' : 'en-US';
+const isDe = href.startsWith('/de/');
+const dateLocale = isDe ? 'de-DE' : 'en-US';
 ---
 
 <a href={href} class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors flex flex-col h-full">
   <div class="flex items-center gap-3 mb-4">
-    <span class="text-orange-500 text-sm font-semibold uppercase tracking-wider">{category}</span>
+    <span class="text-orange-500 text-sm font-semibold uppercase tracking-wider">{categoryLabel(category, isDe ? 'de' : 'en')}</span>
     <span class="text-gray-300">·</span>
     <time class="text-gray-400 text-sm" datetime={date}>{new Date(date).toLocaleDateString(dateLocale, { month: 'short', day: 'numeric', year: 'numeric' })}</time>
   </div>

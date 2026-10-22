@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import BlogPostCard from '../components/cards/BlogPostCard.astro';
 import { getLangFromUrl } from '../i18n/utils';
+import { categoryLabel } from '../i18n/categories';
 import { PERSON_ALESIA, AUTHOR_PAGES } from '../data/people';
 
 export interface Props {
@@ -21,6 +22,7 @@ export interface Props {
     heroImageAlt?: string;
     legalDisclaimer?: boolean;
     faq?: Array<{ question: string; answer: string }>;
+    hasBodyFaq?: boolean;
   };
 }
 
@@ -125,7 +127,7 @@ if (frontmatter.faq && frontmatter.faq.length > 0) {
       </figure>
     )}
     <div class="mb-12">
-      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{frontmatter.category}</span>
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">{categoryLabel(frontmatter.category, locale === 'de' ? 'de' : 'en')}</span>
       <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">{frontmatter.title}</h1>
       <div class="flex items-center gap-4 text-gray-500">
         {authorPage ? <a href={authorPage} class="hover:text-blue-600 underline">{frontmatter.author}</a> : <span>{frontmatter.author}</span>}
@@ -151,6 +153,22 @@ if (frontmatter.faq && frontmatter.faq.length > 0) {
     <div class="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
       <slot />
     </div>
+    {frontmatter.faq && frontmatter.faq.length > 0 && !frontmatter.hasBodyFaq && (
+      <section class="mt-16" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="text-2xl md:text-3xl font-bold mb-6">{locale === 'de' ? 'Häufige Fragen' : 'Frequently Asked Questions'}</h2>
+        <div class="space-y-3">
+          {frontmatter.faq.map(item => (
+            <details class="group border-2 border-gray-100 rounded-2xl open:border-blue-100">
+              <summary class="flex justify-between items-center gap-4 px-5 py-4 min-h-[48px] cursor-pointer list-none text-lg font-semibold [&::-webkit-details-marker]:hidden">
+                <span>{item.question}</span>
+                <span class="text-blue-600 text-2xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p class="px-5 pb-5 text-gray-600 leading-relaxed">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
   </article>
   {relatedPosts.length > 0 && (
     <section class="px-4 md:px-20 py-20 md:py-32 max-w-7xl mx-auto border-t border-gray-100">
