@@ -13,7 +13,7 @@ faq:
   - question: "Was ist RAG über Jira und Confluence?"
     answer: "Retrieval-Augmented Generation (RAG) bedeutet, dass ein Sprachmodell aus Textstellen antwortet, die im Moment der Frage aus Ihren eigenen Systemen abgerufen werden, statt aus dem, was es im Training gelernt hat. Bei Jira und Confluence heißt das: Vorgänge, Kommentare und Wiki-Seiten werden indexiert, zu jeder Frage werden die passendsten abgerufen, und die Antwort nennt den Vorgang oder die Seite, aus der sie stammt."
   - question: "Warum nicht einfach die Microsoft-365-Copilot-Connectors für Jira und Confluence nutzen?"
-    answer: "Für viele Teams mit Jira Cloud oder einer unterstützten Jira-Data-Center-Version und Add-on-Lizenzen für Microsoft 365 Copilot sind die Connectors der einfachste Weg. Ein selbst gehostetes System passt besser, wenn die Antworten von Inhalten abhängen, die die Connectors nicht indexieren, etwa Kommentare in Jira Cloud, wenn Sie Jira Server betreiben, wenn der Index nicht in Microsoft 365 liegen soll oder wenn Sie Modell und Hosting-Standort selbst wählen möchten."
+    answer: "Für viele Teams mit Jira Cloud oder einer unterstützten Jira-Data-Center-Version und Lizenzen für das Add-on Microsoft 365 Copilot (oder E7) sind die Connectors der einfachste Weg. Ein selbst gehostetes System passt besser, wenn die Antworten von Inhalten abhängen, die die Connectors nicht indexieren, etwa Kommentare in Jira Cloud, wenn Sie Jira Server betreiben, wenn der Index nicht in Microsoft 365 liegen soll oder wenn Sie Modell und Hosting-Standort selbst wählen möchten."
   - question: "Berücksichtigt ein selbst gehostetes RAG-System die Berechtigungen aus Jira und Confluence?"
     answer: "Nur, wenn es dafür gebaut ist. Die Zugriffsregeln jedes Elements werden mit im Index gespeichert, und jede Suche wird nach der Identität der fragenden Person gefiltert, bevor etwas beim Modell ankommt. Berechtigungsänderungen brauchen dann einen eigenen Synchronisationsplan, getrennt von inhaltlichen Änderungen."
   - question: "Wie lange dauert der Aufbau?"
@@ -110,7 +110,7 @@ Antworten auftaucht, und zeigen Sie bei jeder zitierten Quelle das Datum der let
 verwendet hat. So lernt Ihr Team, dem System zu vertrauen, und so fällt auf, wenn der Abruf
 den falschen Abschnitt erwischt hat. Dasselbe Prinzip nutzen wir in LearnSlice, unserer
 KI-Lernplattform, die auf Servern in Deutschland läuft. In einem
-[Forschungspilot mit der FH Dortmund](https://learnslice.com/research) im Mai 2026 trug
+[Pilotprojekt mit der FH Dortmund](https://learnslice.com/research) im Mai 2026 trug
 jede Antwort in der Systemevaluation eine gültige Quellenangabe zur jeweiligen Textstelle.
 
 ## Hosting in der EU
@@ -145,14 +145,17 @@ Systeme bauen, steht auf unserer [Seite zu Enterprise RAG](/de/dienstleistungen/
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">Möchten Sie es mit Ihrem eigenen Jira und Confluence sehen?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, wie Ihr Jira und Confluence aufgesetzt sind und welche Fragen beantwortet werden sollen. Wir antworten innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Es folgt keine Vertriebs-Mailserie.</p>
-  <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Zweiwöchigen Pilot anfragen</a></p>
+  <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Zweiwöchiges Pilotprojekt anfragen</a></p>
 </div>
 
 ## Quellen
 
-Die Aussagen zu Microsofts Connectors stammen aus Microsofts Dokumentation, geprüft am 22. Oktober 2026, das Ergebnis zu den Quellenangaben aus unserem eigenen Pilotbericht:
+Die Aussagen zu Microsofts Connectors stammen aus Microsofts Dokumentation, geprüft am 22. Oktober 2026:
 
 - [Übersicht Jira-Cloud-Connector](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/jira-cloud-overview): nur Jira Cloud, Jira Server und Data Center werden nicht unterstützt, indexierte Felder (Kommentare gehören nicht dazu).
 - [Übersicht Jira-Data-Center-Connector](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/jira-data-center-overview): Connector Agent und Plugin, Kommentare und Anhänge nur auf Anfrage beim Microsoft-Support, Zugriff wird verweigert, wenn sich Berechtigungen nicht auflösen lassen.
-- [LearnSlice-Forschungspilot](https://learnslice.com/research): das Ergebnis zu den Quellenangaben aus dem Pilot mit der FH Dortmund, Mai 2026 (keine begutachtete Veröffentlichung).
 - [Voraussetzungen für die Bereitstellung von Connectors](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/prerequisites): Inhalte werden in Microsoft 365 indexiert, und Copilot antwortet daraus nur mit dem Add-on Microsoft 365 Copilot oder Microsoft 365 E7.
+
+Unser eigenes Ergebnis:
+
+- [LearnSlice-Pilotprojekt mit der FH Dortmund](https://learnslice.com/research), Mai 2026: Jede Antwort in der Systemevaluation trug eine gültige Quellenangabe. Keine begutachtete Veröffentlichung.

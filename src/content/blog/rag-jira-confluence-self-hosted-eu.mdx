@@ -13,7 +13,7 @@ faq:
   - question: "What is RAG over Jira and Confluence?"
     answer: "Retrieval-augmented generation (RAG) means a language model answers from passages retrieved from your own systems at question time, instead of from what it learned in training. Over Jira and Confluence, that means issues, comments and wiki pages are indexed, the most relevant ones are retrieved for each question, and the answer cites the issue or page it came from."
   - question: "Why not just use the Microsoft 365 Copilot connectors for Jira and Confluence?"
-    answer: "For many teams on Jira Cloud or a supported Jira Data Center version, with Microsoft 365 Copilot add-on licenses, the connectors are the simplest route. A self-hosted system fits better when answers depend on content the connectors do not index, such as Jira Cloud comments, when you run Jira Server, when the index should not live in Microsoft 365, or when you want to choose the model and the hosting location yourself."
+    answer: "For many teams on Jira Cloud or a supported Jira Data Center version, with Microsoft 365 Copilot add-on (or E7) licenses, the connectors are the simplest route. A self-hosted system fits better when answers depend on content the connectors do not index, such as Jira Cloud comments, when you run Jira Server, when the index should not live in Microsoft 365, or when you want to choose the model and the hosting location yourself."
   - question: "Does a self-hosted RAG system respect Jira and Confluence permissions?"
     answer: "Only if it is built to. Each item's access rules are stored with it in the index, and every search is filtered by the asking user's identity before anything reaches the model. Permission changes then need their own sync schedule, separate from content changes."
   - question: "How long does it take to build?"
@@ -141,9 +141,12 @@ already knows, and a plan for production. How we build these systems is on the
 
 ## Sources
 
-The statements about Microsoft's connectors come from Microsoft's documentation, checked on 22 October 2026, and the citation result from our own pilot report:
+The statements about Microsoft's connectors come from Microsoft's documentation, checked on 22 October 2026:
 
 - [Jira Cloud connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-cloud-overview): Jira Cloud only, Jira Server and Data Center not supported, indexed fields (comments are not among them).
 - [Jira Data Center connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-overview): connector agent and plugin, comments and attachments only on request via Microsoft Support, access denied when permissions cannot be resolved.
-- [LearnSlice research pilot](https://learnslice.com/research): the citation result from the pilot with FH Dortmund, May 2026 (not a peer-reviewed publication).
 - [Prerequisites for deploying connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/prerequisites): content is indexed into Microsoft 365, and Copilot answers from it only with the Microsoft 365 Copilot add-on or Microsoft 365 E7.
+
+Our own result:
+
+- [LearnSlice research pilot with FH Dortmund](https://learnslice.com/research), May 2026: every answer in the system evaluation carried a valid citation. Not a peer-reviewed publication.
