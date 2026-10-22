@@ -1,0 +1,146 @@
+---
+title: "RAG über Jira und Confluence, selbst gehostet in der EU"
+description: "Wie ein privates RAG-System Jira und Confluence liest, Berechtigungen wahrt, Quellen belegt und auf EU-Servern Ihrer Wahl läuft. Aufbau und Zeitplan."
+publishDate: 2026-10-22
+author: "Ironum Team"
+category: "implementation"
+tags: ["Enterprise RAG", "Jira", "Confluence", "Selbst gehostete KI", "EU-Datenresidenz", "Microsoft Copilot"]
+locale: "de"
+draft: false
+ogImage: "/images/og/og-rag-jira-confluence-de.jpg"
+legalDisclaimer: true
+faq:
+  - question: "Was ist RAG über Jira und Confluence?"
+    answer: "Retrieval-Augmented Generation (RAG) bedeutet, dass ein Sprachmodell aus Textstellen antwortet, die im Moment der Frage aus Ihren eigenen Systemen abgerufen werden, statt aus dem, was es im Training gelernt hat. Bei Jira und Confluence heißt das: Vorgänge, Kommentare und Wiki-Seiten werden indexiert, zu jeder Frage werden die passendsten abgerufen, und die Antwort nennt den Vorgang oder die Seite, aus der sie stammt."
+  - question: "Warum nicht einfach die Microsoft-365-Copilot-Connectors für Jira und Confluence nutzen?"
+    answer: "Für viele Teams mit Jira Cloud oder einer unterstützten Jira-Data-Center-Version und Add-on-Lizenzen für Microsoft 365 Copilot sind die Connectors der einfachste Weg. Ein selbst gehostetes System passt besser, wenn die Antworten von Inhalten abhängen, die die Connectors standardmäßig nicht indexieren, etwa Kommentare in Jira Cloud, wenn Sie Jira Server betreiben, wenn der Index nicht in Microsoft 365 liegen soll oder wenn Sie Modell und Hosting-Standort selbst wählen möchten."
+  - question: "Berücksichtigt ein selbst gehostetes RAG-System die Berechtigungen aus Jira und Confluence?"
+    answer: "Nur, wenn es dafür gebaut ist. Üblich ist, die Zugriffsregeln jedes Elements mit im Index zu speichern und jede Suche nach der Identität der fragenden Person zu filtern, bevor etwas beim Modell ankommt. Berechtigungsänderungen brauchen dann einen eigenen Synchronisationsplan, getrennt von inhaltlichen Änderungen."
+  - question: "Wie lange dauert der Aufbau?"
+    answer: "Bei Ironum dauert ein funktionierender Proof of Concept auf den echten Jira- und Confluence-Daten eines Kunden in der Regel etwa zwei Wochen, ein produktives System vier bis acht Wochen, je nach Datenmenge, Komplexität der Berechtigungen und Integrationsanforderungen."
+---
+
+Das Wissen Ihres Teams liegt an zwei Orten. In Jira steht, was entschieden wurde, Vorgang
+für Vorgang, meist in den Kommentaren. In Confluence steht, warum: die Spezifikationen, die
+Architekturnotizen, die Retrospektiven. Eine Frage, die beides braucht, etwa „Warum haben
+wir den Offline-Modus der Mobile-App gestrichen, und ist dazu noch etwas offen?“, kostet
+eine Stunde Suche.
+
+Ein Retrieval-System beantwortet sie in Sekunden, mit einem Link zu jedem verwendeten
+Vorgang und jeder Seite, und ohne Inhalte zu zeigen, die die fragende Person in Jira oder
+Confluence nicht öffnen dürfte. Dieser Beitrag erklärt, wie RAG über Jira und Confluence funktioniert,
+wenn es auf einer Infrastruktur unter Ihrer Kontrolle in der EU läuft, wo es einem fertigen
+Connector überlegen ist und wo nicht.
+
+## Auf einen Blick
+
+- **RAG** bedeutet: Das Modell antwortet aus Textstellen, die im Moment der Frage aus Ihrem eigenen Jira und Confluence abgerufen werden, und belegt sie. Mit Ihren Daten wird nichts trainiert.
+- Die Copilot-Connectors von Microsoft sind die einfachste Option, wenn Sie unterstützte Atlassian-Versionen betreiben und Add-on-Lizenzen für Microsoft 365 Copilot haben. Ein selbst gehostetes System passt, wenn Sie Kommentare, Jira Server, einen Index außerhalb von Microsoft oder Ihre eigene Wahl bei Modell und Hosting brauchen.
+- Schwierig ist nicht das Modell, sondern **Berechtigungen**, **Aktualität** und **Quellenangaben**.
+- Gehostet wird auf Ihren eigenen Servern oder bei einem EU-Cloud-Anbieter, mit einem Open-Source-Modell, sodass die Inhalte die Infrastruktur Ihrer Wahl nicht verlassen.
+
+## Copilot-Connector oder selbst gehostetes RAG?
+
+Zuerst der ehrliche Vergleich. Wenn der Connector Ihren Fall abdeckt, nutzen Sie ihn.
+
+| Frage | Microsoft-365-Copilot-Connectors | Selbst gehostetes RAG |
+|---|---|---|
+| Jira Cloud | Unterstützt | Unterstützt |
+| Jira Data Center | Eigener Connector, On-Premises-Agent und Plugin | Unterstützt über die API |
+| Jira Server | Nicht unterstützt | Unterstützt über die API |
+| Jira-Kommentare | Bei Jira Cloud nicht aufgeführt; bei Data Center auf Anfrage | Indexiert, wenn Sie es wollen |
+| Lizenz, um sie in Antworten zu nutzen | Add-on Microsoft 365 Copilot oder E7 | Kosten Ihrer eigenen Infrastruktur |
+| Wo der Index liegt | Microsoft 365 | Dort, wo Sie es betreiben |
+| Wahl des Modells | Microsofts Modell | Ihre Wahl, auch Open Source |
+
+Die Angaben zu den Connectors stammen aus Microsofts Dokumentation und sind ausführlich in
+[Copilot-Jira-Connector: Was er lesen kann und was nicht](/de/ressourcen/blog/copilot-jira-connector-was-er-liest/)
+erklärt. Wenn Sie vor allem mehr aus Ihren vorhandenen Werkzeugen herausholen möchten,
+beginnen Sie mit unseren kostenlosen
+[KI-Leitfäden für Product Manager und Product Owner](/resources/guides/) (auf Englisch).
+
+## Wie RAG über Jira und Confluence funktioniert
+
+Wenn RAG neu für Sie ist, erklärt [Enterprise RAG Explained](/resources/blog/enterprise-rag-explained/)
+(auf Englisch) die Idee ohne technische Details. So sieht es für Jira und Confluence aus.
+
+**1. Einlesen.** Ein Synchronisationsdienst liest Vorgänge, Kommentare, Anhänge und Seiten
+über die REST-APIs von Jira und Confluence, mit einem Dienstkonto, das Lesezugriff auf die
+betroffenen Projekte und Bereiche hat. Den Umfang legen Sie fest: alle Projekte oder nur die
+eines Pilotteams.
+
+**2. Aufteilen.** Lange Seiten und lange Kommentarverläufe werden in Abschnitte zerlegt, die
+klein genug sind, um gezielt gefunden zu werden. Jeder Abschnitt behält seine Quelle:
+Vorgangsschlüssel oder Seiten-ID, Titel, Autor, Datum und einen Link zurück.
+
+**3. Embedding und Indexierung.** Jeder Abschnitt wird von einem Embedding-Modell in einen
+Vektor umgewandelt (es übersetzt Text in Zahlen, die seine Bedeutung abbilden, sodass
+ähnliche Abschnitte nah beieinanderliegen) und zusammen mit Text und Metadaten in einer
+Vektordatenbank gespeichert. Embedding-Modell und Datenbank können beide auf Ihren eigenen
+Servern laufen.
+
+**4. Berechtigungsfilter.** Jeder Abschnitt trägt die Zugriffsregeln des Elements, aus dem
+er stammt: Projektberechtigungen und Sicherheitsstufen für Vorgänge in Jira,
+Bereichsberechtigungen und Seiteneinschränkungen in Confluence. Stellt jemand eine Frage,
+wird die Suche nach der Identität dieser Person gefiltert, bevor ein Abschnitt das Modell
+erreicht. Wer einen Vorgang in Jira nicht öffnen kann, bekommt auch keine Antwort, die
+darauf beruht.
+
+**5. Abruf und Antwort.** Die Frage wird ebenfalls in einen Vektor umgewandelt, die
+passendsten zulässigen Abschnitte werden abgerufen, und das Sprachmodell schreibt eine
+Antwort ausschließlich aus diesen Abschnitten, mit einer Quellenangabe für jede Aussage.
+
+**6. Synchronisation.** Inhaltliche Änderungen werden inkrementell übernommen, typischerweise
+alle paar Minuten. Berechtigungsänderungen bekommen einen eigenen Zeitplan, denn wer aus
+einem Projekt entfernt wird, sollte den Zugriff auf dessen Inhalte schnell verlieren.
+
+## Drei Dinge, die über die Qualität eines RAG für Jira und Confluence entscheiden
+
+**Berechtigungen.** Hier scheitern die meisten ersten Versionen. Berechtigungen in Jira und
+Confluence sind geschichtet: Gruppen, Projektrollen, Sicherheitsstufen für Vorgänge,
+Bereichsberechtigungen, Seiteneinschränkungen. Bilden Sie sie sorgfältig ab und legen Sie
+fest, was passiert, wenn sich eine Regel nicht auflösen lässt. Die sichere Antwort, und die,
+die auch Microsofts eigener Data-Center-Connector verwendet, lautet: Zugriff verweigern.
+
+**Aktualität.** Ein Assistent, der aus dem Backlog von gestern antwortet, ist schlimmer als
+keiner, weil er überzeugt klingt. Messen Sie, wie lange eine Änderung braucht, bis sie in den
+Antworten auftaucht, und zeigen Sie bei jeder zitierten Quelle das Datum der letzten
+Änderung.
+
+**Quellenangaben.** Jede Antwort sollte auf die Vorgänge und Seiten verlinken, die sie
+verwendet hat. So lernt Ihr Team, dem System zu vertrauen, und so fällt auf, wenn der Abruf
+den falschen Abschnitt erwischt hat.
+
+## Hosting in der EU
+
+Ein selbst gehostetes System kann auf drei Arten laufen:
+
+- **Auf Ihren eigenen Servern**, mit einem Open-Source-Modell. Die Inhalte verlassen Ihr Netzwerk nie.
+- **Auf dedizierten Servern bei einem EU-Anbieter**, etwa Hetzner oder IONOS in Deutschland, ebenfalls mit einem Open-Source-Modell. Einen Vergleich der Anbieter finden Sie in [Hetzner vs. IONOS vs. OVHcloud: KI-Hosting 2026](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
+- **In einer EU-Region eines Hyperscalers**, wenn Ihr Unternehmen dort ohnehin arbeitet.
+
+In allen drei Fällen entscheiden Sie, wo Index und Modell laufen und welche Modelle zum
+Einsatz kommen. Das ist eine technische Entscheidung darüber, wo Daten verarbeitet werden. Ob
+ein bestimmter Aufbau die Pflichten Ihres Unternehmens erfüllt, klären Sie mit Ihrer oder
+Ihrem Datenschutzbeauftragten.
+
+## Wie lange der Aufbau eines RAG für Jira und Confluence dauert
+
+Bei Ironum dauert ein funktionierender Proof of Concept auf den echten Jira- und
+Confluence-Daten eines Kunden in der Regel etwa zwei Wochen: ein Pilotprojekt, ein
+Confluence-Bereich, Berechtigungsfilter vom ersten Tag an. Ein produktives System dauert
+typischerweise vier bis acht Wochen, je nach Datenmenge, Komplexität der Berechtigungen und
+dem Ort der Integration, zum Beispiel als Chat in Teams oder als Panel in Jira.
+
+**Was wir von Ihnen brauchen:** Lesezugriff für ein Dienstkonto, ein Jira-Pilotprojekt und
+einen Confluence-Bereich sowie eine Handvoll echter Fragen, die Ihr Team jede Woche stellt.
+
+**Was Sie nach etwa zwei Wochen haben:** einen funktionierenden Assistenten auf diesen
+Pilotdaten, Berechtigungsfilter vom ersten Tag an, belegte Antworten, die Ihr Team mit dem
+eigenen Wissen abgleichen kann, und einen Plan für den Produktivbetrieb.
+
+<div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
+  <p class="m-0 text-lg font-bold text-black">Stößt Ihr Team an die Grenzen des Connectors?</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, wie Ihr Jira und Confluence aufgesetzt sind und welche Fragen beantwortet werden sollen. Wir antworten innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Es folgt keine Vertriebs-Mailserie.</p>
+  <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Fragen, ob es lösbar ist</a></p>
+</div>

@@ -73,6 +73,7 @@ const EN_TO_DE = {
   '/resources/blog/chatbot-own-data-gdpr-sme': '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand',
   '/resources/blog/cut-costs-without-layoffs-ai-automation': '/de/ressourcen/blog/kosten-senken-ohne-entlassungen-ki-mittelstand',
   '/resources/blog/copilot-jira-connector-what-it-reads': '/de/ressourcen/blog/copilot-jira-connector-was-er-liest',
+  '/resources/blog/rag-jira-confluence-self-hosted-eu': '/de/ressourcen/blog/rag-jira-confluence-selbst-gehostet-eu',
 };
 
 // Build reverse lookup and normalized URL pair table once.
