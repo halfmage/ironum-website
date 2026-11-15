@@ -21,6 +21,8 @@ export const enToDe: Record<string, string> = {
   '/platform/deployment': '/de/plattform/bereitstellung/',
   '/about': '/de/ueber-uns/',
   '/contact': '/de/kontakt/',
+  '/partners': '/de/partner/',
+  '/services/jira-confluence-ai': '/de/dienstleistungen/jira-confluence-ki/',
   '/imprint': '/de/impressum/',
   '/privacy': '/de/datenschutz/',
   '/resources': '/de/ressourcen/',

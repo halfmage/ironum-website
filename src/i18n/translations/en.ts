@@ -2,7 +2,7 @@ export const en = {
   locale: 'en' as const,
   meta: {
     defaultTitle: 'Ironum | Custom AI Development & Private RAG for US & EU',
-    defaultDescription: 'Trustworthy custom AI development: private RAG, assistants, and models on infrastructure you control. German + Polish engineering, competitive rates. Request a free call.',
+    defaultDescription: 'Trustworthy custom AI development: private RAG, assistants, and models on infrastructure you control. Fixed-price pilots, built by engineers in Germany and Poland. Request a free call.',
   },
   nav: {
     services: 'Services',
@@ -14,6 +14,7 @@ export const en = {
     allIndustries: 'All Industries',
     ctaButton: 'Free AI Strategy Call',
     serviceItems: [
+      { name: 'Jira & Confluence AI Pilot', href: '/services/jira-confluence-ai/' },
       { name: 'Custom AI Development', href: '/services/custom-ai-development/' },
       { name: 'AI Consulting & Audits', href: '/services/ai-consulting/' },
       { name: 'Workflow Automation', href: '/services/workflow-automation/' },
@@ -59,6 +60,7 @@ export const en = {
     resourcesTitle: 'Resources',
     companyTitle: 'Company',
     serviceLinks: [
+      { name: 'Jira & Confluence AI Pilot', href: '/services/jira-confluence-ai/' },
       { name: 'Custom AI Development', href: '/services/custom-ai-development/' },
       { name: 'AI Consulting', href: '/services/ai-consulting/' },
       { name: 'Workflow Automation', href: '/services/workflow-automation/' },
@@ -85,6 +87,7 @@ export const en = {
     companyLinks: [
       { name: 'About Us', href: '/about/' },
       { name: 'Contact', href: '/contact/' },
+      { name: 'Partners', href: '/partners/' },
       { name: 'Imprint', href: '/imprint/' },
       { name: 'Privacy Policy', href: '/privacy/' },
     ],
@@ -118,14 +121,15 @@ export const en = {
     ],
   },
   impacts: {
-    eyebrow: 'PROVEN RESULTS',
-    title: 'What Our Clients Measure After Deployment',
+    eyebrow: 'WHAT WE COMMIT TO',
+    title: 'Terms You Can Check Before You Start',
     items: [
-      { stat: '40%', description: 'Lower operational costs through automated workflows and AI-powered processes.' },
-      { stat: '70%', description: 'Faster compliance and regulatory response: from weeks to hours.' },
-      { stat: '100%', description: 'Data sovereignty. Zero data leaves your European infrastructure.' },
+      { stat: '2 weeks', description: 'From kickoff to a working pilot on your real data, not a demo on sample files.' },
+      { stat: '€4,900', description: 'Fixed price for our Jira and Confluence pilot. Production is quoted as a fixed price after it.' },
+      { stat: '100%', description: 'Your code, your index, your servers. You can run and change the system without us.' },
     ],
-    footnote: 'Results from enterprise deployments across legal, education, and financial services.',
+    footnote: 'Scope, timeline and what you get after two weeks:',
+    footnoteLink: { text: 'see the pilot', href: '/services/jira-confluence-ai/' },
   },
   infrastructure: {
     eyebrow: 'YOUR INFRASTRUCTURE, YOUR RULES',
@@ -142,7 +146,7 @@ export const en = {
   testimonials: {
     eyebrow: 'WHAT OUR CLIENTS SAY',
     title: 'Real Results. Real Businesses.',
-    subtitle: 'From AI search visibility to sovereign learning platforms, here is how European companies use Ironum.',
+    subtitle: 'What clients say about working with Ironum.',
     items: [
       {
         badge: 'GEO Optimisation',
@@ -164,17 +168,12 @@ export const en = {
         screenshotAlt: 'LearnSlice quiz library with SCRUM, orientation, and logistics courses at FH Dortmund',
         href: '/services/llm-fine-tuning/',
       },
-      {
-        badge: 'Chatbot Interfaces',
-        quote: '"We built Ironum\'s sovereign AI layer for our own learning platform first, because we couldn\'t send student profiles to a US cloud. It runs entirely on European infrastructure. Our learners get a modern, personalised learning journey, and their data never leaves our control."',
-        name: 'Alesia Kunz',
-        role: 'CEO @ LearnSlice, the company behind Ironum',
-        avatar: '/avatars/alesia-kunz.jpg',
-        screenshot: '/screenshots/learnslice.webp',
-        screenshotAlt: 'LearnSlice AI learning platform with personalised learning modes and sovereign data processing',
-        href: '/services/chatbot-interfaces/',
-      },
     ],
+    ownUse: {
+      text: 'We also run Ironum\'s AI layer in our own product: LearnSlice, the learning platform of the company behind Ironum, keeps learner data on European infrastructure with it.',
+      linkText: 'How the assistant works',
+      href: '/services/chatbot-interfaces/',
+    },
   },
   processSteps: {
     eyebrow: 'HOW IT WORKS',
@@ -206,6 +205,13 @@ export const en = {
       { title: 'Custom AI Models', description: 'AI trained specifically on your industry data. Your model. Your servers. No per-query API costs.', href: '/services/llm-fine-tuning/' },
       { title: 'AI Search Visibility', description: 'Get your brand recommended by ChatGPT, Perplexity, and AI-powered search engines.', href: '/services/geo-optimization/' },
     ],
+    offerBand: {
+      eyebrow: 'FIXED-PRICE PILOT',
+      title: 'AI search for Jira and Confluence on your own servers. Two weeks, €4,900.',
+      text: 'For Atlassian Data Center and teams whose data has to stay in-house.',
+      cta: 'See the pilot',
+      href: '/services/jira-confluence-ai/',
+    },
     midCta: 'Not sure which service fits? Request a free strategy call →',
     industriesEyebrow: 'INDUSTRIES WE KNOW',
     industriesTitle: "AI Built Around Your Industry's Real Use Cases",

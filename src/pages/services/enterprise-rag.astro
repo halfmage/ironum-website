@@ -43,21 +43,15 @@ const features = [
 const useCases = [
   {
     title: 'Legal Document Review',
-    description: 'A mid-size German law firm processes thousands of contracts monthly. With Ironum RAG, attorneys query the entire contract database in natural language, finding relevant clauses, identifying risks, and comparing terms across agreements in seconds instead of hours.',
-    stat: '80%',
-    statLabel: 'faster document review',
+    description: 'Lawyers query a contract archive in natural language: find relevant clauses, flag unusual terms and compare agreements, with every answer linked to the source document. The final legal assessment stays with the lawyer.',
   },
   {
     title: 'Internal Knowledge Base',
-    description: 'A European manufacturer with 2,000+ employees deploys RAG across their technical documentation, HR policies, and training materials. New employees get instant, accurate answers. Support tickets drop as teams self-serve from a unified knowledge layer.',
-    stat: '60%',
-    statLabel: 'reduction in internal tickets',
+    description: 'Technical documentation, HR policies and training material in one searchable layer. New employees get answers with sources instead of asking colleagues, and permissions decide who sees what.',
   },
   {
-    title: 'Compliance & Audit Checks',
-    description: 'A financial services firm uses RAG to monitor regulatory documents and cross-reference internal policies. Compliance officers get instant alerts when regulations change and can verify policy alignment across hundreds of documents automatically.',
-    stat: '10x',
-    statLabel: 'faster compliance checks',
+    title: 'Jira and Confluence',
+    description: 'Questions that need both tools, such as why a feature was dropped and what is still open, answered with links to the issues and pages. Runs on your servers, including Atlassian Data Center.',
   },
 ];
 
@@ -251,21 +245,19 @@ const breadcrumbs = [
   <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG in Action</h2>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Example Scenarios</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Where RAG Fits</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Typical setups we build. These are examples, not client results.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {useCases.map((useCase) => (
           <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
-            <div class="mb-6">
-              <span class="text-4xl md:text-5xl font-bold text-blue-600">{useCase.stat}</span>
-              <p class="text-gray-500 font-semibold mt-1">{useCase.statLabel}</p>
-            </div>
             <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
             <p class="text-gray-500 text-lg font-semibold">{useCase.description}</p>
           </div>
         ))}
       </div>
+      <p class="text-gray-700 text-lg font-semibold text-center mt-10">Using Jira and Confluence? Start with a <a href="/services/jira-confluence-ai/" class="text-blue-600 hover:underline">two-week pilot at a fixed price</a>.</p>
     </div>
   </section>
 

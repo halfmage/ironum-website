@@ -1,0 +1,260 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FAQSection from '../../../components/sections/FAQSection.astro';
+import RelatedReading from '../../../components/sections/RelatedReading.astro';
+import Footer from '../../../components/Footer.astro';
+
+// Kontaktlink für dieses Angebot. ?source= landet im versteckten Feld "source" des Formulars,
+// so ist jede Anfrage von dieser Seite in Netlify Forms gekennzeichnet.
+const pilotCta = '/de/kontakt/?source=jira-pilot#message-form';
+
+const fitCards = [
+  {
+    title: 'Sie betreiben Jira oder Confluence Data Center',
+    description: 'Atlassian Rovo setzt einen aktiven Atlassian-Cloud-Plan voraus, und die Data-Center-Konnektoren synchronisieren Ihre Inhalte in die Atlassian Cloud. Wer bei Data Center geblieben ist, um Daten im Haus zu halten, verliert genau das.',
+  },
+  {
+    title: 'Ihre Daten müssen auf Ihren Servern bleiben',
+    description: 'Mandantengeheimnis, eine Betriebsvereinbarung oder Ihre eigene Sicherheitsrichtlinie. Index, Modell und Logs laufen dort, wo Sie es festlegen: im eigenen Rechenzentrum, bei einem deutschen Hoster oder in Ihrer Private Cloud.',
+  },
+  {
+    title: 'Antworten brauchen mehr als ein System',
+    description: 'Was entschieden wurde, steht in Jira-Kommentaren, warum, steht in Confluence, die Details liegen auf einem Fileshare. Eine Frage, eine Antwort, mit Links zu jeder Quelle.',
+  },
+];
+
+const deliverables = [
+  'Einen funktionierenden Assistenten für ein Jira-Projekt und einen Confluence-Bereich, mit Ihren echten Inhalten',
+  'Jira- und Confluence-Berechtigungen bei jeder Antwort: Jede Person sieht nur, was sie ohnehin öffnen dürfte',
+  'Zu jeder Antwort einen Link auf das Ticket oder die Seite dahinter',
+  'Einen Test mit echten Fragen, die Ihr Team jede Woche stellt, und ein schriftliches Ergebnis: was gut beantwortet wurde, wo es scheiterte und warum',
+  'Ein Festpreisangebot für den Produktivbetrieb, auf Basis dessen, was der Pilot gezeigt hat',
+];
+
+const weeks = [
+  {
+    label: 'Woche 1',
+    title: 'Anbinden und indexieren',
+    description: 'Wir richten das System auf Ihrem Server oder bei einem EU-Hoster ein, binden Jira und Confluence mit einem Lesezugriff an, indexieren Pilotprojekt und Pilotbereich und übernehmen die Berechtigungen.',
+  },
+  {
+    label: 'Woche 2',
+    title: 'Testen und entscheiden',
+    description: 'Ihr Team stellt die Fragen, die es wirklich stellt. Wir optimieren Suche und Antworten und gehen danach mit Ihnen Ergebnisse, schriftliche Bewertung und Angebot für den Produktivbetrieb durch.',
+  },
+  {
+    label: 'Nach dem Pilot',
+    title: 'Produktivbetrieb zum Festpreis',
+    description: 'Wenn Sie weitermachen: weitere Projekte und Bereiche, Fileshares oder SharePoint, Single Sign-on, Monitoring. In der Regel vier bis acht Wochen, zum Preis aus dem Angebot nach dem Pilot.',
+  },
+];
+
+const needs = [
+  'Lesezugriff auf ein Jira-Projekt und einen Confluence-Bereich (Service-Account oder API-Token)',
+  'Einen Linux-Server oder eine VM, oder ein EU-Cloud-Konto. Wenn Sie keins davon haben, richten wir einen Server bei einem deutschen Hoster auf Ihre Kosten ein',
+  'Eine Ansprechperson für Zugänge und Fragen',
+  'Eine Liste der Fragen, die Ihr Team jede Woche stellt',
+];
+
+const faqItems = [
+  {
+    question: 'Was ist, wenn der Pilot zeigt, dass es sich nicht lohnt?',
+    answer: 'Sie zahlen den Festpreis für den Pilot und behalten die schriftliche Bewertung. Eine Verpflichtung zum Weitermachen gibt es nicht. Ein klares Nein nach zwei Wochen ist auch ein Ergebnis, und deutlich günstiger als die Erkenntnis nach einem ganzen Projekt.',
+  },
+  {
+    question: 'Werden die Berechtigungen aus Jira und Confluence eingehalten?',
+    answer: 'Ja. Jedes Ticket und jede Seite wird zusammen mit den Zugriffsrechten im Index gespeichert, und jede Suche wird nach der Identität der fragenden Person gefiltert, bevor etwas beim Sprachmodell ankommt. Lassen sich die Rechte für einen Eintrag nicht auflösen, wird er nicht angezeigt.',
+  },
+  {
+    question: 'Wann sind Atlassian Rovo oder Microsoft Copilot die bessere Wahl?',
+    answer: 'Wenn Sie Atlassian Cloud nutzen und Ihre Inhalte in der Atlassian Cloud verarbeitet werden dürfen, ist Rovo in Ihrem Plan enthalten und der einfachere Weg. Wenn Sie Lizenzen für Microsoft 365 Copilot haben und die Jira- und Confluence-Konnektoren das indexieren, was Sie brauchen, nutzen Sie diese. Wir bauen für die Fälle, in denen beides nicht passt: Data Center ohne Cloud-Plan, Daten, die auf Ihren Servern bleiben müssen, oder Antworten, die weitere Quellen brauchen.',
+  },
+  {
+    question: 'Welches Sprachmodell wird verwendet?',
+    answer: 'Ein Open-Source-Modell auf Ihrer eigenen Hardware oder, wenn Sie das bevorzugen, eine in der EU gehostete Modell-API. Wir empfehlen in Woche 1 eines, passend zu Ihren Daten, Ihrer Hardware und Ihren Sicherheitsanforderungen. Sie können es später wechseln.',
+  },
+  {
+    question: 'Funktioniert das auch mit Jira Server und Confluence Server?',
+    answer: 'In der Regel ja, solange die REST-API von dem Rechner erreichbar ist, auf dem das System läuft. Das prüfen wir im ersten Gespräch, bevor der Pilot startet.',
+  },
+  {
+    question: 'Was passiert, wenn wir von Data Center in die Cloud wechseln?',
+    answer: 'Atlassian beendet Data Center am 28. März 2029. Das System liest Jira und Confluence über deren APIs, die es in Data Center und in der Cloud gibt. Nach einer Migration werden die Konnektoren umgestellt, nicht neu gebaut.',
+  },
+  {
+    question: 'Wem gehört das System?',
+    answer: 'Ihnen. Code, Index und Konfiguration laufen auf Ihrer Infrastruktur, und Sie können das System ohne uns betreiben und ändern. Wir bieten Wartung an, aber Sie sind nicht daran gebunden.',
+  },
+];
+
+const structuredData = [
+  {
+    "@type": "Service",
+    "@id": "https://ironum.com/de/dienstleistungen/jira-confluence-ki/#service",
+    "name": "Private KI-Suche für Jira und Confluence: Pilot in zwei Wochen",
+    "description": "Selbst gehostete KI-Suche über Jira, Confluence und Fileshares, mit Berechtigungen und Quellenlinks, auf Ihren Servern oder EU-Infrastruktur. Pilot in zwei Wochen zum Festpreis.",
+    "provider": { "@id": "https://ironum.com/#organization" },
+    "areaServed": { "@type": "Place", "name": "Europe" },
+    "serviceType": "Enterprise RAG",
+    "offers": {
+      "@type": "Offer",
+      "name": "Pilot in zwei Wochen",
+      "price": "4900",
+      "priceCurrency": "EUR",
+      "description": "Festpreis zzgl. MwSt. Hosting-Kosten werden separat abgerechnet."
+    }
+  }
+];
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Dienstleistungen', href: '/de/dienstleistungen' },
+  { label: 'KI-Pilot für Jira & Confluence', href: '/de/dienstleistungen/jira-confluence-ki' },
+];
+
+const check = 'M5 13l4 4L19 7';
+---
+
+<Layout
+  locale="de"
+  title="KI für Jira & Confluence Data Center: Pilot in 2 Wochen | Ironum"
+  description="KI-Suche über Jira, Confluence und Fileshares, die auf Ihren Servern läuft, Berechtigungen einhält und Quellen nennt. Pilot auf Ihren echten Daten, 4.900 € Festpreis."
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="PILOT ZUM FESTPREIS · 4.900 €"
+    title="KI-Suche für Jira und Confluence, die auf Ihren Servern bleibt"
+    subtitle="Stellen Sie Fragen über Jira, Confluence und Ihre Fileshares hinweg. Jede Antwort nennt ihre Quelle, hält bestehende Berechtigungen ein und läuft auf Infrastruktur, die Sie kontrollieren. Zwei Wochen, auf Ihren echten Daten."
+    ctaText="Pilot anfragen"
+    ctaLink={pilotCta}
+  />
+
+  <!-- Für wen -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="max-w-3xl space-y-4">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">FÜR WEN</span>
+        <h2 class="text-3xl md:text-5xl font-bold">Für die Fälle, die Rovo und Copilot nicht abdecken</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {fitCards.map((card) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <h3 class="text-2xl font-bold mb-3">{card.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{card.description}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-gray-500 font-semibold max-w-3xl">
+        Quellen: <a href="https://www.atlassian.com/software/rovo/connectors/confluence-data-center" target="_blank" rel="noopener" class="underline">Atlassian, Rovo-Konnektor für Confluence Data Center</a>;
+        <a href="https://www.atlassian.com/licensing/data-center-end-of-life" target="_blank" rel="noopener" class="underline">Atlassian, Data Center End of Life</a>;
+        was der Microsoft-Konnektor indexiert: <a href="/de/ressourcen/blog/copilot-jira-connector-was-er-liest/" class="underline">unsere Analyse</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Der Pilot -->
+  <section id="pilot" class="px-4 md:px-20 py-20 md:py-32 bg-gray-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
+      <div class="lg:col-span-3 space-y-6">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">DER PILOT</span>
+        <h2 class="text-3xl md:text-5xl font-bold">Was Sie nach zwei Wochen haben</h2>
+        <ul class="space-y-4 pt-2">
+          {deliverables.map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-1.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={check} /></svg>
+              <span class="text-gray-700 text-lg font-medium">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="lg:col-span-2 bg-white border-2 border-blue-600 rounded-2xl p-6 md:p-8 space-y-4">
+        <p class="text-sm font-bold uppercase tracking-wider text-gray-500">Festpreis</p>
+        <p class="text-5xl md:text-6xl font-bold">4.900 €</p>
+        <p class="text-gray-500 font-semibold">zzgl. MwSt. · zwei Wochen · auf Ihren echten Daten</p>
+        <p class="text-gray-700 font-medium">Enthalten: Einrichtung, Konnektoren, Berechtigungen, der Test mit Ihrem Team, die schriftliche Bewertung und das Angebot für den Produktivbetrieb.</p>
+        <p class="text-gray-500 font-semibold text-sm">Server- oder Hosting-Kosten rechnet Ihr Anbieter separat ab.</p>
+        <a href={pilotCta} class="inline-block w-full text-center bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Pilot anfragen</a>
+        <p class="text-gray-500 text-sm font-semibold">Gerrit antwortet innerhalb von zwei Werktagen mit einer Kalendereinladung für ein 30-minütiges Scoping-Gespräch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="px-4 md:px-20 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto space-y-12">
+      <div class="max-w-3xl space-y-4">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">ABLAUF</span>
+        <h2 class="text-3xl md:text-5xl font-bold">Zwei Wochen, dann eine klare Entscheidung</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {weeks.map((week) => (
+          <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
+            <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">{week.label}</span>
+            <h3 class="text-2xl font-bold mt-2 mb-3">{week.title}</h3>
+            <p class="text-gray-500 text-lg font-semibold">{week.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Was wir brauchen -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div class="space-y-4">
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">WAS WIR VON IHNEN BRAUCHEN</span>
+        <h2 class="text-3xl md:text-5xl font-bold">Wenig Aufwand auf Ihrer Seite</h2>
+        <p class="text-gray-500 text-lg font-semibold">Der Pilot ist so zugeschnitten, dass Ihre IT ihn an einem Nachmittag vorbereiten kann.</p>
+      </div>
+      <ul class="space-y-4">
+        {needs.map((item) => (
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-500 mt-1.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={check} /></svg>
+            <span class="text-gray-700 text-lg font-medium">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <FAQSection items={faqItems} title="Häufige Fragen" />
+
+  <RelatedReading
+    eyebrow="WEITERLESEN"
+    heading="So funktioniert es im Detail"
+    cta="Artikel lesen"
+    links={[
+      {
+        href: '/de/ressourcen/blog/rag-jira-confluence-selbst-gehostet-eu/',
+        title: 'RAG über Jira und Confluence, selbst gehostet',
+        description: 'Die Architektur: wie das System Jira und Confluence liest, Berechtigungen einhält, Quellen nennt und auf EU-Servern läuft.',
+      },
+      {
+        href: '/de/ressourcen/blog/copilot-jira-connector-was-er-liest/',
+        title: 'Was der Copilot-Jira-Connector liest',
+        description: 'Welche Jira-Felder die Microsoft-365-Copilot-Konnektoren indexieren und was sie auslassen.',
+      },
+      {
+        href: '/de/dienstleistungen/enterprise-rag/',
+        title: 'Enterprise RAG',
+        description: 'Private KI-Suche über alle Ihre Dokumente, nicht nur Jira und Confluence.',
+      },
+    ]}
+  />
+
+  <!-- Abschluss-CTA -->
+  <section class="px-4 md:px-20 py-20 md:py-32 bg-black text-white">
+    <div class="max-w-3xl mx-auto text-center space-y-6">
+      <h2 class="text-3xl md:text-5xl font-bold">In zwei Wochen Klarheit</h2>
+      <p class="text-white/70 text-lg font-semibold">Schreiben Sie uns, welche Jira-Version Sie nutzen und wonach Ihr Team ständig sucht. Wir antworten mit einer Kalendereinladung für ein 30-minütiges Scoping-Gespräch.</p>
+      <a href={pilotCta} class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">Pilot anfragen</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

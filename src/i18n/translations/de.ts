@@ -14,6 +14,7 @@ export const de = {
     allIndustries: 'Alle Branchen',
     ctaButton: 'Kostenloses KI-Gespräch',
     serviceItems: [
+      { name: 'KI-Pilot für Jira & Confluence', href: '/de/dienstleistungen/jira-confluence-ki/' },
       { name: 'KI-Beratung & Audits', href: '/de/dienstleistungen/ki-beratung/' },
       { name: 'Workflow-Automatisierung', href: '/de/dienstleistungen/workflow-automatisierung/' },
       { name: 'Enterprise RAG', href: '/de/dienstleistungen/enterprise-rag/' },
@@ -56,6 +57,7 @@ export const de = {
     resourcesTitle: 'Ressourcen',
     companyTitle: 'Unternehmen',
     serviceLinks: [
+      { name: 'KI-Pilot für Jira & Confluence', href: '/de/dienstleistungen/jira-confluence-ki/' },
       { name: 'KI-Beratung', href: '/de/dienstleistungen/ki-beratung/' },
       { name: 'Workflow-Automatisierung', href: '/de/dienstleistungen/workflow-automatisierung/' },
       { name: 'Enterprise RAG', href: '/de/dienstleistungen/enterprise-rag/' },
@@ -81,6 +83,7 @@ export const de = {
     companyLinks: [
       { name: 'Über uns', href: '/de/ueber-uns/' },
       { name: 'Kontakt', href: '/de/kontakt/' },
+      { name: 'Partner', href: '/de/partner/' },
       { name: 'Impressum', href: '/de/impressum/' },
       { name: 'Datenschutz', href: '/de/datenschutz/' },
     ],
@@ -114,14 +117,15 @@ export const de = {
     ],
   },
   impacts: {
-    eyebrow: 'NACHGEWIESENE ERGEBNISSE',
-    title: 'Was unsere Kunden nach der Einführung messen',
+    eyebrow: 'UNSERE ZUSAGEN',
+    title: 'Konditionen, die Sie vor dem Start prüfen können',
     items: [
-      { stat: '40%', description: 'Niedrigere Betriebskosten durch automatisierte Workflows und KI-gestützte Prozesse.' },
-      { stat: '70%', description: 'Schnellere Compliance- und Regulierungsreaktionen: von Wochen auf Stunden.' },
-      { stat: '100%', description: 'Datensouveränität. Keine Daten verlassen Ihre europäische Infrastruktur.' },
+      { stat: '2 Wochen', description: 'Vom Kick-off bis zum funktionierenden Pilot auf Ihren echten Daten, keine Demo mit Beispieldateien.' },
+      { stat: '4.900 €', description: 'Festpreis für unseren Pilot für Jira und Confluence. Den Produktivbetrieb bieten wir danach ebenfalls zum Festpreis an.' },
+      { stat: '100 %', description: 'Ihr Code, Ihr Index, Ihre Server. Sie können das System ohne uns betreiben und ändern.' },
     ],
-    footnote: 'Ergebnisse aus Unternehmensbereitstellungen in den Bereichen Recht, Bildung und Finanzdienstleistungen.',
+    footnote: 'Umfang, Ablauf und was Sie nach zwei Wochen haben:',
+    footnoteLink: { text: 'zum Pilot', href: '/de/dienstleistungen/jira-confluence-ki/' },
   },
   infrastructure: {
     eyebrow: 'IHRE INFRASTRUKTUR, IHRE REGELN',
@@ -138,7 +142,7 @@ export const de = {
   testimonials: {
     eyebrow: 'DAS SAGEN UNSERE KUNDEN',
     title: 'Echte Ergebnisse. Echte Unternehmen.',
-    subtitle: 'Von KI-Suchsichtbarkeit bis zur souveränen Lernplattform. So nutzen europäische Unternehmen Ironum.',
+    subtitle: 'Was Kunden über die Zusammenarbeit mit Ironum sagen.',
     items: [
       {
         badge: 'GEO-Optimierung',
@@ -160,17 +164,12 @@ export const de = {
         screenshotAlt: 'LearnSlice Quiz-Bibliothek mit SCRUM-, Orientierungs- und Logistikkursen an der FH Dortmund',
         href: '/de/dienstleistungen/llm-feinabstimmung/',
       },
-      {
-        badge: 'Chatbot-Schnittstellen',
-        quote: '„Wir haben Ironums souveräne KI-Schicht zuerst für unsere eigene Lernplattform gebaut, weil wir Studierendenprofile nicht in eine US-Cloud senden konnten. Sie läuft komplett auf europäischer Infrastruktur. Unsere Lernenden erhalten eine moderne, personalisierte Lernerfahrung. Und ihre Daten verlassen nie unsere Kontrolle."',
-        name: 'Alesia Kunz',
-        role: 'CEO @ LearnSlice, das Unternehmen hinter Ironum',
-        avatar: '/avatars/alesia-kunz.jpg',
-        screenshot: '/screenshots/learnslice.webp',
-        screenshotAlt: 'LearnSlice KI-Lernplattform mit personalisierten Lernmodi und souveräner Datenverarbeitung',
-        href: '/de/dienstleistungen/chatbot-schnittstellen/',
-      },
     ],
+    ownUse: {
+      text: 'Wir nutzen Ironums KI-Schicht auch selbst: LearnSlice, die Lernplattform des Unternehmens hinter Ironum, hält damit die Daten der Lernenden auf europäischer Infrastruktur.',
+      linkText: 'So funktioniert der Assistent',
+      href: '/de/dienstleistungen/chatbot-schnittstellen/',
+    },
   },
   processSteps: {
     eyebrow: 'SO FUNKTIONIERT ES',
@@ -201,6 +200,13 @@ export const de = {
       { title: 'Individuelle KI-Modelle', description: 'KI, die speziell mit Ihren Branchendaten trainiert wurde. Ihr Modell. Ihre Server. Keine Per-Abfrage-API-Kosten.', href: '/de/dienstleistungen/llm-feinabstimmung/' },
       { title: 'KI-Suchsichtbarkeit', description: 'Werden Sie von ChatGPT, Perplexity und KI-gestützten Suchmaschinen empfohlen.', href: '/de/dienstleistungen/geo-optimierung/' },
     ],
+    offerBand: {
+      eyebrow: 'PILOT ZUM FESTPREIS',
+      title: 'KI-Suche für Jira und Confluence auf Ihren eigenen Servern. Zwei Wochen, 4.900 €.',
+      text: 'Für Atlassian Data Center und Teams, deren Daten im Haus bleiben müssen.',
+      cta: 'Zum Pilot',
+      href: '/de/dienstleistungen/jira-confluence-ki/',
+    },
     midCta: 'Nicht sicher, welches Angebot passt? Kostenloses Strategiegespräch anfragen →',
     industriesEyebrow: 'BRANCHEN, DIE WIR KENNEN',
     industriesTitle: 'KI rund um die echten Anwendungsfälle Ihrer Branche',

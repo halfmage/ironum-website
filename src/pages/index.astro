@@ -7,6 +7,7 @@ import ServiceCard from '../components/cards/ServiceCard.astro';
 import IndustryCard from '../components/cards/IndustryCard.astro';
 import Infrastructure from '../components/Infrastructure.astro';
 import Impacts from '../components/Impacts.astro';
+import OfferBand from '../components/OfferBand.astro';
 import Testimonials from '../components/Testimonials.astro';
 import ProcessSteps from '../components/sections/ProcessSteps.astro';
 import FinalCTA from '../components/FinalCTA.astro';
@@ -39,6 +40,8 @@ const latestPosts = (await getCollection('blog'))
       </div>
     </div>
   </section>
+
+  <OfferBand />
 
   <!-- The Problem -->
   <section class="px-4 md:px-20 py-20 md:py-32">

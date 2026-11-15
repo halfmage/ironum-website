@@ -42,21 +42,15 @@ const features = [
 const useCases = [
   {
     title: 'Juristische Dokumentenprüfung',
-    description: 'Eine mittelständische deutsche Kanzlei verarbeitet monatlich Tausende von Verträgen. Mit Ironum RAG durchsuchen Anwälte die gesamte Vertragsdatenbank in natürlicher Sprache, finden relevante Klauseln, identifizieren Risiken und vergleichen Konditionen in Sekunden statt Stunden.',
-    stat: '80 %',
-    statLabel: 'schnellere Dokumentenprüfung',
+    description: 'Juristinnen und Juristen durchsuchen ein Vertragsarchiv in natürlicher Sprache: relevante Klauseln finden, ungewöhnliche Regelungen markieren, Verträge vergleichen, jede Antwort mit Link zur Quelle. Die rechtliche Bewertung bleibt bei der Anwältin oder dem Anwalt.',
   },
   {
     title: 'Interne Wissensdatenbank',
-    description: 'Ein europäischer Hersteller mit über 2.000 Mitarbeitenden setzt RAG für technische Dokumentation, HR-Richtlinien und Schulungsmaterialien ein. Neue Mitarbeitende erhalten sofort präzise Antworten. Support-Tickets sinken, da Teams sich selbst aus einer einheitlichen Wissensschicht bedienen.',
-    stat: '60 %',
-    statLabel: 'weniger interne Tickets',
+    description: 'Technische Dokumentation, HR-Richtlinien und Schulungsmaterial in einer durchsuchbaren Schicht. Neue Mitarbeitende bekommen Antworten mit Quellen, statt Kollegen zu fragen, und Berechtigungen regeln, wer was sieht.',
   },
   {
-    title: 'Compliance & Audit-Prüfungen',
-    description: 'Ein Finanzdienstleister nutzt RAG zur Überwachung regulatorischer Dokumente und zum Abgleich mit internen Richtlinien. Compliance-Beauftragte erhalten sofortige Alerts bei Regulierungsänderungen und können die Richtlinienkonformität über Hunderte von Dokumenten automatisch prüfen.',
-    stat: '10x',
-    statLabel: 'schnellere Compliance-Prüfungen',
+    title: 'Jira und Confluence',
+    description: 'Fragen, die beide Tools brauchen, etwa warum ein Feature gestrichen wurde und was noch offen ist, beantwortet mit Links zu Tickets und Seiten. Läuft auf Ihren Servern, auch mit Atlassian Data Center.',
   },
 ];
 
@@ -252,21 +246,19 @@ const breadcrumbs = [
   <section class="px-4 md:px-20 py-20 md:py-32 bg-gray-50">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Anwendungsfälle</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG in der Praxis</h2>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Beispielszenarien</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Wo RAG passt</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Typische Szenarien, die wir umsetzen. Das sind Beispiele, keine Kundenergebnisse.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {useCases.map((useCase) => (
           <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
-            <div class="mb-6">
-              <span class="text-4xl md:text-5xl font-bold text-blue-600">{useCase.stat}</span>
-              <p class="text-gray-500 font-semibold mt-1">{useCase.statLabel}</p>
-            </div>
             <h3 class="text-xl font-bold mb-3">{useCase.title}</h3>
             <p class="text-gray-500 text-lg font-semibold">{useCase.description}</p>
           </div>
         ))}
       </div>
+      <p class="text-gray-700 text-lg font-semibold text-center mt-10">Sie nutzen Jira und Confluence? Starten Sie mit einem <a href="/de/dienstleistungen/jira-confluence-ki/" class="text-blue-600 hover:underline">Pilot in zwei Wochen zum Festpreis</a>.</p>
     </div>
   </section>
 

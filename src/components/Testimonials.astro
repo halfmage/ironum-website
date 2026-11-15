@@ -13,7 +13,7 @@ const t = useTranslations(locale);
       <p class="text-gray-500 text-lg font-semibold max-w-2xl mx-auto">{t.testimonials.subtitle}</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8 max-w-5xl mx-auto">
       {t.testimonials.items.map(item => (
         <a href={item.href} class="border-2 border-gray-100 rounded-2xl p-8 flex flex-col justify-between hover:border-blue-600 transition-all duration-200 no-underline">
           <div>
@@ -33,5 +33,7 @@ const t = useTranslations(locale);
         </a>
       ))}
     </div>
+
+    <p class="text-gray-500 text-lg font-semibold text-center max-w-3xl mx-auto">{t.testimonials.ownUse.text} <a href={t.testimonials.ownUse.href} class="text-blue-600 hover:underline">{t.testimonials.ownUse.linkText} →</a></p>
   </div>
 </section>

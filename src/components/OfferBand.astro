@@ -1,0 +1,19 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const locale = getLangFromUrl(Astro.url);
+const t = useTranslations(locale);
+const band = t.homepage.offerBand;
+---
+
+<!-- Offer band: the fixed-price Jira & Confluence pilot -->
+<section class="px-4 md:px-20 py-10 md:py-12 bg-gray-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="space-y-2">
+      <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">{band.eyebrow}</span>
+      <p class="text-2xl md:text-3xl font-bold">{band.title}</p>
+      <p class="text-gray-500 text-lg font-semibold">{band.text}</p>
+    </div>
+    <a href={band.href} class="shrink-0 inline-block text-center bg-blue-600 text-white rounded-full px-6 py-3 font-medium text-lg hover:bg-blue-700 transition-all duration-200 min-h-[48px] touch-manipulation">{band.cta} →</a>
+  </div>
+</section>
