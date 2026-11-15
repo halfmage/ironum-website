@@ -34,6 +34,21 @@ auch in Jira oder Confluence öffnen darf. Dieser Beitrag erklärt, wie RAG übe
 Confluence auf einer Infrastruktur unter Ihrer Kontrolle in der EU funktioniert, wann es
 besser passt als ein fertiger Connector und wann nicht.
 
+<figure class="not-prose my-10">
+  <div class="rounded-2xl border-2 border-gray-100 bg-gray-50 p-5 sm:p-6">
+    <p class="m-0 text-xs font-bold uppercase tracking-wider text-gray-500">So sieht eine Antwort aus</p>
+    <div class="mt-4 ml-auto max-w-md rounded-2xl rounded-br-sm bg-blue-600 px-4 py-3 text-white">Warum haben wir den Offline-Modus der Mobile-App gestrichen, und ist dazu noch etwas offen?</div>
+    <div class="mt-3 max-w-xl rounded-2xl rounded-bl-sm border border-gray-200 bg-white px-4 py-4 text-gray-800">
+      <p class="m-0">Der Offline-Modus wurde in der März-Planung gestrichen, weil Synchronisationskonflikte das Release um zwei Sprints verzögert hätten. <span class="rounded bg-blue-50 px-1.5 py-0.5 text-sm font-semibold text-blue-700">[1]</span> Offen ist noch eine Aufgabe: den ungenutzten Bildschirm für Offline-Einstellungen entfernen. <span class="rounded bg-blue-50 px-1.5 py-0.5 text-sm font-semibold text-blue-700">[2]</span></p>
+      <div class="mt-4 space-y-2 border-t border-gray-100 pt-3 text-sm">
+        <p class="m-0 text-gray-600"><span class="font-semibold text-blue-700">[1]</span> Confluence · Mobile-App: Entscheidungen Q1-Planung · aktualisiert am 14. März</p>
+        <p class="m-0 text-gray-600"><span class="font-semibold text-blue-700">[2]</span> Jira · MOB-482 Offline-Einstellungen entfernen · In Arbeit</p>
+      </div>
+    </div>
+  </div>
+  <figcaption class="mt-3 text-sm text-gray-500">Illustration mit erfundenen Inhalten. Jede Aussage verweist auf die Seite oder den Vorgang, aus dem sie stammt, und die fragende Person bekommt nur Antworten aus Inhalten, die sie öffnen darf.</figcaption>
+</figure>
+
 ## Auf einen Blick
 
 - **RAG** bedeutet: Das Modell antwortet aus Textstellen, die im Moment der Frage aus Ihrem eigenen Jira und Confluence abgerufen werden, und belegt sie. Mit Ihren Daten wird nichts trainiert.
@@ -49,9 +64,9 @@ Zuerst der Vergleich. Wenn der Connector Ihren Fall abdeckt, nutzen Sie ihn.
 |---|---|---|
 | Jira Cloud | Unterstützt | Unterstützt |
 | Jira Data Center | Eigener Connector, On-Premises-Agent und Plugin | Unterstützt über die API |
-| Jira Server | Nicht unterstützt | Unterstützt über die API |
+| Jira Server (seit Februar 2024 ohne Support von Atlassian) | Nicht unterstützt | Unterstützt über die API |
 | Jira-Kommentare | Bei Jira Cloud nicht aufgeführt; bei Data Center auf Anfrage | Indexiert, wenn Sie es wollen |
-| Lizenz für Jira-Inhalte in Antworten | Add-on Microsoft 365 Copilot oder E7 | Kosten Ihrer eigenen Infrastruktur |
+| Lizenz für Jira-Inhalte in Copilot-Antworten | Add-on Microsoft 365 Copilot oder E7 | Kosten Ihrer eigenen Infrastruktur |
 | Wo der Index liegt | Microsoft 365 | Dort, wo Sie das System betreiben |
 
 Die Angaben zu den Connectors stammen aus Microsofts Dokumentation (siehe Quellen unten) und sind ausführlich in
@@ -118,7 +133,7 @@ Antworten auftaucht, und zeigen Sie bei jeder zitierten Quelle das Datum der let
 **Quellenangaben.** Jede Antwort sollte auf die Vorgänge und Seiten verlinken, die sie
 verwendet hat. So lernt Ihr Team, dem System zu vertrauen, und so fällt auf, wenn der Abruf
 den falschen Abschnitt erwischt hat. Dasselbe Prinzip nutzen wir in LearnSlice, unserer
-KI-Lernplattform, die auf Servern in Deutschland läuft. In einem
+KI-Lernplattform, die in Deutschland gehostet wird. In einem
 [Pilotprojekt mit der FH Dortmund](https://learnslice.com/research) im Mai 2026 trug
 jede Antwort in der Systemevaluation eine gültige Quellenangabe zur jeweiligen Textstelle.
 
@@ -154,6 +169,7 @@ Systeme bauen, steht auf unserer [Seite zu Enterprise RAG](/de/dienstleistungen/
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">Möchten Sie es mit Ihrem eigenen Jira und Confluence sehen?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Schreiben Sie uns, wie Ihr Jira und Confluence aufgesetzt sind und welche Fragen beantwortet werden sollen. Wir antworten innerhalb von zwei Werktagen: ob es lösbar ist und mit welchem Aufwand ungefähr zu rechnen wäre. Es folgt keine Vertriebs-Mailserie.</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">Der Pilot kostet 4.900 € zzgl. MwSt. zum Festpreis. <a href="/de/dienstleistungen/jira-confluence-ki/" class="text-blue-600 underline">Was enthalten ist</a>.</p>
   <p class="m-0 mt-5"><a href="/de/kontakt/?source=blog-rag-jira-confluence-de#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Zweiwöchiges Pilotprojekt anfragen</a></p>
 </div>
 

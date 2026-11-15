@@ -14,7 +14,7 @@ faq:
   - question: "Can Microsoft 365 Copilot read Jira?"
     answer: "Yes, through a Microsoft 365 Copilot connector, with two conditions: an administrator has to deploy the connector, and you need the Microsoft 365 Copilot add-on license (or Microsoft 365 E7). With a standard Microsoft 365 license, Jira issues appear in Microsoft Search, but Copilot does not use them to answer questions."
   - question: "Does the Copilot Jira connector work with Jira Data Center or Jira Server?"
-    answer: "Microsoft has a Jira Cloud connector, which supports Jira Cloud only, and a separate Jira Data Center connector. The Data Center connector needs the Microsoft Graph connector agent on a Windows machine in the same network and Microsoft's plugin from the Atlassian Marketplace. Microsoft offers no connector for Jira Server."
+    answer: "Microsoft has a Jira Cloud connector, which supports Jira Cloud only, and a separate Jira Data Center connector. The Data Center connector needs the Microsoft Graph connector agent on a Windows machine in the same network and Microsoft's plugin from the Atlassian Marketplace. Neither connector lists Jira Server as supported."
   - question: "Does the Copilot Jira connector index comments and attachments?"
     answer: "On Jira Cloud, no: Microsoft's documentation for the Jira Cloud connector lists issue fields such as title, description, status, project, dates, assignee and priority, plus custom fields you select, but not comments, and documents no option to add them. On Jira Data Center, comments and attachments are indexed only after you request the capability from Microsoft Support."
   - question: "Does the Jira connector respect Jira permissions?"
@@ -26,8 +26,7 @@ faq:
 **Short answer:** Microsoft 365 Copilot can read Jira through a connector, but only if an
 administrator deploys it and you hold the Microsoft 365 Copilot add-on license. On a
 standard Microsoft 365 license, Jira issues show up in Microsoft Search and never in
-Copilot's answers. (A Copilot Studio license or pay-as-you-go billing lets agents use them,
-but still not Copilot Chat; details in the license table below.)
+Copilot's answers.
 
 So if your connector is set up and Copilot still answers as if your backlog does not exist,
 nothing may be broken. Three things decide whether it works: which Jira you run, which
@@ -37,33 +36,28 @@ often, so check the linked sources before you act on a detail.
 
 ## Key Takeaways
 
-- Microsoft has **two** Jira connectors: one for Jira Cloud and one for Jira Data Center. Jira Server has none.
+- Microsoft has **two** Jira connectors: one for Jira Cloud and one for Jira Data Center. Neither lists Jira Server.
 - Indexing is free. **Answering from the index needs the Microsoft 365 Copilot add-on** (or Microsoft 365 E7).
 - **Comments:** the Jira Cloud connector does not index them, and Microsoft documents no option to add them. On Data Center, comments and attachments come only on request via Microsoft Support.
 - With permission mirroring on, the Data Center connector **denies access** to anything it cannot evaluate. For Jira Cloud, Microsoft documents one unsupported permission type, not a general rule.
 - Data arrives on a schedule (Data Center default: every 15 minutes, full crawl daily), so the latest edits can be missing.
 
-Microsoft calls these integrations Microsoft 365 Copilot connectors. In older documentation
-and in parts of the setup, such as the connector agent and the Atlassian Marketplace plugin,
-the same technology appears as Microsoft Graph connectors.
+Older Microsoft pages call them Microsoft Graph connectors. It is the same technology.
 
 ## Which Jira Versions Does the Copilot Connector Support?
 
-Jira Cloud and Jira Data Center, through two different connectors. Jira Server is not
-supported.
+Jira Cloud and Jira Data Center, through two different connectors. Neither lists Jira Server.
 
 | | Jira Cloud connector | Jira Data Center connector |
 |---|---|---|
 | Supported Jira | Jira Cloud only | Jira Data Center (Microsoft's plugin supports 8.10.0 to 10.5.1) |
-| Jira Server | Not supported | Not supported |
-| Extra infrastructure | None | Microsoft Graph connector agent on a Windows machine in the same network, version 3.1.15.0 or later |
-| Extra software in Jira | None | Microsoft's plugin from the Atlassian Marketplace |
+| Jira Server | Not supported | Not listed |
+| Extra infrastructure | None listed | Microsoft Graph connector agent on a Windows machine in the same network, version 3.1.15.0 or later |
+| Extra software in Jira | None listed | Microsoft's plugin from the Atlassian Marketplace |
 | Comments and attachments | Not listed as indexed | Only on request via Microsoft Support |
 
-Check one detail before you plan an upgrade. Microsoft's overview page for the Data Center
-connector says it supports version 8.14 and later; the deployment page says the plugin
-supports 8.10.0 to 10.5.1. Taken together, 8.14 to 10.5.1 is the range both pages agree on.
-On Jira Data Center 11, check the Marketplace listing first.
+On Data Center versions, Microsoft's two pages disagree slightly (8.14 and later vs. 8.10.0 to
+10.5.1). Plan with 8.14 to 10.5.1, and on Jira Data Center 11 check the Marketplace listing first.
 
 ## Which License Does Copilot Need to Answer From Jira?
 
@@ -98,6 +92,29 @@ issue description, status, project name, created and updated dates, assignee and
 You can add custom fields; if an issue type lacks a selected field, it is stored as empty.
 Comments are not on the list, and Microsoft documents no setting to add them.
 
+<figure class="not-prose my-10">
+  <div class="rounded-2xl border-2 border-gray-100 bg-gray-50 p-5 sm:p-6">
+    <p class="m-0 text-xs font-bold uppercase tracking-wider text-gray-500">What the Jira Cloud connector copies from an issue</p>
+    <div class="mt-4 rounded-xl border border-gray-200 bg-white p-4 sm:p-5">
+      <p class="m-0 text-sm font-semibold text-blue-600">ABC-123</p>
+      <p class="m-0 mt-1 text-lg font-bold text-black">Export format for the monthly report</p>
+      <ul class="m-0 mt-4 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2">
+        <li class="m-0 flex items-center gap-2 text-gray-700"><span class="text-green-600 font-bold" aria-hidden="true">✓</span> Title and description</li>
+        <li class="m-0 flex items-center gap-2 text-gray-700"><span class="text-green-600 font-bold" aria-hidden="true">✓</span> Status and priority</li>
+        <li class="m-0 flex items-center gap-2 text-gray-700"><span class="text-green-600 font-bold" aria-hidden="true">✓</span> Project and assignee</li>
+        <li class="m-0 flex items-center gap-2 text-gray-700"><span class="text-green-600 font-bold" aria-hidden="true">✓</span> Created and updated dates</li>
+        <li class="m-0 flex items-center gap-2 text-gray-700 sm:col-span-2"><span class="text-green-600 font-bold" aria-hidden="true">✓</span> Custom fields you select</li>
+      </ul>
+      <div class="mt-5 rounded-lg border-2 border-dashed border-red-200 bg-red-50/60 p-4">
+        <p class="m-0 flex items-center gap-2 text-sm font-bold text-red-700"><span aria-hidden="true">✕</span> Comments: not indexed</p>
+        <p class="m-0 mt-2 text-sm text-gray-400 line-through">"Agreed with finance: CSV, not Excel. Moving the deadline to the 5th."</p>
+        <p class="m-0 mt-1 text-sm text-gray-400 line-through">"Edge case: empty months still need a row."</p>
+      </div>
+    </div>
+  </div>
+  <figcaption class="mt-3 text-sm text-gray-500">Illustration with an invented issue, based on Microsoft's documentation of the Jira Cloud connector. Where the decision lives in the comments, Copilot does not see it.</figcaption>
+</figure>
+
 That gap matters more than it looks. In most teams the comments hold the actual decision:
 the developer's clarification, the edge case someone raised, the reason the scope changed.
 A Copilot that has read the description but not the thread summarizes the ticket as it was
@@ -124,7 +141,7 @@ connector cannot evaluate "Any logged-in user", "Application access" or some
 custom-field-based permission types, and denies access in those cases. For the Cloud
 connector, Microsoft does not document what happens with other permission types it cannot
 resolve, so test a confidential project before relying on it. On Data Center, the deny rule
-is the safe default and a frequent reason why one project returns nothing while others
+is the safe default and a likely reason when one project returns nothing while others
 work. If that happens, check that project's permission scheme first.
 
 ## How Up to Date Is Jira Data in Copilot?
@@ -144,7 +161,7 @@ In practice: don't ask Copilot about the refinement session you finished ten min
 
 Four things, in this order:
 
-1. **Which Jira you run.** Cloud, Data Center, or Server. Server has no connector.
+1. **Which Jira you run.** Cloud, Data Center, or Server. Neither connector lists Server.
 2. **Which license you hold.** Without the Microsoft 365 Copilot add-on (or E7), Copilot does not answer from Jira, connector or not. Your Microsoft 365 administrator can see which licenses are assigned to you.
 3. **What is indexed.** If comments are not, expect summaries of the ticket as written, not as discussed.
 4. **One real test.** Pick a project you know well and ask something only a comment or a recent edit can answer, for example "What did we agree about the export format in ABC-123?". The answer shows the gaps faster than any documentation.
@@ -176,12 +193,13 @@ How such a system is put together, and what it takes, is in
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">Hit one of these limits?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Write to us with your Jira version and what you need Copilot to answer. We reply within two working days with whether it is solvable and roughly what it would take. No sales sequence follows.</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">If it is, the next step is a <a href="/services/jira-confluence-ai/" class="text-blue-600 underline">two-week pilot at a fixed €4,900</a> on your real data.</p>
   <p class="m-0 mt-5"><a href="/contact/?source=blog-jira-connector#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Ask whether it is solvable</a></p>
 </div>
 
 ## Sources
 
-Every statement above comes from Microsoft's own documentation, checked on 8 October 2026:
+The facts about the connectors come from Microsoft's own documentation, checked on 8 October 2026 and again on 15 November 2026:
 
 - [Jira Cloud connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-cloud-overview): supported deployments, indexed fields, crawl types, permission modes and the "Any user logged in" limitation.
 - [Jira Data Center connector overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-overview): indexed content, permission hierarchy, the version 8.14 statement and the comments and attachments note.

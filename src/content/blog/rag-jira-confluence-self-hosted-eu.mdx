@@ -32,6 +32,21 @@ never shows anyone content they could not open in Jira or Confluence. This artic
 how RAG over Jira and Confluence works on infrastructure you control in the EU, when it fits
 better than an off-the-shelf connector, and when it does not.
 
+<figure class="not-prose my-10">
+  <div class="rounded-2xl border-2 border-gray-100 bg-gray-50 p-5 sm:p-6">
+    <p class="m-0 text-xs font-bold uppercase tracking-wider text-gray-500">What an answer looks like</p>
+    <div class="mt-4 ml-auto max-w-md rounded-2xl rounded-br-sm bg-blue-600 px-4 py-3 text-white">Why did we drop offline mode for the mobile app, and is anything still open on it?</div>
+    <div class="mt-3 max-w-xl rounded-2xl rounded-bl-sm border border-gray-200 bg-white px-4 py-4 text-gray-800">
+      <p class="m-0">Offline mode was dropped in the March planning because sync conflicts would have delayed the release by two sprints. <span class="rounded bg-blue-50 px-1.5 py-0.5 text-sm font-semibold text-blue-700">[1]</span> One task is still open: removing the unused offline settings screen. <span class="rounded bg-blue-50 px-1.5 py-0.5 text-sm font-semibold text-blue-700">[2]</span></p>
+      <div class="mt-4 space-y-2 border-t border-gray-100 pt-3 text-sm">
+        <p class="m-0 text-gray-600"><span class="font-semibold text-blue-700">[1]</span> Confluence · Mobile app: Q1 planning decisions · updated 14 March</p>
+        <p class="m-0 text-gray-600"><span class="font-semibold text-blue-700">[2]</span> Jira · MOB-482 Remove offline settings screen · In progress</p>
+      </div>
+    </div>
+  </div>
+  <figcaption class="mt-3 text-sm text-gray-500">Illustration with invented content. Each statement points to the page or issue it came from, and the person asking only gets answers from content they can open.</figcaption>
+</figure>
+
 ## Key Takeaways
 
 - **RAG** means the model answers from passages retrieved from your own Jira and Confluence at question time, and cites them. Nothing is trained on your data.
@@ -47,9 +62,9 @@ First, the comparison. If the connector covers your case, use it.
 |---|---|---|
 | Jira Cloud | Supported | Supported |
 | Jira Data Center | Separate connector, on-premises agent and plugin | Supported via API |
-| Jira Server | Not supported | Supported via API |
+| Jira Server (no Atlassian support since February 2024) | Not supported | Supported via API |
 | Jira comments | Not listed for Jira Cloud; on request for Data Center | Indexed if you choose |
-| License for Jira content in answers | Microsoft 365 Copilot add-on or E7 | Your own infrastructure cost |
+| License for Jira content in Copilot answers | Microsoft 365 Copilot add-on or E7 | Your own infrastructure cost |
 | Where the index lives | Microsoft 365 | Where you deploy it |
 
 The connector facts come from Microsoft's documentation (see Sources below) and are explained in detail in
@@ -109,8 +124,8 @@ show the "last updated" date of every cited source.
 
 **Citations.** Every answer should link to the issues and pages it used. It is how users
 learn to trust the system, and how they catch it when the retrieval picked the wrong
-passage. We apply the same principle in LearnSlice, our AI learning platform, which runs on
-servers in Germany. In a [research pilot with FH Dortmund](https://learnslice.com/research)
+passage. We apply the same principle in LearnSlice, our AI learning platform, which is
+hosted in Germany. In a [research pilot with FH Dortmund](https://learnslice.com/research)
 in May 2026, every answer in the system evaluation carried a valid citation to its source
 passage.
 
@@ -145,6 +160,7 @@ already knows, and a plan for production. How we build these systems is on the
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
   <p class="m-0 text-lg font-bold text-black">Want to see it on your own Jira and Confluence?</p>
   <p class="m-0 mt-2 text-gray-600 leading-relaxed">Write to us with your Jira and Confluence setup and the questions you want answered. We reply within two working days with whether it is solvable and roughly what it would take. No sales sequence follows.</p>
+  <p class="m-0 mt-2 text-gray-600 leading-relaxed">The pilot has a fixed price of €4,900 plus VAT. <a href="/services/jira-confluence-ai/" class="text-blue-600 underline">What is included</a>.</p>
   <p class="m-0 mt-5"><a href="/contact/?source=blog-rag-jira-confluence#message-form" class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">Ask about a two-week pilot</a></p>
 </div>
 
