@@ -1,0 +1,62 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import JiraCopilotCheck from '../../../components/JiraCopilotCheck.astro';
+import RelatedReading from '../../../components/sections/RelatedReading.astro';
+import Footer from '../../../components/Footer.astro';
+
+const breadcrumbs = [
+  { label: 'Startseite', href: '/de/' },
+  { label: 'Ressourcen', href: '/de/ressourcen/' },
+  { label: 'Jira + Copilot Check', href: '/de/ressourcen/jira-copilot-check/' },
+];
+---
+
+<Layout
+  title="Jira + Copilot Check: Welcher Weg passt zu Ihnen? | Ironum"
+  description="Vier Fragen zu Ihrem Jira, Ihrer Microsoft-Lizenz und Ihren Daten: Passt Microsofts Jira-Connector, der Connector Atlassian Rovo oder Copilot Studio, und wo stößt jeder Weg an Grenzen?"
+  locale="de"
+  breadcrumbs={breadcrumbs}
+>
+  <Navigation />
+
+  <PageHero
+    eyebrow="KOSTENLOSER CHECK · 1 MINUTE"
+    title="Welcher Weg verbindet Ihr Jira mit Copilot?"
+    subtitle="Microsofts Jira-Connector, der Connector Atlassian Rovo oder ein Agent aus Copilot Studio. Vier Fragen, und Sie wissen, welcher Weg passt und was er nicht kann."
+    ctaText="Check starten"
+    ctaLink="#check"
+  />
+
+  <section id="check" class="px-4 md:px-20 py-12 md:py-20 scroll-mt-20">
+    <div class="max-w-4xl mx-auto">
+      <JiraCopilotCheck locale="de" showArticleLink />
+    </div>
+  </section>
+
+  <RelatedReading
+    eyebrow="WEITERLESEN"
+    heading="Die Details hinter dem Check"
+    cta="Weiterlesen"
+    links={[
+      {
+        href: '/de/ressourcen/blog/copilot-jira-connector-was-er-liest/',
+        title: 'Drei Wege, Jira mit Copilot zu verbinden',
+        description: 'Was jeder Weg liest, welche Lizenz er braucht, wie Sie ihn einrichten und was Sie prüfen, wenn Copilot nicht antwortet.',
+      },
+      {
+        href: '/de/ressourcen/blog/rag-jira-confluence-selbst-gehostet-eu/',
+        title: 'RAG über Jira und Confluence, selbst gehostet',
+        description: 'Wenn Copilot nicht passt: wie ein eigenes System Jira und Confluence liest, Berechtigungen beibehält und Quellen belegt.',
+      },
+      {
+        href: '/de/dienstleistungen/jira-confluence-ki/',
+        title: 'Pilot in zwei Wochen, 4.900 €',
+        description: 'Private KI-Suche über Jira, Confluence und Dateifreigaben, auf Ihren Servern, getestet auf Ihren echten Daten.',
+      },
+    ]}
+  />
+
+  <Footer />
+</Layout>

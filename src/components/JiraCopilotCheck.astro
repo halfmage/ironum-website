@@ -1,0 +1,634 @@
+---
+// Interactive "which route connects Jira to Copilot" check (EN/DE).
+// All results are rendered at build time and shown with Alpine; nothing is stored or sent.
+// Facts checked against Microsoft and Atlassian documentation on 17 November 2026.
+// Update `checkedOn` and the result texts together when you re-verify.
+
+export interface Props {
+  locale?: 'en' | 'de';
+  /** Show a link to the full article under the result (on the standalone page). */
+  showArticleLink?: boolean;
+}
+
+const { locale = 'en', showArticleLink = false } = Astro.props;
+const de = locale === 'de';
+
+const ms = de ? 'https://learn.microsoft.com/de-de' : 'https://learn.microsoft.com/en-us';
+const links = {
+  jiraCloud: { href: `${ms}/microsoft-365/copilot/connectors/jira-cloud-overview`, text: de ? 'Microsoft: Jira-Cloud-Connector' : 'Microsoft: Jira Cloud connector' },
+  jiraDc: { href: `${ms}/microsoft-365/copilot/connectors/jira-data-center-overview`, text: de ? 'Microsoft: Jira-Data-Center-Connector' : 'Microsoft: Jira Data Center connector' },
+  jiraDcDeploy: { href: `${ms}/microsoft-365/copilot/connectors/jira-data-center-deployment`, text: de ? 'Microsoft: Data-Center-Connector einrichten' : 'Microsoft: deploy the Data Center connector' },
+  federated: { href: `${ms}/microsoft-365/copilot/connectors/federated-connectors-overview`, text: de ? 'Microsoft: Live-Connectors (federated)' : 'Microsoft: federated connectors' },
+  partners: { href: `${ms}/microsoft-365/copilot/connectors/connectors-gallery-partners`, text: de ? 'Microsoft: Connectors von Partnern' : 'Microsoft: partner-built connectors' },
+  mcpTools: { href: 'https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/', text: de ? 'Atlassian: Werkzeuge des MCP-Servers' : 'Atlassian: MCP server tools' },
+  mcpOverview: { href: 'https://developer.atlassian.com/cloud/rovo-mcp/', text: de ? 'Atlassian: Rovo MCP Server' : 'Atlassian: Rovo MCP server' },
+  credits: { href: 'https://support.atlassian.com/rovo/docs/rovo-usage-limits/', text: de ? 'Atlassian: Rovo-Credits' : 'Atlassian: how Rovo credits work' },
+  studio: { href: 'https://microsoft.github.io/mcscatblog/posts/atlassian-jira-remote-mcp-copilot-studio/', text: de ? 'Microsoft: Atlassian MCP in Copilot Studio' : 'Microsoft: Atlassian MCP in Copilot Studio' },
+  guide: { href: '/resources/guides/ai-for-product-owners/', text: de ? 'Leitfaden für Product Owner (Englisch)' : 'Free guide for product owners' },
+};
+
+const pilotHref = de ? '/de/dienstleistungen/jira-confluence-ki/' : '/services/jira-confluence-ai/';
+const articleHref = de ? '/de/ressourcen/blog/copilot-jira-connector-was-er-liest/' : '/resources/blog/copilot-jira-connector-what-it-reads/';
+
+type Tone = 'go' | 'limit' | 'pilot' | 'info';
+interface Result {
+  key: string;
+  tone: Tone;
+  title: string;
+  points: string[];
+  links?: { href: string; text: string }[];
+  /** 'primary': pilot is the answer. 'secondary': pilot is an option if the free route falls short. */
+  pilot?: 'primary' | 'secondary';
+}
+
+const text = de
+  ? {
+      eyebrow: 'JIRA + COPILOT CHECK',
+      heading: 'Welcher Weg verbindet Ihr Jira mit Copilot?',
+      intro: 'Vier Fragen, eine ehrliche Antwort. Läuft es mit den Werkzeugen, die Sie schon haben, sagen wir Ihnen das.',
+      questions: [
+        {
+          id: 'jira',
+          label: 'Welches Jira nutzen Sie?',
+          options: [
+            ['cloud', 'Jira Cloud (Adresse endet auf atlassian.net)'],
+            ['dc', 'Jira Data Center'],
+            ['server', 'Jira Server'],
+            ['unsure', 'Weiß ich nicht'],
+          ],
+        },
+        {
+          id: 'licence',
+          label: 'Welche Microsoft-Lizenz haben Sie?',
+          options: [
+            ['copilot', 'Add-on Microsoft 365 Copilot oder E7'],
+            ['studio', 'Nur Copilot Studio'],
+            ['none', 'Microsoft 365 ohne Copilot-Lizenz'],
+            ['unsure', 'Weiß ich nicht'],
+          ],
+        },
+        {
+          id: 'goal',
+          label: 'Was soll Copilot mit Jira tun?',
+          options: [
+            ['find', 'Vorgänge finden und zusammenfassen'],
+            ['comments', 'Aus Kommentaren und Diskussionen antworten'],
+            ['write', 'Vorgänge anlegen und ändern'],
+            ['across', 'Über Jira, Confluence und weitere Systeme hinweg antworten'],
+          ],
+        },
+        {
+          id: 'data',
+          label: 'Wo dürfen Ihre Jira-Inhalte verarbeitet werden?',
+          options: [
+            ['cloud', 'In Microsoft 365 und in der Atlassian Cloud'],
+            ['own', 'Nur auf eigenen Servern oder bei einem EU-Hoster unserer Wahl'],
+          ],
+        },
+      ],
+      waiting: 'Beantworten Sie alle vier Fragen, dann erscheint hier Ihr Ergebnis.',
+      resultLabel: 'Ihr Ergebnis',
+      reset: 'Neu starten',
+      sources: 'Quellen',
+      pilotPrimary: 'Zum Pilot: 2 Wochen, 4.900 €',
+      pilotSecondary: 'Reicht das nicht? Zum Pilot',
+      article: 'Alle drei Wege im Detail',
+      footnote: 'Stand: Dokumentation von Microsoft und Atlassian, geprüft am 17. November 2026. Ihre Antworten bleiben in Ihrem Browser, wir speichern und senden nichts.',
+    }
+  : {
+      eyebrow: 'JIRA + COPILOT CHECK',
+      heading: 'Which Route Connects Your Jira to Copilot?',
+      intro: 'Four questions, one honest answer. If the tools you already have will do, we tell you so.',
+      questions: [
+        {
+          id: 'jira',
+          label: 'Which Jira do you run?',
+          options: [
+            ['cloud', 'Jira Cloud (address ends in atlassian.net)'],
+            ['dc', 'Jira Data Center'],
+            ['server', 'Jira Server'],
+            ['unsure', 'Not sure'],
+          ],
+        },
+        {
+          id: 'licence',
+          label: 'Which Microsoft license do you have?',
+          options: [
+            ['copilot', 'Microsoft 365 Copilot add-on or E7'],
+            ['studio', 'Copilot Studio only'],
+            ['none', 'Microsoft 365 without a Copilot license'],
+            ['unsure', 'Not sure'],
+          ],
+        },
+        {
+          id: 'goal',
+          label: 'What should Copilot do with Jira?',
+          options: [
+            ['find', 'Find and summarize issues'],
+            ['comments', 'Answer from comments and discussions'],
+            ['write', 'Create and update issues'],
+            ['across', 'Answer across Jira, Confluence and other systems'],
+          ],
+        },
+        {
+          id: 'data',
+          label: 'Where may your Jira content be processed?',
+          options: [
+            ['cloud', 'In Microsoft 365 and Atlassian Cloud'],
+            ['own', 'Only on our own servers or an EU host we choose'],
+          ],
+        },
+      ],
+      waiting: 'Answer all four questions and your result appears here.',
+      resultLabel: 'Your result',
+      reset: 'Start over',
+      sources: 'Sources',
+      pilotPrimary: 'See the pilot: 2 weeks, €4,900',
+      pilotSecondary: 'Not enough? See the pilot',
+      article: 'All three routes in detail',
+      footnote: 'Based on Microsoft and Atlassian documentation, checked on 17 November 2026. Your answers stay in your browser; we store and send nothing.',
+    };
+
+const results: Result[] = de
+  ? [
+      {
+        key: 'private',
+        tone: 'pilot',
+        title: 'Copilot ist dafür nicht das richtige Werkzeug',
+        points: [
+          'Jeder Copilot-Weg verarbeitet Jira-Inhalte in Microsoft 365, der Weg über Atlassian Rovo zusätzlich in der Atlassian Cloud.',
+          'Müssen die Inhalte auf Ihren Servern bleiben, brauchen Sie ein System, das dort läuft: Es liest Jira und Confluence über deren Schnittstellen, behält die Berechtigungen bei und belegt jede Antwort mit ihrer Quelle.',
+          'Genau das richten wir im Pilot ein: zwei Wochen, auf Ihren echten Daten, zum Festpreis von 4.900 €.',
+        ],
+        pilot: 'primary',
+      },
+      {
+        key: 'server',
+        tone: 'limit',
+        title: 'Jira Server: kein Copilot-Weg von Microsoft oder Atlassian',
+        points: [
+          'Microsofts Jira-Connectors unterstützen Jira Cloud und Jira Data Center, nicht Server. Atlassians MCP-Server, den der Rovo-Connector nutzt, funktioniert nur mit der Atlassian Cloud.',
+          'Microsofts Katalog führt Connectors von Partnern auf, und einige nennen Jira Server. Testen Sie einen davon mit Ihrer Jira-Version, bevor Sie sich festlegen.',
+          'Ein System, das Jira über die REST-Schnittstelle liest, funktioniert meist auch mit Server. Das prüfen wir im ersten Gespräch zum Pilot.',
+        ],
+        links: [links.partners],
+        pilot: 'primary',
+      },
+      {
+        key: 'unsure-jira',
+        tone: 'info',
+        title: 'Klären Sie zuerst, welches Jira Sie nutzen',
+        points: [
+          'Endet die Adresse Ihres Jira auf <strong>.atlassian.net</strong>, nutzen Sie Jira Cloud.',
+          'Sonst ist es Data Center oder Server. Ihre Jira-Administration weiß, welches und in welcher Version.',
+          'Machen Sie den Check dann noch einmal: Die Antwort unterscheidet sich zwischen den dreien deutlich.',
+        ],
+      },
+      {
+        key: 'unsure-licence',
+        tone: 'info',
+        title: 'Klären Sie zuerst, welche Copilot-Lizenz Sie haben',
+        points: [
+          'Copilot antwortet nur mit der Add-on-Lizenz Microsoft 365 Copilot (oder Microsoft 365 E7) aus Jira. Copilot Chat ohne diese Lizenz tut das nicht.',
+          'Ihre Microsoft-365-Administration sieht, welche Lizenzen Ihnen zugewiesen sind. Machen Sie den Check danach noch einmal.',
+        ],
+      },
+      {
+        key: 'none-cloud',
+        tone: 'limit',
+        title: 'Ohne Copilot-Lizenz antwortet Copilot nicht aus Jira',
+        points: [
+          'Microsofts Jira-Connector macht Vorgänge in jedem Microsoft-365-Plan in Microsoft Search auffindbar. Für Antworten in Copilot brauchen Sie aber das Add-on Microsoft 365 Copilot (oder E7). Auch der Rovo-Connector setzt eine Microsoft-365-Copilot-Lizenz voraus.',
+          'In Jira Cloud arbeitet Atlassians eigene KI, Rovo, direkt in Jira und Confluence, ohne Microsoft-Lizenz. Prüfen Sie, was Ihr Atlassian-Plan enthält.',
+          'Bis dahin funktioniert, was die meisten Teams ohnehin tun: den Vorgang in den KI-Assistenten kopieren, den Sie nutzen dürfen, und den Kontext selbst mitgeben.',
+        ],
+        links: [links.guide, links.jiraCloud],
+      },
+      {
+        key: 'none-dc',
+        tone: 'limit',
+        title: 'Ohne Copilot-Lizenz antwortet Copilot nicht aus Jira',
+        points: [
+          'Microsofts Data-Center-Connector macht Vorgänge in Microsoft Search auffindbar. Für Antworten in Copilot brauchen Sie aber das Add-on Microsoft 365 Copilot (oder E7).',
+          'Bis dahin funktioniert, was die meisten Teams ohnehin tun: den Vorgang in den KI-Assistenten kopieren, den Sie nutzen dürfen, und den Kontext selbst mitgeben.',
+          'Wollen Sie ohnehin nicht über Microsoft gehen, richtet unser Pilot eine Suche über Jira und Confluence ein, die neben Ihrem Data Center läuft.',
+        ],
+        links: [links.guide, links.jiraDc],
+        pilot: 'secondary',
+      },
+      {
+        key: 'across-cloud',
+        tone: 'go',
+        title: 'Testen Sie Copilot zuerst mit beiden Connectors',
+        points: [
+          'Verbinden Sie Jira und Confluence mit Copilot: über den Connector Atlassian Rovo oder Microsofts Connectors für Jira Cloud und Confluence Cloud.',
+          'Testen Sie mit einer echten Frage, deren Antwort auf einen Jira-Vorgang, eine Confluence-Seite und ein Dokument in SharePoint verteilt ist, und prüfen Sie, ob jede Quelle genannt wird.',
+          'Gehören Dateifreigaben oder Systeme ohne Connector dazu, oder dürfen die Inhalte nicht in Microsoft 365 und der Atlassian Cloud verarbeitet werden, passt ein eigenes System besser. Das testet unser Pilot in zwei Wochen.',
+        ],
+        links: [links.federated, links.jiraCloud],
+        pilot: 'secondary',
+      },
+      {
+        key: 'across-dc',
+        tone: 'pilot',
+        title: 'Data Center plus weitere Systeme: ein Fall für ein eigenes System',
+        points: [
+          'Microsofts Data-Center-Connector indexiert Vorgänge, Kommentare nur auf Anfrage beim Microsoft-Support. Der Weg über Atlassian Rovo setzt die Atlassian Cloud voraus: Seine Data-Center-Connectors synchronisieren Ihre Inhalte dorthin.',
+          'Ein System neben Ihrem Data Center liest Jira, Confluence und Dateifreigaben über deren Schnittstellen, behält die Berechtigungen bei und belegt jede Quelle.',
+          'Unser Pilot richtet das für ein Projekt und einen Bereich ein, auf Ihren echten Daten, in zwei Wochen zum Festpreis von 4.900 €.',
+        ],
+        links: [links.jiraDc],
+        pilot: 'primary',
+      },
+      {
+        key: 'cloud-find',
+        tone: 'go',
+        title: 'Microsofts Jira-Cloud-Connector reicht',
+        points: [
+          'Ihre Microsoft-365-Administration richtet den Jira-Cloud-Connector im Microsoft 365 Admin Center ein. Das Indexieren kostet nichts extra, die Antworten deckt Ihre Copilot-Lizenz ab.',
+          'Wählen Sie den Modus „Only people with access to this data source“ und prüfen Sie, ob die E-Mail-Adressen in Jira zu den Microsoft-365-Anmeldenamen passen. Sonst fehlen Personen Vorgänge, die sie in Jira sehen dürfen.',
+          'Indexiert werden Titel, Beschreibung, Status, Projekt, Datumsangaben, Bearbeiter, Priorität und ausgewählte Felder, keine Kommentare. Stehen Entscheidungen in Kommentaren, nehmen Sie den Rovo-Connector dazu.',
+        ],
+        links: [links.jiraCloud],
+      },
+      {
+        key: 'cloud-comments',
+        tone: 'go',
+        title: 'Nutzen Sie den Connector Atlassian Rovo',
+        points: [
+          'Er ist ein Live-Connector („federated“): Copilot fragt Jira in dem Moment, in dem Sie fragen, mit Ihren eigenen Jira-Berechtigungen. In Microsoft 365 wird nichts kopiert.',
+          'Atlassians MCP-Server, auf dem der Connector aufbaut, hat ein Werkzeug, das Kommentare liest. Testen Sie es mit einer Frage, die nur ein Kommentar beantworten kann.',
+          'Die Administration schaltet den Connector im Microsoft 365 Admin Center frei. Jede Person verbindet ihn danach einmal: in Copilot Chat unter … > Einstellungen > Quellen.',
+          'Einzelne Vorgänge oder Seiten abzurufen kostet nichts. Die produktübergreifende Suche verbraucht Rovo-Credits aus Ihrem Atlassian-Plan; ab dem 3. Dezember 2026 werden zusätzliche Credits standardmäßig abgerechnet.',
+        ],
+        links: [links.federated, links.mcpTools, links.credits],
+      },
+      {
+        key: 'cloud-write',
+        tone: 'go',
+        title: 'Nutzen Sie den Connector Atlassian Rovo, mit Schreibaktionen',
+        points: [
+          'Seit November 2026 kann Copilot über den Rovo-Connector Jira-Vorgänge und Confluence-Seiten anlegen und ändern, in Copilot Chat und Cowork.',
+          'Vor jeder Änderung erscheint eine Bestätigungskarte, und die Änderung läuft mit Ihren eigenen Jira-Berechtigungen. Sie können ein Werkzeug einmal, für die Unterhaltung oder dauerhaft erlauben.',
+          'Die Administration schaltet den Connector im Microsoft 365 Admin Center frei; jede Person verbindet ihn danach einmal unter … > Einstellungen > Quellen.',
+          'Scheitert das Anlegen eines Vorgangs, prüfen Sie die Pflichtfelder des Vorgangstyps. Copilot muss sie alle füllen.',
+        ],
+        links: [links.federated, links.mcpTools],
+      },
+      {
+        key: 'cloud-studio',
+        tone: 'go',
+        title: 'Bauen Sie einen Agent in Copilot Studio',
+        points: [
+          'Ohne das Add-on Microsoft 365 Copilot antwortet Copilot Chat nicht aus Jira. Ein Agent aus Copilot Studio kann aber Microsofts Jira-Cloud-Connector als Wissensquelle nutzen.',
+          'Atlassians MCP-Server lässt sich einem Agent zusätzlich als Werkzeug hinzufügen, etwa um Kommentare zu lesen oder Vorgänge anzulegen.',
+          'Nehmen Sie die Serveradresse aus Atlassians aktueller Dokumentation; manche älteren Anleitungen nutzen eine Adresse mit /v1/sse. Microsofts Copilot-Studio-Team empfiehlt für die Anmeldung „Dynamic discovery“.',
+        ],
+        links: [links.studio, links.mcpOverview, links.jiraCloud],
+      },
+      {
+        key: 'dc-find',
+        tone: 'go',
+        title: 'Microsofts Jira-Data-Center-Connector reicht',
+        points: [
+          'Er braucht den Microsoft Graph Connector Agent (ab Version 3.1.15.0) auf einem Windows-Rechner im selben Netzwerk und Microsofts Plugin aus dem Atlassian Marketplace.',
+          'Microsoft unterstützt Jira Data Center ab Version 8.14. Prüfen Sie bei Data Center 11 vorher den Eintrag des Plugins im Marketplace.',
+          'Die Inhalte kommen zeitversetzt an: standardmäßig alle 15 Minuten, einmal täglich vollständig. Kommentare indexiert er nur auf Anfrage beim Microsoft-Support.',
+        ],
+        links: [links.jiraDc, links.jiraDcDeploy],
+      },
+      {
+        key: 'dc-comments',
+        tone: 'limit',
+        title: 'Kommentare aus Data Center: auf Anfrage oder über einen anderen Weg',
+        points: [
+          'Microsofts Data-Center-Connector indexiert Kommentare und Anhänge erst, nachdem Sie das beim Microsoft-Support angefragt haben. Klären Sie das vor dem Rollout.',
+          'Microsofts Katalog führt außerdem Connectors von Partnern für Jira Data Center auf, die Kommentare indexieren.',
+          'Der Rovo-Connector funktioniert hier nicht: Atlassians MCP-Server unterstützt nur die Atlassian Cloud.',
+          'Sollen die Antworten auch Confluence abdecken und jede Quelle belegen, oder sollen die Inhalte auf Ihren Servern bleiben, testet unser Pilot ein selbst gehostetes System in zwei Wochen.',
+        ],
+        links: [links.jiraDc, links.partners],
+        pilot: 'secondary',
+      },
+      {
+        key: 'dc-write',
+        tone: 'limit',
+        title: 'Copilot kann Vorgänge in Jira Data Center noch nicht ändern',
+        points: [
+          'Microsofts Data-Center-Connector indexiert Inhalte für Suche und Antworten. Atlassians MCP-Server, über den der Rovo-Connector schreibt, unterstützt nur die Atlassian Cloud.',
+          'Einen von Microsoft oder Atlassian dokumentierten Weg, über den Copilot Vorgänge in Data Center anlegt oder ändert, haben wir nicht gefunden (Stand November 2026).',
+          'Für Antworten aus Jira funktioniert der Data-Center-Connector. Auch unser Pilot liefert Antworten mit Quellen, keine Änderungen in Jira.',
+        ],
+        links: [links.jiraDc, links.mcpOverview],
+      },
+      {
+        key: 'dc-studio',
+        tone: 'go',
+        title: 'Nutzen Sie den Data-Center-Connector in einem Agent aus Copilot Studio',
+        points: [
+          'Ohne das Add-on Microsoft 365 Copilot antwortet Copilot Chat nicht aus Jira. Ein Agent aus Copilot Studio kann den Jira-Data-Center-Connector aber als Wissensquelle nutzen.',
+          'Der Connector braucht den Microsoft Graph Connector Agent auf einem Windows-Rechner in Ihrem Netzwerk und Microsofts Plugin aus dem Atlassian Marketplace. Kommentare indexiert er nur auf Anfrage beim Microsoft-Support.',
+          'Atlassians MCP-Server ist hier keine Option, er unterstützt nur die Atlassian Cloud.',
+        ],
+        links: [links.jiraDc, links.jiraDcDeploy],
+      },
+    ]
+  : [
+      {
+        key: 'private',
+        tone: 'pilot',
+        title: 'Copilot is not the right tool for this',
+        points: [
+          'Every Copilot route processes Jira content in Microsoft 365, and the Atlassian Rovo route also in Atlassian Cloud.',
+          'If the content has to stay on your servers, you need a system that runs there: it reads Jira and Confluence through their APIs, keeps permissions and cites the source of every answer.',
+          'That is what our pilot sets up: two weeks, on your real data, for a fixed €4,900.',
+        ],
+        pilot: 'primary',
+      },
+      {
+        key: 'server',
+        tone: 'limit',
+        title: 'Jira Server: no Copilot route from Microsoft or Atlassian',
+        points: [
+          "Microsoft's Jira connectors support Jira Cloud and Jira Data Center, not Server. Atlassian's MCP server, which the Rovo connector uses, works with Atlassian Cloud only.",
+          "Microsoft's gallery lists partner-built connectors, and some of them name Jira Server. Test one with your Jira version before you commit.",
+          'A system that reads Jira through its REST API usually works with Server too. We check that in the first call about the pilot.',
+        ],
+        links: [links.partners],
+        pilot: 'primary',
+      },
+      {
+        key: 'unsure-jira',
+        tone: 'info',
+        title: 'First, find out which Jira you run',
+        points: [
+          'If your Jira address ends in <strong>.atlassian.net</strong>, you run Jira Cloud.',
+          'Otherwise it is Data Center or Server. Your Jira administrator knows which one, and which version.',
+          'Then run this check again: the answer differs a lot between the three.',
+        ],
+      },
+      {
+        key: 'unsure-licence',
+        tone: 'info',
+        title: 'First, find out which Copilot license you have',
+        points: [
+          'Copilot answers from Jira only with the Microsoft 365 Copilot add-on (or Microsoft 365 E7). Copilot Chat without that license does not.',
+          'Your Microsoft 365 administrator can see which licenses are assigned to you. Then run this check again.',
+        ],
+      },
+      {
+        key: 'none-cloud',
+        tone: 'limit',
+        title: 'Without a Copilot license, Copilot does not answer from Jira',
+        points: [
+          "Microsoft's Jira connector makes issues findable in Microsoft Search on any Microsoft 365 plan, but answers in Copilot need the Microsoft 365 Copilot add-on (or E7). The Atlassian Rovo connector also needs a Microsoft 365 Copilot license.",
+          "On Jira Cloud, Atlassian's own AI, Rovo, works inside Jira and Confluence without a Microsoft license. Check what your Atlassian plan includes.",
+          'Until then, what most teams already do works: paste the issue into the AI assistant you are allowed to use and add the context yourself.',
+        ],
+        links: [links.guide, links.jiraCloud],
+      },
+      {
+        key: 'none-dc',
+        tone: 'limit',
+        title: 'Without a Copilot license, Copilot does not answer from Jira',
+        points: [
+          "Microsoft's Data Center connector makes issues findable in Microsoft Search, but answers in Copilot need the Microsoft 365 Copilot add-on (or E7).",
+          'Until then, what most teams already do works: paste the issue into the AI assistant you are allowed to use and add the context yourself.',
+          "If you would rather not go through Microsoft at all, our pilot sets up search over Jira and Confluence that runs next to your Data Center.",
+        ],
+        links: [links.guide, links.jiraDc],
+        pilot: 'secondary',
+      },
+      {
+        key: 'across-cloud',
+        tone: 'go',
+        title: 'Try Copilot with both connectors first',
+        points: [
+          "Connect Jira and Confluence to Copilot: through the Atlassian Rovo connector, or Microsoft's Jira Cloud and Confluence Cloud connectors.",
+          'Test it with a real question whose answer is spread across a Jira issue, a Confluence page and a document in SharePoint, and check whether every source is named.',
+          'If the answer also needs file shares or systems without a connector, or the content may not be processed in Microsoft 365 and Atlassian Cloud, a dedicated system fits better. That is what our pilot tests in two weeks.',
+        ],
+        links: [links.federated, links.jiraCloud],
+        pilot: 'secondary',
+      },
+      {
+        key: 'across-dc',
+        tone: 'pilot',
+        title: 'Data Center plus other systems: a case for your own system',
+        points: [
+          "Microsoft's Data Center connector indexes issues, and comments only on request via Microsoft Support. The Atlassian Rovo route needs Atlassian Cloud: its Data Center connectors sync your content there.",
+          'A system next to your Data Center reads Jira, Confluence and file shares through their APIs, keeps permissions and cites every source.',
+          'Our pilot sets that up for one project and one space, on your real data, in two weeks for a fixed €4,900.',
+        ],
+        links: [links.jiraDc],
+        pilot: 'primary',
+      },
+      {
+        key: 'cloud-find',
+        tone: 'go',
+        title: "Microsoft's Jira Cloud connector is enough",
+        points: [
+          'Your Microsoft 365 administrator adds the Jira Cloud connector in the Microsoft 365 admin center. Indexing costs nothing extra; your Copilot license covers the answers.',
+          'Choose the mode “Only people with access to this data source” and check that Jira email addresses match the Microsoft 365 sign-in names. Otherwise people miss issues they can see in Jira.',
+          'It indexes title, description, status, project, dates, assignee, priority and fields you select, not comments. If decisions live in comments, add the Rovo connector.',
+        ],
+        links: [links.jiraCloud],
+      },
+      {
+        key: 'cloud-comments',
+        tone: 'go',
+        title: 'Use the Atlassian Rovo connector',
+        points: [
+          'It is a live (“federated”) connector: Copilot asks Jira at the moment you ask, with your own Jira permissions. Nothing is copied into Microsoft 365.',
+          "Atlassian's MCP server, which the connector builds on, has a tool that reads issue comments. Test it with a question only a comment can answer.",
+          'Your administrator enables the connector in the Microsoft 365 admin center. Each person then connects it once: in Copilot Chat, under … > Settings > Sources.',
+          'Looking up a single issue or page is free. Search across products uses Rovo credits from your Atlassian plan; from 3 December 2026, extra credits are billed by default.',
+        ],
+        links: [links.federated, links.mcpTools, links.credits],
+      },
+      {
+        key: 'cloud-write',
+        tone: 'go',
+        title: 'Use the Atlassian Rovo connector, with write actions',
+        points: [
+          'Since November 2026, Copilot can create and update Jira work items and Confluence pages through the Rovo connector, in Copilot Chat and Cowork.',
+          'Each change shows a confirmation card first and runs with your own Jira permissions. You can allow a tool once, for the conversation, or always.',
+          'Your administrator enables the connector in the Microsoft 365 admin center; each person then connects it once under … > Settings > Sources.',
+          "If creating an issue fails, check the issue type's required fields. Copilot has to fill all of them.",
+        ],
+        links: [links.federated, links.mcpTools],
+      },
+      {
+        key: 'cloud-studio',
+        tone: 'go',
+        title: 'Build an agent in Copilot Studio',
+        points: [
+          "Without the Microsoft 365 Copilot add-on, Copilot Chat does not answer from Jira. An agent built in Copilot Studio can still use Microsoft's Jira Cloud connector as its knowledge source.",
+          "You can also add Atlassian's MCP server to an agent as a tool, for example to read comments or create issues.",
+          "Take the server address from Atlassian's current documentation; some older guides use an address ending in /v1/sse. Microsoft's Copilot Studio team recommends “Dynamic discovery” for sign-in.",
+        ],
+        links: [links.studio, links.mcpOverview, links.jiraCloud],
+      },
+      {
+        key: 'dc-find',
+        tone: 'go',
+        title: "Microsoft's Jira Data Center connector is enough",
+        points: [
+          "It needs the Microsoft Graph connector agent (version 3.1.15.0 or later) on a Windows machine in the same network, and Microsoft's plugin from the Atlassian Marketplace.",
+          'Microsoft supports Jira Data Center 8.14 and later. On Data Center 11, check the plugin\'s Marketplace listing first.',
+          'Content arrives on a schedule: by default every 15 minutes, with a full crawl once a day. It indexes comments only on request via Microsoft Support.',
+        ],
+        links: [links.jiraDc, links.jiraDcDeploy],
+      },
+      {
+        key: 'dc-comments',
+        tone: 'limit',
+        title: 'Data Center comments: on request, or a different route',
+        points: [
+          "Microsoft's Data Center connector indexes comments and attachments only after you request it from Microsoft Support. Sort that out before the rollout.",
+          "Microsoft's gallery also lists partner-built connectors for Jira Data Center that index comments.",
+          "The Rovo connector does not work here: Atlassian's MCP server supports Atlassian Cloud only.",
+          'If answers should also cover Confluence and cite every source, or the content should stay on your servers, our pilot tests a self-hosted system in two weeks.',
+        ],
+        links: [links.jiraDc, links.partners],
+        pilot: 'secondary',
+      },
+      {
+        key: 'dc-write',
+        tone: 'limit',
+        title: 'Copilot cannot change Jira Data Center issues yet',
+        points: [
+          "Microsoft's Data Center connector indexes content for search and answers. Atlassian's MCP server, which the Rovo connector uses to write, supports Atlassian Cloud only.",
+          'We found no route documented by Microsoft or Atlassian that lets Copilot create or update Data Center issues (as of November 2026).',
+          'For answers from Jira, the Data Center connector works. Our pilot also delivers answers with sources, not changes in Jira.',
+        ],
+        links: [links.jiraDc, links.mcpOverview],
+      },
+      {
+        key: 'dc-studio',
+        tone: 'go',
+        title: 'Use the Data Center connector in a Copilot Studio agent',
+        points: [
+          'Without the Microsoft 365 Copilot add-on, Copilot Chat does not answer from Jira. An agent built in Copilot Studio can use the Jira Data Center connector as its knowledge source.',
+          "The connector needs the Microsoft Graph connector agent on a Windows machine in your network and Microsoft's plugin from the Atlassian Marketplace. It indexes comments only on request via Microsoft Support.",
+          "Atlassian's MCP server is not an option here; it supports Atlassian Cloud only.",
+        ],
+        links: [links.jiraDc, links.jiraDcDeploy],
+      },
+    ];
+
+const toneStyle: Record<Tone, { box: string; badge: string; label: string }> = {
+  go: { box: 'border-green-200 bg-green-50/60', badge: 'bg-green-600', label: de ? 'Geht mit vorhandenen Werkzeugen' : 'Works with what you have' },
+  limit: { box: 'border-amber-200 bg-amber-50/60', badge: 'bg-amber-600', label: de ? 'Geht mit Einschränkungen' : 'Works with limits' },
+  pilot: { box: 'border-blue-200 bg-blue-50/60', badge: 'bg-blue-600', label: de ? 'Braucht ein eigenes System' : 'Needs your own system' },
+  info: { box: 'border-gray-200 bg-gray-50', badge: 'bg-gray-600', label: de ? 'Erst klären' : 'Check first' },
+};
+---
+
+<section class="not-prose my-10 rounded-2xl border-2 border-gray-100 bg-white p-5 sm:p-8" x-data="jiraCopilotCheck()" aria-labelledby="jira-check-heading">
+  <span class="text-orange-500 font-semibold tracking-[0.2em] text-xs sm:text-sm uppercase block">{text.eyebrow}</span>
+  <h2 id="jira-check-heading" class="m-0 mt-2 text-2xl md:text-3xl font-bold text-black">{text.heading}</h2>
+  <p class="m-0 mt-3 text-gray-600 text-lg leading-relaxed">{text.intro}</p>
+
+  <div class="mt-8 space-y-7">
+    {text.questions.map((q, i) => (
+      <fieldset>
+        <legend class="text-base font-bold text-black mb-3"><span class="text-blue-600 mr-1">{i + 1}.</span> {q.label}</legend>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {q.options.map(([value, label]) => (
+            <button
+              type="button"
+              class="text-left rounded-xl border-2 px-4 py-3 text-gray-700 font-medium transition-colors min-h-[48px] touch-manipulation"
+              x-bind:class={`answers.${q.id} === '${value}' ? 'border-blue-600 bg-blue-50 text-black' : 'border-gray-100 hover:border-blue-200'`}
+              x-bind:aria-pressed={`answers.${q.id} === '${value}' ? 'true' : 'false'`}
+              x-on:click={`answers.${q.id} = '${value}'`}
+            >{label}</button>
+          ))}
+        </div>
+      </fieldset>
+    ))}
+  </div>
+
+  <div class="mt-8" aria-live="polite">
+    <p class="m-0 rounded-xl border-2 border-dashed border-gray-200 p-5 text-gray-500 font-medium" x-show="!result">{text.waiting}</p>
+
+    {results.map((r) => {
+      const style = toneStyle[r.tone];
+      return (
+        <div class:list={['rounded-2xl border-2 p-5 sm:p-6', style.box]} x-show={`result === '${r.key}'`} x-cloak>
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-500">{text.resultLabel}</span>
+            <span class:list={['rounded-full px-3 py-1 text-xs font-bold text-white', style.badge]}>{style.label}</span>
+          </div>
+          <p class="m-0 mt-3 text-xl md:text-2xl font-bold text-black">{r.title}</p>
+          <ul class="m-0 mt-4 list-none space-y-3 p-0">
+            {r.points.map((p) => (
+              <li class="m-0 flex items-start gap-3 text-gray-700 leading-relaxed">
+                <span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400" aria-hidden="true"></span>
+                <span set:html={p} />
+              </li>
+            ))}
+          </ul>
+          {r.links && r.links.length > 0 && (
+            <p class="m-0 mt-4 text-sm text-gray-500">
+              {text.sources}:{' '}
+              {r.links.map((l, i) => (
+                <>
+                  {i > 0 && ' · '}
+                  <a href={l.href} class="underline hover:text-blue-600" {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l.text}</a>
+                </>
+              ))}
+            </p>
+          )}
+          <div class="mt-5 flex flex-wrap gap-3">
+            {r.pilot === 'primary' && (
+              <>
+                <a href={pilotHref} class="inline-block bg-blue-600 text-white rounded-full px-6 py-3 font-medium no-underline hover:bg-blue-700">{text.pilotPrimary}</a>
+              </>
+            )}
+            {r.pilot === 'secondary' && (
+              <a href={pilotHref} class="inline-block border-2 border-blue-600 text-blue-600 rounded-full px-6 py-2.5 font-medium no-underline hover:bg-blue-50">{text.pilotSecondary}</a>
+            )}
+            {showArticleLink && (
+              <a href={articleHref} class="inline-block rounded-full px-2 py-3 font-medium text-blue-600 underline hover:text-blue-700">{text.article}</a>
+            )}
+          </div>
+        </div>
+      );
+    })}
+
+    <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+      <p class="m-0 text-sm text-gray-500 max-w-2xl">{text.footnote}</p>
+      <button type="button" class="text-sm font-semibold text-blue-600 underline hover:text-blue-700" x-show="answered" x-cloak x-on:click="reset()">{text.reset}</button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Defined before Alpine starts (Alpine loads as a deferred module).
+  window.jiraCopilotCheck = function () {
+    return {
+      answers: { jira: null, licence: null, goal: null, data: null },
+      get answered() {
+        return Object.values(this.answers).some(Boolean);
+      },
+      reset() {
+        this.answers = { jira: null, licence: null, goal: null, data: null };
+      },
+      get result() {
+        const a = this.answers;
+        if (!a.jira || !a.licence || !a.goal || !a.data) return null;
+        if (a.data === 'own') return 'private';
+        if (a.jira === 'unsure') return 'unsure-jira';
+        if (a.jira === 'server') return 'server';
+        if (a.licence === 'unsure') return 'unsure-licence';
+        const dc = a.jira === 'dc';
+        if (a.licence === 'none') return dc ? 'none-dc' : 'none-cloud';
+        if (dc && a.goal === 'write') return 'dc-write';
+        if (a.licence === 'studio') return dc ? 'dc-studio' : 'cloud-studio';
+        if (a.goal === 'across') return dc ? 'across-dc' : 'across-cloud';
+        return (dc ? 'dc-' : 'cloud-') + a.goal;
+      },
+    };
+  };
+</script>

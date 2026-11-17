@@ -16,7 +16,7 @@ faq:
   - question: "What is RAG over Jira and Confluence?"
     answer: "Retrieval-augmented generation (RAG) means a language model answers from passages retrieved from your own systems at question time, instead of from what it learned in training. Over Jira and Confluence, that means issues, comments and wiki pages are indexed, the most relevant ones are retrieved for each question, and the answer cites the issue or page it came from."
   - question: "Why not just use the Microsoft 365 Copilot connectors for Jira and Confluence?"
-    answer: "For many teams on Jira Cloud or a supported Jira Data Center version, with Microsoft 365 Copilot add-on (or E7) licenses, the connectors are the simplest route. A self-hosted system fits better when answers depend on content the connectors do not index, such as Jira Cloud comments, when you run Jira Server, when the index should not live in Microsoft 365, or when you want to choose the model and the hosting location yourself."
+    answer: "For many teams on Jira Cloud or a supported Jira Data Center version, with Microsoft 365 Copilot add-on (or E7) licenses, the connectors are the simplest route. A self-hosted system fits better when answers depend on content the connectors do not reach, such as file shares or other systems without a connector, when you run Jira Server, when the index should not live in Microsoft 365, or when you want to choose the model and the hosting location yourself."
   - question: "Does a self-hosted RAG system respect Jira and Confluence permissions?"
     answer: "Only if it is built to. Each item's access rules are stored with it in the index, and every search is filtered by the asking user's identity before anything reaches the model. Permission changes then need their own sync schedule, separate from content changes."
   - question: "How long does it take to build?"
@@ -51,7 +51,7 @@ better than an off-the-shelf connector, and when it does not.
 ## Key Takeaways
 
 - **RAG** means the model answers from passages retrieved from your own Jira and Confluence at question time, and cites them. Nothing is trained on your data.
-- Microsoft's Copilot connectors are the simplest option if you run a supported Jira version and have Microsoft 365 Copilot add-on (or E7) licenses. A self-hosted system fits when you need comments, run Jira Server, want the index outside Microsoft 365, or want to pick the model and the hosting yourself.
+- Microsoft's Copilot connectors are the simplest option if you run a supported Jira version and have Microsoft 365 Copilot add-on (or E7) licenses. A self-hosted system fits when you need Data Center comments or file shares, run Jira Server, want the index outside Microsoft 365, or want to pick the model and the hosting yourself.
 - The hard parts are not the model. They are **permissions**, **freshness** and **citations**.
 - The system can run on your own servers or at an EU provider, with an open-source model, so your content stays on infrastructure you choose.
 
@@ -64,12 +64,12 @@ First, the comparison. If the connector covers your case, use it.
 | Jira Cloud | Supported | Supported |
 | Jira Data Center | Separate connector, on-premises agent and plugin | Supported via API |
 | Jira Server (no Atlassian support since February 2024) | Not supported | Supported via API |
-| Jira comments | Not listed for Jira Cloud; on request for Data Center | Indexed if you choose |
+| Jira comments | Microsoft's Jira connector: not listed for Jira Cloud, on request for Data Center. Atlassian Rovo connector (Cloud only): read live | Indexed if you choose |
 | License for Jira content in Copilot answers | Microsoft 365 Copilot add-on or E7 | Your own infrastructure cost |
 | Where the index lives | Microsoft 365 | Where you deploy it |
 
 The connector facts come from Microsoft's documentation (see Sources below) and are explained in detail in
-[what the Copilot Jira connector can and cannot read](/resources/blog/copilot-jira-connector-what-it-reads/).
+[three ways to connect Jira to Copilot, and what each reads](/resources/blog/copilot-jira-connector-what-it-reads/).
 If you mainly want to get more out of the tools you already have, start with our free
 [AI guides for product managers and product owners](/resources/guides/).
 

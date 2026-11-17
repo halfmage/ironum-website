@@ -8,6 +8,21 @@ const breadcrumbs = [
   { label: 'Startseite', href: '/de/' },
   { label: 'Ressourcen', href: '/de/ressourcen/' },
 ];
+
+const sections = [
+  {
+    title: 'Blog',
+    description: 'Experteneinblicke zu DSGVO-konformer KI, EU AI Act Compliance, Enterprise RAG und Workflow-Automatisierung für europäische Unternehmen.',
+    href: '/de/ressourcen/blog/',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+  },
+  {
+    title: 'Jira + Copilot Check',
+    description: 'Vier Fragen, eine ehrliche Antwort: welcher Weg Ihr Jira mit Microsoft Copilot verbindet und was er nicht kann.',
+    href: '/de/ressourcen/jira-copilot-check/',
+    icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+];
 ---
 
 <Layout
@@ -26,17 +41,19 @@ const breadcrumbs = [
 
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-      <a href="/de/ressourcen/blog/" class="group border-2 border-gray-100 rounded-2xl p-8 md:p-12 hover:border-blue-600 transition-colors block">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+      {sections.map(section => (
+        <a href={section.href} class="group border-2 border-gray-100 rounded-2xl p-8 md:p-12 hover:border-blue-600 transition-colors block">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={section.icon} />
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold group-hover:text-blue-600 transition-colors">{section.title}</h2>
           </div>
-          <h2 class="text-2xl font-bold group-hover:text-blue-600 transition-colors">Blog</h2>
-        </div>
-        <p class="text-gray-500 text-lg font-semibold">Experteneinblicke zu DSGVO-konformer KI, EU AI Act Compliance, Enterprise RAG und Workflow-Automatisierung für europäische Unternehmen.</p>
-      </a>
+          <p class="text-gray-500 text-lg font-semibold">{section.description}</p>
+        </a>
+      ))}
     </div>
   </section>
 
