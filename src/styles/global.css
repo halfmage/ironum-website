@@ -1,11 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Alpine: hide x-cloak elements until Alpine has started. */
-[x-cloak] {
-  display: none !important;
-}
-
 /* Article figures (SVG charts): same left-aligned 640px width as on the guide pages. */
 .prose img[src$=".svg"] {
   width: 100%;

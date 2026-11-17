@@ -15,7 +15,7 @@ const breadcrumbs = [
 
 <Layout
   title="Jira + Copilot Check: Which Route Fits Your Setup? | Ironum"
-  description="Four questions about your Jira, your Microsoft licence and your data: find out whether Microsoft's Jira connector, the Atlassian Rovo connector or Copilot Studio fits, and where each falls short."
+  description="Four questions about your Jira, your Microsoft license and your data: find out whether Microsoft's Jira connector, the Atlassian Rovo connector or Copilot Studio fits, and where each falls short."
   breadcrumbs={breadcrumbs}
 >
   <Navigation />
@@ -30,7 +30,7 @@ const breadcrumbs = [
 
   <section id="check" class="px-4 md:px-20 py-12 md:py-20 scroll-mt-20">
     <div class="max-w-4xl mx-auto">
-      <JiraCopilotCheck locale="en" showArticleLink />
+      <JiraCopilotCheck locale="en" showArticleLink showHeader={false} />
     </div>
   </section>
 
@@ -42,7 +42,7 @@ const breadcrumbs = [
       {
         href: '/resources/blog/copilot-jira-connector-what-it-reads/',
         title: 'Three Ways to Connect Jira to Copilot',
-        description: 'What each route reads, which licence it needs, how to set it up and what to check when Copilot does not answer.',
+        description: 'What each route reads, which license it needs, how to set it up and what to check when Copilot does not answer.',
       },
       {
         href: '/resources/blog/rag-jira-confluence-self-hosted-eu/',

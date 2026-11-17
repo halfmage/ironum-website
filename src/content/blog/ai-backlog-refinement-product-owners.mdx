@@ -2,7 +2,7 @@
 title: "AI Backlog Refinement When Copilot Can't Read Jira"
 description: "Most product owners cannot point Copilot at their backlog. What to paste, what must never go in, and the refinement work AI genuinely does."
 publishDate: 2026-09-17
-updatedDate: 2026-10-08
+updatedDate: 2026-11-17
 author: "Alesia Kunz"
 category: "implementation"
 tags: ["Product Owner", "Backlog Refinement", "Microsoft Copilot", "Scrum", "AI at Work", "GDPR"]
@@ -11,7 +11,7 @@ locale: "en"
 legalDisclaimer: true
 faq:
   - question: "Can Microsoft Copilot read my Jira backlog?"
-    answer: "Not on its own. Microsoft has separate Jira connectors for Jira Cloud and Jira Data Center; an administrator has to deploy one, and Copilot only answers from it with the Microsoft 365 Copilot add-on license. In practice most product owners copy the item in by hand. The details are in our article on what the Copilot Jira connector can and cannot read."
+    answer: "Not on its own. An administrator has to set up a connector first: Microsoft's Jira connector (for Jira Cloud or Jira Data Center) or, on Jira Cloud, the Atlassian Rovo connector. Copilot only answers from either with the Microsoft 365 Copilot add-on license. In practice most product owners copy the item in by hand. The details are in our article on the three ways to connect Jira to Copilot."
   - question: "What is the difference between Copilot Chat and Microsoft 365 Copilot?"
     answer: "Copilot Chat on the basic tier answers from web data. It sees your work only if you paste it, upload it, or have it open in Teams or Outlook. Microsoft 365 Copilot additionally works inside Word, Excel, PowerPoint and OneNote. Only the paid Microsoft 365 Copilot Premium add-on reaches your own files and mail automatically through Microsoft Graph, and only for files you already have permission to open."
   - question: "Is it safe to paste a backlog item into Copilot at work?"
@@ -47,10 +47,10 @@ of them.
 ## Why Copilot Cannot Read Your Backlog
 
 **Short answer: it can't, on its own.** If your backlog lives in Jira or Azure DevOps, no
-tier of Microsoft Copilot reads it automatically. Microsoft's Jira connectors (one for
-Jira Cloud, a separate one for Jira Data Center) have to be deployed by an administrator,
-and answering from them needs the paid Copilot add-on, so most product owners paste items
-in by hand. More in [what the Copilot Jira connector can and cannot read](/resources/blog/copilot-jira-connector-what-it-reads/).
+tier of Microsoft Copilot reads it automatically. An administrator has to set up a connector
+first (Microsoft's Jira connector, or on Jira Cloud the Atlassian Rovo connector), and
+answering from it needs the paid Copilot add-on, so most product owners paste items
+in by hand. More in [three ways to connect Jira to Copilot](/resources/blog/copilot-jira-connector-what-it-reads/).
 
 Two sources feed any answer a Copilot gives you: the public web, and your organization's
 own content. Which of the two it can reach depends entirely on your license.
