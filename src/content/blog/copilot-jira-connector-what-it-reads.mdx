@@ -17,9 +17,9 @@ faq:
   - question: "How do I connect Jira to Microsoft Copilot?"
     answer: "For Microsoft's Jira connector, a Microsoft 365 administrator sets it up once in the Microsoft 365 admin center. For the Atlassian Rovo connector, the administrator turns it on there, and each user connects it once in Copilot Chat under Settings, Sources. For a Copilot Studio agent, you add Atlassian's MCP server to the agent as a tool. The Rovo connector and Atlassian's MCP server work with Atlassian Cloud only."
   - question: "Can Copilot read Jira comments?"
-    answer: "It depends on the route. Microsoft's Jira Cloud connector does not index comments, and Microsoft documents no option to add them. Atlassian's MCP server, which the Rovo connector uses, has a tool that reads issue comments. Microsoft's Jira Data Center connector indexes comments and attachments only after a request to Microsoft Support."
+    answer: "It depends on the route. Microsoft's Jira Cloud connector does not index comments, and Microsoft documents no option to add them. Microsoft does not document which Jira data the Atlassian Rovo connector reads. Atlassian's own MCP server has a tool that reads issue comments, so test the Rovo connector with a question only a comment can answer. Microsoft's Jira Data Center connector indexes comments and attachments only after a request to Microsoft Support."
   - question: "Can Copilot create or update Jira issues?"
-    answer: "On Jira Cloud, yes. Since November 2026, Copilot can create and update Jira work items through the Atlassian Rovo connector, in Copilot Chat and Cowork. Copilot asks the user to confirm each change, and the change runs with that user's Jira permissions. Microsoft's own Jira connectors only read."
+    answer: "On Jira Cloud, yes. Since November 2026, Copilot can create and update Jira work items through the Atlassian Rovo connector, in Copilot Chat and Cowork. By default, Copilot asks the user to confirm each change, and the change runs with that user's Jira permissions. Microsoft's own Jira connectors only read."
   - question: "Does Copilot work with Jira Data Center or Jira Server?"
     answer: "Jira Data Center works with Microsoft's Jira Data Center connector, version 8.14 and later. It needs the Microsoft Graph connector agent on a Windows machine and Microsoft's plugin from the Atlassian Marketplace. The Atlassian Rovo connector and Atlassian's MCP server support Atlassian Cloud only. Neither of Microsoft's Jira connectors lists Jira Server."
   - question: "How up to date is Jira data in Copilot?"
@@ -63,8 +63,8 @@ Atlassian Rovo is one of them. For most Jira Cloud teams, that changes the answe
       <p class="m-0 mt-3 text-sm text-gray-600">Asks Jira at the moment you ask. Nothing is copied into Microsoft 365.</p>
       <ul class="m-0 mt-4 list-none space-y-2 p-0 text-sm text-gray-700">
         <li class="m-0"><strong>Jira:</strong> Cloud only</li>
-        <li class="m-0"><strong>Comments:</strong> tool available</li>
-        <li class="m-0"><strong>Creates issues:</strong> yes, after you confirm</li>
+        <li class="m-0"><strong>Comments:</strong> not documented, test it</li>
+        <li class="m-0"><strong>Creates issues:</strong> yes, asks first by default</li>
         <li class="m-0"><strong>Setup:</strong> an admin turns it on, each person connects</li>
       </ul>
     </div>
@@ -153,13 +153,13 @@ and there is no setting to add them.
 
 This matters more than it looks. In most teams, the comments hold the actual decision. A
 Copilot that sees the description but not the thread summarizes the ticket as it was
-written, not as it was agreed. On Jira Cloud, route 2 closes that gap.
+written, not as it was agreed. On Jira Cloud, test whether route 2 closes that gap.
 
 ### Permissions and Freshness
 
 - **Permissions:** choose the mode "Only people with access to this data source". The connector then matches Jira users to Microsoft 365 accounts by email address. If the addresses differ, people miss issues they can see in Jira.
 - **Unsupported permission types:** "Any user logged in" (Cloud) and "Any logged-in user" (Data Center) cannot be checked. On Data Center, those issues are hidden from everyone in Copilot.
-- **Freshness:** the copy lags behind Jira. On Data Center, the default is an update every 15 minutes and a full crawl once a day. Don't ask about the meeting you left ten minutes ago.
+- **Freshness:** the copy lags behind Jira. On Data Center, the default is an update every 15 minutes and a full crawl once a day. An issue changed ten minutes ago may not be in Copilot's answer yet.
 
 ## Route 2: The Atlassian Rovo Connector
 
@@ -168,7 +168,7 @@ Atlassian Rovo is a **live connector** in Microsoft's catalog (Microsoft calls i
 sees what you can see. Nothing is copied into Microsoft 365.
 
 Since 9 November 2026, live connectors can also change data. Microsoft names Rovo as one
-that creates and updates Jira work items and Confluence pages, in Copilot Chat and Cowork.
+that creates and updates Jira work items, in Copilot Chat and Cowork.
 
 ### How to Set It Up
 
@@ -176,8 +176,9 @@ that creates and updates Jira work items and Confluence pages, in Copilot Chat a
 2. **Admin:** in the Microsoft 365 admin center, go to Copilot connectors, Your connections, and turn on Atlassian Rovo. If your tenant blocks apps from outside publishers, turn this connector on by itself.
 3. **Each user, once:** in Copilot Chat, open the … menu, Settings, Sources, connect the source and sign in with the Atlassian account.
 
-Atlassian's server has a tool that reads issue comments. Test it with a question that only a
-comment can answer, for example "What did we agree about the export format in ABC-123?".
+Microsoft does not document which Jira data the Rovo connector can read. Atlassian's own MCP
+server has a tool for issue comments, so test the connector with a question that only a comment
+can answer, for example "What did we agree about the export format in ABC-123?".
 
 <figure class="not-prose my-10">
   <div class="rounded-2xl border-2 border-gray-100 bg-gray-50 p-5 sm:p-6">
@@ -201,9 +202,12 @@ comment can answer, for example "What did we agree about the export format in AB
 
 ### What It Costs
 
-Connecting is free. So are single lookups (one issue, one page) and changes. Searches across
-Atlassian products usually use 1 to 10 Rovo credits each, from your Atlassian plan's allowance. From
-3 December 2026, Atlassian bills extra credits automatically unless an admin turns that off.
+Microsoft charges nothing extra for connectors if you have the Copilot add-on. On the
+Atlassian side, calls to Atlassian's MCP server are free for single lookups (one issue, one
+page) and changes; searches across Atlassian products usually cost 1 to 10 Rovo credits from
+your plan's allowance. From 3 December 2026, Atlassian bills extra credits automatically
+unless an admin turns that off. Neither company documents whether the Rovo connector's calls
+are counted the same way, so watch your Rovo usage in the first weeks.
 
 ### Where It Falls Short
 
@@ -221,8 +225,8 @@ assistants call other systems.)
 - **Sign-in:** Microsoft's Copilot Studio team recommends "Dynamic discovery". Setting up OAuth by hand mostly wastes time.
 - **Safe defaults:** Atlassian switches off the tools that delete Jira data or manage projects until an admin turns them on.
 
-In Atlassian's community, creating issues from Copilot Studio often fails on required
-fields. Check which fields your issue type needs.
+Jira only accepts a new issue when every required field is filled. If creating issues from
+your agent fails, check that first.
 
 An agent can also use Microsoft's Jira connector (route 1) as its knowledge source, for Jira
 Cloud and Data Center. That works with a Copilot Studio license, without the Copilot add-on.
@@ -251,13 +255,12 @@ on 28 March 2029.
 Copilot fits when you run Jira Cloud or a supported Data Center version, have the licenses,
 and may process your Jira content in Microsoft 365. It fits less well when:
 
-- you run Data Center and need comments, Confluence and file shares in one answer,
-- every answer has to name the exact issue or page it came from,
-- your content may not leave your own servers.
+- your content may not be processed in Microsoft 365,
+- you run Jira Server, or need Data Center comments without a request to Microsoft Support,
+- you need sources that have no connector.
 
-Then a search system you control is the better fit. It reads Jira and Confluence, keeps the
-permissions people already have, links every answer to its source, and runs where you
-decide. That is what we build as [enterprise RAG](/services/enterprise-rag/). How it works:
+Then a search system you control is the better fit. It reads Jira and Confluence through
+their APIs, keeps the permissions people already have, and runs where you decide. That is what we build as [enterprise RAG](/services/enterprise-rag/). How it works:
 [RAG over Jira and Confluence, self-hosted in the EU](/resources/blog/rag-jira-confluence-self-hosted-eu/).
 
 Until then, the method that works on any license is the one most teams already use: paste the
@@ -278,4 +281,3 @@ Checked on 17 November 2026.
 - Microsoft: [Jira Cloud connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-cloud-overview) (fields, permission modes, "Browse projects"), [Jira Data Center connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-overview) (version 8.14 and later, comments on request, use in agents), [deploying the Data Center connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/jira-data-center-deployment) (agent, plugin, crawl schedule), [prerequisites and licensing](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/prerequisites).
 - Microsoft: [federated connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/federated-connectors-overview) (live access, setup, confirmations), [partner connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners) (Atlassian Rovo, connectors for Data Center and Server), [write actions announcement](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/turn-copilot-insights-into-action-with-connector-write-capabilities/4571160) (9 November 2026), [Atlassian MCP in Copilot Studio](https://microsoft.github.io/mcscatblog/posts/atlassian-jira-remote-mcp-copilot-studio/).
 - Atlassian: [Rovo MCP server](https://developer.atlassian.com/cloud/rovo-mcp/) and its [tools](https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/), [how Rovo credits work](https://support.atlassian.com/rovo/docs/rovo-usage-limits/), [Data Center end of life](https://www.atlassian.com/licensing/data-center-end-of-life).
-- Atlassian Community: [creating issues from Copilot Studio](https://community.atlassian.com/forums/Jira-questions/Issue-in-creating-issue-in-Jira-using-connector-with-in-copilot/qaq-p/3233565).

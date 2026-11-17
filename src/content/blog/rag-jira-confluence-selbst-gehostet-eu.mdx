@@ -16,7 +16,7 @@ faq:
   - question: "Was ist RAG über Jira und Confluence?"
     answer: "Retrieval-Augmented Generation (RAG) bedeutet, dass ein Sprachmodell aus Textstellen antwortet, die im Moment der Frage aus Ihren eigenen Systemen abgerufen werden, statt aus dem, was es im Training gelernt hat. Bei Jira und Confluence heißt das: Vorgänge, Kommentare und Wiki-Seiten werden indexiert, zu jeder Frage werden die passendsten abgerufen, und die Antwort nennt den Vorgang oder die Seite, aus der sie stammt."
   - question: "Warum nicht einfach die Microsoft-365-Copilot-Connectors für Jira und Confluence nutzen?"
-    answer: "Für viele Teams mit Jira Cloud oder einer unterstützten Jira-Data-Center-Version und Lizenzen für das Add-on Microsoft 365 Copilot (oder E7) sind die Connectors der einfachste Weg. Ein selbst gehostetes System passt besser, wenn die Antworten von Inhalten abhängen, die die Connectors nicht erreichen, etwa Dateifreigaben oder andere Systeme ohne Connector, wenn Sie Jira Server betreiben, wenn der Index nicht in Microsoft 365 liegen soll oder wenn Sie Modell und Hosting-Standort selbst wählen möchten."
+    answer: "Für viele Teams mit Jira Cloud oder einer unterstützten Jira-Data-Center-Version und Lizenzen für das Add-on Microsoft 365 Copilot (oder E7) sind die Connectors der einfachste Weg. Ein selbst gehostetes System passt besser, wenn die Antworten von Inhalten abhängen, die die Connectors nicht erreichen, etwa Systeme ohne Connector, wenn Sie Jira Server betreiben, wenn der Index nicht in Microsoft 365 liegen soll oder wenn Sie Modell und Hosting-Standort selbst wählen möchten."
   - question: "Berücksichtigt ein selbst gehostetes RAG-System die Berechtigungen aus Jira und Confluence?"
     answer: "Nur, wenn es dafür gebaut ist. Die Zugriffsregeln jedes Elements werden mit im Index gespeichert, und jede Suche wird nach der Identität der fragenden Person gefiltert, bevor etwas beim Modell ankommt. Berechtigungsänderungen brauchen dann einen eigenen Synchronisationsplan, getrennt von inhaltlichen Änderungen."
   - question: "Wie lange dauert der Aufbau?"
@@ -53,7 +53,7 @@ besser passt als ein fertiger Connector und wann nicht.
 ## Auf einen Blick
 
 - **RAG** bedeutet: Das Modell antwortet aus Textstellen, die im Moment der Frage aus Ihrem eigenen Jira und Confluence abgerufen werden, und belegt sie. Mit Ihren Daten wird nichts trainiert.
-- Die Copilot-Connectors von Microsoft sind die einfachste Option, wenn Sie eine unterstützte Jira-Version betreiben und Lizenzen für das Add-on Microsoft 365 Copilot (oder E7) haben. Ein selbst gehostetes System passt, wenn Sie Kommentare aus Data Center oder Dateifreigaben brauchen, Jira Server betreiben, den Index außerhalb von Microsoft 365 haben oder Modell und Hosting selbst wählen möchten.
+- Die Copilot-Connectors von Microsoft sind die einfachste Option, wenn Sie eine unterstützte Jira-Version betreiben und Lizenzen für das Add-on Microsoft 365 Copilot (oder E7) haben. Ein selbst gehostetes System passt, wenn Sie Kommentare aus Data Center ohne Support-Anfrage oder Quellen ohne Connector brauchen, Jira Server betreiben, den Index außerhalb von Microsoft 365 haben oder Modell und Hosting selbst wählen möchten.
 - Schwierig ist nicht das Modell, sondern **Berechtigungen**, **Aktualität** und **Quellenangaben**.
 - Das System kann auf Ihren eigenen Servern oder bei einem EU-Anbieter laufen, mit einem Open-Source-Modell, sodass Ihre Inhalte auf einer Infrastruktur Ihrer Wahl bleiben.
 
@@ -66,7 +66,7 @@ Zuerst der Vergleich. Wenn der Connector Ihren Fall abdeckt, nutzen Sie ihn.
 | Jira Cloud | Unterstützt | Unterstützt |
 | Jira Data Center | Eigener Connector, On-Premises-Agent und Plugin | Unterstützt über die API |
 | Jira Server (seit Februar 2024 ohne Support von Atlassian) | Nicht unterstützt | Unterstützt über die API |
-| Jira-Kommentare | Microsofts Jira-Connector: bei Jira Cloud nicht aufgeführt, bei Data Center auf Anfrage. Connector Atlassian Rovo (nur Cloud): live lesbar | Indexiert, wenn Sie es wollen |
+| Jira-Kommentare | Microsofts Jira-Connector: bei Jira Cloud nicht aufgeführt, bei Data Center auf Anfrage. Connector Atlassian Rovo (nur Cloud): nicht dokumentiert, testen | Indexiert, wenn Sie es wollen |
 | Lizenz für Jira-Inhalte in Copilot-Antworten | Add-on Microsoft 365 Copilot oder E7 | Kosten Ihrer eigenen Infrastruktur |
 | Wo der Index liegt | Microsoft 365 | Dort, wo Sie das System betreiben |
 
@@ -181,7 +181,7 @@ Die Aussagen zu Microsofts Connectors stammen aus Microsofts Dokumentation, gepr
 - [Übersicht Jira-Cloud-Connector](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/jira-cloud-overview): nur Jira Cloud, Jira Server und Data Center werden nicht unterstützt, indexierte Felder (Kommentare gehören nicht dazu).
 - [Übersicht Jira-Data-Center-Connector](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/jira-data-center-overview): Connector Agent und Plugin, Kommentare und Anhänge nur auf Anfrage beim Microsoft-Support, Zugriff wird verweigert, wenn sich Berechtigungen nicht auflösen lassen.
 - [Voraussetzungen für die Bereitstellung von Connectors](https://learn.microsoft.com/de-de/microsoft-365/copilot/connectors/prerequisites): Inhalte werden in Microsoft 365 indexiert, und Copilot antwortet daraus nur mit dem Add-on Microsoft 365 Copilot oder Microsoft 365 E7.
-- [Federated connectors overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/federated-connectors-overview) und [Werkzeuge des Atlassian Rovo MCP Servers](https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/) (Englisch), geprüft am 17. November 2026: Der Connector Atlassian Rovo fragt die Atlassian Cloud live ab, und Atlassians Server hat ein Werkzeug, das Kommentare liest.
+- [Federated connectors overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/federated-connectors-overview) und [Werkzeuge des Atlassian Rovo MCP Servers](https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/) (Englisch), geprüft am 17. November 2026: Der Connector Atlassian Rovo fragt die Atlassian Cloud live ab. Welche Jira-Daten er liest, dokumentiert Microsoft nicht; Atlassians eigener MCP-Server hat ein Werkzeug für Kommentare.
 
 Unser eigenes Ergebnis:
 
