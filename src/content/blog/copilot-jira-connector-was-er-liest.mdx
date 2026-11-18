@@ -33,9 +33,9 @@ passt, hängt an drei Dingen: ob Sie Jira Cloud oder Data Center nutzen, welche
 Microsoft-Lizenz Sie haben und ob Copilot die Kommentare lesen muss.
 
 *Aktualisiert am 17. November 2026.* Die erste Fassung dieses Beitrags behandelte nur
-Microsofts eigenen Connector. Seitdem hat Microsoft Live-Connectors eingeführt, die auch
-Daten ändern können, und Atlassian Rovo ist einer davon. Für die meisten Teams mit Jira
-Cloud ändert das die Antwort.
+Microsofts eigenen Connector. Live-Connectors wie Atlassian Rovo fehlten, und die können
+seit dem 9. November 2026 auch Jira-Daten ändern. Wenn Sie Jira Cloud nutzen, ändert das die
+Antwort.
 
 ## Jira mit Copilot verbinden: drei Wege
 
@@ -153,8 +153,8 @@ Kommentare stehen nicht auf der Liste, und es gibt keine Einstellung dafür.
   <figcaption class="mt-3 text-sm text-gray-500">Illustration mit einem erfundenen Vorgang, auf Basis von Microsofts Dokumentation zum Jira-Cloud-Connector.</figcaption>
 </figure>
 
-Das wiegt schwerer, als es aussieht. In den meisten Teams steht die eigentliche Entscheidung
-in den Kommentaren. Ein Copilot, der die Beschreibung kennt, aber nicht den Verlauf, fasst
+Das zählt, wenn Ihr Team Dinge in den Kommentaren vereinbart, wie im Beispiel oben. Ein
+Copilot, der die Beschreibung kennt, aber nicht den Verlauf, fasst
 das Ticket so zusammen, wie es geschrieben wurde, nicht so, wie es vereinbart wurde. Bei
 Jira Cloud lohnt der Test, ob Weg 2 diese Lücke schließt.
 
@@ -208,7 +208,7 @@ Exportformat vereinbart?“.
 
 Microsoft berechnet für Connectors nichts extra, wenn Sie das Copilot-Add-on haben. Bei
 Atlassian sind Aufrufe an den MCP-Server für einzelne Abrufe (ein Vorgang, eine Seite) und
-Änderungen kostenlos; Suchen über mehrere Atlassian-Produkte kosten meist 1 bis 10
+Änderungen kostenlos; Suchen über mehrere Atlassian-Produkte kosten 1 bis 10
 Rovo-Credits aus dem Kontingent Ihres Plans. Ab dem 3. Dezember 2026 rechnet Atlassian
 zusätzliche Credits automatisch ab, sofern die Administration das nicht abschaltet. Ob die
 Aufrufe des Rovo-Connectors genauso gezählt werden, dokumentiert keines der beiden
@@ -227,7 +227,7 @@ Copilot Studio fügen Sie Atlassians MCP-Server dem Agent als Werkzeug hinzu. (M
 Standard, über den KI-Assistenten andere Systeme aufrufen.)
 
 - **Serveradresse:** aus Atlassians aktueller Dokumentation übernehmen. Manche älteren Anleitungen nutzen eine Adresse, die auf /v1/sse endet.
-- **Anmeldung:** Microsofts Copilot-Studio-Team empfiehlt „Dynamic discovery“. OAuth von Hand einzurichten kostet meist nur Zeit.
+- **Anmeldung:** Microsofts Copilot-Studio-Team empfiehlt „Dynamic discovery“.
 - **Sichere Voreinstellung:** Atlassian schaltet die Werkzeuge zum Löschen von Jira-Daten und zum Verwalten von Projekten erst frei, wenn die Administration sie einschaltet.
 
 Jira nimmt neue Vorgänge nur an, wenn alle Pflichtfelder gefüllt sind. Scheitert das
@@ -273,8 +273,8 @@ entscheiden. Genau das bauen wir als
 [Enterprise RAG](/de/dienstleistungen/enterprise-rag/). Wie es funktioniert:
 [RAG über Jira und Confluence, selbst gehostet in der EU](/de/ressourcen/blog/rag-jira-confluence-selbst-gehostet-eu/).
 
-Bis dahin funktioniert mit jeder Lizenz, was die meisten Teams ohnehin tun: den Vorgang
-hineinkopieren und der KI den Kontext selbst mitgeben. Unser kostenloser
+Bis dahin funktioniert ein Weg mit jeder Lizenz: den Vorgang hineinkopieren und der KI den
+Kontext selbst mitgeben. Unser kostenloser
 [Leitfaden für Product Owner](/resources/guides/ai-for-product-owners/) (auf Englisch)
 enthält Prompts dafür.
 

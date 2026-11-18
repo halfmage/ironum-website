@@ -33,8 +33,8 @@ fits depends on three things: whether you run Jira Cloud or Data Center, which M
 license you have, and whether Copilot needs to read the comments.
 
 *Updated 17 November 2026.* The first version of this article covered only Microsoft's own
-connector. Since then, Microsoft has added live connectors that can also change data, and
-Atlassian Rovo is one of them. For most Jira Cloud teams, that changes the answer.
+connector. It left out live connectors such as Atlassian Rovo, which can also change Jira
+data since 9 November 2026. If you run Jira Cloud, that changes the answer.
 
 ## How to Connect Jira to Copilot: Three Routes
 
@@ -151,7 +151,7 @@ and there is no setting to add them.
   <figcaption class="mt-3 text-sm text-gray-500">Illustration with an invented issue, based on Microsoft's documentation of the Jira Cloud connector.</figcaption>
 </figure>
 
-This matters more than it looks. In most teams, the comments hold the actual decision. A
+This matters if your team agrees on things in the comments, as in the example above. A
 Copilot that sees the description but not the thread summarizes the ticket as it was
 written, not as it was agreed. On Jira Cloud, test whether route 2 closes that gap.
 
@@ -204,7 +204,7 @@ can answer, for example "What did we agree about the export format in ABC-123?".
 
 Microsoft charges nothing extra for connectors if you have the Copilot add-on. On the
 Atlassian side, calls to Atlassian's MCP server are free for single lookups (one issue, one
-page) and changes; searches across Atlassian products usually cost 1 to 10 Rovo credits from
+page) and changes; searches across Atlassian products cost 1 to 10 Rovo credits from
 your plan's allowance. From 3 December 2026, Atlassian bills extra credits automatically
 unless an admin turns that off. Neither company documents whether the Rovo connector's calls
 are counted the same way, so watch your Rovo usage in the first weeks.
@@ -222,7 +222,7 @@ Studio, you add Atlassian's MCP server to the agent as a tool. (MCP is the stand
 assistants call other systems.)
 
 - **Server address:** take it from Atlassian's current documentation. Some older guides use an address ending in /v1/sse.
-- **Sign-in:** Microsoft's Copilot Studio team recommends "Dynamic discovery". Setting up OAuth by hand mostly wastes time.
+- **Sign-in:** Microsoft's Copilot Studio team recommends "Dynamic discovery".
 - **Safe defaults:** Atlassian switches off the tools that delete Jira data or manage projects until an admin turns them on.
 
 Jira only accepts a new issue when every required field is filled. If creating issues from
@@ -263,8 +263,8 @@ Then a search system you control is the better fit. It reads Jira and Confluence
 their APIs, keeps the permissions people already have, and runs where you decide. That is what we build as [enterprise RAG](/services/enterprise-rag/). How it works:
 [RAG over Jira and Confluence, self-hosted in the EU](/resources/blog/rag-jira-confluence-self-hosted-eu/).
 
-Until then, the method that works on any license is the one most teams already use: paste the
-issue in and give the AI the context yourself. Our free
+Until then, one method works on any license: paste the issue in and give the AI the context
+yourself. Our free
 [guide for product owners](/resources/guides/ai-for-product-owners/) has prompts for that.
 
 <div class="not-prose my-10 rounded-2xl border-2 border-blue-100 bg-blue-50 px-6 py-6">
