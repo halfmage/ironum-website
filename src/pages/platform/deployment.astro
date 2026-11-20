@@ -134,7 +134,7 @@ import Footer from '../../components/Footer.astro';
             <tr class="border-b border-gray-100">
               <td class="py-4 pr-4">Transfer outside the EU</td>
               <td class="py-4 px-4">Depends on provider</td>
-              <td class="py-4 px-4">Not with EU deployment types</td>
+              <td class="py-4 px-4">Not intended with EU deployment types (per Microsoft)</td>
               <td class="py-4 pl-4 text-green-600">No</td>
             </tr>
             <tr class="border-b border-gray-100">
@@ -212,7 +212,7 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <FAQSection items={[
-    { question: "Can I combine deployment models?", answer: "Yes. Many clients use Azure EU for sensitive workloads and cloud APIs for non-sensitive tasks. Our orchestration layer routes queries to the right backend automatically based on data classification rules you define." },
+    { question: "Can I combine deployment models?", answer: "Yes. A common setup is Azure EU for sensitive workloads and cloud APIs for non-sensitive tasks. Our orchestration layer routes queries to the right backend automatically based on data classification rules you define." },
     { question: "How long does deployment take?", answer: "Cloud API setups can be live in 2-3 days. Azure EU deployments typically take 1-2 weeks including DPA setup. On-premises deployments take 2-4 weeks depending on hardware readiness and network configuration." },
     { question: "Do I need my own IT team?", answer: "No. Ironum handles deployment, configuration, monitoring, and ongoing maintenance. We provide training for your team to manage day-to-day operations, but we remain available for support and updates." },
     { question: "Can I migrate between deployment models later?", answer: "Yes. Our modular architecture means you can start with cloud APIs and migrate to Azure EU or on-premises as your requirements evolve. We plan the migration to keep downtime as short as possible." },

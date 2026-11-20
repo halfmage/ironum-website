@@ -136,7 +136,7 @@ import Footer from '../../../components/Footer.astro';
             <tr class="border-b border-gray-100">
               <td class="py-4 pr-4">Übermittlung außerhalb der EU</td>
               <td class="py-4 px-4">Anbieterabhängig</td>
-              <td class="py-4 px-4">Nicht mit EU-Deployment-Typen</td>
+              <td class="py-4 px-4">Laut Microsoft nicht vorgesehen mit EU-Deployment-Typen</td>
               <td class="py-4 pl-4 text-green-600">Nein</td>
             </tr>
             <tr class="border-b border-gray-100">
@@ -214,7 +214,7 @@ import Footer from '../../../components/Footer.astro';
   </section>
 
   <FAQSection items={[
-    { question: "Kann ich Deployment-Modelle kombinieren?", answer: "Ja. Viele Kunden nutzen Azure EU für sensible Workloads und Cloud-APIs für nicht-sensible Aufgaben. Unsere Orchestrierungsebene leitet Anfragen automatisch basierend auf Datenklassifizierungsregeln, die Sie definieren, an das richtige Backend weiter." },
+    { question: "Kann ich Deployment-Modelle kombinieren?", answer: "Ja. Ein typisches Setup ist Azure EU für sensible Workloads und Cloud-APIs für nicht-sensible Aufgaben. Unsere Orchestrierungsebene leitet Anfragen automatisch basierend auf Datenklassifizierungsregeln, die Sie definieren, an das richtige Backend weiter." },
     { question: "Wie lange dauert das Deployment?", answer: "Cloud-API-Setups können in 2-3 Tagen live sein. Azure-EU-Deployments dauern typischerweise 1-2 Wochen inklusive AVV-Setup. On-Premise-Deployments dauern 2-4 Wochen, abhängig von Hardware-Bereitschaft und Netzwerkkonfiguration." },
     { question: "Brauche ich ein eigenes IT-Team?", answer: "Nein. Ironum übernimmt Deployment, Konfiguration, Monitoring und laufende Wartung. Wir schulen Ihr Team für den täglichen Betrieb, bleiben aber für Support und Updates verfügbar." },
     { question: "Kann ich später zwischen Deployment-Modellen migrieren?", answer: "Ja. Unsere modulare Architektur ermöglicht es Ihnen, mit Cloud-APIs zu starten und zu Azure EU oder On-Premise zu migrieren, wenn sich Ihre Anforderungen entwickeln. Wir planen die Migration so, dass die Ausfallzeit möglichst kurz bleibt." },
