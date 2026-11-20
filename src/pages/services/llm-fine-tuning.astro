@@ -22,7 +22,7 @@ const processSteps = [
   {
     step: '03',
     title: 'Evaluation',
-    description: 'Rigorous testing against your quality benchmarks. We evaluate accuracy, hallucination rates, response quality, and domain coverage. Your subject matter experts validate outputs before we proceed to deployment.',
+    description: 'Testing against your quality benchmarks. We evaluate accuracy, hallucination rates, response quality, and domain coverage. Your subject matter experts validate outputs before we proceed to deployment.',
     details: ['Automated benchmark testing', 'Human evaluation with SMEs', 'Hallucination detection', 'A/B testing against base model'],
   },
   {
@@ -56,7 +56,7 @@ const comparisonItems = [
   },
   {
     aspect: 'Hallucination risk',
-    rag: 'Low: grounded in retrieved sources',
+    rag: 'Lower: grounded in retrieved sources',
     fineTuning: 'Medium: depends on training quality',
   },
   {
@@ -73,15 +73,15 @@ const faqItems = [
   },
   {
     question: 'How much training data do I need?',
-    answer: 'With modern techniques like LoRA, meaningful improvements are possible with as few as 100 to 500 high-quality examples. For specialized tasks, 1,000 to 5,000 examples typically produce strong results. The quality of training data matters far more than quantity. 200 carefully curated examples often outperform 10,000 noisy ones. We help you identify and prepare the right data during the data preparation phase.',
+    answer: 'With modern techniques like LoRA, meaningful improvements are possible with as few as 100 to 500 high-quality examples. For specialized tasks, 1,000 to 5,000 examples typically produce strong results. The quality of training data matters more than quantity: a smaller set of carefully curated examples can outperform a much larger noisy one. We help you identify and prepare the right data during the data preparation phase.',
   },
   {
     question: 'Which base models do you work with?',
-    answer: 'We work primarily with open-source models: Llama 3 (Meta), Mistral, Mixtral, and similar. These models offer strong baseline performance, full transparency, and can be deployed without any data leaving your infrastructure. We also fine-tune models on Azure OpenAI for organisations that prefer managed infrastructure with EU data residency.',
+    answer: 'We work primarily with open-source models: Llama 3 (Meta), Mistral, Mixtral, and similar. These models offer strong baseline performance, open weights, and can be deployed on your own infrastructure. We also fine-tune models on Azure OpenAI for organisations that prefer managed infrastructure with EU data residency.',
   },
   {
-    question: 'Does my data stay private during training?',
-    answer: 'Yes. Training runs on infrastructure you control: your own servers, our German-hosted GPU infrastructure on Hetzner, or Azure EU regions. Your training data is never uploaded to third-party platforms or model providers. After training, you own the model weights and can deploy them independently.',
+    question: 'Where does my data go during training?',
+    answer: 'Training runs on infrastructure you choose: your own servers, our German-hosted GPU infrastructure on Hetzner, or Azure EU regions. With open-source models on your own servers or on Hetzner, your training data is not sent to a model provider. If you choose Azure OpenAI, training runs in Microsoft\'s EU regions under Microsoft\'s terms. After training, you own your fine-tuned weights, subject to the license of the base model.',
   },
   {
     question: 'How do you measure model quality?',
@@ -94,7 +94,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/llm-fine-tuning/#service",
     "name": "LLM Fine-Tuning",
-    "description": "Domain-specific AI models trained on your data. Open-source LLMs fine-tuned for your industry. Your data never leaves your infrastructure.",
+    "description": "Domain-specific AI models trained on your data. Open-source LLMs fine-tuned for your industry, on infrastructure you choose.",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "LLM Fine-Tuning"
@@ -110,7 +110,7 @@ const breadcrumbs = [
 
 <Layout
   title="LLM Fine-Tuning | Domain-Specific AI Models | Ironum"
-  description="Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry. Your data never leaves your infrastructure. GDPR compliant."
+  description="Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry, on your own servers or EU infrastructure. Built for GDPR requirements."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -119,7 +119,7 @@ const breadcrumbs = [
   <PageHero
     eyebrow="LLM FINE-TUNING"
     title="Domain-Specific AI Models, Trained on Your Data"
-    subtitle="Fine-tune open-source LLMs to speak your industry's language. Trained on your infrastructure, owned by you, with zero data leaving your control."
+    subtitle="Fine-tune open-source LLMs to speak your industry's language. Trained on infrastructure you choose, with the fine-tuned weights owned by you."
     ctaText="Scope my fine-tuning project"
     ctaLink="/contact/?source=llm-fine-tuning"
   />
@@ -130,7 +130,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">When to Fine-Tune</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs Fine-Tuning: Choose the Right Tool</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fine-tuning and RAG solve different problems. Understanding when to use each, or both, is critical for AI success. Here is how they compare.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fine-tuning and RAG solve different problems. Understanding when to use each, or both, matters for the result. Here is how they compare.</p>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden">
@@ -192,7 +192,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Open-Source First</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Data Stays on Your Infrastructure</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">We fine-tune open-source foundation models, including Llama, Mistral, and others, so your proprietary data never leaves your environment. No per-token fees, no data sharing with model providers, full ownership of the resulting model weights.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">We fine-tune open-source foundation models, including Llama, Mistral, and others, on your own servers or German-hosted infrastructure, so your proprietary data stays in the environment you choose. No per-token fees, no model provider involved, and you own the fine-tuned weights, subject to the base model's license.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -204,7 +204,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">You own the model weights. Deploy, modify, or redistribute freely</span>
+              <span class="text-gray-700 font-medium">You own the fine-tuned weights. Use and deploy them within the base model's license terms</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>

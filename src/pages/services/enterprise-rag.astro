@@ -10,7 +10,7 @@ import Footer from '../../components/Footer.astro';
 const features = [
   {
     title: 'Private Deployment',
-    description: 'Deploy on your own infrastructure: Azure EU, Hetzner, or on-premises. Your documents never leave your control. Zero data shared with model providers.',
+    description: 'Deploy on infrastructure you choose: Azure EU, Hetzner, or on-premises. Your documents stay under your control. With open-source models on your own servers, no external model provider is involved.',
     icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
   },
   {
@@ -20,7 +20,7 @@ const features = [
   },
   {
     title: 'Real-Time Sync',
-    description: 'Automatic document indexing when files change. Connect to SharePoint, Confluence, Google Drive, or internal file systems for always up-to-date answers.',
+    description: 'Automatic document indexing when files change. Connect to SharePoint, Confluence, Google Drive, or internal file systems so answers reflect the current documents.',
     icon: 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182',
   },
   {
@@ -30,7 +30,7 @@ const features = [
   },
   {
     title: 'Open-Source LLMs',
-    description: 'Run Llama, Mistral, or other open-source models. No per-token fees, no data sent to third parties. Full control over model selection and updates.',
+    description: 'Run Llama, Mistral, or other open-source models on your own servers. No per-token fees and no external model provider. Control over model selection and updates.',
     icon: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
   },
   {
@@ -58,11 +58,11 @@ const useCases = [
 const faqItems = [
   {
     question: 'What is RAG and how does it differ from fine-tuning?',
-    answer: 'Retrieval-Augmented Generation (RAG) connects an LLM to your document base at query time. Instead of training the model on your data (fine-tuning), RAG retrieves relevant passages and feeds them to the model as context. This means your answers are always grounded in current documents, hallucinations are drastically reduced, and you can update knowledge instantly without retraining. RAG is the right choice when you need accurate, source-cited answers from a changing document base.',
+    answer: 'Retrieval-Augmented Generation (RAG) connects an LLM to your document base at query time. Instead of training the model on your data (fine-tuning), RAG retrieves relevant passages and feeds them to the model as context. This means answers are grounded in your current documents, the risk of hallucinations is reduced, and you can update knowledge without retraining. RAG is the right choice when you need accurate, source-cited answers from a changing document base.',
   },
   {
-    question: 'How do you ensure data privacy and GDPR compliance?',
-    answer: 'Your documents are processed and stored exclusively on infrastructure you control: either your own servers, Azure EU regions, or German-hosted Hetzner infrastructure. We never send your data to third-party model providers. When using open-source LLMs, the entire pipeline runs on your hardware. All data processing is covered under a standard GDPR Data Processing Agreement (DPA).',
+    question: 'How do you handle data privacy and GDPR requirements?',
+    answer: 'Your documents are processed and stored on infrastructure you choose: your own servers, Azure EU regions, or German-hosted Hetzner infrastructure. Your data is not sent to public AI services. With open-source models on your own servers, the entire pipeline runs on your hardware and no external model provider is involved. Our processing is covered by a standard GDPR Data Processing Agreement (DPA).',
   },
   {
     question: 'How long does deployment take?',
@@ -83,7 +83,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/enterprise-rag/#service",
     "name": "Enterprise RAG Solutions",
-    "description": "Turn scattered documents into a searchable, private knowledge base with Retrieval-Augmented Generation. GDPR compliant, deployed on your infrastructure.",
+    "description": "Turn scattered documents into a searchable, private knowledge base with Retrieval-Augmented Generation. Built for GDPR requirements, deployed on infrastructure you choose.",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "Enterprise RAG"
@@ -99,7 +99,7 @@ const breadcrumbs = [
 
 <Layout
   title="Enterprise RAG with EU Data Residency | Ironum"
-  description="Private RAG deployed in EU data centers. For US SaaS and European enterprises that need document AI without CLOUD Act exposure. GDPR compliant."
+  description="Private RAG deployed in EU data centers or on your own servers. For US SaaS and European enterprises that want document AI with EU hosting and less CLOUD Act exposure."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -141,7 +141,7 @@ const breadcrumbs = [
             <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Data Security Risk</h3>
-          <p class="text-gray-500 text-lg font-semibold">Uploading confidential documents to ChatGPT or other public AI tools violates GDPR and exposes trade secrets. Surveys put "shadow AI" use at roughly half of employees (<a href="https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html" target="_blank" rel="noopener" class="underline">CIO, 2025</a>).</p>
+          <p class="text-gray-500 text-lg font-semibold">Uploading confidential documents to ChatGPT or other public AI tools can breach GDPR and expose trade secrets. Surveys put "shadow AI" use at roughly half of employees (<a href="https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html" target="_blank" rel="noopener" class="underline">CIO, 2025</a>).</p>
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Solution</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Private RAG on Your Infrastructure</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">Ironum deploys a complete Retrieval-Augmented Generation pipeline on infrastructure you control. Your employees query your entire document base in natural language and get accurate, source-cited answers, without any data leaving your environment. Private RAG development is part of our wider <a href="/services/custom-ai-development/" class="text-blue-600 hover:underline">custom AI development</a> work, so it can ship standalone or as one component of a larger system.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Ironum deploys a complete Retrieval-Augmented Generation pipeline on infrastructure you control. Your employees query your entire document base in natural language and get source-cited answers, with the data staying in the environment you choose. Private RAG development is part of our wider <a href="/services/custom-ai-development/" class="text-blue-600 hover:underline">custom AI development</a> work, so it can ship standalone or as one component of a larger system.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -162,7 +162,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">Every answer linked to source documents for full traceability</span>
+              <span class="text-gray-700 font-medium">Every answer linked to source documents, so it can be traced and checked</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -170,7 +170,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">Ready for EU AI Act transparency and documentation requirements</span>
+              <span class="text-gray-700 font-medium">Supports documentation for EU AI Act transparency requirements</span>
             </li>
           </ul>
         </div>
@@ -305,12 +305,12 @@ const breadcrumbs = [
       {
         href: '/resources/blog/chatbot-own-data-gdpr-sme/',
         title: 'Chatbot on Your Own Data',
-        description: 'How European SMEs put a RAG chatbot into production on their own data: GDPR-compliant, within four weeks.',
+        description: 'How European SMEs put a RAG chatbot into production on their own data, built for GDPR requirements.',
       },
       {
         href: '/resources/blog/gdpr-compliant-ai-guide/',
         title: 'GDPR-Compliant AI: A Guide',
-        description: 'How to deploy AI that meets GDPR and EU AI Act requirements without sending data to third-party providers.',
+        description: 'How to deploy AI with GDPR requirements in mind, from data residency to keeping data away from third-party providers.',
       },
       {
         href: '/resources/blog/rag-jira-confluence-self-hosted-eu/',

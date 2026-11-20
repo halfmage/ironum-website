@@ -18,8 +18,8 @@ const features = [
     icon: 'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244',
   },
   {
-    title: 'Self-Hosted & GDPR Ready',
-    description: 'n8n runs on your own servers or private cloud. All workflow data, credentials, and execution logs stay within your infrastructure. No data leaves your environment.',
+    title: 'Self-Hosted for GDPR Requirements',
+    description: 'n8n runs on your own servers or private cloud. Workflow data, credentials, and execution logs stay on infrastructure you choose.',
     icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
   },
   {
@@ -29,7 +29,7 @@ const features = [
   },
   {
     title: 'Error Handling & Monitoring',
-    description: 'Built-in retry logic, error branches, and alerting. Get notified when workflows fail and automatically recover without manual intervention.',
+    description: 'Built-in retry logic, error branches, and alerting. Get notified when workflows fail, with automatic retries where possible.',
     icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z',
   },
   {
@@ -42,7 +42,7 @@ const features = [
 const useCases = [
   {
     title: 'Invoice Processing',
-    description: 'Incoming invoices are automatically extracted from email, parsed with AI, validated against purchase orders in your ERP, and routed for approval. From days to minutes.',
+    description: 'Incoming invoices are automatically extracted from email, parsed with AI, validated against purchase orders in your ERP, and routed for approval.',
     before: 'Manual data entry, 3-day processing',
     after: 'Automated extraction, same-day processing',
   },
@@ -63,23 +63,23 @@ const useCases = [
 const faqItems = [
   {
     question: 'What is n8n and why do you use it?',
-    answer: 'n8n is an open-source workflow automation platform with a visual builder and 400+ integrations. We chose n8n because it can be fully self-hosted (critical for GDPR), has no vendor lock-in, supports custom code nodes for complex logic, and integrates natively with AI models. Unlike Zapier or Make, your workflow data and credentials never leave your infrastructure.',
+    answer: 'n8n is a fair-code (source-available) workflow automation platform with a visual builder and 400+ integrations. We chose n8n because it can be fully self-hosted (important for GDPR requirements), avoids vendor lock-in, supports custom code nodes for complex logic, and integrates natively with AI models. In a self-hosted setup, your workflow data and credentials stay on infrastructure you choose instead of a vendor cloud.',
   },
   {
     question: 'Can you automate workflows that involve AI decision-making?',
-    answer: 'Yes. We integrate LLMs directly into n8n workflows for tasks like document classification, data extraction, sentiment analysis, content generation, and decision routing. The AI components run on the same private infrastructure as your workflows, so sensitive data stays secure.',
+    answer: 'Yes. We integrate LLMs directly into n8n workflows for tasks like document classification, data extraction, sentiment analysis, content generation, and decision routing. The AI components can run on the same private infrastructure as your workflows, so sensitive data does not have to go to an external AI provider.',
   },
   {
     question: 'How do you handle failures and monitoring?',
-    answer: 'Every workflow includes error handling branches, automatic retries with exponential backoff, and alerting via email, Slack, or your monitoring tool of choice. We also set up dashboards for execution monitoring, so your team has full visibility into workflow performance.',
+    answer: 'Every workflow includes error handling branches, automatic retries with exponential backoff, and alerting via email, Slack, or your monitoring tool of choice. We also set up dashboards for execution monitoring, so your team can see how workflows perform.',
   },
   {
     question: 'What systems can you integrate with?',
-    answer: 'n8n has native connectors for 400+ tools including Microsoft 365, Google Workspace, Salesforce, HubSpot, SAP, Slack, Jira, databases (PostgreSQL, MySQL, MongoDB), and more. For internal or legacy systems, we build custom API integrations or use webhooks. If it has an API, we can connect it.',
+    answer: 'n8n has native connectors for 400+ tools including Microsoft 365, Google Workspace, Salesforce, HubSpot, SAP, Slack, Jira, databases (PostgreSQL, MySQL, MongoDB), and more. For internal or legacy systems, we build custom API integrations or use webhooks. If a system has an API, we can usually connect it.',
   },
   {
     question: 'How is pricing structured for workflow automation?',
-    answer: 'Since n8n is open-source, there are no per-workflow or per-execution license fees. You pay for infrastructure hosting and our services: initial workflow design, implementation, testing, and ongoing maintenance. This typically results in 60-80% lower total cost compared to proprietary platforms like Zapier or Make at enterprise scale.',
+    answer: 'Self-hosted n8n has no per-workflow or per-execution license fees within n8n\'s license terms. You pay for infrastructure hosting and our services: initial workflow design, implementation, testing, and ongoing maintenance. Whether this is cheaper than a usage-based platform depends on your volumes, so we compare both in the scoping call.',
   },
 ];
 
@@ -88,7 +88,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/workflow-automation/#service",
     "name": "Workflow Automation with n8n",
-    "description": "Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, GDPR compliant. No vendor lock-in.",
+    "description": "Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, built for GDPR requirements. No vendor lock-in.",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "Workflow Automation"
@@ -103,8 +103,8 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="Workflow Automation with n8n | GDPR Compliant | Ironum"
-  description="Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, no vendor lock-in. GDPR compliant, European-hosted."
+  title="Self-Hosted n8n Workflow Automation in the EU | Ironum"
+  description="Automate business processes with self-hosted n8n workflows. 400+ integrations, AI-powered orchestration, no vendor lock-in. Built for GDPR requirements, hosted in the EU or on your servers."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -113,7 +113,7 @@ const breadcrumbs = [
   <PageHero
     eyebrow="WORKFLOW AUTOMATION"
     title="Automate Business Processes Without Vendor Lock-In"
-    subtitle="Self-hosted n8n workflows that connect your tools, integrate AI, and run on infrastructure you control. Open-source, GDPR compliant, infinitely customizable."
+    subtitle="Self-hosted n8n workflows that connect your tools, integrate AI, and run on infrastructure you control. Fair-code, built for GDPR requirements, extensible with custom code."
     ctaText="Map my automation roadmap"
     ctaLink="/contact/?source=workflow-automation"
   />
@@ -124,7 +124,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Problem</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Manual Work Is Eating Your Margins</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">European SMEs lose around a quarter of productive time to repetitive tasks that could be automated (<a href="https://www.smartsheet.com/content-center/product-news/automation/workers-waste-quarter-work-week-manual-repetitive-tasks" target="_blank" rel="noopener" class="underline">Smartsheet</a>). Legacy approaches create new problems.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Surveys find that workers spend around a quarter of their work week on repetitive manual tasks (<a href="https://www.smartsheet.com/content-center/product-news/automation/workers-waste-quarter-work-week-manual-repetitive-tasks" target="_blank" rel="noopener" class="underline">Smartsheet</a>). Legacy approaches create new problems.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
@@ -146,7 +146,7 @@ const breadcrumbs = [
             <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Expensive Proprietary Tools</h3>
-          <p class="text-gray-500 text-lg font-semibold">Zapier and Make charge per execution. At enterprise scale, costs balloon quickly, and your workflow data sits on US servers outside GDPR protection.</p>
+          <p class="text-gray-500 text-lg font-semibold">Usage-based pricing per task or operation can grow quickly at scale, and with some cloud tools your workflow data is processed in the US.</p>
         </div>
       </div>
     </div>
@@ -158,8 +158,8 @@ const breadcrumbs = [
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The Solution</span>
-          <h2 class="text-3xl md:text-5xl font-bold mt-4">n8n: Open-Source Automation That Scales</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">We deploy and customize n8n, the leading open-source workflow automation platform, on your own infrastructure. Design workflows visually, connect 400+ tools, and integrate AI for intelligent automation. No per-execution fees, no vendor lock-in, full GDPR compliance.</p>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4">n8n: Self-Hosted Automation That Scales</h2>
+          <p class="text-gray-500 text-lg font-semibold mt-6">We deploy and customize n8n, a fair-code workflow automation platform, on your own infrastructure. Design workflows visually, connect 400+ tools, and integrate AI for intelligent automation. No per-execution fees, no vendor lock-in, built for GDPR requirements.</p>
           <div class="mt-8 flex flex-wrap gap-4">
             <a href="/contact/#message-form"
               class="inline-flex items-center bg-blue-600 text-white rounded-full px-6 py-4 font-medium text-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 min-h-[48px] touch-manipulation">
@@ -173,7 +173,7 @@ const breadcrumbs = [
               <span class="text-3xl font-bold text-blue-600">0</span>
               <div>
                 <h4 class="font-bold">Per-Execution Fees</h4>
-                <p class="text-gray-500 text-sm">Open-source license. Run unlimited workflows.</p>
+                <p class="text-gray-500 text-sm">Self-hosted Community Edition, within n8n's license terms.</p>
               </div>
             </div>
           </div>
@@ -182,16 +182,16 @@ const breadcrumbs = [
               <span class="text-3xl font-bold text-blue-600">400+</span>
               <div>
                 <h4 class="font-bold">Native Integrations</h4>
-                <p class="text-gray-500 text-sm">Plus custom API connections for any system.</p>
+                <p class="text-gray-500 text-sm">Plus custom API connections for internal systems.</p>
               </div>
             </div>
           </div>
           <div class="bg-white border-2 border-gray-100 rounded-2xl p-6">
             <div class="flex items-center gap-4">
-              <span class="text-3xl font-bold text-blue-600">100%</span>
+              <span class="text-3xl font-bold text-blue-600">EU</span>
               <div>
-                <h4 class="font-bold">Data Sovereignty</h4>
-                <p class="text-gray-500 text-sm">Self-hosted on your infrastructure. GDPR by design.</p>
+                <h4 class="font-bold">Data Location</h4>
+                <p class="text-gray-500 text-sm">Self-hosted on your servers or with an EU hosting provider.</p>
               </div>
             </div>
           </div>
@@ -229,6 +229,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Automation in Practice</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Typical setups we build. These are examples, not client results.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {useCases.map((useCase) => (
@@ -264,7 +265,7 @@ const breadcrumbs = [
         </a>
         <a href="/industries/financial-services/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Financial Services</h3>
-          <p class="text-gray-500 font-semibold mb-4">Automate KYC/AML screening, transaction monitoring, and regulatory reporting with full audit trails.</p>
+          <p class="text-gray-500 font-semibold mb-4">Automate KYC/AML screening, transaction monitoring, and regulatory reporting with audit trails.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/industries/public-sector/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
