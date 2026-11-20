@@ -1,7 +1,8 @@
 ---
-title: "BRAO-konforme KI für Kanzleien 2026"
-description: "Darf eine Kanzlei ChatGPT einsetzen? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden konkret fordern, und welche KI-Architektur 2026 wirklich BRAO-konform ist."
+title: "BRAO-konforme KI? ChatGPT und KI-Schnittstellen in der Kanzlei 2026"
+description: "ChatGPT oder KI-API in der Kanzlei? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden sagen und welche technischen Fragen Sie einem KI-Anbieter stellen sollten."
 publishDate: 2026-04-15
+updatedDate: 2026-11-20
 author: "Ironum Team"
 legalDisclaimer: true
 category: "compliance"
@@ -15,7 +16,7 @@ draft: false
 
 Nach der BRAK-Mitgliederstatistik waren zum 1. Januar 2025 in Deutschland **166.504 Rechtsanwältinnen und Rechtsanwälte** zugelassen ([BRAK-Pressemitteilung](https://www.brak.de/presse/presseerklaerungen/der-brak-2025/mitglieder-und-fachanwaltsstatistik-zum-01012025/)). Einen verlässlichen Prozentsatz derer, die bereits KI-Tools wie ChatGPT, Copilot oder Claude in der Mandatsarbeit nutzen, gibt es nicht. Eben deshalb hat die BRAK im Juni 2025 eine eigene Umfrage dazu gestartet. Was es aber gibt, sind klare berufsrechtliche Grenzen. Und die werden in der Praxis häufig gerissen.
 
-Dieser Beitrag erklärt, was § 43a BRAO, § 2 BORA und § 203 StGB für den KI-Einsatz in der Kanzlei bedeuten, was die BRAK Ende 2024 in ihrem Leitfaden dazu gesagt hat und welche Setups tatsächlich BRAO-konform sind.
+Dieser Beitrag erklärt, was § 43a BRAO, § 2 BORA und § 203 StGB für den KI-Einsatz in der Kanzlei bedeuten, was die BRAK Ende 2024 in ihrem Leitfaden dazu gesagt hat und welche Setups berufsrechtlich besser beherrschbar sind als andere.
 
 ## § 43a BRAO und Standard-ChatGPT: Warum die BRAK zur Vorsicht rät
 
@@ -46,6 +47,23 @@ Die BRAK hat am 8. Januar 2025 ihren "Leitfaden mit Hinweisen zum KI-Einsatz" (S
 
 Die Konsequenz ist pragmatisch, nicht ideologisch: Die BRAK verbietet KI nicht. Sie präzisiert, welche Setups mit dem Berufsrecht vereinbar sind und welche nicht. Und sie macht deutlich, dass die Voreinstellung "Prompt mit echten Mandatsdaten ins öffentliche ChatGPT" keine davon ist.
 
+## KI-Schnittstelle (API) in der Kanzlei: technische Fragen für die Prüfung
+
+Viele Kanzleien nutzen KI nicht über die Chat-Oberfläche, sondern über eine Schnittstelle: Die Kanzleisoftware, ein Dokumentenmanagement oder ein eigenes Tool schickt Texte per API an ein Sprachmodell. Berufsrechtlich regelt § 43e BRAO, unter welchen Bedingungen Kanzleien Dienstleister einbinden dürfen ([Wortlaut auf gesetze-im-internet.de](https://www.gesetze-im-internet.de/brao/__43e.html)). Die rechtliche Einordnung gehört zu Ihrer Kammer oder Ihren eigenen Beratern.
+
+Wir sind ein Software-Team. Was wir beitragen können, sind die technischen Fakten, die für diese Prüfung gebraucht werden. Diese Fragen sollte jeder Anbieter einer KI-Schnittstelle beantworten können, auch wir:
+
+| Technische Frage | Was Sie sich zeigen lassen sollten |
+|---|---|
+| Wo läuft das Modell? | Rechenzentrum, Land und Betreiber, auch für Backups |
+| Wer ist der Betreiber, und gibt es eine Muttergesellschaft außerhalb der EU? | Vertragspartner und Konzernstruktur |
+| Werden Prompts und Antworten gespeichert oder protokolliert? | Speicherort, Aufbewahrungsdauer, wer die Logs lesen kann |
+| Werden Eingaben zum Training genutzt? | Vertragliche Zusage, nicht nur eine Einstellung |
+| Welche Subunternehmer sind beteiligt? | Vollständige Liste mit Standort |
+| Was passiert mit den Daten bei Vertragsende? | Löschkonzept und Nachweis |
+
+Je kürzer diese Liste an Beteiligten ist, desto einfacher wird die Prüfung. Am kürzesten ist sie, wenn das Modell auf eigener Hardware in der Kanzlei läuft. Auch dann bleiben Dienstleister im Spiel, etwa wer die Lösung einrichtet oder wartet, so wie wir bei einer [Chatbot- und KI-Schnittstelle](/de/dienstleistungen/chatbot-schnittstellen/).
+
 ## Vier KI-Anwendungsfälle, die in der Kanzlei funktionieren
 
 Die wichtigste Weichenstellung ist nicht "KI ja oder nein", sondern **wo die Daten liegen und wer sie theoretisch sehen kann**. Folgende vier Muster haben wir in Kanzleiprojekten belastbar gesehen.
@@ -70,7 +88,7 @@ Dieser Anwendungsfall ist der unproblematischste, weil keine Mandatsdaten im Spi
 
 ### 4. Dokument-Zusammenfassungen und Due-Diligence-Vorbereitung
 
-Lange Vertragsentwürfe, Datenräume, technische Unterlagen: KI kann strukturieren und zusammenfassen. Berufsrechtskonform wird der Anwendungsfall durch das gleiche Prinzip wie bei der Mandatssuche: Die Verarbeitung findet in einer privaten Umgebung statt, die Dokumente verlassen die Kanzleiinfrastruktur nicht.
+Lange Vertragsentwürfe, Datenräume, technische Unterlagen: KI kann strukturieren und zusammenfassen. Berufsrechtlich besser beherrschbar wird der Anwendungsfall durch das gleiche Prinzip wie bei der Mandatssuche: Die Verarbeitung findet in einer privaten Umgebung statt, die Dokumente verlassen die Kanzleiinfrastruktur nicht.
 
 ## On-Premise, EU-Cloud oder US-SaaS: eine Entscheidungsmatrix
 
@@ -117,6 +135,9 @@ Bei der Standardkonfiguration mit echten Mandatsdaten als Prompt-Input rät die 
 **Ist Microsoft Copilot für Anwälte BRAO-konform?**
 Es kommt auf die Variante an. Microsoft 365 Copilot in einer europäisch betriebenen Enterprise-Konfiguration mit EU Data Boundary und vertraglichen Zusagen zur Datennichtverwendung kann in Grenzen genutzt werden. Die Prüfung muss aber konkret erfolgen, inklusive CLOUD-Act-Exposition, Protokollierungsverhalten und Auftragsverarbeitung nach Art. 28 DSGVO. Für hochsensible Mandate (Strafverteidigung, Schiedsverfahren, M&A-Due-Diligence) bleibt on-premise oder privates EU-Hosting der belastbarere Weg.
 
+**Ist eine KI-Schnittstelle (API) BRAO-konform?**
+Das lässt sich nicht pauschal beantworten und ist eine rechtliche Frage für Ihre Kammer oder Ihre eigenen Berater. § 43e BRAO regelt, unter welchen Bedingungen Kanzleien Dienstleister einbinden dürfen. Für die Prüfung brauchen Sie vom Anbieter klare technische Antworten: wo das Modell läuft, wer es betreibt, was protokolliert wird, ob Eingaben zum Training genutzt werden und welche Subunternehmer beteiligt sind.
+
 **Brauche ich eine Datenschutz-Folgenabschätzung nach Art. 35 DSGVO?**
 Wenn die Kanzlei KI systematisch und umfangreich in der Mandatsarbeit einsetzt und dabei besondere Kategorien personenbezogener Daten oder Daten in sensiblen Lebenssituationen verarbeitet, ist die DSFA regelmäßig erforderlich. Im Zweifel: ja, und ordentlich dokumentiert.
 
@@ -127,8 +148,8 @@ Ein Mandatssuche-RAG-System für eine Kanzlei mit 20 bis 50 Berufsträgern liegt
 Die Kanzlei ist beim KI-Einsatz regelmäßig Deployer im Sinne der KI-Verordnung. Für viele Kanzlei-Anwendungsfälle (Mandatssuche, Schriftsatzentwürfe) greift die Limited-Risk-Kategorie mit Transparenzpflichten. Hochrisiko-Einstufungen können relevant werden, wenn KI z. B. in HR-Entscheidungen der Kanzlei selbst einfließt. Einen praxisnahen Einstieg bietet unser Beitrag [EU AI Act für den Mittelstand: Fristen, Kosten und was Sie jetzt tun müssen](/de/ressourcen/blog/eu-ai-act-mittelstand-fristen-kosten/).
 
 **Wo sollte die Kanzlei-KI gehostet werden?**
-In einer Umgebung, in der ein möglicher Ermittler oder Haftpflichtversicherer die Frage "wer hatte theoretisch Zugriff auf die Mandatsdaten?" mit "niemand außer der Kanzlei selbst" beantworten kann. In der Praxis heißt das: eigenes Rechenzentrum oder europäische Infrastruktur ohne US-Muttergesellschaft. Einen Überblick über konkrete Anbieter gibt unser [Vergleich europäischer KI-Hosting-Optionen (Hetzner, IONOS, OVHcloud)](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
+Die Frage "wer hatte theoretisch Zugriff auf die Mandatsdaten?" sollte sich klar beantworten lassen: die Kanzlei selbst und nur Dienstleister, die nach § 43e BRAO sorgfältig ausgewählt und verpflichtet sind. Viele Kanzleien wählen dafür ein eigenes Rechenzentrum oder europäische Infrastruktur ohne US-Muttergesellschaft. Einen Überblick über konkrete Anbieter gibt unser [Vergleich europäischer KI-Hosting-Optionen (Hetzner, IONOS, OVHcloud)](/de/ressourcen/blog/ki-hosting-europa-hetzner-ionos-vergleich/).
 
 ---
 
-*Ironum entwickelt private, DSGVO- und BRAO-konforme KI-Systeme für Kanzleien und den deutschen Mittelstand, von der ersten Machbarkeitsprüfung bis zur Produktiv-Umgebung. Wenn Sie überlegen, wie Ihre Kanzlei KI berufsrechtlich sauber einsetzen kann, [sprechen Sie uns an](/de/dienstleistungen/ki-beratung/).*
+*Ironum entwickelt private KI-Systeme für Kanzleien und den deutschen Mittelstand, ausgelegt auf die Anforderungen von DSGVO und Berufsrecht, von der ersten Machbarkeitsprüfung bis zur Produktiv-Umgebung. Wenn Sie überlegen, wie Ihre Kanzlei KI berufsrechtlich sauber einsetzen kann, [sprechen Sie uns an](/de/dienstleistungen/ki-beratung/).*
