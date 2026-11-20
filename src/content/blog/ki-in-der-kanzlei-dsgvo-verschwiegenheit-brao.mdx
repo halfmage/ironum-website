@@ -1,6 +1,6 @@
 ---
 title: "BRAO-konforme KI? ChatGPT und KI-Schnittstellen in der Kanzlei 2026"
-description: "Darf eine Kanzlei ChatGPT oder eine KI-API nutzen? Was § 43a und § 43e BRAO, § 203 StGB und der BRAK-Leitfaden fordern, und worauf es bei der KI-Architektur ankommt."
+description: "ChatGPT oder KI-API in der Kanzlei? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden sagen und welche technischen Fragen Sie einem KI-Anbieter stellen sollten."
 publishDate: 2026-04-15
 updatedDate: 2026-11-20
 author: "Ironum Team"
@@ -47,29 +47,22 @@ Die BRAK hat am 8. Januar 2025 ihren "Leitfaden mit Hinweisen zum KI-Einsatz" (S
 
 Die Konsequenz ist pragmatisch, nicht ideologisch: Die BRAK verbietet KI nicht. Sie präzisiert, welche Setups mit dem Berufsrecht vereinbar sind und welche nicht. Und sie macht deutlich, dass die Voreinstellung "Prompt mit echten Mandatsdaten ins öffentliche ChatGPT" keine davon ist.
 
-## KI-Schnittstelle (API) in der Kanzlei: was § 43e BRAO verlangt
+## KI-Schnittstelle (API) in der Kanzlei: technische Fragen für die Prüfung
 
-Viele Kanzleien nutzen KI nicht über die Chat-Oberfläche, sondern über eine Schnittstelle: Die Kanzleisoftware, ein Dokumentenmanagement oder ein eigenes Tool schickt Texte per API an ein Sprachmodell. Der Anbieter dieser Schnittstelle ist in der Regel ein Dienstleister im Sinne des Berufsrechts. Für Dienstleister gilt § 43e BRAO ([gesetze-im-internet.de](https://www.gesetze-im-internet.de/brao/__43e.html)). Die Vorschrift erlaubt es, Dienstleistern Zugang zu geschützten Informationen zu geben, soweit das für die Leistung erforderlich ist, knüpft das aber an Bedingungen:
+Viele Kanzleien nutzen KI nicht über die Chat-Oberfläche, sondern über eine Schnittstelle: Die Kanzleisoftware, ein Dokumentenmanagement oder ein eigenes Tool schickt Texte per API an ein Sprachmodell. Berufsrechtlich regelt § 43e BRAO, unter welchen Bedingungen Kanzleien Dienstleister einbinden dürfen ([Wortlaut auf gesetze-im-internet.de](https://www.gesetze-im-internet.de/brao/__43e.html)). Die rechtliche Einordnung gehört zu Ihrer Kammer oder Ihren eigenen Beratern.
 
-- **Sorgfältige Auswahl (Abs. 2):** Der Anbieter ist sorgfältig auszuwählen. Ist die Einhaltung der Vorgaben aus Abs. 3 nicht gewährleistet, ist die Zusammenarbeit unverzüglich zu beenden.
-- **Vertrag in Textform (Abs. 3):** Der Anbieter wird zur Verschwiegenheit verpflichtet und über die strafrechtlichen Folgen belehrt. Er darf nur so viel zur Kenntnis nehmen, wie die Leistung erfordert. Der Vertrag regelt, ob er weitere Personen (etwa Subunternehmer) einsetzen darf; wenn ja, muss er diese ebenfalls in Textform verpflichten.
-- **Leistung im Ausland (Abs. 4):** Läuft die Verarbeitung im Ausland, dürfen geschützte Informationen nur offenbart werden, wenn der Schutz dort mit dem im Inland vergleichbar ist, es sei denn, der Schutz der Geheimnisse erfordert das nicht.
-- **Leistung für ein einzelnes Mandat (Abs. 5):** Dient die Leistung unmittelbar einem einzelnen Mandat, braucht es die Einwilligung des Mandanten.
-- **Datenschutz bleibt unberührt (Abs. 8):** Die Pflichten aus der DSGVO, etwa ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO, gelten daneben.
+Wir sind ein Software-Team. Was wir beitragen können, sind die technischen Fakten, die für diese Prüfung gebraucht werden. Diese Fragen sollte jeder Anbieter einer KI-Schnittstelle beantworten können, auch wir:
 
-§ 203 Abs. 3 StGB passt dazu: Die Weitergabe an Personen, die an der beruflichen Tätigkeit mitwirken, ist erlaubt, soweit sie dafür erforderlich ist ([§ 203 StGB](https://www.gesetze-im-internet.de/stgb/__203.html)). Nach § 203 Abs. 4 StGB kann sich der Anwalt strafbar machen, wenn eine mitwirkende Person ein Geheimnis unbefugt offenbart und er nicht dafür gesorgt hat, dass sie zur Geheimhaltung verpflichtet wurde.
-
-Aus diesen Vorschriften ergeben sich Fragen, die Sie einem Anbieter stellen können. Die Liste ist eine Orientierung, keine abschließende Prüfung:
-
-| Frage an den Anbieter | Warum sie zählt |
+| Technische Frage | Was Sie sich zeigen lassen sollten |
 |---|---|
-| Unterschreibt der Anbieter eine Verschwiegenheitsverpflichtung nach § 43e BRAO in Textform? | Abs. 3 verlangt sie, neben den Datenschutzpflichten (Abs. 8) |
-| Wo wird das Modell betrieben, und wer ist die Muttergesellschaft? | Abs. 4 (Ausland) und die Frage, wer theoretisch Zugriff hätte |
-| Werden Prompts gespeichert, protokolliert oder zum Training genutzt? | Abs. 3 Nr. 2: Kenntnisnahme nur, soweit für die Leistung erforderlich |
-| Welche Subunternehmer sind beteiligt, und sind sie ebenfalls verpflichtet? | Abs. 3 Satz 2 Nr. 3 |
-| Lässt sich die Zusammenarbeit kurzfristig beenden, und was geschieht dann mit den Daten? | Abs. 2: Pflicht zur unverzüglichen Beendigung |
+| Wo läuft das Modell? | Rechenzentrum, Land und Betreiber, auch für Backups |
+| Wer ist der Betreiber, und gibt es eine Muttergesellschaft außerhalb der EU? | Vertragspartner und Konzernstruktur |
+| Werden Prompts und Antworten gespeichert oder protokolliert? | Speicherort, Aufbewahrungsdauer, wer die Logs lesen kann |
+| Werden Eingaben zum Training genutzt? | Vertragliche Zusage, nicht nur eine Einstellung |
+| Welche Subunternehmer sind beteiligt? | Vollständige Liste mit Standort |
+| Was passiert mit den Daten bei Vertragsende? | Löschkonzept und Nachweis |
 
-Läuft das Modell auf eigener Hardware in der Kanzlei, entfällt der KI-Anbieter als zusätzlicher Dienstleister. Läuft es bei einem Hosting-Anbieter, etwa in einem deutschen Rechenzentrum, ist dieser Hosting-Anbieter in der Regel ebenfalls Dienstleister im Sinne von § 43e BRAO, und dieselben Fragen gelten für ihn. Auch ein Partner, der die Lösung einrichtet oder betreibt, wie wir bei einer [Chatbot- und KI-Schnittstelle](/de/dienstleistungen/chatbot-schnittstellen/), ist Dienstleister und muss entsprechend verpflichtet werden. Ob ein konkretes Setup und ein konkreter Vertrag den Anforderungen genügen, klären Sie mit Ihrer Kammer oder Ihren eigenen Beratern.
+Je kürzer diese Liste an Beteiligten ist, desto einfacher wird die Prüfung. Am kürzesten ist sie, wenn das Modell auf eigener Hardware in der Kanzlei läuft. Auch dann bleiben Dienstleister im Spiel, etwa wer die Lösung einrichtet oder wartet, so wie wir bei einer [Chatbot- und KI-Schnittstelle](/de/dienstleistungen/chatbot-schnittstellen/).
 
 ## Vier KI-Anwendungsfälle, die in der Kanzlei funktionieren
 
@@ -143,7 +136,7 @@ Bei der Standardkonfiguration mit echten Mandatsdaten als Prompt-Input rät die 
 Es kommt auf die Variante an. Microsoft 365 Copilot in einer europäisch betriebenen Enterprise-Konfiguration mit EU Data Boundary und vertraglichen Zusagen zur Datennichtverwendung kann in Grenzen genutzt werden. Die Prüfung muss aber konkret erfolgen, inklusive CLOUD-Act-Exposition, Protokollierungsverhalten und Auftragsverarbeitung nach Art. 28 DSGVO. Für hochsensible Mandate (Strafverteidigung, Schiedsverfahren, M&A-Due-Diligence) bleibt on-premise oder privates EU-Hosting der belastbarere Weg.
 
 **Ist eine KI-Schnittstelle (API) BRAO-konform?**
-Das lässt sich nicht pauschal beantworten. Der Anbieter einer KI-API ist in der Regel Dienstleister im Sinne von § 43e BRAO. Das Gesetz verlangt unter anderem eine sorgfältige Auswahl und eine Verpflichtung zur Verschwiegenheit in Textform; bei Leistungen im Ausland muss der Schutz der Geheimnisse mit dem im Inland vergleichbar sein. Das gilt auch für Hosting-Anbieter und Dienstleister, die ein selbst betriebenes Modell einrichten oder betreiben. Die Einordnung im Einzelfall klären Sie mit Ihrer Kammer oder Ihren eigenen Beratern.
+Das lässt sich nicht pauschal beantworten und ist eine rechtliche Frage für Ihre Kammer oder Ihre eigenen Berater. § 43e BRAO regelt, unter welchen Bedingungen Kanzleien Dienstleister einbinden dürfen. Für die Prüfung brauchen Sie vom Anbieter klare technische Antworten: wo das Modell läuft, wer es betreibt, was protokolliert wird, ob Eingaben zum Training genutzt werden und welche Subunternehmer beteiligt sind.
 
 **Brauche ich eine Datenschutz-Folgenabschätzung nach Art. 35 DSGVO?**
 Wenn die Kanzlei KI systematisch und umfangreich in der Mandatsarbeit einsetzt und dabei besondere Kategorien personenbezogener Daten oder Daten in sensiblen Lebenssituationen verarbeitet, ist die DSFA regelmäßig erforderlich. Im Zweifel: ja, und ordentlich dokumentiert.

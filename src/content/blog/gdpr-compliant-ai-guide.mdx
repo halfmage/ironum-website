@@ -1,6 +1,6 @@
 ---
 title: "GDPR-Compliant AI in 2026: EU, US and Swiss Rules"
-description: "How to run AI under GDPR and the Swiss FADP: data residency, transfers to the US, keeping EU data in EU pipelines, and a side-by-side table of EU vs. Swiss rules."
+description: "How to run AI under GDPR: data residency, transfers to the US, a checklist for keeping EU data in EU pipelines, and what Swiss data protection rules mean for your setup."
 publishDate: 2026-03-08
 updatedDate: 2026-11-20
 author: "Ironum Team"
@@ -9,12 +9,10 @@ category: "compliance"
 tags: ["GDPR", "FADP", "Switzerland", "data sovereignty", "compliance", "AI deployment"]
 draft: false
 faq:
-  - question: "Is Switzerland's data protection law (FADP) the same as the GDPR for AI services?"
-    answer: "No, but the two are close. Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023, and the Swiss regulator (FDPIC) says it applies directly to AI. The main differences: breaches go to the FDPIC 'as soon as possible' instead of within 72 hours, fines are criminal fines of up to CHF 250,000 on the responsible individuals for intentional violations, instead of administrative fines on the company, and transfers to the US rely on the Swiss-US Data Privacy Framework instead of the EU-US one."
-  - question: "Can an EU company send personal data to an AI provider in Switzerland?"
-    answer: "Yes, from a transfer point of view. The European Commission recognises Switzerland as providing an adequate level of protection and confirmed this in its review of 15 January 2024. You still need a legal basis, a data processing agreement and the other GDPR duties, but no extra transfer mechanism such as Standard Contractual Clauses."
-  - question: "Does a Swiss company using AI have to follow the GDPR?"
-    answer: "It can. The GDPR applies to companies outside the EU when they offer goods or services to people in the EU or monitor their behaviour (Article 3(2) GDPR). Many Swiss companies therefore follow both the FADP and the GDPR."
+  - question: "Does Swiss data protection law apply to AI?"
+    answer: "Yes. Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023, and the Swiss regulator (FDPIC) states that it applies directly to AI-supported data processing. What it requires for your company in detail is a question for your data protection officer or legal advisers."
+  - question: "Can an EU company use an AI provider in Switzerland?"
+    answer: "From a data transfer point of view, Switzerland is treated like an adequate country: the European Commission recognises its level of protection and confirmed this on 15 January 2024. The other GDPR duties, such as a legal basis and a data processing agreement, still apply."
   - question: "How do I keep EU data in the EU in an AI pipeline?"
     answer: "Keep every step that touches personal data in the EU: storage, embedding, the vector index, model inference, logs and backups. Check where each sub-processor runs, switch off model training on your inputs, and consider providers that are EU legal entities, which reduces exposure to non-EU access requests."
 ---
@@ -86,24 +84,15 @@ Any AI provider processing personal data on your behalf must sign a Data Process
 
 The last row in every check is the legal entity. Data in a Frankfurt data center operated by a US company can still be subject to US access requests. If that risk matters for your data, consider providers that are EU legal entities, or run the pipeline on your own servers. Our [enterprise RAG](/services/enterprise-rag/) setup is built this way: index, model and logs run where you decide.
 
-## Switzerland vs. EU: FADP and GDPR for AI Services
+## Switzerland: What Changes for an AI Setup?
 
-Swiss companies, and EU companies with Swiss customers or providers, ask how the Swiss rules compare. Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023 ([Fedlex, SR 235.1](https://www.fedlex.admin.ch/eli/cc/2022/491/en)). The Swiss regulator, the FDPIC, states that the law is technology-neutral and applies directly to AI-supported processing ([FDPIC: AI and data protection](https://www.edoeb.admin.ch/en/ai-and-data-protection)).
+We are a software team, not lawyers, so this section sticks to the facts the authorities publish themselves and what they mean for the technical setup:
 
-The two laws follow the same ideas. The differences that matter for an AI project:
+- **Swiss law applies to AI.** Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023. The Swiss regulator (FDPIC) states that it applies directly to AI-supported processing ([FDPIC: AI and data protection](https://www.edoeb.admin.ch/en/ai-and-data-protection)).
+- **EU and Switzerland exchange data easily.** The European Commission recognises Switzerland as providing an adequate level of data protection and confirmed this in its review of 15 January 2024 ([European Commission](https://ec.europa.eu/commission/presscorner/detail/en/ip_24_161)). For the architecture, a server in Switzerland is treated much like one in the EU.
+- **Transfers to the US use a separate framework.** Since 15 September 2024, Swiss data can go to US companies certified under the Swiss-US Data Privacy Framework ([FDPIC](https://www.edoeb.admin.ch/en/15082024-new-swiss-us-data-privacy-framework)). Check that a US provider is certified for the Swiss framework, not only the EU one.
 
-| Topic | EU (GDPR) | Switzerland (FADP) |
-|---|---|---|
-| **Data breach notification** | To the authority within 72 hours (Art. 33) | To the FDPIC "as soon as possible" if there is a high risk (Art. 24) |
-| **Sanctions** | Administrative fines on the company, up to €20 million or 4% of worldwide annual turnover, whichever is higher (Art. 83) | Criminal fines of up to CHF 250,000 on the responsible individuals, for intentional violations (Art. 60 to 63) |
-| **Impact assessment** | DPIA for likely high risk (Art. 35) | DPIA for likely high risk (Art. 22) |
-| **Automated decisions** | Right not to be subject to solely automated decisions with legal or similar effects (Art. 22) | Duty to inform about automated individual decisions and right to have them reviewed by a person (Art. 21) |
-| **Transfers to the US** | EU-US Data Privacy Framework for certified companies | Swiss-US Data Privacy Framework for certified companies, since 15 September 2024 ([FDPIC](https://www.edoeb.admin.ch/en/15082024-new-swiss-us-data-privacy-framework)) |
-| **Representative for foreign companies** | EU representative in some cases (Art. 27) | Swiss representative in some cases (Art. 14) |
-
-Data flows between the EU and Switzerland are the easy part. The European Commission recognises Switzerland as adequate and confirmed this in its review of 15 January 2024 ([European Commission](https://ec.europa.eu/commission/presscorner/detail/en/ip_24_161)). An EU company can use an AI provider in Switzerland without Standard Contractual Clauses, and Swiss data can flow to the EU.
-
-A Swiss company is not automatically outside the GDPR. If it offers services to people in the EU or monitors their behaviour, the GDPR applies as well (Art. 3(2) GDPR). In practice, many Swiss companies with EU customers design their AI setup to meet both laws. Which rules apply to your company is a question for your data protection officer or legal advisers.
+For the technical setup, the pipeline checklist above applies unchanged: know where every step runs, who operates it, and what gets logged. Which law applies to your company, and what it requires in detail, is a question for your data protection officer or legal advisers.
 
 ## The Sovereign AI Alternative
 
