@@ -20,12 +20,12 @@ const features = [
   },
   {
     title: 'RAG-basierte Antworten',
-    description: 'Verankert in Ihren echten Dokumenten und Daten. Jede Antwort stammt aus Ihrer Wissensbasis, nicht halluziniert aus allgemeinen Trainingsdaten. Quellenangaben inklusive.',
+    description: 'Verankert in Ihren echten Dokumenten und Daten. Antworten entstehen aus Ihrer Wissensbasis statt aus allgemeinen Trainingsdaten, mit Quellenangaben zum Nachprüfen.',
     icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
   },
   {
-    title: 'DSGVO-konform',
-    description: 'Alle Konversationen werden auf EU-Infrastruktur verarbeitet. Keine Gesprächsdaten verlassen Ihre Umgebung. Vollständige Auftragsverarbeitungsverträge und Audit-Trails inklusive.',
+    title: 'Auf DSGVO-Anforderungen ausgelegt',
+    description: 'Konversationen werden auf EU-Infrastruktur oder auf Ihren eigenen Servern verarbeitet. Auftragsverarbeitungsverträge und Audit-Trails sind inklusive.',
     icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
   },
   {
@@ -43,19 +43,19 @@ const features = [
 const useCases = [
   {
     title: 'Kundensupport',
-    description: 'Ein E-Commerce-Unternehmen bearbeitet monatlich über 3.000 Support-Tickets. Ihr KI-Chatbot löst 70 % der Anfragen sofort, einschließlich Versandstatus, Rückgaberichtlinien und Produktfragen, und entlastet menschliche Agenten für komplexe Fälle, die Empathie und Urteilsvermögen erfordern.',
-    stat: '70 %',
-    statLabel: 'automatische Lösungsrate',
+    description: 'Typisches Beispiel: Ein E-Commerce-Unternehmen mit tausenden Support-Tickets im Monat lässt Routineanfragen von einem KI-Chatbot beantworten, einschließlich Versandstatus, Rückgaberichtlinien und Produktfragen, und entlastet menschliche Agenten für komplexe Fälle, die Empathie und Urteilsvermögen erfordern.',
+    stat: 'Routine',
+    statLabel: 'Fragen automatisch beantwortet',
   },
   {
     title: 'Interner Helpdesk',
-    description: 'Ein Unternehmen mit 500 Mitarbeitenden setzt einen internen KI-Assistenten ein, der an IT-Dokumentation, HR-Richtlinien und Onboarding-Materialien angebunden ist. Mitarbeitende erhalten sofort Antworten auf Fragen wie "Wie setze ich mein VPN zurück?" oder "Wie ist unsere Elternzeitregelung?", ohne ein Ticket zu erstellen.',
-    stat: '45 %',
-    statLabel: 'weniger IT-Tickets',
+    description: 'Typisches Beispiel: Ein Unternehmen mit mehreren hundert Mitarbeitenden setzt einen internen KI-Assistenten ein, der an IT-Dokumentation, HR-Richtlinien und Onboarding-Materialien angebunden ist. Mitarbeitende erhalten sofort Antworten auf Fragen wie "Wie setze ich mein VPN zurück?" oder "Wie ist unsere Elternzeitregelung?", ohne ein Ticket zu erstellen.',
+    stat: 'Weniger',
+    statLabel: 'Routine-Tickets in der IT',
   },
   {
     title: 'HR & Mitarbeiter-Q&A',
-    description: 'Eine HR-Abteilung verbindet ihren KI-Assistenten mit dem Mitarbeiterhandbuch, der Benefits-Dokumentation und den Unternehmensrichtlinien. Mitarbeitende an verschiedenen Standorten und in verschiedenen Zeitzonen erhalten konsistente, präzise Antworten rund um die Uhr, in ihrer bevorzugten Sprache.',
+    description: 'Typisches Beispiel: Eine HR-Abteilung verbindet ihren KI-Assistenten mit dem Mitarbeiterhandbuch, der Benefits-Dokumentation und den Unternehmensrichtlinien. Mitarbeitende an verschiedenen Standorten und in verschiedenen Zeitzonen erhalten konsistente Antworten mit Quellen rund um die Uhr, in ihrer bevorzugten Sprache.',
     stat: '24/7',
     statLabel: 'Verfügbarkeit über alle Zeitzonen',
   },
@@ -64,7 +64,7 @@ const useCases = [
 const faqItems = [
   {
     question: 'Woher weiß der Chatbot über unser Unternehmen Bescheid?',
-    answer: 'Wir verbinden den Chatbot mit Ihren Dokumenten, Ihrer Wissensbasis, FAQ-Inhalten, Produktdaten und internen Systemen per RAG (Retrieval-Augmented Generation). Die KI ruft relevante Informationen aus Ihren echten Daten ab, um Antworten zu generieren. Sie stützt sich nicht auf allgemeine Trainingsdaten. Das bedeutet: Antworten sind präzise, aktuell und spezifisch für Ihr Unternehmen.',
+    answer: 'Wir verbinden den Chatbot mit Ihren Dokumenten, Ihrer Wissensbasis, FAQ-Inhalten, Produktdaten und internen Systemen per RAG (Retrieval-Augmented Generation). Die KI ruft relevante Informationen aus Ihren echten Daten ab, um Antworten zu generieren. Sie stützt sich nicht allein auf allgemeine Trainingsdaten. So bleiben Antworten aktuell und spezifisch für Ihr Unternehmen, mit Quellen zum Nachprüfen.',
   },
   {
     question: 'Kann der Chatbot mehrere Sprachen?',
@@ -76,11 +76,11 @@ const faqItems = [
   },
   {
     question: 'Wie verhindern Sie, dass der Chatbot halluziniert?',
-    answer: 'RAG-basierte Chatbots unterscheiden sich grundlegend von allgemeinen KI-Systemen. Jede Antwort ist in abgerufenen Passagen aus Ihren Dokumenten verankert. Wir implementieren Konfidenz-Schwellenwerte, Quellenangaben-Pflicht und Fallback-Verhalten. Wenn das System keine relevanten Informationen in Ihrer Wissensbasis findet, sagt es das ehrlich, anstatt etwas zu erfinden.',
+    answer: 'Kein KI-System kann falsche Antworten vollständig ausschließen, aber RAG senkt das Risiko deutlich. Antworten sind in abgerufenen Passagen aus Ihren Dokumenten verankert. Wir implementieren Konfidenz-Schwellenwerte, Quellenangaben-Pflicht und Fallback-Verhalten. Findet das System keine relevanten Informationen in Ihrer Wissensbasis, ist es so konfiguriert, dass es das sagt, statt zu raten.',
   },
   {
     question: 'Wie lange dauert es, einen Chatbot zu deployen?',
-    answer: 'Ein einfacher Chatbot, der an Ihre bestehenden FAQs oder Dokumentation angebunden ist, kann in 2 bis 3 Wochen live sein. Komplexere Deployments mit Multi-Channel-Integration, CRM-Anbindung und individuellen Workflows benötigen typischerweise 4 bis 8 Wochen. Wir starten immer mit einem funktionierenden Prototyp, damit Sie früh testen und iterieren können.',
+    answer: 'Ein einfacher Chatbot, der an Ihre bestehenden FAQs oder Dokumentation angebunden ist, kann in 2 bis 3 Wochen live sein. Komplexere Deployments mit Multi-Channel-Integration, CRM-Anbindung und individuellen Workflows benötigen typischerweise 4 bis 8 Wochen. Wir starten mit einem funktionierenden Prototyp, damit Sie früh testen und iterieren können.',
   },
 ];
 
@@ -89,7 +89,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://www.ironum.com/de/dienstleistungen/chatbot-schnittstellen/#service",
     "name": "Chatbot & Conversational AI",
-    "description": "KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten. DSGVO-konform, deployed auf Ihrer Infrastruktur.",
+    "description": "KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten, auf DSGVO-Anforderungen ausgelegt und auf Ihrer Infrastruktur betrieben.",
     "provider": { "@id": "https://www.ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "Conversational AI",
@@ -106,8 +106,8 @@ const breadcrumbs = [
 
 <Layout
   locale="de"
-  title="KI-Chatbot & Conversational AI | DSGVO-konform | Ironum"
-  description="KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten. RAG-basiert, DSGVO-konform, auf Ihrer Infrastruktur."
+  title="KI-Chatbot & Conversational AI für DSGVO-Anforderungen | Ironum"
+  description="KI-Assistenten, die Ihr Unternehmen kennen. White-Label, Multi-Channel Chatbots auf Basis Ihrer eigenen Daten. RAG-basiert, auf DSGVO-Anforderungen ausgelegt, auf Ihrer Infrastruktur."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -115,7 +115,7 @@ const breadcrumbs = [
 
   <PageHero
     eyebrow="CHATBOT-SCHNITTSTELLEN"
-    title="DSGVO-konforme KI-Chatbots, trainiert auf Ihren Daten"
+    title="KI-Chatbots auf Ihren Daten, ausgelegt auf die DSGVO"
     subtitle="White-Label-Chatbots auf Basis Ihrer eigenen Daten. Deployment über Web, Teams, Slack und WhatsApp, mit jeder Konversation auf EU-Infrastruktur verarbeitet."
     ctaText="Meinen Chatbot-Use-Case besprechen"
     ctaLink="/de/kontakt/?source=chatbot-interfaces"
@@ -127,7 +127,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Funktionen</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbot-Funktionen für den Mittelstand</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Kein weiterer generischer Chatbot. Jede Funktion ist für Unternehmen konzipiert, die Präzision, Datenschutz und Markenkontrolle benötigen.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Kein weiterer generischer Chatbot. Jede Funktion ist für Unternehmen konzipiert, die belegte Antworten, Datenschutz und Markenkontrolle benötigen.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature) => (
@@ -190,7 +190,7 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Anwendungsfälle</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbots, die Ergebnisse liefern</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Typische Anwendungsfälle</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {useCases.map((useCase) => (
@@ -214,11 +214,11 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">In der Praxis</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Financial Companion</h2>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Ein White-Label-KI-Companion für Finanzkompetenz und Gesundheits-Assessments. Nutzer starten ein Gespräch, wählen ihren Modus und erhalten personalisierte Beratung, alles auf souveräner Infrastruktur.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Ein White-Label-KI-Companion für Finanzkompetenz und Gesundheits-Assessments. Nutzer starten ein Gespräch, wählen ihren Modus und erhalten personalisierte Erklärungen, alles auf souveräner Infrastruktur.</p>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">Finanz-Gesundheitscheck mit bewährter Methodik</span>
+              <span class="text-gray-600">Strukturierter Finanz-Gesundheitscheck</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -275,7 +275,7 @@ const breadcrumbs = [
       {
         href: '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/',
         title: 'Chatbot mit eigenen Daten',
-        description: 'Wie der Mittelstand einen DSGVO-konformen Chatbot auf eigenen Daten einsetzt, in 4 Wochen produktiv, mit Kostenrahmen.',
+        description: 'Wie der Mittelstand einen Chatbot auf eigenen Daten einsetzt, ausgelegt auf die DSGVO, in 4 Wochen produktiv, mit Kostenrahmen.',
       },
       {
         href: '/de/ressourcen/blog/dokumenten-ki-automatisierung-unternehmen/',
@@ -284,11 +284,14 @@ const breadcrumbs = [
       },
       {
         href: '/de/ressourcen/blog/ki-in-der-kanzlei-dsgvo-verschwiegenheit-brao/',
-        title: 'BRAO-konforme KI für Kanzleien',
-        description: 'Welche KI-Architektur § 43a BRAO, § 203 StGB und den BRAK-Leitfaden für vertrauliche Mandantendaten erfüllt.',
+        title: 'BRAO-konforme KI? ChatGPT und KI-Schnittstellen',
+        description: 'Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden sagen und welche technischen Fragen Sie einem KI-Anbieter stellen sollten.',
       },
     ]}
   />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

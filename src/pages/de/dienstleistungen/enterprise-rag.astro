@@ -9,7 +9,7 @@ import Footer from '../../../components/Footer.astro';
 const features = [
   {
     title: 'Privates Deployment',
-    description: 'Deployment auf Ihrer eigenen Infrastruktur: Azure EU, Hetzner oder On-Premises. Ihre Dokumente verlassen nie Ihre Kontrolle. Kein Datenaustausch mit Modellanbietern.',
+    description: 'Deployment auf einer Infrastruktur Ihrer Wahl: Azure EU, Hetzner oder On-Premises. Ihre Dokumente bleiben unter Ihrer Kontrolle. Mit Open-Source-Modellen auf Ihren eigenen Servern ist kein externer Modellanbieter beteiligt.',
     icon: 'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z',
   },
   {
@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: 'Echtzeit-Synchronisation',
-    description: 'Automatische Dokumentenindexierung bei Dateiänderungen. Anbindung an SharePoint, Confluence, Google Drive oder interne Dateisysteme für stets aktuelle Antworten.',
+    description: 'Automatische Dokumentenindexierung bei Dateiänderungen. Anbindung an SharePoint, Confluence, Google Drive oder interne Dateisysteme, damit Antworten den aktuellen Dokumentenstand abbilden.',
     icon: 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182',
   },
   {
@@ -29,7 +29,7 @@ const features = [
   },
   {
     title: 'Open-Source-LLMs',
-    description: 'Betrieb von Llama, Mistral oder anderen Open-Source-Modellen. Keine Per-Token-Gebühren, keine Daten an Dritte. Volle Kontrolle über Modellauswahl und Updates.',
+    description: 'Betrieb von Llama, Mistral oder anderen Open-Source-Modellen auf Ihren eigenen Servern. Keine Per-Token-Gebühren und kein externer Modellanbieter. Kontrolle über Modellauswahl und Updates.',
     icon: 'M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5',
   },
   {
@@ -57,11 +57,11 @@ const useCases = [
 const faqItems = [
   {
     question: 'Was ist RAG und wie unterscheidet es sich von Feinabstimmung?',
-    answer: 'Retrieval-Augmented Generation (RAG) verbindet ein LLM zur Abfragezeit mit Ihrer Dokumentenbasis. Anstatt das Modell auf Ihren Daten zu trainieren (Feinabstimmung), ruft RAG relevante Passagen ab und speist sie als Kontext in das Modell ein. Das bedeutet: Ihre Antworten sind immer in aktuellen Dokumenten verankert, Halluzinationen werden drastisch reduziert und Sie können Wissen sofort aktualisieren, ohne neu zu trainieren. RAG ist die richtige Wahl, wenn Sie präzise, quellenbasierte Antworten aus einer sich ändernden Dokumentenbasis benötigen.',
+    answer: 'Retrieval-Augmented Generation (RAG) verbindet ein LLM zur Abfragezeit mit Ihrer Dokumentenbasis. Anstatt das Modell auf Ihren Daten zu trainieren (Feinabstimmung), ruft RAG relevante Passagen ab und speist sie als Kontext in das Modell ein. Das bedeutet: Antworten sind in Ihren aktuellen Dokumenten verankert, das Risiko von Halluzinationen sinkt und Sie können Wissen aktualisieren, ohne neu zu trainieren. RAG ist die richtige Wahl, wenn Sie präzise, quellenbasierte Antworten aus einer sich ändernden Dokumentenbasis benötigen.',
   },
   {
-    question: 'Wie stellen Sie Datenschutz und DSGVO-Konformität sicher?',
-    answer: 'Ihre Dokumente werden ausschließlich auf Infrastruktur verarbeitet und gespeichert, die Sie kontrollieren: entweder Ihre eigenen Server, Azure EU-Regionen oder deutsche Hetzner-Infrastruktur. Wir senden Ihre Daten nie an Drittanbieter-Modellanbieter. Bei Verwendung von Open-Source-LLMs läuft die gesamte Pipeline auf Ihrer Hardware. Alle Datenverarbeitung wird durch einen Standard-DSGVO-Auftragsverarbeitungsvertrag (AVV) abgedeckt.',
+    question: 'Wie gehen Sie mit Datenschutz und DSGVO-Anforderungen um?',
+    answer: 'Ihre Dokumente werden auf einer Infrastruktur Ihrer Wahl verarbeitet und gespeichert: Ihre eigenen Server, Azure EU-Regionen oder deutsche Hetzner-Infrastruktur. Ihre Daten werden nicht an öffentliche KI-Dienste gesendet. Mit Open-Source-Modellen auf Ihren eigenen Servern läuft die gesamte Pipeline auf Ihrer Hardware, ohne externen Modellanbieter. Unsere Verarbeitung ist durch einen Standard-Auftragsverarbeitungsvertrag (AVV) nach DSGVO abgedeckt.',
   },
   {
     question: 'Wie lange dauert das Deployment?',
@@ -82,7 +82,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://www.ironum.com/de/dienstleistungen/enterprise-rag/#service",
     "name": "Enterprise RAG-Lösungen",
-    "description": "Verwandeln Sie verteilte Dokumente in eine durchsuchbare, private Wissensdatenbank mit Retrieval-Augmented Generation. DSGVO-konform, deployed auf Ihrer Infrastruktur.",
+    "description": "Verwandeln Sie verteilte Dokumente in eine durchsuchbare, private Wissensdatenbank mit Retrieval-Augmented Generation. Auf DSGVO-Anforderungen ausgelegt, deployed auf einer Infrastruktur Ihrer Wahl.",
     "provider": { "@id": "https://www.ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "Enterprise RAG",
@@ -100,7 +100,7 @@ const breadcrumbs = [
 <Layout
   locale="de"
   title="Enterprise RAG-Lösungen | Private Dokumenten-KI | Ironum"
-  description="Verwandeln Sie Ihre Dokumente in verwertbare Intelligenz mit Retrieval-Augmented Generation. Privates Deployment, DSGVO-konform, Open-Source-LLMs. Auf Ihrer Infrastruktur."
+  description="Verwandeln Sie Ihre Dokumente in verwertbare Intelligenz mit Retrieval-Augmented Generation. Privates Deployment, EU-Hosting, Open-Source-LLMs. Auf einer Infrastruktur Ihrer Wahl."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -142,7 +142,7 @@ const breadcrumbs = [
             <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Datensicherheitsrisiko</h3>
-          <p class="text-gray-500 text-lg font-semibold">Das Hochladen vertraulicher Dokumente zu ChatGPT oder anderen öffentlichen KI-Tools verstößt gegen die DSGVO und gefährdet Geschäftsgeheimnisse. In Deutschland nutzt rund ein Drittel der Mitarbeitenden unautorisierte KI-Tools (<a href="https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html" target="_blank" rel="noopener" class="underline">CIO, 2025</a>).</p>
+          <p class="text-gray-500 text-lg font-semibold">Das Hochladen vertraulicher Dokumente zu ChatGPT oder anderen öffentlichen KI-Tools kann gegen die DSGVO verstoßen und gefährdet Geschäftsgeheimnisse. Umfragen zufolge nutzt rund die Hälfte der Mitarbeitenden nicht freigegebene KI-Tools (<a href="https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html" target="_blank" rel="noopener" class="underline">CIO, 2025</a>).</p>
         </div>
       </div>
     </div>
@@ -155,7 +155,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Lösung</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Privates RAG auf Ihrer Infrastruktur</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">Ironum deployt eine vollständige Retrieval-Augmented-Generation-Pipeline auf Infrastruktur, die Sie kontrollieren. Ihre Mitarbeitenden durchsuchen Ihre gesamte Dokumentenbasis in natürlicher Sprache und erhalten präzise, quellenbasierte Antworten, ohne dass Daten Ihre Umgebung verlassen.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Ironum deployt eine vollständige Retrieval-Augmented-Generation-Pipeline auf Infrastruktur, die Sie kontrollieren. Ihre Mitarbeitenden durchsuchen Ihre gesamte Dokumentenbasis in natürlicher Sprache und erhalten quellenbasierte Antworten, und die Daten bleiben in der Umgebung, die Sie wählen.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -163,7 +163,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">Jede Antwort mit Quelldokumenten verknüpft für volle Nachvollziehbarkeit</span>
+              <span class="text-gray-700 font-medium">Jede Antwort mit Quelldokumenten verknüpft, damit sie nachvollziehbar und prüfbar ist</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -171,7 +171,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">Bereit für Transparenz- und Dokumentationsanforderungen der EU-KI-Verordnung</span>
+              <span class="text-gray-700 font-medium">Unterstützt die Dokumentation für Transparenzanforderungen der EU-KI-Verordnung</span>
             </li>
           </ul>
         </div>

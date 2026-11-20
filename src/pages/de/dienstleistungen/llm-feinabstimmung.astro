@@ -22,7 +22,7 @@ const processSteps = [
   {
     step: '03',
     title: 'Evaluation',
-    description: 'Rigoroses Testen gegen Ihre Qualitäts-Benchmarks. Wir evaluieren Genauigkeit, Halluzinationsraten, Antwortqualität und Domän-Abdeckung. Ihre Fachexperten validieren Outputs, bevor wir zum Deployment übergehen.',
+    description: 'Tests gegen Ihre Qualitäts-Benchmarks. Wir evaluieren Genauigkeit, Halluzinationsraten, Antwortqualität und Domän-Abdeckung. Ihre Fachexperten validieren Outputs, bevor wir zum Deployment übergehen.',
     details: ['Automatisierte Benchmark-Tests', 'Menschliche Evaluation mit Fachexperten', 'Halluzinationserkennung', 'A/B-Tests gegen das Basismodell'],
   },
   {
@@ -56,7 +56,7 @@ const comparisonItems = [
   },
   {
     aspect: 'Halluzinationsrisiko',
-    rag: 'Niedrig: verankert in abgerufenen Quellen',
+    rag: 'Geringer: verankert in abgerufenen Quellen',
     fineTuning: 'Mittel: abhängig von der Trainingsqualität',
   },
   {
@@ -73,15 +73,15 @@ const faqItems = [
   },
   {
     question: 'Wie viele Trainingsdaten brauche ich?',
-    answer: 'Mit modernen Techniken wie LoRA sind bedeutende Verbesserungen bereits mit 100 bis 500 hochwertigen Beispielen möglich. Für spezialisierte Aufgaben liefern 1.000 bis 5.000 Beispiele typischerweise starke Ergebnisse. Die Qualität der Trainingsdaten zählt weit mehr als die Menge. 200 sorgfältig kuratierte Beispiele übertreffen oft 10.000 verrauschte. Wir helfen Ihnen, die richtigen Daten in der Vorbereitungsphase zu identifizieren.',
+    answer: 'Mit modernen Techniken wie LoRA sind bedeutende Verbesserungen bereits mit 100 bis 500 hochwertigen Beispielen möglich. Für spezialisierte Aufgaben liefern 1.000 bis 5.000 Beispiele typischerweise starke Ergebnisse. Die Qualität der Trainingsdaten zählt mehr als die Menge: Ein kleinerer Satz sorgfältig kuratierter Beispiele kann einen viel größeren, verrauschten übertreffen. Wir helfen Ihnen, die richtigen Daten in der Vorbereitungsphase zu identifizieren.',
   },
   {
     question: 'Welche Basismodelle nutzen Sie?',
-    answer: 'Wir arbeiten primär mit Open-Source-Modellen: Llama 3 (Meta), Mistral, Mixtral und ähnliche. Diese Modelle bieten starke Basisleistung, volle Transparenz und können deployed werden, ohne dass Daten Ihre Infrastruktur verlassen. Wir stimmen auch Modelle auf Azure OpenAI fein ab für Unternehmen, die verwaltete Infrastruktur mit EU-Datenresidenz bevorzugen.',
+    answer: 'Wir arbeiten primär mit Open-Source-Modellen: Llama 3 (Meta), Mistral, Mixtral und ähnliche. Diese Modelle bieten starke Basisleistung, offene Gewichte und lassen sich auf Ihrer eigenen Infrastruktur betreiben. Wir stimmen auch Modelle auf Azure OpenAI fein ab für Unternehmen, die verwaltete Infrastruktur mit EU-Datenresidenz bevorzugen.',
   },
   {
-    question: 'Bleiben meine Daten während des Trainings privat?',
-    answer: 'Ja. Das Training läuft auf Infrastruktur, die Sie kontrollieren: Ihre eigenen Server, unsere deutsche GPU-Infrastruktur auf Hetzner oder Azure EU-Regionen. Ihre Trainingsdaten werden nie auf Drittanbieter-Plattformen oder zu Modellanbietern hochgeladen. Nach dem Training gehören Ihnen die Modell-Weights und Sie können sie unabhängig deployen.',
+    question: 'Wo werden meine Daten beim Training verarbeitet?',
+    answer: 'Das Training läuft auf einer Infrastruktur Ihrer Wahl: Ihre eigenen Server, unsere deutsche GPU-Infrastruktur auf Hetzner oder Azure EU-Regionen. Mit Open-Source-Modellen auf Ihren Servern oder bei Hetzner gehen Ihre Trainingsdaten nicht an einen Modellanbieter. Wählen Sie Azure OpenAI, läuft das Training in den EU-Regionen von Microsoft zu den Bedingungen von Microsoft. Nach dem Training gehören Ihnen die feinabgestimmten Weights, im Rahmen der Lizenz des Basismodells.',
   },
   {
     question: 'Wie messen Sie die Modellqualität?',
@@ -94,7 +94,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://www.ironum.com/de/dienstleistungen/llm-feinabstimmung/#service",
     "name": "LLM-Feinabstimmung",
-    "description": "Domainspezifische KI-Modelle, trainiert auf Ihren Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur.",
+    "description": "Domainspezifische KI-Modelle, trainiert auf Ihren Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche, auf einer Infrastruktur Ihrer Wahl.",
     "provider": { "@id": "https://www.ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "LLM-Feinabstimmung",
@@ -112,7 +112,7 @@ const breadcrumbs = [
 <Layout
   locale="de"
   title="LLM-Feinabstimmung | Domainspezifische KI-Modelle | Ironum"
-  description="Trainieren Sie domainspezifische KI-Modelle mit Ihren eigenen Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche. Ihre Daten verlassen nie Ihre Infrastruktur. DSGVO-konform."
+  description="Trainieren Sie domainspezifische KI-Modelle mit Ihren eigenen Daten. Open-Source-LLMs, feinabgestimmt für Ihre Branche, auf Ihren Servern oder EU-Infrastruktur. Auf DSGVO-Anforderungen ausgelegt."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -121,7 +121,7 @@ const breadcrumbs = [
   <PageHero
     eyebrow="LLM-FEINABSTIMMUNG"
     title="Domainspezifische KI-Modelle, trainiert auf Ihren Daten"
-    subtitle="Stimmen Sie Open-Source-LLMs auf die Sprache Ihrer Branche ab. Trainiert auf Ihrer Infrastruktur, in Ihrem Besitz, ohne dass Daten Ihre Kontrolle verlassen."
+    subtitle="Stimmen Sie Open-Source-LLMs auf die Sprache Ihrer Branche ab. Trainiert auf einer Infrastruktur Ihrer Wahl, die feinabgestimmten Weights gehören Ihnen."
     ctaText="Mein Fine-Tuning-Projekt besprechen"
     ctaLink="/de/kontakt/?source=llm-fine-tuning"
   />
@@ -132,7 +132,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Wann feinabstimmen</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">RAG vs. Feinabstimmung: Das richtige Werkzeug wählen</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Feinabstimmung und RAG lösen unterschiedliche Probleme. Zu verstehen, wann man welches einsetzt, oder beide, ist entscheidend für den KI-Erfolg. So vergleichen sie sich.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Feinabstimmung und RAG lösen unterschiedliche Probleme. Zu verstehen, wann man welches einsetzt, oder beide, ist wichtig für das Ergebnis. So vergleichen sie sich.</p>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full border-2 border-gray-100 rounded-2xl overflow-hidden">
@@ -154,7 +154,7 @@ const breadcrumbs = [
           </tbody>
         </table>
       </div>
-      <p class="text-gray-500 text-lg font-semibold mt-8 text-center max-w-2xl mx-auto">Nicht sicher, welcher Ansatz zu Ihrem Anwendungsfall passt? Wir beraten Sie in unserem kostenlosen Erstgespräch. Viele Produktionssysteme kombinieren beide Ansätze für optimale Ergebnisse.</p>
+      <p class="text-gray-500 text-lg font-semibold mt-8 text-center max-w-2xl mx-auto">Nicht sicher, welcher Ansatz zu Ihrem Anwendungsfall passt? Wir beraten Sie in unserem kostenlosen Erstgespräch. Viele Produktionssysteme kombinieren beide Ansätze.</p>
     </div>
   </section>
 
@@ -194,7 +194,7 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Open Source zuerst</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4">Ihre Daten bleiben auf Ihrer Infrastruktur</h2>
-          <p class="text-gray-500 text-lg font-semibold mt-6">Wir stimmen Open-Source-Foundation-Models fein ab, darunter Llama, Mistral und andere, damit Ihre proprietären Daten nie Ihre Umgebung verlassen. Keine Per-Token-Gebühren, kein Datenaustausch mit Modellanbietern, volles Eigentum an den resultierenden Modell-Weights.</p>
+          <p class="text-gray-500 text-lg font-semibold mt-6">Wir stimmen Open-Source-Foundation-Models fein ab, darunter Llama, Mistral und andere, auf Ihren Servern oder deutscher Infrastruktur, damit Ihre proprietären Daten in der Umgebung bleiben, die Sie wählen. Keine Per-Token-Gebühren, kein Modellanbieter beteiligt, und die feinabgestimmten Weights gehören Ihnen, im Rahmen der Lizenz des Basismodells.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -206,7 +206,7 @@ const breadcrumbs = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-700 font-medium">Sie besitzen die Modell-Weights. Deployen, modifizieren oder weitergeben nach Belieben</span>
+              <span class="text-gray-700 font-medium">Die feinabgestimmten Weights gehören Ihnen. Nutzung und Deployment im Rahmen der Lizenz des Basismodells</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>

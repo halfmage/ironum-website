@@ -20,12 +20,12 @@ const features = [
   },
   {
     title: 'RAG-Powered Answers',
-    description: 'Grounded in your actual documents and data. Every response is sourced from your knowledge base, not hallucinated from general training data. Source citations included.',
+    description: 'Grounded in your actual documents and data. Responses are built from your knowledge base rather than general training data, with source citations so users can check them.',
     icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
   },
   {
-    title: 'GDPR Compliant',
-    description: 'All conversations processed on EU infrastructure. No conversation data leaves your environment. Full data processing agreements and audit trails included.',
+    title: 'Built for GDPR Requirements',
+    description: 'Conversations are processed on EU infrastructure or on your own servers. Data processing agreements and audit trails are included.',
     icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
   },
   {
@@ -43,19 +43,19 @@ const features = [
 const useCases = [
   {
     title: 'Customer Support',
-    description: 'An e-commerce company handles 3,000+ support tickets monthly. Their AI chatbot resolves 70% of queries instantly, including shipping status, return policies, and product questions, freeing human agents for complex cases that need empathy and judgment.',
-    stat: '70%',
-    statLabel: 'automated resolution rate',
+    description: 'Typical example: an e-commerce company with thousands of support tickets a month lets an AI chatbot answer routine queries, including shipping status, return policies, and product questions, freeing human agents for complex cases that need empathy and judgment.',
+    stat: 'Routine',
+    statLabel: 'questions answered automatically',
   },
   {
     title: 'Internal Helpdesk',
-    description: 'A 500-person company deploys an internal AI assistant connected to IT documentation, HR policies, and onboarding materials. Employees get instant answers to "How do I reset my VPN?" or "What\'s our parental leave policy?" without filing a ticket.',
-    stat: '45%',
-    statLabel: 'reduction in IT tickets',
+    description: 'Typical example: a company with several hundred employees deploys an internal AI assistant connected to IT documentation, HR policies, and onboarding materials. Employees get instant answers to "How do I reset my VPN?" or "What\'s our parental leave policy?" without filing a ticket.',
+    stat: 'Fewer',
+    statLabel: 'routine IT tickets',
   },
   {
     title: 'HR & Employee Q&A',
-    description: 'An HR department connects their AI assistant to the employee handbook, benefits documentation, and company policies. Staff across multiple offices and time zones get consistent, accurate answers 24/7, in their preferred language.',
+    description: 'Typical example: an HR department connects its AI assistant to the employee handbook, benefits documentation, and company policies. Staff across multiple offices and time zones get consistent answers 24/7, with sources, in their preferred language.',
     stat: '24/7',
     statLabel: 'availability across time zones',
   },
@@ -64,7 +64,7 @@ const useCases = [
 const faqItems = [
   {
     question: 'How does the chatbot know about our business?',
-    answer: 'We connect the chatbot to your documents, knowledge base, FAQ content, product data, and internal systems using RAG (Retrieval-Augmented Generation). The AI retrieves relevant information from your actual data to generate answers. It does not rely on general training data. This means answers are accurate, current, and specific to your business.',
+    answer: 'We connect the chatbot to your documents, knowledge base, FAQ content, product data, and internal systems using RAG (Retrieval-Augmented Generation). The AI retrieves relevant information from your actual data to generate answers. It does not rely on general training data alone. This keeps answers current and specific to your business, with sources for checking.',
   },
   {
     question: 'Can the chatbot handle multiple languages?',
@@ -76,11 +76,11 @@ const faqItems = [
   },
   {
     question: 'How do you prevent the chatbot from hallucinating?',
-    answer: 'RAG-powered chatbots are fundamentally different from general-purpose AI. Every answer is grounded in retrieved passages from your documents. We implement confidence thresholds, source citation requirements, and fallback behaviours. If the system cannot find relevant information in your knowledge base, it says so honestly rather than making something up.',
+    answer: 'No AI system can rule out wrong answers completely, but RAG reduces the risk considerably. Answers are grounded in retrieved passages from your documents. We implement confidence thresholds, source citation requirements, and fallback behaviours. If the system cannot find relevant information in your knowledge base, it is configured to say so instead of guessing.',
   },
   {
     question: 'How long does it take to deploy a chatbot?',
-    answer: 'A basic chatbot connected to your existing FAQ or documentation can be live in 2 to 3 weeks. More complex deployments with multi-channel integration, CRM connections, and custom workflows typically take 4 to 8 weeks. We always start with a working prototype so you can test and iterate early.',
+    answer: 'A basic chatbot connected to your existing FAQ or documentation can be live in 2 to 3 weeks. More complex deployments with multi-channel integration, CRM connections, and custom workflows typically take 4 to 8 weeks. We start with a working prototype so you can test and iterate early.',
   },
 ];
 
@@ -89,7 +89,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/chatbot-interfaces/#service",
     "name": "Chatbot & Conversational AI",
-    "description": "AI assistants that know your business. White-label, multi-channel chatbots powered by your own data. GDPR compliant, deployed on your infrastructure.",
+    "description": "AI assistants that know your business. White-label, multi-channel chatbots powered by your own data, built for GDPR requirements and deployed on your infrastructure.",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "Conversational AI"
@@ -104,8 +104,8 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="GDPR-Compliant AI Chatbots | HR, Support, Internal | Ironum"
-  description="GDPR-compliant chatbots for HR, support, and internal use. Self-hosted on EU infrastructure. For European enterprises and US companies serving EU users."
+  title="AI Chatbots for GDPR Requirements | HR, Support, Internal | Ironum"
+  description="AI chatbots for HR, support, and internal use, built for GDPR requirements. Self-hosted on EU infrastructure. For European enterprises and US companies serving EU users."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -113,7 +113,7 @@ const breadcrumbs = [
 
   <PageHero
     eyebrow="CHATBOT INTERFACES"
-    title="GDPR-Compliant AI Chatbots, Trained on Your Data"
+    title="AI Chatbots on Your Own Data, Built for GDPR"
     subtitle="White-label chatbots powered by your own data. Deploy across web, Teams, Slack, and WhatsApp, with every conversation processed on EU infrastructure."
     ctaText="Scope my chatbot use case"
     ctaLink="/contact/?source=chatbot-interfaces"
@@ -125,7 +125,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Features</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Enterprise Chatbot Capabilities</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Not another generic chatbot. Every feature is designed for organisations that need accuracy, privacy, and brand control.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Not another generic chatbot. Every feature is designed for organisations that need sourced answers, privacy, and brand control.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature) => (
@@ -188,7 +188,7 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Use Cases</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Chatbots That Deliver Results</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Typical Use Cases</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {useCases.map((useCase) => (
@@ -212,11 +212,11 @@ const breadcrumbs = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">See it in action</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Financial Companion</h2>
-          <p class="text-gray-500 text-lg font-semibold mb-6">A white-label AI companion built for financial literacy and health assessments. Users start a conversation, choose their mode, and get personalised guidance, all on sovereign infrastructure.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">A white-label AI companion built for financial literacy and health assessments. Users start a conversation, choose their mode, and get personalised explanations, all on sovereign infrastructure.</p>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">Financial health check with proven methodology</span>
+              <span class="text-gray-600">Structured financial health check</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -274,7 +274,7 @@ const breadcrumbs = [
       {
         href: '/resources/blog/chatbot-own-data-gdpr-sme/',
         title: 'Chatbot on Your Own Data',
-        description: 'How European SMEs deploy a GDPR-compliant chatbot on their own data, in production within four weeks, with architecture and costs.',
+        description: 'How European SMEs deploy a chatbot on their own data, built for GDPR requirements, in production within four weeks, with architecture and costs.',
       },
       {
         href: '/resources/blog/enterprise-rag-explained/',
@@ -288,6 +288,9 @@ const breadcrumbs = [
       },
     ]}
   />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

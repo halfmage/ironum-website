@@ -19,7 +19,7 @@ const services = [
   },
   {
     title: 'AI Readiness Assessment',
-    description: 'Not every organisation is ready for AI. We evaluate your data quality, governance processes, team skills, and compliance posture to determine exactly where you stand, and build a roadmap to get you where you need to be.',
+    description: 'Not every organisation is ready for AI. We evaluate your data quality, governance processes, team skills, and technical compliance measures to show where you stand, and build a roadmap to get you where you need to be.',
     icon: 'M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75',
   },
   {
@@ -42,7 +42,7 @@ const processSteps = [
     title: 'Strategy',
     duration: '1-2 weeks',
     description: 'We develop a prioritized AI roadmap based on ROI potential, technical feasibility, and compliance requirements. Each recommendation includes cost estimates, timelines, and risk assessments.',
-    deliverables: ['AI roadmap with priorities', 'Business case per initiative', 'Risk and compliance assessment'],
+    deliverables: ['AI roadmap with priorities', 'Business case per initiative', 'Technical risk assessment'],
   },
   {
     step: '03',
@@ -55,7 +55,7 @@ const processSteps = [
     step: '04',
     title: 'Support',
     duration: 'Ongoing',
-    description: 'Post-launch monitoring, performance optimization, and team training. We ensure your AI solutions deliver sustained value and stay compliant as regulations evolve.',
+    description: 'Post-launch monitoring, performance optimization, and team training. We help your AI solutions deliver sustained value and keep the technical documentation current as regulations evolve.',
     deliverables: ['Performance monitoring', 'Team training sessions', 'Quarterly review and optimization'],
   },
 ];
@@ -63,7 +63,7 @@ const processSteps = [
 const audiences = [
   {
     title: 'CTOs at SMEs',
-    description: 'You know AI matters but lack the in-house expertise to evaluate vendors, choose models, or architect solutions. You need a technical partner who speaks your language and understands European compliance.',
+    description: 'You know AI matters but lack the in-house expertise to evaluate vendors, choose models, or architect solutions. You need a technical partner who speaks your language and knows the technical side of European data protection and AI rules.',
     challenges: ['Evaluating AI vendor claims', 'Building vs buying decisions', 'Hiring AI talent in a tight market'],
   },
   {
@@ -73,8 +73,8 @@ const audiences = [
   },
   {
     title: 'Compliance Officers',
-    description: 'Your organisation is adopting AI across departments. You need confidence that every deployment meets security, privacy, and regulatory standards without slowing innovation.',
-    challenges: ['EU AI Act risk classification', 'GDPR-compliant AI processing', 'Audit documentation and transparency'],
+    description: 'Your organisation is adopting AI across departments. You need the technical measures and documentation for security, privacy, and regulatory requirements, without slowing innovation.',
+    challenges: ['EU AI Act risk classification', 'AI processing under GDPR', 'Audit documentation and transparency'],
   },
 ];
 
@@ -85,15 +85,15 @@ const faqItems = [
   },
   {
     question: 'We have no AI experience internally. Can you still help?',
-    answer: 'Absolutely. Most of our clients start with zero AI experience. Our consulting process is designed to meet you where you are, from explaining foundational concepts to your leadership team, to identifying the right first project, to building and deploying the solution. We also train your team so they can manage and extend AI solutions independently.',
+    answer: 'Yes. Many of our clients start without AI experience. Our consulting process is designed to meet you where you are, from explaining foundational concepts to your leadership team, to identifying the right first project, to building and deploying the solution. We also train your team so they can manage and extend AI solutions independently.',
   },
   {
-    question: 'How do you handle the EU AI Act compliance aspect?',
-    answer: 'We classify each AI use case according to the EU AI Act risk framework, document the required transparency and oversight measures, and build compliance into every deployment. For high-risk applications, we implement the required risk management systems, data governance processes, and human oversight mechanisms from the start.',
+    question: 'How do you support the EU AI Act side of a project?',
+    answer: 'We prepare a technical risk classification for each AI use case along the EU AI Act framework, document transparency and oversight measures, and build the technical measures into the deployment. For potentially high-risk applications, we implement risk management, data governance, and human oversight mechanisms from the start. The legal assessment, for example whether a system is high-risk, stays with your legal advisers.',
   },
   {
     question: 'Do you work with specific industries?',
-    answer: 'We work across industries but have deep experience in professional services (legal, consulting), manufacturing, financial services, and healthcare. Our approach is industry-agnostic at the technology level but highly customized at the business process level. We learn your domain as part of every engagement.',
+    answer: 'We work across industries, including professional services (legal, consulting), manufacturing, financial services, and healthcare. Our approach is industry-agnostic at the technology level but highly customized at the business process level. We learn your domain as part of every engagement.',
   },
   {
     question: 'What happens after the consulting phase?',
@@ -106,7 +106,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/services/ai-consulting/#service",
     "name": "AI Consulting & Audits",
-    "description": "From AI strategy to production. Technical audits, AI readiness assessments, and integration planning for European businesses. EU AI Act compliant.",
+    "description": "From AI strategy to production. Technical audits, AI readiness assessments, and integration planning for European businesses, including technical support for EU AI Act requirements.",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "AI Consulting"
@@ -121,8 +121,8 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="EU AI Act Compliance Consulting for US & EU Firms | Ironum"
-  description="Engineer-led AI strategy and EU AI Act compliance audits. For US firms entering EU and EU enterprises preparing for 2026 deadlines. Free assessment."
+  title="AI Consulting and EU AI Act Implementation Support | Ironum"
+  description="Engineer-led AI strategy, technical audits and EU AI Act implementation support. For US firms entering the EU and EU enterprises preparing for the AI Act deadlines."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -130,9 +130,9 @@ const breadcrumbs = [
 
   <PageHero
     eyebrow="AI CONSULTING"
-    title="EU AI Act Consulting: From Strategy to Production"
-    subtitle="Technical audits, readiness assessments, and hands-on implementation. We help European businesses deploy AI that works, complies, and delivers measurable ROI."
-    ctaText="Discuss my EU AI Act gap"
+    title="AI Consulting and EU AI Act Implementation: From Strategy to Production"
+    subtitle="Technical audits, readiness assessments, and hands-on implementation. We help European businesses deploy AI that works, is documented for regulatory requirements, and has a measurable business case."
+    ctaText="Discuss my AI Act questions"
     ctaLink="/contact/?source=ai-consulting"
   />
 
@@ -249,7 +249,7 @@ const breadcrumbs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <a href="/industries/legal/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Legal</h3>
-          <p class="text-gray-500 font-semibold mb-4">AI strategy for law firms navigating client confidentiality, EU AI Act compliance, and document automation.</p>
+          <p class="text-gray-500 font-semibold mb-4">AI strategy for law firms working on client confidentiality, EU AI Act requirements, and document automation.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/industries/manufacturing/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
@@ -259,12 +259,12 @@ const breadcrumbs = [
         </a>
         <a href="/industries/healthcare/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Healthcare</h3>
-          <p class="text-gray-500 font-semibold mb-4">AI audits for healthcare institutions with patient data protection and regulatory compliance built in.</p>
+          <p class="text-gray-500 font-semibold mb-4">Technical AI audits for healthcare institutions, designed around patient data protection and regulatory requirements.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/industries/financial-services/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Financial Services</h3>
-          <p class="text-gray-500 font-semibold mb-4">Technical audits and compliance assessments for banks navigating BaFin, ECB, and EU AI Act requirements.</p>
+          <p class="text-gray-500 font-semibold mb-4">Technical audits for banks working on BaFin, ECB, and EU AI Act requirements.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       </div>
@@ -272,6 +272,9 @@ const breadcrumbs = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

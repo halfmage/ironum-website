@@ -30,13 +30,13 @@ const capabilities = [
   },
   {
     title: 'Workflow Automation & Agents',
-    description: 'Automate manual processes and connect 400+ tools with self-hosted, open-source workflows. No vendor lock-in.',
+    description: 'Automate manual processes and connect your tools with self-hosted n8n workflows (fair-code). Little vendor lock-in.',
     href: '/services/workflow-automation/',
     icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
   },
   {
     title: 'AI Strategy & Audits',
-    description: 'Not sure where to start? We find exactly where AI saves you time and money, and what it takes to ship it.',
+    description: 'Not sure where to start? We find where AI can save you time and money, and what it takes to ship it.',
     href: '/services/ai-consulting/',
     icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
   },
@@ -49,23 +49,23 @@ const faqItems = [
   },
   {
     question: 'Can you build custom AI on our own servers or cloud?',
-    answer: 'Yes. We deploy on your infrastructure, your cloud account (Azure EU, your own AWS/GCP), German-hosted Hetzner, or fully on-premises. With open-source models the entire pipeline runs on your hardware, so your data is never sent to third-party model providers. That is the default, not an add-on.',
+    answer: 'Yes. We deploy on your infrastructure, your cloud account (Azure EU, your own AWS/GCP), German-hosted Hetzner, or fully on-premises. With open-source models the entire pipeline can run on your hardware, so your data is not sent to third-party model providers. That is our default setup, not an add-on.',
   },
   {
     question: 'Where is the engineering team based?',
-    answer: 'Our engineering teams work across Germany and Poland: German engineering and project standards, EU time zones and EU contracts. For US companies that means a partner who keeps data inside EU jurisdiction.',
+    answer: 'Our engineering teams work across Germany and Poland: German engineering and project standards, EU time zones and EU contracts. For US companies that means a partner who can keep data inside EU jurisdiction.',
   },
   {
     question: 'Do we own the code and the model?',
-    answer: 'Yes. We build on open-source foundations (Llama, Mistral, n8n, Qdrant and others) and hand over the code and model artifacts. No black boxes and no vendor lock-in. You can run, extend, or move the system without depending on us.',
+    answer: 'Yes. We build on open-source and source-available foundations (Llama, Mistral, n8n, Qdrant and others) and hand over the code and model artifacts. No black boxes and no vendor lock-in. You can run, extend, or move the system without depending on us.',
   },
   {
     question: 'How do you prove you can deliver?',
     answer: 'Through real work, not slideware. Our team brings more than 20 years of custom software engineering, and we have shipped production AI for FH Dortmund and Smella. We also run it in our own product: LearnSlice, the company behind Ironum, uses the same sovereign AI layer we build for clients. We start most engagements with a working proof-of-concept on your actual data within about two weeks, so you see results before committing to a full build.',
   },
   {
-    question: 'Is the work GDPR and EU AI Act compliant?',
-    answer: 'When you need it, yes. EU data residency, a standard Data Processing Agreement, audit logging, and EU AI Act documentation are available on every build. We treat compliance as a capability you can switch on, not the only reason to hire us.',
+    question: 'How do you support GDPR and EU AI Act requirements?',
+    answer: 'EU data residency, a standard Data Processing Agreement, audit logging, and technical EU AI Act documentation are available on every build. The legal assessment of your use case stays with your data protection officer or legal advisers.',
   },
 ];
 
@@ -147,14 +147,14 @@ const breadcrumbs = [
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <h3 class="text-xl font-bold mb-3">Your data stays yours</h3>
-          <p class="text-gray-500 text-lg font-semibold">Every system runs on infrastructure you control. With open-source models, nothing is sent to third-party providers, no leakage, no training on your data, no lock-in.</p>
+          <p class="text-gray-500 text-lg font-semibold">Every system runs on infrastructure you control. With open-source models, your data is not sent to third-party model providers or used to train their models, and you are not locked in.</p>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <h3 class="text-xl font-bold mb-3">Teams in Germany and Poland</h3>
           <p class="text-gray-500 text-lg font-semibold">German engineering standards delivered by teams in Germany and Poland, in EU time zones and under EU contracts.</p>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
-          <h3 class="text-xl font-bold mb-3">Proven by real work</h3>
+          <h3 class="text-xl font-bold mb-3">Shown in real work</h3>
           <p class="text-gray-500 text-lg font-semibold">More than 20 years building custom software, now applied to AI. We have shipped production systems for FH Dortmund and Smella, and we run the same stack in LearnSlice, the company behind Ironum. Built by engineers, not PowerPoint.</p>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
@@ -182,7 +182,7 @@ const breadcrumbs = [
         <a href="/services/chatbot-interfaces/" class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 transition-colors group block">
           <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">EdTech · In-house</span>
           <h3 class="text-xl font-bold mt-2 mb-3">LearnSlice</h3>
-          <p class="text-gray-500 text-lg font-semibold">Our own learning platform: LearnSlice is the company behind Ironum. Sovereign AI personalization where student profiles never leave the platform's control. No data sent to US clouds.</p>
+          <p class="text-gray-500 text-lg font-semibold">Our own learning platform: LearnSlice is the company behind Ironum. AI personalization with learner data hosted in Germany and AI processing in the EU.</p>
         </a>
         <a href="/services/geo-optimization/" class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 transition-colors group block">
           <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">Visibility</span>
@@ -233,7 +233,7 @@ const breadcrumbs = [
       {
         href: '/resources/blog/chatbot-own-data-gdpr-sme/',
         title: 'Chatbot on Your Own Data',
-        description: 'How companies put a RAG chatbot into production on their own data, GDPR-compliant, within four weeks.',
+        description: 'How companies put a RAG chatbot on their own data into production within four weeks, built for GDPR requirements.',
       },
       {
         href: '/resources/blog/gdpr-compliant-ai-guide/',

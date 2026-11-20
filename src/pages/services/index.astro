@@ -20,13 +20,13 @@ const services = [
   },
   {
     title: 'Enterprise RAG Solutions',
-    description: 'Turn scattered documents into a searchable, private knowledge base. Deploy retrieval-augmented generation on your own infrastructure with GDPR compliance built in.',
+    description: 'Turn scattered documents into a searchable, private knowledge base. Deploy retrieval-augmented generation on your own infrastructure, built for GDPR requirements.',
     href: '/services/enterprise-rag',
     icon: 'M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z',
   },
   {
     title: 'Workflow Automation',
-    description: 'Eliminate manual processes with n8n-based workflow automation. Self-hosted, open-source, and integrated with 400+ business tools, with no vendor lock-in.',
+    description: 'Automate manual processes with n8n-based workflows. Self-hosted, source-available (fair-code), with a wide range of integrations and little vendor lock-in.',
     href: '/services/workflow-automation',
     icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
   },
@@ -38,13 +38,13 @@ const services = [
   },
   {
     title: 'Chatbot & Conversational AI',
-    description: 'Deploy AI assistants that actually know your business. White-label, multi-channel chatbots powered by your own data with enterprise-grade privacy.',
+    description: 'Deploy AI assistants that actually know your business. White-label, multi-channel chatbots powered by your own data, hosted where you decide.',
     href: '/services/chatbot-interfaces',
     icon: 'M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z',
   },
   {
     title: 'LLM Fine-Tuning',
-    description: 'Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry. Your data never leaves your infrastructure.',
+    description: 'Train domain-specific AI models on your proprietary data. Open-source LLMs fine-tuned for your industry, trained on infrastructure you choose.',
     href: '/services/llm-fine-tuning',
     icon: 'M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342',
   },
@@ -63,14 +63,14 @@ const deploymentOptions = [
     features: ['OpenAI, Anthropic, Google', 'Fastest time to value', 'Pay-per-use pricing'],
   },
   {
-    title: 'Microsoft Azure (GDPR)',
-    description: 'Deploy on Azure with EU data residency guarantees. Your data stays in European data centres with full GDPR compliance and enterprise SLAs.',
-    features: ['EU data residency', 'Enterprise SLAs', 'GDPR compliant by default'],
+    title: 'Microsoft Azure (EU regions)',
+    description: 'Deploy on Azure with EU data residency options. Data is processed in European data centres, under Microsoft\'s enterprise terms and SLAs.',
+    features: ['EU data residency options', 'Enterprise SLAs', 'EU data centres'],
   },
   {
     title: 'On-Premises / Hetzner',
-    description: 'Full data sovereignty with on-premises deployment or German-hosted infrastructure on Hetzner. Zero data leaves your control.',
-    features: ['100% data sovereignty', 'German hosting available', 'Open-source LLMs'],
+    description: 'The most control over your data, with on-premises deployment or German-hosted infrastructure on Hetzner. Data stays on infrastructure you choose.',
+    features: ['Data on infrastructure you choose', 'German hosting available', 'Open-source LLMs'],
   },
 ];
 
@@ -115,7 +115,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What We Build</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">The Building Blocks of Enterprise AI</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Each service is designed to work standalone or as part of an integrated AI stack. All solutions deploy on your infrastructure with full data sovereignty.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Each service is designed to work standalone or as part of an integrated AI stack. All solutions can run on infrastructure you control.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
@@ -143,7 +143,7 @@ const breadcrumbs = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Deployment</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Your Infrastructure, Your Rules</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Choose the deployment model that fits your compliance requirements. Every option is production-ready and fully managed by our team.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Choose the deployment model that fits your compliance requirements. For every option, we set up and operate the system with your team.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {deploymentOptions.map((option) => (
@@ -169,12 +169,12 @@ const breadcrumbs = [
     <div class="max-w-7xl mx-auto">
       <div class="bg-black rounded-2xl p-8 md:p-16 text-center">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Built Right</span>
-        <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">Enterprise-Grade by Default</h2>
-        <p class="text-white/80 text-lg md:text-xl font-medium mt-4 max-w-3xl mx-auto">Every solution includes GDPR compliance, data sovereignty, audit logging, and DPA/NDA, because these should be standard, not optional add-ons.</p>
+        <h2 class="text-white text-3xl md:text-5xl font-bold mt-4">Built In From the Start</h2>
+        <p class="text-white/80 text-lg md:text-xl font-medium mt-4 max-w-3xl mx-auto">Every solution includes a design for GDPR requirements, control over data location, audit logging, and a DPA/NDA, because these should be standard, not optional add-ons.</p>
         <div class="grid md:grid-cols-3 gap-8 mt-12 text-left">
           <div>
             <h3 class="text-white text-lg font-bold mb-2">Data Sovereignty</h3>
-            <p class="text-white/60 font-medium">All data processing stays within EU boundaries. No transatlantic data transfers, no third-party access.</p>
+            <p class="text-white/60 font-medium">With EU or on-premises hosting, data processing stays in the EU or on your premises, and you decide which providers are involved.</p>
           </div>
           <div>
             <h3 class="text-white text-lg font-bold mb-2">Security Built In</h3>
@@ -182,7 +182,7 @@ const breadcrumbs = [
           </div>
           <div>
             <h3 class="text-white text-lg font-bold mb-2">Fully Documented</h3>
-            <p class="text-white/60 font-medium">Model documentation, data lineage tracking, and transparency reports, ready when you need them.</p>
+            <p class="text-white/60 font-medium">Model documentation, data lineage tracking, and transparency reports, available when you need them.</p>
           </div>
         </div>
       </div>

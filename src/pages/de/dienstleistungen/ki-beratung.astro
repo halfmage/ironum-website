@@ -19,7 +19,7 @@ const services = [
   },
   {
     title: 'KI-Readiness-Assessment',
-    description: 'Nicht jedes Unternehmen ist bereit für KI. Wir bewerten Ihre Datenqualität, Governance-Prozesse, Team-Kompetenzen und Compliance-Situation, um genau festzustellen, wo Sie stehen, und erstellen eine Roadmap, um Sie dorthin zu bringen, wo Sie sein müssen.',
+    description: 'Nicht jedes Unternehmen ist bereit für KI. Wir bewerten Ihre Datenqualität, Governance-Prozesse, Team-Kompetenzen und technischen Compliance-Maßnahmen, um zu zeigen, wo Sie stehen, und erstellen eine Roadmap, um Sie dorthin zu bringen, wo Sie sein müssen.',
     icon: 'M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75',
   },
   {
@@ -42,7 +42,7 @@ const processSteps = [
     title: 'Strategie',
     duration: '1-2 Wochen',
     description: 'Wir entwickeln eine priorisierte KI-Roadmap basierend auf ROI-Potenzial, technischer Machbarkeit und Compliance-Anforderungen. Jede Empfehlung umfasst Kostenschätzungen, Zeitpläne und Risikobewertungen.',
-    deliverables: ['KI-Roadmap mit Prioritäten', 'Business Case pro Initiative', 'Risiko- und Compliance-Bewertung'],
+    deliverables: ['KI-Roadmap mit Prioritäten', 'Business Case pro Initiative', 'Technische Risikobewertung'],
   },
   {
     step: '03',
@@ -55,7 +55,7 @@ const processSteps = [
     step: '04',
     title: 'Betreuung',
     duration: 'Laufend',
-    description: 'Monitoring nach dem Launch, Performance-Optimierung und Teamschulungen. Wir stellen sicher, dass Ihre KI-Lösungen nachhaltigen Mehrwert liefern und bei neuen Regulierungen konform bleiben.',
+    description: 'Monitoring nach dem Launch, Performance-Optimierung und Teamschulungen. Wir helfen, dass Ihre KI-Lösungen nachhaltigen Mehrwert liefern, und halten die technische Dokumentation bei neuen Regulierungen aktuell.',
     deliverables: ['Performance-Monitoring', 'Team-Schulungen', 'Quartalsweise Review und Optimierung'],
   },
 ];
@@ -63,7 +63,7 @@ const processSteps = [
 const audiences = [
   {
     title: 'CTOs im Mittelstand',
-    description: 'Sie wissen, dass KI wichtig ist, aber es fehlt die interne Expertise, um Anbieter zu bewerten, Modelle auszuwählen oder Lösungen zu architekturieren. Sie brauchen einen technischen Partner, der Ihre Sprache spricht und europäische Compliance versteht.',
+    description: 'Sie wissen, dass KI wichtig ist, aber es fehlt die interne Expertise, um Anbieter zu bewerten, Modelle auszuwählen oder Lösungen zu architekturieren. Sie brauchen einen technischen Partner, der Ihre Sprache spricht und die technische Seite europäischer Datenschutz- und KI-Regeln kennt.',
     challenges: ['KI-Anbieter-Claims bewerten', 'Build-vs-Buy-Entscheidungen', 'KI-Talente in einem engen Markt finden'],
   },
   {
@@ -73,8 +73,8 @@ const audiences = [
   },
   {
     title: 'Compliance-Beauftragte',
-    description: 'Ihr Unternehmen führt KI abteilungsübergreifend ein. Sie brauchen die Gewissheit, dass jedes Deployment Sicherheits-, Datenschutz- und Regulierungsstandards erfüllt, ohne die Innovation zu bremsen.',
-    challenges: ['EU-KI-Verordnung Risikoklassifizierung', 'DSGVO-konforme KI-Verarbeitung', 'Audit-Dokumentation und Transparenz'],
+    description: 'Ihr Unternehmen führt KI abteilungsübergreifend ein. Sie brauchen die technischen Maßnahmen und die Dokumentation für Sicherheits-, Datenschutz- und Regulierungsanforderungen, ohne die Innovation zu bremsen.',
+    challenges: ['EU-KI-Verordnung Risikoklassifizierung', 'KI-Verarbeitung unter der DSGVO', 'Audit-Dokumentation und Transparenz'],
   },
 ];
 
@@ -85,15 +85,15 @@ const faqItems = [
   },
   {
     question: 'Wir haben intern keine KI-Erfahrung. Können Sie trotzdem helfen?',
-    answer: 'Selbstverständlich. Die meisten unserer Kunden starten ohne KI-Erfahrung. Unser Beratungsprozess ist darauf ausgelegt, Sie dort abzuholen, wo Sie stehen, von der Erklärung grundlegender Konzepte für Ihr Führungsteam über die Identifikation des richtigen ersten Projekts bis hin zum Aufbau und Deployment der Lösung. Wir schulen auch Ihr Team, damit es KI-Lösungen eigenständig verwalten und erweitern kann.',
+    answer: 'Ja. Viele unserer Kunden starten ohne KI-Erfahrung. Unser Beratungsprozess ist darauf ausgelegt, Sie dort abzuholen, wo Sie stehen, von der Erklärung grundlegender Konzepte für Ihr Führungsteam über die Identifikation des richtigen ersten Projekts bis hin zum Aufbau und Deployment der Lösung. Wir schulen auch Ihr Team, damit es KI-Lösungen eigenständig verwalten und erweitern kann.',
   },
   {
-    question: 'Wie gehen Sie mit der EU-KI-Verordnung um?',
-    answer: 'Wir klassifizieren jeden KI-Anwendungsfall gemäß dem Risikorahmen der EU-KI-Verordnung, dokumentieren die erforderlichen Transparenz- und Aufsichtsmaßnahmen und bauen Compliance in jedes Deployment ein. Für Hochrisiko-Anwendungen implementieren wir die erforderlichen Risikomanagementsysteme, Data-Governance-Prozesse und menschliche Aufsichtsmechanismen von Anfang an.',
+    question: 'Wie unterstützen Sie bei der EU-KI-Verordnung?',
+    answer: 'Wir erstellen für jeden KI-Anwendungsfall eine technische Risikoeinordnung entlang des Rahmens der EU-KI-Verordnung, dokumentieren Transparenz- und Aufsichtsmaßnahmen und bauen die technischen Maßnahmen in das Deployment ein. Für möglicherweise hochriskante Anwendungen setzen wir Risikomanagement, Data Governance und Mechanismen für menschliche Aufsicht von Anfang an um. Die rechtliche Bewertung, etwa ob ein System hochriskant ist, bleibt bei Ihrer Rechtsberatung.',
   },
   {
     question: 'Arbeiten Sie mit bestimmten Branchen?',
-    answer: 'Wir arbeiten branchenübergreifend, haben aber tiefe Erfahrung in Professional Services (Recht, Beratung), Fertigung, Finanzdienstleistungen und Gesundheitswesen. Unser Ansatz ist auf Technologieebene branchenunabhängig, aber auf Geschäftsprozessebene hochgradig individualisiert. Wir lernen Ihre Domäne als Teil jedes Projekts.',
+    answer: 'Wir arbeiten branchenübergreifend, unter anderem in Professional Services (Recht, Beratung), Fertigung, Finanzdienstleistungen und Gesundheitswesen. Unser Ansatz ist auf Technologieebene branchenunabhängig, aber auf Geschäftsprozessebene hochgradig individualisiert. Wir lernen Ihre Domäne als Teil jedes Projekts.',
   },
   {
     question: 'Was passiert nach der Beratungsphase?',
@@ -106,7 +106,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://www.ironum.com/de/dienstleistungen/ki-beratung/#service",
     "name": "KI-Beratung & Audits",
-    "description": "Von der KI-Strategie zur Produktion. Technische Audits, KI-Readiness-Assessments und Integrationsplanung für den europäischen Mittelstand. EU-KI-Verordnung konform.",
+    "description": "Von der KI-Strategie zur Produktion. Technische Audits, KI-Readiness-Assessments und Integrationsplanung für den europäischen Mittelstand, inklusive technischer Unterstützung bei der EU-KI-Verordnung.",
     "provider": { "@id": "https://www.ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
     "serviceType": "KI-Beratung",
@@ -123,8 +123,8 @@ const breadcrumbs = [
 
 <Layout
   locale="de"
-  title="KI-Beratung & EU AI Act Audits für den Mittelstand | Ironum"
-  description="Von der KI-Strategie zur Produktion ohne Umwege. Technische Audits, KI-Readiness-Assessments und Integrationsplanung für den europäischen Mittelstand. EU-KI-Verordnung konform."
+  title="KI-Beratung & EU AI Act Umsetzung für den Mittelstand | Ironum"
+  description="Von der KI-Strategie zur Produktion ohne Umwege. Technische Audits, KI-Readiness-Assessments und Integrationsplanung für den europäischen Mittelstand, mit technischer Unterstützung bei der EU-KI-Verordnung."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -132,9 +132,9 @@ const breadcrumbs = [
 
   <PageHero
     eyebrow="KI-BERATUNG"
-    title="EU-AI-Act-Beratung: Von der Strategie zur Produktion"
-    subtitle="Technische Audits, Readiness-Assessments und praxisnahe Umsetzung. Wir helfen europäischen Unternehmen, KI einzusetzen, die funktioniert, konform ist und messbaren ROI liefert."
-    ctaText="Meine EU-AI-Act-Lücke besprechen"
+    title="KI-Beratung und EU-AI-Act-Umsetzung: Von der Strategie zur Produktion"
+    subtitle="Technische Audits, Readiness-Assessments und praxisnahe Umsetzung. Wir helfen europäischen Unternehmen, KI einzusetzen, die funktioniert, für regulatorische Anforderungen dokumentiert ist und einen messbaren Business Case hat."
+    ctaText="Meine AI-Act-Fragen besprechen"
     ctaLink="/de/kontakt/?source=ai-consulting"
   />
 
@@ -251,7 +251,7 @@ const breadcrumbs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <a href="/de/branchen/recht/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Recht</h3>
-          <p class="text-gray-500 font-semibold mb-4">KI-Strategie für Kanzleien im Spannungsfeld von Mandantenvertraulichkeit, EU-KI-Verordnung und Dokumentenautomatisierung.</p>
+          <p class="text-gray-500 font-semibold mb-4">KI-Strategie für Kanzleien rund um Mandantenvertraulichkeit, EU-KI-Verordnung und Dokumentenautomatisierung.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/de/branchen/fertigung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
@@ -261,12 +261,12 @@ const breadcrumbs = [
         </a>
         <a href="/de/branchen/gesundheitswesen/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Gesundheitswesen</h3>
-          <p class="text-gray-500 font-semibold mb-4">KI-Audits für Gesundheitseinrichtungen mit integriertem Patientendatenschutz und regulatorischer Compliance.</p>
+          <p class="text-gray-500 font-semibold mb-4">Technische KI-Audits für Gesundheitseinrichtungen, ausgelegt auf Patientendatenschutz und regulatorische Anforderungen.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/de/branchen/finanzdienstleistungen/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">Finanzdienstleistungen</h3>
-          <p class="text-gray-500 font-semibold mb-4">Technische Audits und Compliance-Assessments für Banken im Umfeld von BaFin, EZB und EU-KI-Verordnung.</p>
+          <p class="text-gray-500 font-semibold mb-4">Technische Audits für Banken im Umfeld von BaFin, EZB und EU-KI-Verordnung.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       </div>
@@ -274,6 +274,9 @@ const breadcrumbs = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>
