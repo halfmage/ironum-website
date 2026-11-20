@@ -14,12 +14,12 @@ const breadcrumbs = [
 
 const faqItems = [
   {
-    question: 'How does Ironum ensure client confidentiality when using AI for legal work?',
-    answer: 'All data processing happens on your own infrastructure: on-premise servers, private Azure instances, or German-hosted Hetzner cloud. No data is ever sent to third-party AI providers like OpenAI or Google. Every deployment includes a DPA (Data Processing Agreement) and NDA as standard. Your client data never leaves your controlled environment.',
+    question: 'How does Ironum protect client confidentiality when using AI for legal work?',
+    answer: 'Processing runs on infrastructure you choose: on-premise servers, a private cloud instance, or a German hosting provider such as Hetzner. Client data is not sent to public AI services such as ChatGPT. Every deployment includes a DPA (Data Processing Agreement) and an NDA as standard.',
   },
   {
-    question: 'Is Ironum compliant with the EU AI Act for legal applications?',
-    answer: 'Yes. Legal AI applications fall under scrutiny in the EU AI Act. Our deployments include risk classification documentation, transparency requirements, human oversight mechanisms, and full audit trails. The Digital Omnibus moved the high-risk dates to December 2027 (Annex III) and August 2028 (Annex I), which gives time to build the documentation properly. Whether a specific system is high-risk is a legal question for your counsel.',
+    question: 'How does Ironum support the EU AI Act for legal applications?',
+    answer: 'Legal AI applications fall under scrutiny in the EU AI Act. Our deployments support risk classification documentation, transparency features, human oversight mechanisms, and audit trails. The Digital Omnibus moved the high-risk dates to December 2027 (Annex III) and August 2028 (Annex I), which gives time to build the documentation properly. Whether a specific system is high-risk is a legal question for your counsel.',
   },
   {
     question: 'What types of legal documents can the AI process?',
@@ -66,7 +66,7 @@ const structuredData = [
   <Navigation />
   <PageHero
     eyebrow="AI FOR LEGAL"
-    title="AI That Never Compromises Client Confidentiality"
+    title="AI Built Around Client Confidentiality"
     subtitle="Legal AI for contract review, research and document search that keeps client data on infrastructure you control."
   />
 
@@ -179,7 +179,7 @@ const structuredData = [
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
-              <p class="text-gray-600">Attorneys review AI-flagged items only, reducing review time by 70% while improving accuracy</p>
+              <p class="text-gray-600">Attorneys review the flagged items and decide. The AI prepares the review, it does not replace it</p>
             </div>
           </div>
         </div>
@@ -216,20 +216,20 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Compliance</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Compliance Is Not Optional</h2>
-        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Every Ironum deployment meets the highest European compliance standards. In legal, anything less is unacceptable.</p>
+        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Every Ironum deployment is designed around European data protection and AI rules, because legal work leaves no room for shortcuts.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">EU AI Act</h3>
-          <p class="text-gray-300 text-sm">Risk classification documentation, transparency features and human oversight built in, ready for the high-risk rules from December 2027.</p>
+          <p class="text-gray-300 text-sm">Support for risk classification documentation, transparency features and human oversight, so you can prepare for the high-risk rules from December 2027.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">GDPR Article 28</h3>
-          <p class="text-gray-300 text-sm">Compliant data processing with standard contractual clauses, Data Processing Agreements, and documented technical and organizational measures.</p>
+          <p class="text-gray-300 text-sm">Data Processing Agreements and documented technical and organizational measures for every deployment.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-          <h3 class="text-lg font-bold mb-2">On-Premise Guarantee</h3>
-          <p class="text-gray-300 text-sm">Client data never leaves your premises. No external API calls, no cloud processing of sensitive information, no third-party data access.</p>
+          <h3 class="text-lg font-bold mb-2">On-Premise Option</h3>
+          <p class="text-gray-300 text-sm">In an on-premise setup, client data stays on your premises: the model runs on your hardware, without external AI API calls.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">DPA & NDA Included</h3>
@@ -244,16 +244,16 @@ const structuredData = [
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-3 gap-8 text-center">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">70%</div>
-          <p class="text-gray-500 text-lg font-semibold">Faster contract review with AI-assisted analysis and automated clause extraction</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">AI + You</div>
+          <p class="text-gray-500 text-lg font-semibold">AI extracts and flags clauses, attorneys review and decide</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Data sovereignty: client data never leaves your controlled infrastructure</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">DE / EU</div>
+          <p class="text-gray-500 text-lg font-semibold">Hosting on your premises, in Germany or in the EU, on infrastructure you control</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">14→100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Extend specialized legal AI step by step across your practice areas</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">1 → n</div>
+          <p class="text-gray-500 text-lg font-semibold">Start with one practice area, then extend step by step</p>
         </div>
       </div>
     </div>

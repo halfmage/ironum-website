@@ -16,11 +16,11 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'Wie gewährleistet Ironum die Mandantenvertraulichkeit beim Einsatz von KI für juristische Arbeit?',
-    answer: 'Die gesamte Datenverarbeitung findet auf Ihrer eigenen Infrastruktur statt: On-Premise-Server, private Azure-Instanzen oder deutscher Hetzner-Cloud. Keine Daten werden jemals an Drittanbieter wie OpenAI oder Google gesendet. Jedes Deployment beinhaltet standardmäßig einen AVV (Auftragsverarbeitungsvertrag) und eine NDA. Ihre Mandantendaten verlassen niemals Ihre kontrollierte Umgebung.',
+    answer: 'Die Verarbeitung läuft auf einer Infrastruktur Ihrer Wahl: On-Premise-Server, eine private Cloud-Instanz oder ein deutscher Hosting-Anbieter wie Hetzner. Mandantendaten werden nicht an öffentliche KI-Dienste wie ChatGPT gesendet. Jedes Deployment beinhaltet standardmäßig einen AVV (Auftragsverarbeitungsvertrag) und eine NDA.',
   },
   {
-    question: 'Ist Ironum konform mit dem EU AI Act für juristische Anwendungen?',
-    answer: 'Ja. Juristische KI-Anwendungen unterliegen besonderer Prüfung im EU AI Act. Unsere Deployments umfassen Risikoklassifizierungsdokumentation, Transparenzanforderungen, Human-Oversight-Mechanismen und vollständige Audit-Trails. Der Digital-Omnibus hat die Hochrisiko-Fristen auf Dezember 2027 (Anhang III) und August 2028 (Anhang I) verschoben. Das lässt Zeit, die Dokumentation sauber aufzubauen. Ob ein konkretes System hochriskant ist, ist eine Rechtsfrage für Ihre Rechtsberatung.',
+    question: 'Wie unterstützt Ironum den EU AI Act bei juristischen Anwendungen?',
+    answer: 'Juristische KI-Anwendungen unterliegen besonderer Prüfung im EU AI Act. Unsere Deployments unterstützen Dokumentation zur Risikoklassifizierung, Transparenzfunktionen, Mechanismen für menschliche Aufsicht und Audit-Trails. Der Digital-Omnibus hat die Hochrisiko-Fristen auf Dezember 2027 (Anhang III) und August 2028 (Anhang I) verschoben. Das lässt Zeit, die Dokumentation sauber aufzubauen. Ob ein konkretes System hochriskant ist, ist eine Rechtsfrage für Ihre Rechtsberatung.',
   },
   {
     question: 'Welche Arten juristischer Dokumente kann die KI verarbeiten?',
@@ -69,7 +69,7 @@ const structuredData = [
   <Navigation />
   <PageHero
     eyebrow="KI FÜR RECHT"
-    title="KI, die Mandantenvertraulichkeit niemals kompromittiert"
+    title="KI, die auf Mandantenvertraulichkeit ausgelegt ist"
     subtitle="Legal-KI für Vertragsprüfung, Recherche und Dokumentensuche, bei der Mandantendaten auf Ihrer eigenen Infrastruktur bleiben."
   />
 
@@ -182,7 +182,7 @@ const structuredData = [
             </div>
             <div class="flex items-start gap-3">
               <span class="text-blue-600 font-bold text-sm mt-1 shrink-0">04</span>
-              <p class="text-gray-600">Anwälte prüfen nur die von der KI markierten Punkte, 70% kürzere Prüfungszeit bei höherer Genauigkeit</p>
+              <p class="text-gray-600">Anwälte prüfen die markierten Punkte und entscheiden. Die KI bereitet die Prüfung vor, sie ersetzt sie nicht</p>
             </div>
           </div>
         </div>
@@ -219,20 +219,20 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Compliance</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Compliance ist keine Option</h2>
-        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jedes Ironum-Deployment erfüllt die höchsten europäischen Compliance-Standards. Im Rechtsbereich ist weniger inakzeptabel.</p>
+        <p class="text-gray-300 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jedes Ironum-Deployment ist auf europäische Datenschutz- und KI-Regeln ausgelegt, denn im Rechtsbereich gibt es keine Abkürzungen.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">EU AI Act</h3>
-          <p class="text-gray-300 text-sm">Dokumentation zur Risikoklassifizierung, Transparenzfunktionen und menschliche Aufsicht eingebaut, vorbereitet auf die Hochrisiko-Regeln ab Dezember 2027.</p>
+          <p class="text-gray-300 text-sm">Unterstützung bei Dokumentation zur Risikoklassifizierung, Transparenzfunktionen und menschlicher Aufsicht, damit Sie sich auf die Hochrisiko-Regeln ab Dezember 2027 vorbereiten können.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">DSGVO Art. 28</h3>
-          <p class="text-gray-300 text-sm">Konforme Datenverarbeitung mit Standardvertragsklauseln, Auftragsverarbeitungsverträgen und dokumentierten technischen und organisatorischen Maßnahmen.</p>
+          <p class="text-gray-300 text-sm">Auftragsverarbeitungsverträge und dokumentierte technische und organisatorische Maßnahmen für jedes Deployment.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-          <h3 class="text-lg font-bold mb-2">On-Premise-Garantie</h3>
-          <p class="text-gray-300 text-sm">Mandantendaten verlassen niemals Ihre Räumlichkeiten. Keine externen API-Aufrufe, keine Cloud-Verarbeitung sensibler Informationen, kein Datenzugriff durch Dritte.</p>
+          <h3 class="text-lg font-bold mb-2">On-Premise-Option</h3>
+          <p class="text-gray-300 text-sm">Im On-Premise-Setup bleiben Mandantendaten in Ihren Räumlichkeiten: Das Modell läuft auf Ihrer Hardware, ohne externe KI-API-Aufrufe.</p>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
           <h3 class="text-lg font-bold mb-2">AVV & NDA inklusive</h3>
@@ -247,16 +247,16 @@ const structuredData = [
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-3 gap-8 text-center">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">70%</div>
-          <p class="text-gray-500 text-lg font-semibold">Schnellere Vertragsprüfung durch KI-gestützte Analyse und automatisierte Klauselextraktion</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">KI + Sie</div>
+          <p class="text-gray-500 text-lg font-semibold">Die KI extrahiert und markiert Klauseln, Anwälte prüfen und entscheiden</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Datensouveränität: Mandantendaten verlassen niemals Ihre kontrollierte Infrastruktur</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">DE / EU</div>
+          <p class="text-gray-500 text-lg font-semibold">Hosting in Ihren Räumen, in Deutschland oder in der EU, auf Infrastruktur unter Ihrer Kontrolle</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-6xl font-bold mb-2">14→100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Spezialisierte Legal-KI Schritt für Schritt auf Ihre Praxisbereiche ausweiten</p>
+          <div class="text-blue-600 text-5xl font-bold mb-2">1 → n</div>
+          <p class="text-gray-500 text-lg font-semibold">Mit einem Praxisbereich starten, dann Schritt für Schritt erweitern</p>
         </div>
       </div>
     </div>
