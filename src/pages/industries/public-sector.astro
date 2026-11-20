@@ -15,7 +15,7 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'How does sovereign AI work for government agencies?',
-    answer: 'All AI processing happens on German-hosted infrastructure: either on-premise in your data center or on dedicated Hetzner cloud servers in Germany. No data is sent to US cloud providers or third-party AI services. We use open-source AI models that can be audited, ensuring full transparency and no vendor lock-in.',
+    answer: 'In our public sector setup, AI processing runs on infrastructure in Germany: on-premise in your data center or on dedicated Hetzner servers in Germany. Data is not sent to US cloud providers or external AI services. We use open-weight models that your IT security team can inspect, which supports transparency and reduces vendor lock-in.',
   },
   {
     question: 'Can the AI handle citizen inquiries in multiple languages?',
@@ -23,15 +23,15 @@ const faqItems = [
   },
   {
     question: 'What open-source models do you use?',
-    answer: 'We deploy open-source LLMs that can be fully audited and inspected by your IT security team. This eliminates the "black box" concern with proprietary AI services and ensures compliance with public procurement transparency requirements. Specific model selection depends on your use case and infrastructure capacity.',
+    answer: 'We deploy open-weight LLMs whose models and configuration your IT security team can inspect. This reduces the "black box" concern with proprietary AI services and supports transparency requirements in public procurement. Specific model selection depends on your use case and infrastructure capacity.',
   },
   {
     question: 'How does this compare to existing government AI initiatives in Europe?',
-    answer: 'Across 21 European countries, 245 AI cases have been mapped in public sector use. Chatbots represent 20% of current initiatives. However, European governments lag global peers in AI adoption, creating an opportunity to leapfrog with sovereign, GDPR-compliant AI infrastructure that builds citizen trust.',
+    answer: 'Public administrations across Europe are piloting AI, and citizen service chatbots are among the most common use cases. Sovereign infrastructure, built for GDPR requirements, can help build citizen trust in these services.',
   },
   {
     question: 'What is the procurement process for public sector AI?',
-    answer: 'We work within standard public procurement frameworks and can support both direct procurement under threshold values and formal tender processes. Our solutions use open-source components, addressing common procurement requirements around vendor independence and long-term sustainability.',
+    answer: 'We work within standard public procurement frameworks and can support both direct procurement under threshold values and formal tender processes. Our solutions use open-source and open-weight components, which helps with common procurement requirements around vendor independence and long-term sustainability.',
   },
 ];
 
@@ -40,7 +40,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/industries/public-sector/#service",
     "name": "Public Sector AI Solutions",
-    "description": "Sovereign AI on German infrastructure for government agencies. Citizen service automation, document processing, and internal knowledge management with full data sovereignty.",
+    "description": "Sovereign AI on German infrastructure for government agencies. Citizen service automation, document processing, and internal knowledge management, hosted in Germany.",
     "url": "https://ironum.com/industries/public-sector/",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
@@ -59,7 +59,7 @@ const structuredData = [
 
 <Layout
   title="Public Sector AI - Sovereign AI on German Infrastructure | Ironum"
-  description="Sovereign AI for European government agencies. Citizen service automation, document processing, and knowledge management. German-hosted, open-source, full data sovereignty."
+  description="Sovereign AI for European government agencies. Citizen service automation, document processing, and knowledge management. Hosted in Germany, built on open models."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -67,7 +67,7 @@ const structuredData = [
   <PageHero
     eyebrow="AI FOR PUBLIC SECTOR"
     title="Sovereign AI on German Infrastructure"
-    subtitle="245 AI cases mapped across 21 European countries, yet governments lag global peers in AI adoption. Deploy citizen-facing and internal AI on fully sovereign, German-hosted infrastructure."
+    subtitle="Deploy citizen-facing and internal AI on infrastructure hosted in Germany, built on models your IT team can inspect."
   />
 
   <!-- Challenges Section -->
@@ -75,8 +75,8 @@ const structuredData = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Government AI Requires Absolute Sovereignty</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Public sector AI faces unique constraints: citizen data protection, procurement regulations, transparency requirements, and the imperative to use sovereign infrastructure.</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Government AI Needs Digital Sovereignty</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Public sector AI faces specific constraints: citizen data protection, procurement regulations, transparency requirements, and a strong preference for sovereign infrastructure.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
@@ -84,21 +84,21 @@ const structuredData = [
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm6-11h.01M9 5h.01" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Digital Sovereignty Mandate</h3>
-          <p class="text-gray-500">Government data cannot be processed by US-based cloud providers subject to CLOUD Act jurisdiction. 72% of EU security professionals report heightened demand for data localization. In the public sector, this is non-negotiable.</p>
+          <p class="text-gray-500">Many public bodies want to avoid processing government data with US-based cloud providers that are subject to the CLOUD Act. Digital sovereignty is a stated goal of German and European public administration.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Citizen Service Backlog</h3>
-          <p class="text-gray-500">Government agencies face growing citizen expectations for digital services while struggling with staffing shortages and manual processes. Chatbots are the most common public sector AI use case (20% of initiatives), but most lack data sovereignty.</p>
+          <p class="text-gray-500">Government agencies face growing citizen expectations for digital services while struggling with staffing shortages and manual processes. Chatbots are among the most common public sector AI use cases, but many run on infrastructure outside the agency's control.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Transparency & Auditability</h3>
-          <p class="text-gray-500">Public sector AI must be explainable, auditable, and free from vendor lock-in. Proprietary AI models fail transparency requirements. Open-source solutions with full audit trails are essential for public trust.</p>
+          <p class="text-gray-500">Public sector AI should be explainable, auditable, and free from vendor lock-in. Proprietary models make this harder to show. Inspectable models and audit trails help build public trust.</p>
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Solutions</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Open-Source AI for Government</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">German-hosted, open-source AI stack with full data sovereignty. No US cloud providers, no proprietary lock-in, complete transparency.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">A German-hosted AI stack built on open-weight models. No US cloud providers in the chain and no proprietary lock-in.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
@@ -121,7 +121,7 @@ const structuredData = [
           <p class="text-gray-500 mb-4">AI-powered citizen service assistant that answers questions about government services, permits, regulations, and procedures. Deployed on German infrastructure with multilingual support.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>24/7 availability for citizen inquiries</li>
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Trained on your agency's specific services</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Configured with your agency's specific services</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>German and multilingual support</li>
           </ul>
         </div>
@@ -144,9 +144,9 @@ const structuredData = [
           <h3 class="text-xl font-bold mb-3">Internal Knowledge Base</h3>
           <p class="text-gray-500 mb-4">RAG-powered internal assistant for government employees. Instant access to regulations, procedures, and institutional knowledge, reducing onboarding time and improving service consistency.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Natural language search across all policies</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Natural language search across your policies</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited answers for accountability</li>
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Open-source stack, fully auditable</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Open-weight models your IT team can inspect</li>
           </ul>
         </div>
       </div>
@@ -168,7 +168,7 @@ const structuredData = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600"><strong>Open-source:</strong> Fully auditable AI models, no proprietary black boxes</span>
+              <span class="text-gray-600"><strong>Open models:</strong> Models your IT team can inspect, no proprietary black boxes</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -176,26 +176,26 @@ const structuredData = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600"><strong>EU AI Act ready:</strong> Full compliance documentation and risk management</span>
+              <span class="text-gray-600"><strong>EU AI Act support:</strong> Technical documentation and risk management support; the legal classification stays with your legal team</span>
             </li>
           </ul>
         </div>
         <div class="grid grid-cols-2 gap-6">
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-5xl font-bold mb-2">245</div>
-            <p class="text-gray-500 text-sm font-semibold">AI cases mapped across 21 EU countries</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">DE</div>
+            <p class="text-gray-500 text-sm font-semibold">hosted in German data centers</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-5xl font-bold mb-2">20%</div>
-            <p class="text-gray-500 text-sm font-semibold">Of public sector AI initiatives are chatbots</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">Open</div>
+            <p class="text-gray-500 text-sm font-semibold">models your IT team can inspect</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-5xl font-bold mb-2">72%</div>
-            <p class="text-gray-500 text-sm font-semibold">Of EU security pros demand data localization</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">Sources</div>
+            <p class="text-gray-500 text-sm font-semibold">cited in answers for accountability</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
-            <p class="text-gray-500 text-sm font-semibold">Sovereign: data never leaves Germany</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">Exit</div>
+            <p class="text-gray-500 text-sm font-semibold">portable deployments, no proprietary lock-in</p>
           </div>
         </div>
       </div>
@@ -228,6 +228,9 @@ const structuredData = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

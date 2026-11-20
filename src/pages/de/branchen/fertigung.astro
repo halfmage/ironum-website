@@ -20,19 +20,19 @@ const faqItems = [
   },
   {
     question: 'Wie funktioniert On-Premise-Deployment in Fabrikumgebungen?',
-    answer: 'Wir deployen direkt auf Ihrer Fabrik-IT-Infrastruktur oder einem dedizierten Edge-Server. Dies stellt sicher, dass Produktionsdaten in Ihrem Netzwerk verbleiben, deutsche Datenschutzanforderungen erfüllt werden und minimale Latenz für Echtzeit-Anwendungen wie Qualitätsprüfung gewährleistet ist.',
+    answer: 'Wir deployen direkt auf Ihrer Fabrik-IT-Infrastruktur oder einem dedizierten Edge-Server. Produktionsdaten verbleiben in Ihrem Netzwerk, das unterstützt Ihre Datenschutzanforderungen, und die Latenz bleibt niedrig für Echtzeit-Anwendungen wie Qualitätsprüfung.',
   },
   {
     question: 'Welche Daten brauchen wir für den Einstieg in Predictive Maintenance?',
-    answer: 'Mindestens historische Sensordaten Ihrer Maschinen (Vibration, Temperatur, Druck) und Wartungsprotokolle. Wir starten typischerweise mit einem Piloten auf 3-5 kritischen Maschinen, weisen den ROI innerhalb von 8-12 Wochen nach und skalieren dann über Ihre gesamte Produktion.',
+    answer: 'Mindestens historische Sensordaten Ihrer Maschinen (Vibration, Temperatur, Druck) und Wartungsprotokolle. Wir starten typischerweise mit einem Piloten auf 3-5 kritischen Maschinen über etwa 8-12 Wochen, messen die Ergebnisse gemeinsam mit Ihnen und entscheiden dann über die Ausweitung auf Ihre Produktion.',
   },
   {
     question: 'Ist die KI für Mittelständler geeignet?',
-    answer: 'Absolut. Unsere Lösungen sind speziell für den deutschen Mittelstand konzipiert. Sie benötigen kein internes KI-Team. Viele Fertigungsunternehmen nennen den KI-Fachkräftemangel als Hindernis. Wir übernehmen das gesamte Deployment, Training und die laufende Optimierung.',
+    answer: 'Ja. Unsere Lösungen sind für den deutschen Mittelstand konzipiert. Sie benötigen kein internes KI-Team. Viele Fertigungsunternehmen nennen den KI-Fachkräftemangel als Hindernis. Wir übernehmen das gesamte Deployment, Training und die laufende Optimierung.',
   },
   {
-    question: 'Wie verhält sich das zur Technologieinitiative der Bundesregierung?',
-    answer: 'Die milliardenschwere Technologieinitiative der Bundesregierung fördert die Industrie 4.0-Einführung. Unsere Lösungen entsprechen den Anforderungen der Förderprogramme und wir können Sie bei der Beantragung relevanter Technologieförderungen und Zuschüsse unterstützen.',
+    question: 'Kann eine öffentliche Förderung bei einem KI-Projekt helfen?',
+    answer: 'Bund und Länder fördern Digitalisierungs- und KI-Projekte in der Fertigung. Ob Ihr Projekt förderfähig ist, hängt vom jeweiligen Programm und seinen Bedingungen ab. Klären Sie das mit dem Fördergeber oder Ihrer IHK. Wir liefern technische Projektbeschreibungen für Ihren Antrag.',
   },
 ];
 
@@ -70,7 +70,7 @@ const structuredData = [
   <PageHero
     eyebrow="KI FÜR DIE FERTIGUNG"
     title="Industrie 4.0 KI, gehostet in Deutschland"
-    subtitle="Der KI-Fertigungsmarkt wächst mit über 30% jährlichem Wachstum (Branchenschätzung). GenAI könnte die Profitabilität um bis zu 10% steigern. Setzen Sie produktionsreife KI auf Ihrem Shopfloor ein, ohne ein eigenes KI-Team aufbauen zu müssen."
+    subtitle="Setzen Sie produktionsreife KI auf Ihrem Shopfloor ein, angebunden an Ihre bestehenden Systeme und ohne ein eigenes KI-Team aufbauen zu müssen."
   />
 
   <!-- Challenges Section -->
@@ -79,7 +79,7 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Warum Fertigungsunternehmen mit KI kämpfen</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Eine Umfrage unter 247 Unternehmen zeigt drei kritische Barrieren, die die KI-Einführung in der Fertigung behindern.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Fertigungsunternehmen nennen häufig drei Barrieren, die die KI-Einführung behindern.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
@@ -87,14 +87,14 @@ const structuredData = [
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Datensilos in der Produktion</h3>
-          <p class="text-gray-500">Fehlende nutzbare Daten zählen zu den größten KI-Hürden in der Fertigung. Produktionsdaten, die in getrennten ERP-, MES- und SCADA-Systemen eingeschlossen sind, machen KI-Deployment ohne Integrationskompetenz nahezu unmöglich.</p>
+          <p class="text-gray-500">Fehlende nutzbare Daten zählen zu den größten KI-Hürden in der Fertigung. Produktionsdaten, die in getrennten ERP-, MES- und SCADA-Systemen eingeschlossen sind, machen KI-Deployment ohne Integrationskompetenz schwer.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">KI-Fachkräftemangel</h3>
-          <p class="text-gray-500">Viele Fertigungsunternehmen finden keine KI-Talente. Die Kluft zwischen Shopfloor-Expertise und KI-Engineering bedeutet, dass die meisten Mittelständler von den Vorteilen der Industrie 4.0 ausgeschlossen bleiben.</p>
+          <p class="text-gray-500">Viele Fertigungsunternehmen finden keine KI-Talente. Die Kluft zwischen Shopfloor-Expertise und KI-Engineering hält viele Mittelständler von den Vorteilen der Industrie 4.0 fern.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
@@ -149,7 +149,7 @@ const structuredData = [
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Anomalieerkennung aus Vibrations- und Sensordaten</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Optimierung der Wartungsplanung</li>
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>ROI typischerweise innerhalb von 8-12 Wochen sichtbar</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Zuerst Pilot auf wenigen Maschinen</li>
           </ul>
         </div>
       </div>
@@ -160,25 +160,25 @@ const structuredData = [
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Marktchance</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Die Zahlen hinter Industrie 4.0</h2>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Was wir liefern</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Industrie 4.0, Schritt für Schritt</h2>
       </div>
       <div class="grid md:grid-cols-4 gap-8 text-center">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">ca. 30%+</div>
-          <p class="text-gray-500 text-lg font-semibold">Jährliches Wachstum im globalen KI-Fertigungsmarkt (Branchenschätzung)</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">On-Prem</div>
+          <p class="text-gray-500 text-lg font-semibold">oder Edge-Server in Ihrer Fabrik</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">bis 10%</div>
-          <p class="text-gray-500 text-lg font-semibold">Potenzielle Profitabilitätssteigerung durch GenAI-Einführung (Branchenschätzung)</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">ERP/MES</div>
+          <p class="text-gray-500 text-lg font-semibold">angebunden über APIs und n8n</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-4xl font-bold mb-2">Mrd. &euro;</div>
-          <p class="text-gray-500 text-lg font-semibold">Milliardenschwere Technologieinitiative der Bundesregierung</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Pilot</div>
+          <p class="text-gray-500 text-lg font-semibold">zuerst auf 3-5 kritischen Maschinen</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Produktionsdaten bleiben auf Ihrer Infrastruktur</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Edge</div>
+          <p class="text-gray-500 text-lg font-semibold">niedrige Latenz für die Qualitätsprüfung</p>
         </div>
       </div>
     </div>
@@ -231,6 +231,9 @@ const structuredData = [
       },
     ]}
   />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

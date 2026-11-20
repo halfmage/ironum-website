@@ -9,8 +9,8 @@ import Footer from '../../../components/Footer.astro';
 ---
 
 <Layout
-  title="Bereitstellungsoptionen: Cloud, Azure DSGVO oder On-Premise | Ironum"
-  description="KI nach Ihren Vorgaben bereitstellen: Cloud-APIs für Geschwindigkeit, Azure DSGVO-Regionen für Compliance oder vollständig On-Premise für maximale Datensouveränität. Ironum-Bereitstellungsoptionen vergleichen."
+  title="Bereitstellungsoptionen: Cloud, Azure EU oder On-Premise | Ironum"
+  description="KI nach Ihren Vorgaben bereitstellen: Cloud-APIs für Geschwindigkeit, Azure-EU-Regionen für EU-Datenresidenz oder vollständig On-Premise für die größte Kontrolle über Ihre Daten. Ironum-Bereitstellungsoptionen vergleichen."
   locale="de"
 >
   <Navigation />
@@ -57,13 +57,13 @@ import Footer from '../../../components/Footer.astro';
         <!-- Azure GDPR -->
         <div class="border-2 border-blue-600 rounded-2xl p-6 md:p-8 flex flex-col relative">
           <span class="absolute -top-3 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">EMPFOHLEN</span>
-          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">DSGVO-KONFORM</span>
-          <h3 class="text-2xl font-bold mt-2 mb-4">Azure DSGVO-Regionen</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Enterprise-KI über Microsoft Azures EU-Rechenzentren. Volle DSGVO-Konformität mit AVV, Datenresidenz-Garantien und Enterprise-SLAs.</p>
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">EU-REGIONEN</span>
+          <h3 class="text-2xl font-bold mt-2 mb-4">Azure-EU-Regionen</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-6">KI-Modelle über Microsoft Azures EU-Rechenzentren, mit dem AVV von Microsoft, Optionen für EU-Datenresidenz und den Enterprise-SLAs von Microsoft.</p>
           <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Daten bleiben in EU-Regionen
+              Verarbeitung in EU-Regionen mit EU-Deployment-Typ
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -71,11 +71,11 @@ import Footer from '../../../components/Footer.astro';
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Enterprise-SLA (99,9%+)
+              Enterprise-SLA von Microsoft
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Kein Modelltraining auf Ihren Daten
+              Laut Microsoft kein Modelltraining auf Ihren Daten
             </li>
           </ul>
           <p class="text-sm text-gray-400 font-semibold">Ideal für: Regulierte Branchen, Enterprise-Kunden, DSGVO-sensible Daten</p>
@@ -83,13 +83,13 @@ import Footer from '../../../components/Footer.astro';
 
         <!-- On-Premises -->
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col">
-          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">MAXIMALE KONTROLLE</span>
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">MEISTE KONTROLLE</span>
           <h3 class="text-2xl font-bold mt-2 mb-4">On-Premise</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Vollständiges Deployment auf Ihrer eigenen Hardware oder in Ihrem privaten Rechenzentrum. Open-Source-Modelle, vollständige Air-Gap-Fähigkeit, null externe Abhängigkeiten.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Vollständiges Deployment auf Ihrer eigenen Hardware oder in Ihrem privaten Rechenzentrum. Open-Source-Modelle, Air-Gap-Setups möglich, keine externen KI-APIs nötig.</p>
           <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Null Daten verlassen Ihr Netzwerk
+              Daten bleiben in Ihrem Netzwerk
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -104,7 +104,7 @@ import Footer from '../../../components/Footer.astro';
               Erfordert GPU-Hardware
             </li>
           </ul>
-          <p class="text-sm text-gray-400 font-semibold">Ideal für: Verteidigung, Behörden, Gesundheitswesen, maximale Datensouveränität</p>
+          <p class="text-sm text-gray-400 font-semibold">Ideal für: Verteidigung, Behörden, Gesundheitswesen, größte Kontrolle über Daten</p>
         </div>
       </div>
     </div>
@@ -122,26 +122,26 @@ import Footer from '../../../components/Footer.astro';
             <tr class="border-b-2 border-gray-200">
               <th class="py-4 pr-4 text-lg font-bold">Anforderung</th>
               <th class="py-4 px-4 text-lg font-bold">Cloud-APIs</th>
-              <th class="py-4 px-4 text-lg font-bold">Azure DSGVO</th>
+              <th class="py-4 px-4 text-lg font-bold">Azure EU</th>
               <th class="py-4 pl-4 text-lg font-bold">On-Premise</th>
             </tr>
           </thead>
           <tbody class="text-gray-500 font-semibold">
             <tr class="border-b border-gray-100">
-              <td class="py-4 pr-4">DSGVO-Konformität</td>
-              <td class="py-4 px-4">Teilweise</td>
-              <td class="py-4 px-4 text-green-600">Vollständig</td>
-              <td class="py-4 pl-4 text-green-600">Vollständig</td>
+              <td class="py-4 pr-4">Wer betreibt das Modell</td>
+              <td class="py-4 px-4">Der API-Anbieter</td>
+              <td class="py-4 px-4">Microsoft, in EU-Regionen</td>
+              <td class="py-4 pl-4 text-green-600">Sie, oder wir auf Ihrer Hardware</td>
             </tr>
             <tr class="border-b border-gray-100">
-              <td class="py-4 pr-4">EU AI Act Ready</td>
+              <td class="py-4 pr-4">Übermittlung außerhalb der EU</td>
               <td class="py-4 px-4">Anbieterabhängig</td>
-              <td class="py-4 px-4 text-green-600">Ja</td>
-              <td class="py-4 pl-4 text-green-600">Ja</td>
+              <td class="py-4 px-4">Laut Microsoft nicht vorgesehen mit EU-Deployment-Typen</td>
+              <td class="py-4 pl-4 text-green-600">Nein</td>
             </tr>
             <tr class="border-b border-gray-100">
               <td class="py-4 pr-4">Datenresidenz</td>
-              <td class="py-4 px-4">Global</td>
+              <td class="py-4 px-4">Anbieterabhängig</td>
               <td class="py-4 px-4">EU-Regionen</td>
               <td class="py-4 pl-4">Ihre Räumlichkeiten</td>
             </tr>
@@ -192,7 +192,7 @@ import Footer from '../../../components/Footer.astro';
           </ul>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-2xl font-bold mb-4">Azure DSGVO</h3>
+          <h3 class="text-2xl font-bold mb-4">Azure EU</h3>
           <ul class="space-y-2 text-gray-500 text-lg font-semibold">
             <li>Azure-Abonnement (EU-Region)</li>
             <li>Azure OpenAI-Zugang genehmigt</li>
@@ -214,11 +214,11 @@ import Footer from '../../../components/Footer.astro';
   </section>
 
   <FAQSection items={[
-    { question: "Kann ich Deployment-Modelle kombinieren?", answer: "Ja. Viele Kunden nutzen Azure DSGVO für sensible Workloads und Cloud-APIs für nicht-sensible Aufgaben. Unsere Orchestrierungsebene leitet Anfragen automatisch basierend auf Datenklassifizierungsregeln, die Sie definieren, an das richtige Backend weiter." },
-    { question: "Wie lange dauert das Deployment?", answer: "Cloud-API-Setups können in 2-3 Tagen live sein. Azure DSGVO-Deployments dauern typischerweise 1-2 Wochen inklusive AVV-Setup. On-Premise-Deployments dauern 2-4 Wochen, abhängig von Hardware-Bereitschaft und Netzwerkkonfiguration." },
+    { question: "Kann ich Deployment-Modelle kombinieren?", answer: "Ja. Ein typisches Setup ist Azure EU für sensible Workloads und Cloud-APIs für nicht-sensible Aufgaben. Unsere Orchestrierungsebene leitet Anfragen automatisch basierend auf Datenklassifizierungsregeln, die Sie definieren, an das richtige Backend weiter." },
+    { question: "Wie lange dauert das Deployment?", answer: "Cloud-API-Setups können in 2-3 Tagen live sein. Azure-EU-Deployments dauern typischerweise 1-2 Wochen inklusive AVV-Setup. On-Premise-Deployments dauern 2-4 Wochen, abhängig von Hardware-Bereitschaft und Netzwerkkonfiguration." },
     { question: "Brauche ich ein eigenes IT-Team?", answer: "Nein. Ironum übernimmt Deployment, Konfiguration, Monitoring und laufende Wartung. Wir schulen Ihr Team für den täglichen Betrieb, bleiben aber für Support und Updates verfügbar." },
-    { question: "Kann ich später zwischen Deployment-Modellen migrieren?", answer: "Ja. Unsere modulare Architektur ermöglicht es Ihnen, mit Cloud-APIs zu starten und zu Azure DSGVO oder On-Premise zu migrieren, wenn sich Ihre Anforderungen entwickeln. Wir übernehmen die Migration ohne Downtime." },
-    { question: "Was ist mit Latenz und Performance?", answer: "Cloud-APIs haben typischerweise 200-500ms Antwortzeiten. Azure DSGVO ist vergleichbar. On-Premise-Deployments können Sub-100ms-Latenz für lokale Modelle erreichen und sind damit ideal für Echtzeit-Anwendungen." }
+    { question: "Kann ich später zwischen Deployment-Modellen migrieren?", answer: "Ja. Unsere modulare Architektur ermöglicht es Ihnen, mit Cloud-APIs zu starten und zu Azure EU oder On-Premise zu migrieren, wenn sich Ihre Anforderungen entwickeln. Wir planen die Migration so, dass die Ausfallzeit möglichst kurz bleibt." },
+    { question: "Was ist mit Latenz und Performance?", answer: "Die Antwortzeiten hängen vom Modell, seiner Größe und der Last ab. Azure EU ist meist vergleichbar mit den öffentlichen Cloud-APIs. Lokale Modelle auf Ihrer eigenen Hardware sparen den Weg über das Internet, was Echtzeit-Anwendungen helfen kann. Die Latenz messen wir beim Setup mit Ihrem Anwendungsfall." }
   ]} />
 
   <RelatedReading
@@ -238,10 +238,13 @@ import Footer from '../../../components/Footer.astro';
       {
         href: '/de/ressourcen/blog/chatbot-eigene-daten-dsgvo-mittelstand/',
         title: 'Chatbot mit eigenen Daten',
-        description: 'DSGVO-konform und on-premise in 4 Wochen produktiv, mit Architektur, Kostenrahmen und 90-Tage-Plan.',
+        description: 'Auf DSGVO-Anforderungen ausgelegt und on-premise in 4 Wochen produktiv, mit Architektur, Kostenrahmen und 90-Tage-Plan.',
       },
     ]}
   />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

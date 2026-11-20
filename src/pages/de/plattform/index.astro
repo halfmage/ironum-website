@@ -8,7 +8,7 @@ import Footer from '../../../components/Footer.astro';
 
 <Layout
   title="Die Ironum-Plattform: Enterprise-KI-Infrastruktur für Europa"
-  description="Modulare KI-Plattform mit LLM-Orchestrierung, RAG-Pipelines, Workflow-Automatisierung und voller DSGVO-Konformität. On-Premise oder in souveräner europäischer Cloud bereitstellen."
+  description="Modulare KI-Plattform mit LLM-Orchestrierung, RAG-Pipelines und Workflow-Automatisierung, ausgelegt auf DSGVO-Anforderungen. On-Premise oder bei einem europäischen Hosting-Anbieter bereitstellen."
   locale="de"
 >
   <Navigation />
@@ -16,7 +16,7 @@ import Footer from '../../../components/Footer.astro';
   <PageHero
     eyebrow="PLATTFORM"
     title="Die Ironum-Plattform"
-    subtitle="Eine modulare, enterprise-taugliche KI-Plattform, konzipiert für europäische Datensouveränität. Von LLMs bis Integrationen, alles läuft dort, wo Sie die Kontrolle haben."
+    subtitle="Eine modulare KI-Plattform, konzipiert für europäische Datensouveränität. Von LLMs bis Integrationen entscheiden Sie, wo welcher Teil läuft."
   />
 
   <!-- Architecture Overview -->
@@ -30,22 +30,22 @@ import Footer from '../../../components/Footer.astro';
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
           <span class="text-blue-600 text-5xl font-bold">01</span>
           <h3 class="text-2xl font-bold mt-4 mb-2">LLM-Orchestrierungsebene</h3>
-          <p class="text-gray-500 text-lg font-semibold">Anfragen basierend auf Aufgabenkomplexität, Kosten und Compliance-Anforderungen an das optimale Modell weiterleiten. Anbieter wechseln, ohne eine einzige Zeile Anwendungscode zu ändern.</p>
+          <p class="text-gray-500 text-lg font-semibold">Anfragen basierend auf Aufgabenkomplexität, Kosten und Compliance-Anforderungen an das passende Modell weiterleiten. Anbieter wechseln, mit wenig oder keiner Änderung am Anwendungscode.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
           <span class="text-blue-600 text-5xl font-bold">02</span>
           <h3 class="text-2xl font-bold mt-4 mb-2">RAG- & Wissensebene</h3>
-          <p class="text-gray-500 text-lg font-semibold">Ihre privaten Dokumente aufnehmen, chunken, embedden und abrufen. Vektordatenbanken laufen auf Ihrer Infrastruktur. Ihr Wissen verlässt niemals Ihre Kontrolle.</p>
+          <p class="text-gray-500 text-lg font-semibold">Ihre privaten Dokumente aufnehmen, chunken, embedden und abrufen. Vektordatenbanken können auf Ihrer eigenen Infrastruktur laufen, damit Ihr Wissen unter Ihrer Kontrolle bleibt.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
           <span class="text-blue-600 text-5xl font-bold">03</span>
           <h3 class="text-2xl font-bold mt-4 mb-2">Integrationsebene</h3>
-          <p class="text-gray-500 text-lg font-semibold">KI über n8n-Workflows mit Ihren bestehenden Systemen verbinden. APIs, Datenbanken, E-Mail, CRM, ERP, alles orchestriert mit Open-Source-Tooling und null Vendor-Lock-in.</p>
+          <p class="text-gray-500 text-lg font-semibold">KI über n8n-Workflows mit Ihren bestehenden Systemen verbinden. APIs, Datenbanken, E-Mail, CRM, ERP, orchestriert mit Open-Source- und Fair-Code-Tooling und wenig Vendor-Lock-in.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
           <span class="text-blue-600 text-5xl font-bold">04</span>
           <h3 class="text-2xl font-bold mt-4 mb-2">Sicherheits- & Compliance-Ebene</h3>
-          <p class="text-gray-500 text-lg font-semibold">End-to-End-Verschlüsselung, rollenbasierte Zugriffskontrolle, Audit-Logging und AVV/NDA-Durchsetzung. Von Grund auf für DSGVO- und EU AI Act-Konformität entwickelt.</p>
+          <p class="text-gray-500 text-lg font-semibold">Verschlüsselung, rollenbasierte Zugriffskontrolle, Audit-Logging sowie AVV und NDA als Standard. Von Anfang an auf die Anforderungen von DSGVO und EU AI Act ausgelegt.</p>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ import Footer from '../../../components/Footer.astro';
     <div class="max-w-7xl mx-auto space-y-8">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">MODELL-FLEXIBILITÄT</span>
       <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Jedes Modell. Ihre Wahl.</h2>
-      <p class="text-gray-500 text-lg font-semibold max-w-2xl">Wir sind modell-agnostisch. Wählen Sie das beste LLM für Ihren Anwendungsfall, oder lassen Sie sich von uns basierend auf Performance, Kosten und Compliance-Anforderungen beraten.</p>
+      <p class="text-gray-500 text-lg font-semibold max-w-2xl">Wir sind modell-agnostisch. Wählen Sie das LLM, das zu Ihrem Anwendungsfall passt, oder lassen Sie sich von uns basierend auf Performance, Kosten und Compliance-Anforderungen beraten.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
@@ -65,7 +65,7 @@ import Footer from '../../../components/Footer.astro';
             <li>OpenAI (GPT-4o, o1, o3)</li>
             <li>Anthropic (Claude 4 Sonnet, Opus)</li>
             <li>Google (Gemini 2.5 Pro, Flash)</li>
-            <li>Azure OpenAI (DSGVO-konform)</li>
+            <li>Azure OpenAI (EU-Datenresidenz möglich)</li>
           </ul>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 bg-white">
@@ -94,7 +94,7 @@ import Footer from '../../../components/Footer.astro';
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto space-y-8">
       <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase block">INTEGRATIONEN</span>
-      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Verbindet sich mit allem</h2>
+      <h2 class="text-3xl md:text-5xl xl:text-7xl font-bold">Verbindet sich mit Ihren Systemen</h2>
       <p class="text-gray-500 text-lg font-semibold max-w-2xl">Angetrieben von n8n integriert die Ironum-Plattform mit über 400 Anwendungen out-of-the-box. Custom-API-Verbindungen für alles andere.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
@@ -142,7 +142,7 @@ import Footer from '../../../components/Footer.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         <a href="/de/plattform/bereitstellung/" class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block bg-white">
           <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Bereitstellungsoptionen</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-4">Cloud-APIs, Azure DSGVO oder vollständig On-Premise. Wählen Sie das Deployment-Modell, das zu Ihren Compliance- und Performance-Anforderungen passt.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-4">Cloud-APIs, Azure-EU-Regionen oder vollständig On-Premise. Wählen Sie das Deployment-Modell, das zu Ihren Compliance- und Performance-Anforderungen passt.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1">
             Optionen vergleichen
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -150,7 +150,7 @@ import Footer from '../../../components/Footer.astro';
         </a>
         <a href="/de/plattform/compliance/" class="group border-2 border-gray-100 rounded-2xl p-6 md:p-8 hover:border-blue-600 transition-colors block bg-white">
           <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">Compliance & Datensouveränität</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-4">DSGVO, EU AI Act, Datenresidenz, Verschlüsselung, Audit-Logs: alles, was Sie brauchen, um KI mit Vertrauen in Europa einzusetzen.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-4">DSGVO, EU AI Act, Datenresidenz, Verschlüsselung, Audit-Logs: wie unsere Setups den KI-Einsatz in Europa unterstützen.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1">
             Mehr erfahren
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -160,6 +160,9 @@ import Footer from '../../../components/Footer.astro';
     </div>
   </section>
 
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>
