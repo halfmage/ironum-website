@@ -15,23 +15,23 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'Was ist der LearnSlice KI-Mentor und wie funktioniert er?',
-    answer: 'Der KI-Mentor ist unsere White-Label-Lösung für intelligentes Tutoring, basierend auf RAG-Technologie. Er bietet personalisierte Lernpfade, adaptives Fragen und sofortiges Feedback, trainiert auf Ihren spezifischen Lerninhalten. Er kann für Prüfungsvorbereitung, betriebliche Weiterbildung oder institutionelle Bildungsprogramme eingesetzt werden.',
+    answer: 'Der KI-Mentor ist unsere White-Label-Lösung für intelligentes Tutoring, basierend auf RAG-Technologie. Er bietet personalisierte Lernpfade, adaptives Fragen und sofortiges Feedback, basierend auf Ihren spezifischen Lerninhalten. Er kann für Prüfungsvorbereitung, betriebliche Weiterbildung oder institutionelle Bildungsprogramme eingesetzt werden.',
   },
   {
     question: 'Wie geht Ironum mit dem Schutz von Lernenden-Daten um?',
-    answer: 'Die gesamte Verarbeitung von Lernenden-Daten findet auf Ihrer Infrastruktur statt: On-Premise-Server oder dedizierte deutsche Cloud. Keine Lernenden-Daten werden jemals an KI-Drittanbieter gesendet. Dies ist entscheidend, da der EU AI Act Bildungs-KI als "Hochrisiko" einstuft und strenge Daten-Governance, Transparenz und menschliche Aufsicht erfordert.',
+    answer: 'Lernenden-Daten werden auf einer Infrastruktur Ihrer Wahl verarbeitet: On-Premise-Server, Hosting in Deutschland oder eine dedizierte Azure-Umgebung in EU-Regionen. Lernenden-Daten werden nicht zum Training von KI-Modellen Dritter genutzt. Daten-Governance, Transparenz und menschliche Aufsicht sind besonders wichtig, wenn ein System unter die Hochrisiko-Bildungsanwendungen des EU AI Act fällt.',
   },
   {
     question: 'Kann der KI-Mentor für IHK-Prüfungsvorbereitung angepasst werden?',
-    answer: 'Ja. Wir haben spezifische Erfahrung mit IHK-Prüfungsvorbereitungsinhalten (Industrie- und Handelskammer). Der KI-Mentor kann auf offizielle Prüfungsmaterialien, Übungsfragen und Kompetenzrahmen trainiert werden, um gezielte Vorbereitung mit adaptiven Schwierigkeitsgraden zu bieten.',
+    answer: 'Ja. Wir haben spezifische Erfahrung mit IHK-Prüfungsvorbereitungsinhalten (Industrie- und Handelskammer). Der KI-Mentor kann mit Ihren Inhalten zur Prüfungsvorbereitung, Übungsfragen und den veröffentlichten Kompetenzrahmen konfiguriert werden, um gezielte Vorbereitung mit adaptiven Schwierigkeitsgraden zu bieten.',
   },
   {
     question: 'Gibt es eine White-Label-Option für Bildungsträger?',
-    answer: 'Absolut. Der KI-Mentor ist als White-Label-Lösung konzipiert. Bildungsträger, Verlage und Unternehmen können ihn unter ihrer eigenen Marke mit individuellem Styling, Inhalten und domänenspezifischen Konfigurationen einsetzen.',
+    answer: 'Ja. Der KI-Mentor ist als White-Label-Lösung konzipiert. Bildungsträger, Verlage und Unternehmen können ihn unter ihrer eigenen Marke mit individuellem Styling, Inhalten und domänenspezifischen Konfigurationen einsetzen.',
   },
   {
-    question: 'Welche Compliance-Anforderungen stellt der EU AI Act an Bildungs-KI?',
-    answer: 'Der EU AI Act stuft KI-Systeme im Bildungsbereich als "Hochrisiko" unter Anhang III ein. Das bedeutet verpflichtende Konformitätsbewertungen, Risikomanagementsysteme, Daten-Governance-Anforderungen, Transparenzpflichten, menschliche Aufsicht und Registrierung in der EU-Datenbank. Bei Nichteinhaltung drohen Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes.',
+    question: 'Was verlangt der EU AI Act von Bildungs-KI?',
+    answer: 'Anhang III des EU AI Act führt bestimmte Bildungsanwendungen als hochriskant auf, etwa KI, die über Zulassungen entscheidet, Lernergebnisse bewertet oder Prüflinge während Prüfungen überwacht. Nicht jedes Lernwerkzeug fällt darunter. Für Hochrisiko-Systeme gehören Risikomanagement, Daten-Governance, technische Dokumentation, Transparenz und menschliche Aufsicht zu den Pflichten, für Anbieter außerdem eine Konformitätsbewertung und Registrierung. Diese Regeln gelten ab dem 2. Dezember 2027. Bei Verstößen gegen Hochrisiko-Pflichten drohen Bußgelder bis zu 15 Mio. EUR oder 3 % des weltweiten Jahresumsatzes. Ob Ihr System hochriskant ist, ist eine Rechtsfrage für Ihre Berater; wir liefern die technische Dokumentation.',
   },
 ];
 
@@ -60,7 +60,7 @@ const structuredData = [
 
 <Layout
   title="KI für Bildung & Weiterbildung - Intelligentes Lernen, geschützt by Design | Ironum"
-  description="KI-gestützte Lernplattformen mit vollständigem Schutz der Lernenden-Daten. White-Label KI-Mentor für IHK-Prüfungsvorbereitung, betriebliche Weiterbildung und Upskilling. EU AI Act konform."
+  description="KI-gestützte Lernplattformen, ausgelegt auf den Schutz der Lernenden-Daten. White-Label KI-Mentor für IHK-Prüfungsvorbereitung, betriebliche Weiterbildung und Upskilling, mit Unterstützung bei EU-AI-Act-Anforderungen."
   locale="de"
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
@@ -69,7 +69,7 @@ const structuredData = [
   <PageHero
     eyebrow="KI FÜR BILDUNG"
     title="Intelligentes Lernen, geschützt by Design"
-    subtitle="Der europäische EdTech-KI-Markt wächst laut Branchenschätzungen auf rund 20 Mrd. EUR bis 2034. Deutschland hält etwa 30% Marktanteil. Setzen Sie konforme KI-Lernlösungen auf souveräner Infrastruktur ein."
+    subtitle="Setzen Sie KI-Lernlösungen auf einer Infrastruktur Ihrer Wahl ein, gehostet in Deutschland oder auf Ihren eigenen Servern, mit Lernenden-Daten unter Ihrer Kontrolle."
   />
 
   <!-- Challenges Section -->
@@ -77,8 +77,8 @@ const structuredData = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Die Herausforderung</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Bildungs-KI erfordert höchste Standards</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Der EU AI Act stuft Bildungs-KI als "Hochrisiko" ein, aus gutem Grund. Daten von Lernenden erfordern den strengsten Schutz.</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Bildungs-KI braucht hohe Standards</h2>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Der EU AI Act stuft mehrere Bildungsanwendungen als hochriskant ein, und Daten von Lernenden brauchen starken Schutz.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
@@ -86,21 +86,21 @@ const structuredData = [
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Hochrisiko-Einstufung</h3>
-          <p class="text-gray-500">Der EU AI Act stuft Bildungs-KI unter Anhang III als "Hochrisiko" ein. Dies löst verpflichtende Konformitätsbewertungen, Risikomanagementsysteme und Registrierungspflichten aus, mit Strafen bis zu 35 Mio. EUR bei Nichteinhaltung.</p>
+          <p class="text-gray-500">Anhang III des EU AI Act führt Bildungsanwendungen wie Zulassungsentscheidungen, Bewertung und Prüfungsaufsicht als hochriskant auf. Für diese Systeme verlangt er ab dem 2. Dezember 2027 Risikomanagement, Dokumentation und menschliche Aufsicht.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Schutz der Lernenden-Daten</h3>
-          <p class="text-gray-500">Leistungsdaten, Lernmuster und Prüfungsergebnisse von Lernenden sind hochsensible personenbezogene Daten. Diese an öffentliche Cloud-KI-Dienste zu senden, verletzt DSGVO-Grundsätze und institutionelle Datenschutzpflichten.</p>
+          <p class="text-gray-500">Leistungsdaten, Lernmuster und Prüfungsergebnisse von Lernenden sind hochsensible personenbezogene Daten. Diese ohne Schutzmaßnahmen an öffentliche Cloud-KI-Dienste zu senden, kann mit DSGVO-Grundsätzen und institutionellen Datenschutzpflichten kollidieren.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Qualitätskontrolle der Inhalte</h3>
-          <p class="text-gray-500">Generische KI erzeugt generische Inhalte. Bildungs-KI muss auf verifizierten, lehrplankonformen Materialien trainiert werden, um akkurate, pädagogisch fundierte Antworten zu liefern, keine halluzinierten Ergebnisse.</p>
+          <p class="text-gray-500">Generische KI erzeugt generische Inhalte. Bildungs-KI sollte aus verifizierten, lehrplangerechten Materialien antworten. Das verringert das Risiko falscher oder erfundener Antworten.</p>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">LearnSlice KI-Mentor</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">White-Label KI-Lernlösungen</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Basierend auf unserer <a href="https://learnslice.com/de" class="text-blue-600 underline">LearnSlice</a> KI-Mentor-Plattform, eine bewährte White-Label-Lösung, die Bildungseinrichtungen und Weiterbildungsunternehmen unter ihrer eigenen Marke einsetzen.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Basierend auf unserer <a href="https://learnslice.com/de" class="text-blue-600 underline">LearnSlice</a> KI-Mentor-Plattform, eine White-Label-Lösung, die Bildungseinrichtungen und Weiterbildungsunternehmen unter ihrer eigenen Marke einsetzen.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
@@ -160,7 +160,7 @@ const structuredData = [
           <img src="/screenshots/learnslice.webp" alt="LearnSlice KI-Chat-Oberfläche mit IHK-Prüfungsvorbereitung, Onboarding, Unternehmenswissen und Upskilling-Modi" class="w-full h-auto" loading="lazy" />
           <div class="p-6">
             <h3 class="text-lg font-bold mb-2">KI-Lern-Chat</h3>
-            <p class="text-gray-500 text-sm">Lernende wählen ihren Modus, stellen Fragen, absolvieren Quizze und erhalten personalisiertes Feedback, alles innerhalb souveräner Infrastruktur.</p>
+            <p class="text-gray-500 text-sm">Lernende wählen ihren Modus, stellen Fragen, absolvieren Quizze und erhalten personalisiertes Feedback, gehostet auf europäischer Infrastruktur.</p>
           </div>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gray-100">
@@ -188,7 +188,7 @@ const structuredData = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Datensouveränität</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Lernenden-Daten bleiben auf Ihrer Infrastruktur</h2>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Jedes KI-Mentor-Deployment läuft auf Ihrer Infrastruktur: On-Premise-Server, Hetzner in Deutschland oder dediziertes Azure. Keine Lernenden-Daten werden jemals von KI-Drittanbietern verarbeitet.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">KI-Mentor-Deployments laufen auf einer Infrastruktur Ihrer Wahl: On-Premise-Server, Hetzner in Deutschland oder eine dedizierte Azure-Umgebung in EU-Regionen. Lernenden-Daten werden nicht zum Training von KI-Modellen Dritter genutzt.</p>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -196,11 +196,11 @@ const structuredData = [
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">EU AI Act Hochrisiko-Compliance-Dokumentation inklusive</span>
+              <span class="text-gray-600">Technische Dokumentation für EU-AI-Act-Anforderungen</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">DSGVO-konforme Datenverarbeitung mit vollständigem AVV</span>
+              <span class="text-gray-600">Auftragsverarbeitungsvertrag (AVV) inklusive</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -210,20 +210,20 @@ const structuredData = [
         </div>
         <div class="grid grid-cols-2 gap-6">
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-4xl font-bold mb-2">ca. &euro;20 Mrd.</div>
-            <p class="text-gray-500 text-sm font-semibold">Europäischer EdTech-KI-Markt bis 2034 (Branchenschätzung)</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">On-Prem</div>
+            <p class="text-gray-500 text-sm font-semibold">für Schulen und Hochschulen</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-4xl font-bold mb-2">ca. 30%+</div>
-            <p class="text-gray-500 text-sm font-semibold">Jährliches Wachstum bis 2034 (Branchenschätzung)</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">DE</div>
+            <p class="text-gray-500 text-sm font-semibold">Hosting in Deutschland bei Hetzner</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-4xl font-bold mb-2">ca. 30%</div>
-            <p class="text-gray-500 text-sm font-semibold">Deutschlands Anteil am EU-EdTech-KI-Markt (Branchenschätzung)</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">Doku</div>
+            <p class="text-gray-500 text-sm font-semibold">technische Dokumentation für den EU AI Act</p>
           </div>
           <div class="border-2 border-gray-100 rounded-2xl p-6 text-center">
-            <div class="text-blue-600 text-4xl font-bold mb-2">100%</div>
-            <p class="text-gray-500 text-sm font-semibold">Datensouveränität garantiert</p>
+            <div class="text-blue-600 text-4xl font-bold mb-2">AVV</div>
+            <p class="text-gray-500 text-sm font-semibold">Auftragsverarbeitungsvertrag inklusive</p>
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@ const structuredData = [
         </a>
         <a href="/de/dienstleistungen/llm-feinabstimmung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">LLM Fine-Tuning</h3>
-          <p class="text-gray-500 font-semibold mb-4">Modelle auf lehrplanspezifische Inhalte trainieren für akkurate, pädagogisch fundierte Antworten.</p>
+          <p class="text-gray-500 font-semibold mb-4">Modelle auf lehrplanspezifische Inhalte trainieren, für Antworten passend zu Ihren Lernzielen.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Mehr erfahren <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
         <a href="/de/dienstleistungen/workflow-automatisierung/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
@@ -256,6 +256,9 @@ const structuredData = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

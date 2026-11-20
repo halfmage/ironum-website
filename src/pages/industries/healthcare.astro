@@ -15,23 +15,23 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'Does Ironum process clinical patient data?',
-    answer: 'Our healthcare solutions focus on administrative automation, documentation assistance, and knowledge management, not clinical decision-making. All patient data remains on your infrastructure and is never sent to external AI services. We do not position our AI as a medical device or clinical decision support system.',
+    answer: 'Our healthcare solutions focus on administrative automation, documentation assistance, and knowledge management, not clinical decision-making. Patient data stays on your infrastructure and is not sent to external AI services. We do not position our AI as a medical device or clinical decision support system.',
   },
   {
     question: 'How does on-premise deployment work in a hospital environment?',
-    answer: 'We deploy directly within your hospital IT infrastructure, behind your firewall and within your existing security perimeter. The system integrates with your HIS (Hospital Information System) via secure APIs. All data processing is local, ensuring compliance with patient data protection requirements.',
+    answer: 'We deploy directly within your hospital IT infrastructure, behind your firewall and within your existing security perimeter. The system integrates with your HIS (Hospital Information System) via secure APIs. Data processing stays local, which supports your patient data protection requirements.',
   },
   {
     question: 'What administrative tasks can be automated?',
-    answer: 'Common use cases include medical documentation summarization, discharge letter drafting, referral letter generation, insurance documentation, and internal knowledge management. Leading hospitals are achieving 30-40% adoption rates for documentation tools, with some approaching 90% utilization.',
+    answer: 'Common use cases include medical documentation summarization, discharge letter drafting, referral letter generation, insurance documentation, and internal knowledge management. A physician reviews every draft before it is used.',
   },
   {
-    question: 'Is the solution compliant with German healthcare data regulations?',
-    answer: 'Yes. Our deployments comply with GDPR, the German Patientendaten-Schutz-Gesetz (PDSG), and relevant Landesdatenschutzgesetz requirements. Data processing agreements and technical-organizational measures documentation are included as standard. We also support preparation for EU AI Act compliance.',
+    question: 'How do you support German healthcare data requirements?',
+    answer: 'Our deployments are designed for the requirements of the GDPR and German health data law, including state data protection and hospital laws. Data processing agreements and documentation of technical and organizational measures are included as standard, and we support the technical documentation for the EU AI Act. The legal assessment, including medical confidentiality, stays with your data protection officer and legal advisers.',
   },
   {
     question: 'Can the AI be trained on our specific medical terminology and workflows?',
-    answer: 'Yes. Our RAG-based systems are configured with your specific clinical documentation templates, medical terminology, internal protocols, and departmental workflows. The system learns from your approved content, not from the general internet, ensuring accuracy and relevance to your institution.',
+    answer: 'Yes. Our RAG-based systems are configured with your specific clinical documentation templates, medical terminology, internal protocols, and departmental workflows. The system answers from your approved content, not from the general internet, which keeps answers relevant to your institution. Staff should still check answers against the cited sources.',
   },
 ];
 
@@ -40,7 +40,7 @@ const structuredData = [
     "@type": "Service",
     "@id": "https://ironum.com/industries/healthcare/#service",
     "name": "Healthcare AI Solutions",
-    "description": "Administrative automation and documentation assistance for European healthcare. Patient data stays on your infrastructure. GDPR and healthcare data regulation compliant.",
+    "description": "Administrative automation and documentation assistance for European healthcare. Patient data stays on your infrastructure. Built for GDPR and health data requirements.",
     "url": "https://ironum.com/industries/healthcare/",
     "provider": { "@id": "https://ironum.com/#organization" },
     "areaServed": { "@type": "Place", "name": "Europe" },
@@ -59,7 +59,7 @@ const structuredData = [
 
 <Layout
   title="Healthcare AI Solutions - Patient Data Sovereignty | Ironum"
-  description="Administrative AI automation for European healthcare. Documentation assistance, knowledge management, and workflow automation. Patient data never leaves your infrastructure."
+  description="Administrative AI automation for European healthcare. Documentation assistance, knowledge management, and workflow automation, with patient data on your own infrastructure."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
@@ -67,7 +67,7 @@ const structuredData = [
   <PageHero
     eyebrow="AI FOR HEALTHCARE"
     title="Patient Data Stays on Your Infrastructure"
-    subtitle="Healthcare is the fastest-growing AI vertical in Europe. Leading hospitals are approaching 90% utilization of documentation tools. Deploy administrative AI without compromising patient data sovereignty."
+    subtitle="Hospitals and practices are starting to use AI for documentation and administration. Deploy administrative AI while patient data stays on your infrastructure."
   />
 
   <!-- Challenges Section -->
@@ -76,7 +76,7 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Healthcare Data Is the Most Sensitive Data</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Patient data demands absolute protection. Healthcare institutions need AI productivity gains without risking data sovereignty or regulatory compliance.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Patient data needs strong protection. Healthcare institutions want AI productivity gains while keeping control over their data and their regulatory obligations.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
@@ -84,14 +84,14 @@ const structuredData = [
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Documentation Overload</h3>
-          <p class="text-gray-500">Physicians spend up to 50% of their time on documentation rather than patient care. Discharge summaries, referral letters, and insurance forms create an administrative burden that AI can significantly reduce.</p>
+          <p class="text-gray-500">Physicians spend a large share of their time on documentation rather than patient care. Discharge summaries, referral letters, and insurance forms create an administrative burden that AI can significantly reduce.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Patient Data Sensitivity</h3>
-          <p class="text-gray-500">Health data is a special category under GDPR Article 9. Using public cloud AI for patient-related tasks creates unacceptable data protection risks. 44% of organizations cite data security as their primary barrier to cloud AI adoption.</p>
+          <p class="text-gray-500">Health data is a special category under GDPR Article 9. Using public cloud AI for patient-related tasks creates significant data protection risks.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
@@ -122,7 +122,7 @@ const structuredData = [
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Insurance and billing workflow automation</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Referral and discharge process optimization</li>
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Self-hosted n8n: no external data transfer</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Self-hosted n8n on your infrastructure</li>
           </ul>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
@@ -130,7 +130,7 @@ const structuredData = [
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Documentation Assistance</h3>
-          <p class="text-gray-500 mb-4">AI-assisted drafting of discharge summaries, referral letters, and clinical notes. Reduces documentation time while maintaining medical accuracy through RAG-powered templates.</p>
+          <p class="text-gray-500 mb-4">AI-assisted drafting of discharge summaries, referral letters, and clinical notes. Reduces documentation time with RAG-powered templates. A physician reviews and approves every draft.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Discharge summary generation from structured data</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Template-based with physician review step</li>
@@ -142,7 +142,7 @@ const structuredData = [
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Knowledge Management</h3>
-          <p class="text-gray-500 mb-4">Internal knowledge chatbot trained on your clinical protocols, treatment guidelines, and institutional policies. Staff get instant, accurate answers from your approved knowledge base.</p>
+          <p class="text-gray-500 mb-4">Internal knowledge chatbot trained on your clinical protocols, treatment guidelines, and institutional policies. Staff get fast, source-cited answers from your approved knowledge base.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Protocol and guideline search in natural language</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited answers with document references</li>
@@ -157,25 +157,25 @@ const structuredData = [
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Market data</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Healthcare AI Adoption in Europe</h2>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What we deliver</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Administrative AI, Under Your Control</h2>
       </div>
       <div class="grid md:grid-cols-4 gap-8 text-center">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">#1</div>
-          <p class="text-gray-500 text-lg font-semibold">Fastest-growing AI vertical in Europe</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Admin</div>
+          <p class="text-gray-500 text-lg font-semibold">focus on administrative tasks, not clinical decisions</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-4xl font-bold mb-2">30-40%</div>
-          <p class="text-gray-500 text-lg font-semibold">Adoption rate of medical documentation AI tools</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Review</div>
+          <p class="text-gray-500 text-lg font-semibold">a physician reviews every draft</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">90%</div>
-          <p class="text-gray-500 text-lg font-semibold">Utilization at leading European hospitals</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Sources</div>
+          <p class="text-gray-500 text-lg font-semibold">cited in answers, with document references</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Patient data stays on your infrastructure</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">On-Prem</div>
+          <p class="text-gray-500 text-lg font-semibold">behind your firewall or in a private cloud</p>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@ const structuredData = [
         </a>
         <a href="/services/ai-consulting/" class="border-2 border-gray-100 rounded-2xl p-8 bg-white hover:border-blue-200 transition-colors group">
           <h3 class="text-xl font-bold mb-3">AI Consulting</h3>
-          <p class="text-gray-500 font-semibold mb-4">Healthcare AI readiness assessments with GDPR and patient data protection compliance built in from the start.</p>
+          <p class="text-gray-500 font-semibold mb-4">Healthcare AI readiness assessments that consider GDPR and patient data protection from the start.</p>
           <span class="text-blue-600 font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
         </a>
       </div>
@@ -207,6 +207,9 @@ const structuredData = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

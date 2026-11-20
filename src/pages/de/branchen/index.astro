@@ -9,43 +9,43 @@ const industries = [
   {
     name: 'Recht',
     href: '/de/branchen/recht/',
-    stat: '60%+',
-    statLabel: 'der DACH-Anwälte nutzen bereits KI (Branchenschätzung)',
-    description: 'DSGVO-konforme Vertragsprüfung, Compliance-Automatisierung und juristische Q&A, mit vollständiger Mandantenvertraulichkeit auf Ihrer eigenen Infrastruktur.',
+    stat: 'Privat',
+    statLabel: 'Vertragsprüfung auf Ihrer Infrastruktur',
+    description: 'Vertragsprüfung, Compliance-Automatisierung und juristische Q&A, mit Mandantendaten auf Ihrer eigenen Infrastruktur.',
   },
   {
     name: 'Fertigung',
     href: '/de/branchen/fertigung/',
-    stat: '30%+',
-    statLabel: 'jährliches Wachstum im KI-Fertigungsmarkt (Branchenschätzung)',
+    stat: 'Edge',
+    statLabel: 'KI direkt in der Fertigung',
     description: 'Industrie 4.0 KI für Predictive Maintenance, Qualitätsprüfung und Workflow-Automatisierung, gehostet auf deutscher Infrastruktur.',
   },
   {
     name: 'Finanzdienstleistungen',
     href: '/de/branchen/finanzdienstleistungen/',
-    stat: '€37 Mrd.',
-    statLabel: 'prognostizierter KI-Markt in Deutschland bis 2031 (Branchenschätzung)',
+    stat: 'On-Prem',
+    statLabel: 'für Bank- und Kundendaten',
     description: 'Datensouveräne KI für Betrugserkennung, KYC/AML-Automatisierung, Risikomodellierung und regulatorische Compliance.',
   },
   {
     name: 'Bildung & Weiterbildung',
     href: '/de/branchen/bildung/',
-    stat: '30%+',
-    statLabel: 'jährliches Wachstum im europäischen EdTech-KI-Markt (Branchenschätzung)',
+    stat: 'Marke',
+    statLabel: 'White-Label KI-Mentor',
     description: 'Intelligente Lernplattformen mit Schutz der Lernenden-Daten. White-Label KI-Mentor-Lösungen für Prüfungsvorbereitung und betriebliche Weiterbildung.',
   },
   {
     name: 'Gesundheitswesen',
     href: '/de/branchen/gesundheitswesen/',
-    stat: 'bis 90%',
-    statLabel: 'Nutzungsrate an führenden EU-Kliniken (Branchenschätzung)',
-    description: 'Administrative Automatisierung, Dokumentationsassistenz und klinisches Wissensmanagement. Patientendaten verlassen niemals Ihre Infrastruktur.',
+    stat: 'Admin',
+    statLabel: 'administrative KI, keine klinischen Entscheidungen',
+    description: 'Administrative Automatisierung, Dokumentationsassistenz und klinisches Wissensmanagement. Patientendaten bleiben auf Ihrer Infrastruktur.',
   },
   {
     name: 'Öffentlicher Sektor',
     href: '/de/branchen/oeffentlicher-sektor/',
-    stat: '200+',
-    statLabel: 'erfasste KI-Anwendungen in europäischen Ländern (laut EU-Studien)',
+    stat: 'DE',
+    statLabel: 'gehostet in Deutschland',
     description: 'Souveräne KI für Bürgerservices, Dokumentenverarbeitung und internes Wissensmanagement auf deutscher Infrastruktur.',
   },
 ];
@@ -60,7 +60,7 @@ const structuredData = [
     "@type": "CollectionPage",
     "@id": "https://www.ironum.com/de/branchen/#page",
     "name": "KI-Lösungen für jede Branche in der DACH-Region",
-    "description": "DSGVO-konforme KI-Lösungen für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in Deutschland, Österreich und der Schweiz.",
+    "description": "KI-Lösungen, ausgelegt auf DSGVO-Anforderungen, für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in Deutschland, Österreich und der Schweiz.",
     "url": "https://www.ironum.com/de/branchen/",
     "inLanguage": "de-DE",
     "isPartOf": { "@id": "https://www.ironum.com/#website" },
@@ -70,8 +70,8 @@ const structuredData = [
 ---
 
 <Layout
-  title="KI-Branchenlösungen - DSGVO-konform | Ironum AI Core"
-  description="Entdecken Sie DSGVO-konforme KI-Lösungen für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in der DACH-Region."
+  title="KI-Branchenlösungen für DSGVO-Anforderungen | Ironum AI Core"
+  description="Entdecken Sie KI-Lösungen, ausgelegt auf DSGVO-Anforderungen, für Recht, Fertigung, Finanzdienstleistungen, Bildung, Gesundheitswesen und den öffentlichen Sektor in der DACH-Region."
   locale="de"
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
@@ -80,7 +80,7 @@ const structuredData = [
   <PageHero
     eyebrow="BRANCHEN"
     title="KI-Lösungen für jede Branche"
-    subtitle="Speziell entwickelte KI-Lösungen für regulierte Branchen. DSGVO-konform, On-Premise, Private Cloud oder auf europäischen Servern bereitgestellt."
+    subtitle="Speziell entwickelte KI-Lösungen für regulierte Branchen. Ausgelegt auf DSGVO-Anforderungen, On-Premise, in der Private Cloud oder auf europäischen Servern bereitgestellt."
   />
 
   <!-- Industry Cards Grid -->
@@ -89,7 +89,7 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Nach Branche entdecken</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Maßgeschneiderte KI für regulierte Branchen</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Nur 17% der europäischen KMU nutzen KI, verglichen mit 55% der Großunternehmen. Wir schließen diese Lücke mit Infrastruktur, die Ihre Compliance-Anforderungen erfüllt.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Viele europäische KMU haben mit KI noch nicht begonnen. Wir helfen mit Infrastruktur, die auf Ihre Compliance-Anforderungen ausgelegt ist.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {industries.map((industry) => (
@@ -114,34 +114,37 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Branchenübergreifend</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Entwickelt für europäische Compliance</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jede Branchenlösung teilt unser Kernversprechen: Datensouveränität, regulatorische Compliance und europäische Infrastruktur.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Jede Branchenlösung teilt unseren Schwerpunkt: Datensouveränität, Unterstützung bei regulatorischen Anforderungen und europäische Infrastruktur.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">DSGVO-Konformität</h3>
-          <p class="text-gray-500">Vollständige DSGVO-Konformität by Design. Auftragsverarbeitungsverträge, Datenschutz-Folgenabschätzungen und Art. 28-konforme Infrastruktur. 44% der Unternehmen nennen Datensicherheit als Hauptbedenken bei Cloud-KI. Wir beseitigen diese Hürde.</p>
+          <h3 class="text-xl font-bold mb-3">Ausgelegt auf die DSGVO</h3>
+          <p class="text-gray-500">Ausgelegt auf DSGVO-Anforderungen: Auftragsverarbeitungsverträge nach Art. 28, Unterstützung bei Datenschutz-Folgenabschätzungen und dokumentierte technische und organisatorische Maßnahmen.</p>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">On-Premise & Private Cloud</h3>
-          <p class="text-gray-500">Betrieb auf Ihren eigenen Servern, Azure oder Hetzner-Infrastruktur in Deutschland. 72% der EU-Sicherheitsexperten berichten über erhöhte Nachfrage nach Datenlokalisierung. Unsere Infrastruktur erfüllt diese Anforderung ab Tag eins.</p>
+          <p class="text-gray-500">Betrieb auf Ihren eigenen Servern, auf Azure in EU-Regionen oder auf Hetzner-Infrastruktur in Deutschland, je nachdem, wo Ihre Daten bleiben müssen.</p>
         </div>
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">EU AI Act Ready</h3>
-          <p class="text-gray-500">Gebaut für den EU AI Act, einschließlich der Hochrisiko-Regeln, die nun ab Dezember 2027 gelten. Risikoklassifizierung, Transparenzanforderungen und Audit-Trails in jedem Deployment integriert. Strafen bis zu 35 Mio. EUR oder 7% des weltweiten Jahresumsatzes.</p>
+          <h3 class="text-xl font-bold mb-3">Unterstützung beim EU AI Act</h3>
+          <p class="text-gray-500">Technische Unterstützung beim EU AI Act, einschließlich der Hochrisiko-Regeln ab Dezember 2027: Dokumentation zur Risikoklassifizierung, Transparenzfunktionen und Audit-Trails. Die rechtliche Einstufung eines Systems liegt bei Ihrer Rechtsberatung.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Hinweis:</strong> Diese Seite dient ausschließlich der allgemeinen Information und ersetzt keine Rechts-, Steuer- oder Datenschutzberatung. Ironum ist technischer Dienstleister, keine Rechtsberatung. Für die Bewertung Ihres konkreten Falls wenden Sie sich bitte an Ihre Rechtsanwältin oder Ihren Rechtsanwalt bzw. Ihre oder Ihren Datenschutzbeauftragten.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

@@ -14,20 +14,20 @@ const breadcrumbs = [
 
 const faqItems = [
   {
-    question: 'How does Ironum ensure compliance with BaFin and ECB regulations?',
-    answer: 'Our deployments are designed for regulated financial environments. All data processing happens on your infrastructure, whether on-premise or in a dedicated Azure tenant, ensuring compliance with BaFin IT requirements (BAIT/VAIT), ECB supervisory expectations, and GDPR. We include full audit trails, model documentation, and explainability features required by financial regulators.',
+    question: 'How does Ironum support BaFin and ECB requirements?',
+    answer: 'Our deployments are designed for regulated financial environments. Processing runs on infrastructure you choose, on-premise or in a dedicated Azure tenant in EU regions. We provide technical measures and documentation that support your work on BaFin IT requirements (for example DORA and MaRisk), ECB supervisory expectations and the GDPR: audit trails, model documentation and explainability features. Whether a setup meets your supervisory requirements is assessed by your compliance function and legal advisers.',
   },
   {
     question: 'Can the AI be deployed in our existing banking infrastructure?',
-    answer: 'Yes. We deploy directly into your data center, private cloud, or dedicated Azure environment. Our solutions integrate with core banking systems via secure APIs and n8n workflow automation. No customer data ever leaves your controlled environment.',
+    answer: 'Yes. We deploy directly into your data center, private cloud, or dedicated Azure environment. Our solutions integrate with core banking systems via secure APIs and n8n workflow automation. Customer data stays in the environment you choose.',
   },
   {
     question: 'What fraud detection capabilities do you offer?',
-    answer: 'Our AI models analyze transaction patterns in real-time to detect anomalies indicative of fraud. Models are trained on your historical data and continuously learn from new patterns. All processing happens on-premise, ensuring customer transaction data remains fully sovereign.',
+    answer: 'Our AI models analyze transaction patterns in real-time to detect anomalies indicative of fraud. Models are trained on your historical data and can be retrained regularly as new patterns appear. Processing can run on-premise, so customer transaction data stays on your infrastructure.',
   },
   {
     question: 'How does this compare to using ChatGPT or public AI services for financial analysis?',
-    answer: 'Public AI services are unsuitable for financial data due to data sovereignty concerns, regulatory non-compliance, and the risk of data leakage. Our on-premise deployments provide the same AI capabilities (document analysis, risk modeling, compliance automation) without sending any customer data to third-party servers. 44% of enterprises cite data security as the primary reason for avoiding public cloud AI.',
+    answer: 'Public AI services raise open questions for financial data: where the data is processed, whether inputs are used for training, and how supervisory and data protection requirements are met. Our on-premise deployments provide comparable capabilities (document analysis, support for risk modeling, compliance automation) without sending customer data to external AI services.',
   },
   {
     question: 'What is the typical deployment timeline for a financial institution?',
@@ -59,15 +59,15 @@ const structuredData = [
 
 <Layout
   title="Financial Services AI - Data-Sovereign Fraud Detection & Compliance | Ironum"
-  description="AI-powered fraud detection, KYC/AML automation, risk modeling, and compliance for European financial institutions. Full data sovereignty on your infrastructure."
+  description="AI-powered fraud detection, KYC/AML automation, risk modeling, and compliance workflows for European financial institutions, deployed on infrastructure you control."
   breadcrumbs={breadcrumbs}
   structuredData={structuredData}
 >
   <Navigation />
   <PageHero
     eyebrow="AI FOR FINANCE"
-    title="Data-Driven Advisory With Full Data Sovereignty"
-    subtitle="European banks are moving from AI exploration to operational implementation in 2026. Deploy on-premise AI for fraud detection, compliance automation, and risk modeling, without compromising customer data."
+    title="Data-Driven Advisory, on Infrastructure You Control"
+    subtitle="Many European banks are moving from AI exploration to operational use. Deploy on-premise AI for fraud detection, compliance automation, and risk modeling, with customer data staying on your infrastructure."
   />
 
   <!-- Challenges Section -->
@@ -75,7 +75,7 @@ const structuredData = [
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">The challenge</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Banking Data Cannot Live in the Cloud</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Banking Data Needs Tight Control</h2>
         <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Financial institutions face unique constraints when adopting AI: regulatory pressure, data sensitivity, and the need for explainable decisions.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
@@ -84,21 +84,21 @@ const structuredData = [
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Regulatory Complexity</h3>
-          <p class="text-gray-500">BaFin IT requirements (BAIT/VAIT), ECB supervisory expectations, GDPR, EU AI Act, and MiFID II create overlapping compliance obligations that generic AI tools cannot address.</p>
+          <p class="text-gray-500">BaFin IT requirements, DORA, ECB supervisory expectations, GDPR, EU AI Act, and MiFID II create overlapping obligations that generic AI tools are not designed for.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Customer Data Sovereignty</h3>
-          <p class="text-gray-500">Transaction data, account information, and customer profiles cannot be processed by third-party AI services. 72% of EU security professionals report heightened demand for data localization in financial services.</p>
+          <p class="text-gray-500">Sending transaction data, account information, and customer profiles to third-party AI services raises outsourcing and data protection questions. Many institutions therefore prefer to keep this data on their own infrastructure.</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Explainability Requirements</h3>
-          <p class="text-gray-500">Regulators require that AI-driven decisions in credit scoring, risk assessment, and compliance can be explained and audited. Black-box AI models are not acceptable in regulated finance.</p>
+          <p class="text-gray-500">Regulators require that AI-driven decisions in credit scoring, risk assessment, and compliance can be explained and audited. Opaque models are hard to defend in supervisory reviews.</p>
         </div>
       </div>
     </div>
@@ -110,18 +110,18 @@ const structuredData = [
       <div class="text-center mb-16">
         <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Solutions</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4">Your AI Factory, Your Infrastructure</h2>
-        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Leading European banks are building "AI factories" for regional deployment. We provide the infrastructure and expertise to build yours.</p>
+        <p class="text-gray-500 text-lg font-semibold mt-4 max-w-2xl mx-auto">Some European banks are building "AI factories" for regional deployment. We provide the infrastructure and expertise to build yours.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white border-2 border-gray-100 rounded-2xl p-8">
           <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">DIN Analysis Companion</h3>
-          <p class="text-gray-500 mb-4">AI-powered analysis of DIN financial standards, regulatory publications, and compliance documentation. Instantly search, compare, and extract requirements from thousands of regulatory documents.</p>
+          <h3 class="text-xl font-bold mb-3">Regulatory Document Companion</h3>
+          <p class="text-gray-500 mb-4">AI-assisted search across standards, regulatory publications, and compliance documentation. Search, compare, and extract requirements from large collections of regulatory documents.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>RAG-powered regulatory document search</li>
-            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Cross-reference across DIN, BaFin, and ECB</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Cross-references across standards, BaFin, and ECB publications</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Source-cited answers with document links</li>
           </ul>
         </div>
@@ -130,7 +130,7 @@ const structuredData = [
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Regulatory Compliance Automation</h3>
-          <p class="text-gray-500 mb-4">Automate KYC/AML screening, transaction monitoring, and regulatory reporting. Reduce manual compliance workload while maintaining full audit trails for supervisory reviews.</p>
+          <p class="text-gray-500 mb-4">Automate KYC/AML screening, transaction monitoring, and regulatory reporting. Reduce manual compliance workload, with audit trails for supervisory reviews.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Automated KYC/AML document verification</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Real-time transaction anomaly detection</li>
@@ -142,7 +142,7 @@ const structuredData = [
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
           <h3 class="text-xl font-bold mb-3">Financial Planning AI</h3>
-          <p class="text-gray-500 mb-4">AI-assisted risk modeling, portfolio analysis, and financial planning. Support advisors with data-driven insights while keeping all customer financial data on your own servers.</p>
+          <p class="text-gray-500 mb-4">AI-assisted risk modeling, portfolio analysis, and financial planning. Support advisors with data-driven insights while customer financial data stays on infrastructure you control.</p>
           <ul class="space-y-2 text-gray-500 text-sm">
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Risk scoring with explainable AI models</li>
             <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Market data analysis and summarization</li>
@@ -160,11 +160,11 @@ const structuredData = [
         <div>
           <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">See it in action</span>
           <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Financial Companion</h2>
-          <p class="text-gray-500 text-lg font-semibold mb-6">An AI-powered financial literacy and health check tool that runs entirely on sovereign infrastructure. Users get personalised financial guidance without their data ever leaving the platform.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">An AI-powered financial literacy and health check tool, hosted on European infrastructure. Users get personalised explanations of financial topics. It explains, it does not give financial advice.</p>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">Financial health assessment with proven methodology</span>
+              <span class="text-gray-600">Structured financial health check</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-blue-600 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -187,25 +187,25 @@ const structuredData = [
   <section class="px-4 md:px-20 py-20 md:py-32">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">Market data</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">The AI Shift in European Finance</h2>
+        <span class="text-orange-500 font-semibold tracking-[0.2em] text-sm uppercase">What we deliver</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Built for Regulated Finance</h2>
       </div>
       <div class="grid md:grid-cols-4 gap-8 text-center">
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-4xl font-bold mb-2">&euro;37B</div>
-          <p class="text-gray-500 text-lg font-semibold">Projected AI market in Germany by 2031</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">On-Prem</div>
+          <p class="text-gray-500 text-lg font-semibold">or a private cloud in EU regions</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">72%</div>
-          <p class="text-gray-500 text-lg font-semibold">Of EU security professionals demand data localization</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Audit</div>
+          <p class="text-gray-500 text-lg font-semibold">trails and model documentation for supervisory reviews</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">44%</div>
-          <p class="text-gray-500 text-lg font-semibold">Cite data security as barrier to cloud AI</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Sources</div>
+          <p class="text-gray-500 text-lg font-semibold">cited in answers, with document links</p>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-8">
-          <div class="text-blue-600 text-5xl font-bold mb-2">100%</div>
-          <p class="text-gray-500 text-lg font-semibold">Customer data stays on your infrastructure</p>
+          <div class="text-blue-600 text-4xl font-bold mb-2">Brand</div>
+          <p class="text-gray-500 text-lg font-semibold">white-label for banks and financial advisors</p>
         </div>
       </div>
     </div>
@@ -237,6 +237,9 @@ const structuredData = [
   </section>
 
   <FAQSection items={faqItems} />
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>

@@ -8,8 +8,8 @@ import Footer from '../../components/Footer.astro';
 ---
 
 <Layout
-  title="Deployment Options: Cloud, Azure GDPR, or On-Premises | Ironum"
-  description="Deploy AI your way: cloud APIs for speed, Azure GDPR regions for compliance, or fully on-premises for maximum data sovereignty. Compare Ironum deployment options."
+  title="Deployment Options: Cloud, Azure EU, or On-Premises | Ironum"
+  description="Deploy AI your way: cloud APIs for speed, Azure EU regions for EU data residency, or fully on-premises for the most control over your data. Compare Ironum deployment options."
 >
   <Navigation />
 
@@ -52,16 +52,16 @@ import Footer from '../../components/Footer.astro';
           <p class="text-sm text-gray-400 font-semibold">Best for: PoCs, non-regulated workloads, rapid experimentation</p>
         </div>
 
-        <!-- Azure GDPR -->
+        <!-- Azure EU -->
         <div class="border-2 border-blue-600 rounded-2xl p-6 md:p-8 flex flex-col relative">
           <span class="absolute -top-3 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">RECOMMENDED</span>
-          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">GDPR COMPLIANT</span>
-          <h3 class="text-2xl font-bold mt-2 mb-4">Azure GDPR Regions</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Enterprise-grade AI through Microsoft Azure's EU data centers. Full GDPR compliance with DPA, data residency guarantees, and enterprise SLAs.</p>
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">EU REGIONS</span>
+          <h3 class="text-2xl font-bold mt-2 mb-4">Azure EU Regions</h3>
+          <p class="text-gray-500 text-lg font-semibold mb-6">AI models through Microsoft Azure's EU data centers, with Microsoft's DPA, EU data residency options, and Microsoft's enterprise SLAs.</p>
           <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Data stays in EU regions
+              Processing in EU regions with an EU deployment type
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -69,11 +69,11 @@ import Footer from '../../components/Footer.astro';
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Enterprise SLA (99.9%+)
+              Microsoft's enterprise SLA
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              No model training on your data
+              Microsoft states it does not train models on your data
             </li>
           </ul>
           <p class="text-sm text-gray-400 font-semibold">Best for: Regulated industries, enterprise customers, GDPR-sensitive data</p>
@@ -81,13 +81,13 @@ import Footer from '../../components/Footer.astro';
 
         <!-- On-Premises -->
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col">
-          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">MAXIMUM CONTROL</span>
+          <span class="text-blue-600 text-sm font-bold uppercase tracking-wider">MOST CONTROL</span>
           <h3 class="text-2xl font-bold mt-2 mb-4">On-Premises</h3>
-          <p class="text-gray-500 text-lg font-semibold mb-6">Full deployment on your own hardware or in your private data center. Open-source models, complete air-gap capability, zero external dependencies.</p>
+          <p class="text-gray-500 text-lg font-semibold mb-6">Full deployment on your own hardware or in your private data center. Open-source models, air-gapped setups possible, no external AI APIs needed.</p>
           <ul class="space-y-3 text-gray-500 font-semibold mb-8 flex-1">
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Zero data leaves your network
+              Data stays in your network
             </li>
             <li class="flex items-start gap-2">
               <svg class="w-5 h-5 text-green-500 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -102,7 +102,7 @@ import Footer from '../../components/Footer.astro';
               Requires GPU hardware
             </li>
           </ul>
-          <p class="text-sm text-gray-400 font-semibold">Best for: Defense, government, healthcare, maximum data sovereignty</p>
+          <p class="text-sm text-gray-400 font-semibold">Best for: Defense, government, healthcare, the most control over data</p>
         </div>
       </div>
     </div>
@@ -120,26 +120,26 @@ import Footer from '../../components/Footer.astro';
             <tr class="border-b-2 border-gray-200">
               <th class="py-4 pr-4 text-lg font-bold">Requirement</th>
               <th class="py-4 px-4 text-lg font-bold">Cloud APIs</th>
-              <th class="py-4 px-4 text-lg font-bold">Azure GDPR</th>
+              <th class="py-4 px-4 text-lg font-bold">Azure EU</th>
               <th class="py-4 pl-4 text-lg font-bold">On-Premises</th>
             </tr>
           </thead>
           <tbody class="text-gray-500 font-semibold">
             <tr class="border-b border-gray-100">
-              <td class="py-4 pr-4">GDPR Compliance</td>
-              <td class="py-4 px-4">Partial</td>
-              <td class="py-4 px-4 text-green-600">Full</td>
-              <td class="py-4 pl-4 text-green-600">Full</td>
+              <td class="py-4 pr-4">Who operates the model</td>
+              <td class="py-4 px-4">The API provider</td>
+              <td class="py-4 px-4">Microsoft, in EU regions</td>
+              <td class="py-4 pl-4 text-green-600">You, or we on your hardware</td>
             </tr>
             <tr class="border-b border-gray-100">
-              <td class="py-4 pr-4">EU AI Act Ready</td>
+              <td class="py-4 pr-4">Transfer outside the EU</td>
               <td class="py-4 px-4">Depends on provider</td>
-              <td class="py-4 px-4 text-green-600">Yes</td>
-              <td class="py-4 pl-4 text-green-600">Yes</td>
+              <td class="py-4 px-4">Not with EU deployment types</td>
+              <td class="py-4 pl-4 text-green-600">No</td>
             </tr>
             <tr class="border-b border-gray-100">
               <td class="py-4 pr-4">Data Residency</td>
-              <td class="py-4 px-4">Global</td>
+              <td class="py-4 px-4">Depends on provider</td>
               <td class="py-4 px-4">EU regions</td>
               <td class="py-4 pl-4">Your premises</td>
             </tr>
@@ -190,7 +190,7 @@ import Footer from '../../components/Footer.astro';
           </ul>
         </div>
         <div class="border-2 border-gray-100 rounded-2xl p-6 md:p-8">
-          <h3 class="text-2xl font-bold mb-4">Azure GDPR</h3>
+          <h3 class="text-2xl font-bold mb-4">Azure EU</h3>
           <ul class="space-y-2 text-gray-500 text-lg font-semibold">
             <li>Azure subscription (EU region)</li>
             <li>Azure OpenAI access approved</li>
@@ -212,13 +212,16 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <FAQSection items={[
-    { question: "Can I combine deployment models?", answer: "Yes. Many clients use Azure GDPR for sensitive workloads and cloud APIs for non-sensitive tasks. Our orchestration layer routes queries to the right backend automatically based on data classification rules you define." },
-    { question: "How long does deployment take?", answer: "Cloud API setups can be live in 2-3 days. Azure GDPR deployments typically take 1-2 weeks including DPA setup. On-premises deployments take 2-4 weeks depending on hardware readiness and network configuration." },
+    { question: "Can I combine deployment models?", answer: "Yes. Many clients use Azure EU for sensitive workloads and cloud APIs for non-sensitive tasks. Our orchestration layer routes queries to the right backend automatically based on data classification rules you define." },
+    { question: "How long does deployment take?", answer: "Cloud API setups can be live in 2-3 days. Azure EU deployments typically take 1-2 weeks including DPA setup. On-premises deployments take 2-4 weeks depending on hardware readiness and network configuration." },
     { question: "Do I need my own IT team?", answer: "No. Ironum handles deployment, configuration, monitoring, and ongoing maintenance. We provide training for your team to manage day-to-day operations, but we remain available for support and updates." },
-    { question: "Can I migrate between deployment models later?", answer: "Yes. Our modular architecture means you can start with cloud APIs and migrate to Azure GDPR or on-premises as your requirements evolve. We handle the migration with zero downtime." },
-    { question: "What about latency and performance?", answer: "Cloud APIs typically have 200-500ms response times. Azure GDPR is comparable. On-premises deployments can achieve sub-100ms latency for local models, making them ideal for real-time applications." }
+    { question: "Can I migrate between deployment models later?", answer: "Yes. Our modular architecture means you can start with cloud APIs and migrate to Azure EU or on-premises as your requirements evolve. We plan the migration to keep downtime as short as possible." },
+    { question: "What about latency and performance?", answer: "Response times depend on the model, its size and the load. Azure EU is usually comparable to the public cloud APIs. Local models on your own hardware avoid the round trip over the internet, which can help real-time applications. We measure latency with your use case during setup." }
   ]} />
 
+  <aside class="max-w-4xl mx-auto px-4 sm:px-6 my-10 text-sm text-gray-600">
+    <p class="rounded-xl border border-gray-200 bg-gray-50 px-6 py-4"><strong class="font-semibold text-gray-700">Note:</strong> This page is for general information only and does not constitute legal, tax, or data-protection advice. Ironum is a technical service provider, not a law firm. For an assessment of your specific situation, please consult your own qualified legal counsel or data protection officer.</p>
+  </aside>
   <FinalCTA />
   <Footer />
 </Layout>
