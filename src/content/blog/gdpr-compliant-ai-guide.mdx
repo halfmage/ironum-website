@@ -1,12 +1,22 @@
 ---
-title: "GDPR-Compliant AI: A 2026 Guide for US and EU"
-description: "Why US-built AI APIs create GDPR risk and how US and EU companies deploy compliant AI in 2026. CLOUD Act, data residency, and on-premise paths."
+title: "GDPR-Compliant AI in 2026: EU, US and Swiss Rules"
+description: "How to run AI under GDPR and the Swiss FADP: data residency, transfers to the US, keeping EU data in EU pipelines, and a side-by-side table of EU vs. Swiss rules."
 publishDate: 2026-03-08
+updatedDate: 2026-11-20
 author: "Ironum Team"
 legalDisclaimer: true
 category: "compliance"
-tags: ["GDPR", "data sovereignty", "compliance", "AI deployment"]
+tags: ["GDPR", "FADP", "Switzerland", "data sovereignty", "compliance", "AI deployment"]
 draft: false
+faq:
+  - question: "Is Switzerland's data protection law (FADP) the same as the GDPR for AI services?"
+    answer: "No, but the two are close. Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023, and the Swiss regulator (FDPIC) says it applies directly to AI. The main differences: breaches go to the FDPIC 'as soon as possible' instead of within 72 hours, fines are criminal fines of up to CHF 250,000 on responsible individuals instead of administrative fines on the company, and transfers to the US rely on the Swiss-US Data Privacy Framework instead of the EU-US one."
+  - question: "Can an EU company send personal data to an AI provider in Switzerland?"
+    answer: "Yes, from a transfer point of view. The European Commission recognises Switzerland as providing an adequate level of protection and confirmed this in its review of 15 January 2024. You still need a legal basis, a data processing agreement and the other GDPR duties, but no extra transfer mechanism such as Standard Contractual Clauses."
+  - question: "Does a Swiss company using AI have to follow the GDPR?"
+    answer: "It can. The GDPR applies to companies outside the EU when they offer goods or services to people in the EU or monitor their behaviour (Article 3(2) GDPR). Many Swiss companies therefore follow both the FADP and the GDPR."
+  - question: "How do I keep EU data in the EU in an AI pipeline?"
+    answer: "Keep every step that touches personal data in the EU: storage, embedding, the vector index, model inference, logs and backups. Check where each sub-processor runs, switch off model training on your inputs, and prefer providers that are EU legal entities so that no US parent can be compelled to hand over data."
 ---
 
 Every time a European company sends customer data, employee records, or proprietary documents to a US-hosted AI API, it creates a GDPR compliance risk. Most businesses know this intuitively but proceed anyway because the alternatives seemed immature or expensive. That calculation has changed. In 2026, sovereign AI deployment is not only viable. It is the smarter business decision.
@@ -63,6 +73,41 @@ If you use AI to process personal data, data subjects have the right to know. Yo
 ### Data Processing Agreements
 
 Any AI provider processing personal data on your behalf must sign a Data Processing Agreement (DPA) under Article 28. This DPA must specify the nature and purpose of processing, the types of data involved, the categories of data subjects, the provider's security measures, and sub-processor arrangements. Standard AI API terms of service rarely meet these requirements without negotiation.
+
+## How to Keep EU Data in the EU in an AI Pipeline
+
+"EU region" on one service is not enough. An AI pipeline has more steps than most teams expect, and personal data can leave the EU at any of them. Check each one:
+
+| Step | What to check |
+|---|---|
+| **Source data and storage** | Database, file storage and backups in an EU data center |
+| **Embedding** | The embedding model runs in the EU, not through a global API endpoint |
+| **Vector index** | The vector database is hosted in the EU, including replicas |
+| **Model inference** | The language model runs in the EU; "global" deployment types may route requests to other regions |
+| **Logs and monitoring** | Prompt logs, traces and error reports stay in the EU, or contain no personal data |
+| **Sub-processors** | Every sub-processor in the DPA, with its location and legal entity |
+| **Training** | Model training on your inputs is switched off in the contract, not only in a setting |
+
+The last row in every check is the legal entity. Data in a Frankfurt data center operated by a US company can still be subject to US access requests. If that risk matters for your data, use providers that are EU legal entities, or run the pipeline on your own servers. Our [enterprise RAG](/services/enterprise-rag/) setup is built this way: index, model and logs run where you decide.
+
+## Switzerland vs. EU: FADP and GDPR for AI Services
+
+Swiss companies, and EU companies with Swiss customers or providers, ask how the Swiss rules compare. Switzerland's revised Federal Act on Data Protection (FADP) has applied since 1 September 2023 ([Fedlex, SR 235.1](https://www.fedlex.admin.ch/eli/cc/2022/491/en)). The Swiss regulator, the FDPIC, states that the law is technology-neutral and applies directly to AI-supported processing ([FDPIC: AI and data protection](https://www.edoeb.admin.ch/en/ai-and-data-protection)).
+
+The two laws follow the same ideas. The differences that matter for an AI project:
+
+| Topic | EU (GDPR) | Switzerland (FADP) |
+|---|---|---|
+| **Data breach notification** | To the authority within 72 hours (Art. 33) | To the FDPIC "as soon as possible" if there is a high risk (Art. 24) |
+| **Sanctions** | Administrative fines on the company, up to €20 million or 4% of worldwide turnover (Art. 83) | Criminal fines of up to CHF 250,000 on the responsible individuals (Art. 60 to 63) |
+| **Impact assessment** | DPIA for likely high risk (Art. 35) | DPIA for likely high risk (Art. 22) |
+| **Automated decisions** | Right not to be subject to solely automated decisions with legal or similar effects (Art. 22) | Duty to inform about automated individual decisions and right to have them reviewed by a person (Art. 21) |
+| **Transfers to the US** | EU-US Data Privacy Framework for certified companies | Swiss-US Data Privacy Framework for certified companies, since 15 September 2024 ([FDPIC](https://www.edoeb.admin.ch/en/15082024-new-swiss-us-data-privacy-framework)) |
+| **Representative for foreign companies** | EU representative in some cases (Art. 27) | Swiss representative in some cases (Art. 14) |
+
+Data flows between the EU and Switzerland are the easy part. The European Commission recognises Switzerland as adequate and confirmed this in its review of 15 January 2024 ([European Commission](https://ec.europa.eu/commission/presscorner/detail/en/ip_24_161)). An EU company can use an AI provider in Switzerland without Standard Contractual Clauses, and Swiss data can flow to the EU.
+
+A Swiss company is not automatically outside the GDPR. If it offers services to people in the EU or monitors their behaviour, the GDPR applies as well (Art. 3(2) GDPR). In practice, a Swiss company with EU customers designs its AI setup for both laws, and the stricter rule of each pair decides.
 
 ## The Sovereign AI Alternative
 

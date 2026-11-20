@@ -67,6 +67,8 @@ const EN_TO_DE = {
   '/services/geo-optimization': '/de/dienstleistungen/geo-optimierung',
   '/services/llm-fine-tuning': '/de/dienstleistungen/llm-feinabstimmung',
   '/services/workflow-automation': '/de/dienstleistungen/workflow-automatisierung',
+  '/services/jira-confluence-ai': '/de/dienstleistungen/jira-confluence-ki',
+  '/partners': '/de/partner',
   '/resources': '/de/ressourcen',
   '/resources/blog': '/de/ressourcen/blog',
   '/resources/jira-copilot-check': '/de/ressourcen/jira-copilot-check',

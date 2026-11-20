@@ -1,7 +1,8 @@
 ---
-title: "BRAO-konforme KI für Kanzleien 2026"
-description: "Darf eine Kanzlei ChatGPT einsetzen? Was § 43a BRAO, § 203 StGB und der BRAK-Leitfaden konkret fordern, und welche KI-Architektur 2026 wirklich BRAO-konform ist."
+title: "BRAO-konforme KI und KI-Schnittstellen für Kanzleien 2026"
+description: "Darf eine Kanzlei ChatGPT oder eine KI-API nutzen? Was § 43a und § 43e BRAO, § 203 StGB und der BRAK-Leitfaden fordern, und welche KI-Architektur 2026 BRAO-konform ist."
 publishDate: 2026-04-15
+updatedDate: 2026-11-20
 author: "Ironum Team"
 legalDisclaimer: true
 category: "compliance"
@@ -45,6 +46,30 @@ Die BRAK hat am 8. Januar 2025 ihren "Leitfaden mit Hinweisen zum KI-Einsatz" (S
 - **KI-Verordnung (EU AI Act)** greift zusätzlich; die Kanzlei kann je nach Anwendungsfall Deployer im Sinne der Verordnung sein.
 
 Die Konsequenz ist pragmatisch, nicht ideologisch: Die BRAK verbietet KI nicht. Sie präzisiert, welche Setups mit dem Berufsrecht vereinbar sind und welche nicht. Und sie macht deutlich, dass die Voreinstellung "Prompt mit echten Mandatsdaten ins öffentliche ChatGPT" keine davon ist.
+
+## KI-Schnittstelle (API) in der Kanzlei: was § 43e BRAO verlangt
+
+Viele Kanzleien nutzen KI nicht über die Chat-Oberfläche, sondern über eine Schnittstelle: Die Kanzleisoftware, ein Dokumentenmanagement oder ein eigenes Tool schickt Texte per API an ein Sprachmodell. Berufsrechtlich ist der Anbieter dieser Schnittstelle ein Dienstleister. Für Dienstleister gilt § 43e BRAO ([gesetze-im-internet.de](https://www.gesetze-im-internet.de/brao/__43e.html)). Die Vorschrift erlaubt es, Dienstleistern Zugang zu geschützten Informationen zu geben, soweit das für die Leistung erforderlich ist, knüpft das aber an Bedingungen:
+
+- **Sorgfältige Auswahl (Abs. 2):** Der Anbieter muss sorgfältig ausgewählt werden. Fallen die vertraglichen Zusagen weg, ist die Zusammenarbeit unverzüglich zu beenden.
+- **Vertrag in Textform (Abs. 3):** Der Anbieter wird zur Verschwiegenheit verpflichtet und über die strafrechtlichen Folgen belehrt. Er darf nur so viel zur Kenntnis nehmen, wie die Leistung erfordert. Der Vertrag regelt, ob er weitere Personen (etwa Subunternehmer) einsetzen darf; wenn ja, muss er diese ebenfalls in Textform verpflichten.
+- **Leistung im Ausland (Abs. 4):** Läuft die Verarbeitung im Ausland, dürfen geschützte Informationen nur offenbart werden, wenn der Schutz dort mit dem im Inland vergleichbar ist, es sei denn, der Schutz der Geheimnisse erfordert das nicht.
+- **Leistung für ein einzelnes Mandat (Abs. 5):** Dient die Leistung unmittelbar einem einzelnen Mandat, braucht es die Einwilligung des Mandanten.
+- **Datenschutz bleibt unberührt (Abs. 8):** Der AVV nach Art. 28 DSGVO kommt zusätzlich hinzu, er ersetzt die Verpflichtung nach § 43e nicht.
+
+§ 203 Abs. 3 StGB passt dazu: Die Weitergabe an Personen, die an der beruflichen Tätigkeit mitwirken, ist erlaubt, soweit sie dafür erforderlich ist ([§ 203 StGB](https://www.gesetze-im-internet.de/stgb/__203.html)). Nach § 203 Abs. 4 StGB kann sich aber auch der Anwalt strafbar machen, wenn er nicht dafür gesorgt hat, dass der Dienstleister zur Geheimhaltung verpflichtet wurde.
+
+Für die Prüfung einer KI-Schnittstelle heißt das in der Praxis:
+
+| Frage an den Anbieter | Warum sie zählt |
+|---|---|
+| Unterschreibt der Anbieter eine Verschwiegenheitsverpflichtung nach § 43e BRAO in Textform? | Abs. 3 verlangt sie; ein AVV allein deckt sie nicht ab |
+| Wo wird das Modell betrieben, und wer ist die Muttergesellschaft? | Abs. 4 (Ausland) und die Frage, wer theoretisch Zugriff hätte |
+| Werden Prompts gespeichert, protokolliert oder zum Training genutzt? | Jede Speicherung erweitert den Kreis, der Kenntnis nehmen könnte |
+| Welche Subunternehmer sind beteiligt, und sind sie ebenfalls verpflichtet? | Abs. 3 Satz 2 Nr. 3 |
+| Lässt sich die Zusammenarbeit kurzfristig beenden und sind die Daten dann gelöscht? | Abs. 2: Beendigungspflicht |
+
+Am einfachsten wird die Prüfung, wenn das Modell gar nicht bei einem externen Anbieter läuft: Ein auf eigener oder europäischer Infrastruktur betriebenes Modell, angebunden über eine eigene [Chatbot- und KI-Schnittstelle](/de/dienstleistungen/chatbot-schnittstellen/), hat keinen Dritten, der Kenntnis nehmen könnte. Ob ein konkreter Vertrag den Anforderungen genügt, klären Sie mit Ihrer Kammer oder Ihren eigenen Beratern.
 
 ## Vier KI-Anwendungsfälle, die in der Kanzlei funktionieren
 
@@ -116,6 +141,9 @@ Bei der Standardkonfiguration mit echten Mandatsdaten als Prompt-Input rät die 
 
 **Ist Microsoft Copilot für Anwälte BRAO-konform?**
 Es kommt auf die Variante an. Microsoft 365 Copilot in einer europäisch betriebenen Enterprise-Konfiguration mit EU Data Boundary und vertraglichen Zusagen zur Datennichtverwendung kann in Grenzen genutzt werden. Die Prüfung muss aber konkret erfolgen, inklusive CLOUD-Act-Exposition, Protokollierungsverhalten und Auftragsverarbeitung nach Art. 28 DSGVO. Für hochsensible Mandate (Strafverteidigung, Schiedsverfahren, M&A-Due-Diligence) bleibt on-premise oder privates EU-Hosting der belastbarere Weg.
+
+**Ist eine KI-Schnittstelle (API) BRAO-konform?**
+Das hängt vom Anbieter und vom Vertrag ab, nicht von der Technik. Der Anbieter einer KI-API ist Dienstleister im Sinne von § 43e BRAO. Er muss sorgfältig ausgewählt und in Textform zur Verschwiegenheit verpflichtet werden; bei Verarbeitung im Ausland muss der Schutz mit dem im Inland vergleichbar sein. Ein selbst betriebenes Modell auf eigener oder europäischer Infrastruktur vermeidet diese Fragen weitgehend, weil kein Dritter Zugriff hat. Die Einordnung im Einzelfall klären Sie mit Ihrer Kammer oder Ihren eigenen Beratern.
 
 **Brauche ich eine Datenschutz-Folgenabschätzung nach Art. 35 DSGVO?**
 Wenn die Kanzlei KI systematisch und umfangreich in der Mandatsarbeit einsetzt und dabei besondere Kategorien personenbezogener Daten oder Daten in sensiblen Lebenssituationen verarbeitet, ist die DSFA regelmäßig erforderlich. Im Zweifel: ja, und ordentlich dokumentiert.

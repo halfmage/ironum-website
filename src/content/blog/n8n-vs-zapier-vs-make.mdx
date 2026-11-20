@@ -1,14 +1,35 @@
 ---
-title: "n8n vs. Zapier vs. Make: Why Open-Source Automation Wins for European Companies"
-description: "A comparison of workflow automation platforms for European businesses. Why n8n's open-source approach gives you data sovereignty, GDPR compliance, and zero vendor lock-in."
+title: "n8n vs. Zapier vs. Make: Which Fits GDPR Best?"
+description: "Is n8n more GDPR-compliant than Zapier? Where each platform processes your data, what a transfer to the US means for your workflows, plus features, pricing and self-hosting."
 publishDate: 2026-02-22
+updatedDate: 2026-11-20
 author: "Ironum Team"
 category: "implementation"
-tags: ["n8n", "workflow automation", "Zapier", "Make", "open-source"]
+tags: ["n8n", "workflow automation", "Zapier", "Make", "open-source", "GDPR"]
 draft: false
+faq:
+  - question: "Is n8n more GDPR-compliant than Zapier?"
+    answer: "No tool is GDPR-compliant on its own: compliance depends on how you use it. But self-hosted n8n makes compliance much easier. When n8n runs on your own server in the EU, workflow data, credentials and execution logs never leave your infrastructure, so there is no transfer to a third country to assess. Zapier processes data in the United States, so workflows with personal data need the EU-US Data Privacy Framework or another transfer mechanism, a data processing agreement and a documented risk assessment."
+  - question: "Can I use Zapier under GDPR?"
+    answer: "Yes, if you set it up properly. Zapier is certified under the EU-US Data Privacy Framework, which currently allows transfers to certified US companies. You still need a data processing agreement, a record of which personal data your Zaps process, and a decision on whether the remaining risk is acceptable for that data. For sensitive or confidential data, many European companies choose a self-hosted tool instead."
+  - question: "Is Make GDPR-compliant?"
+    answer: "Make is a European company and offers EU data residency, which makes it easier to use under GDPR than a US-hosted service. Its cloud runs on AWS, so check the sub-processors in Make's data processing agreement. Self-hosting is limited compared to n8n."
 ---
 
 Workflow automation is no longer optional for competitive European businesses. The question is not whether to automate, but which platform to use. For European companies that care about data sovereignty, GDPR compliance, and avoiding vendor lock-in, the answer increasingly points to n8n, and the reasons go beyond ideology.
+
+## Short Answer: Is n8n More GDPR-Compliant Than Zapier?
+
+No tool is GDPR-compliant by itself. What matters is where your workflow data is processed and who can access it. On that question the three platforms differ clearly:
+
+| | Zapier | Make | n8n (self-hosted) |
+|---|---|---|---|
+| **Where data is processed** | United States | EU data residency available | Your own server, for example in Germany |
+| **Transfer outside the EU** | Yes: relies on the EU-US Data Privacy Framework | Depends on region and sub-processors | No, if your server is in the EU |
+| **Who can access workflow data** | Zapier and its sub-processors | Make and its sub-processors (AWS) | Only you, or the provider you choose for hosting |
+| **Effort to use with personal data** | DPA, transfer assessment, accepted residual risk | DPA, check of sub-processors | Your own security and operations |
+
+So for workflows that process personal data, self-hosted n8n is the easiest of the three to run under GDPR, because no data leaves infrastructure you control. Zapier can be used lawfully too, but every workflow with personal data needs a transfer mechanism and a documented decision about the remaining risk. The details are below. For the legal background, see our [GDPR-compliant AI guide](/resources/blog/gdpr-compliant-ai-guide/).
 
 ## The Three Contenders
 
